@@ -5,7 +5,6 @@ modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Al
 modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
 
 transformation ScaleUp(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
-
 property scaleUpThreshold : Real;
 property scaleUpStepSize : String;
 property maxRate : String;
@@ -15,7 +14,6 @@ main() {
 	
 	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
 		with log ("No Measurements found!");
-			
 	assert fatal(pcmAllocation.rootObjects()[Allocation]->size() > 0)
 		with log ("Allocation Model is empty!");
 			
@@ -70,4 +68,3 @@ helper scaleUpProcessingResourcesRecursively(resourceContainer : ResourceContain
 		scaleUpProcessingResourcesRecursively(nestedResourceContainer);
 	};		
 }
-
