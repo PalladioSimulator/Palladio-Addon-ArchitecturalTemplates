@@ -249,8 +249,12 @@
     </completion>
   </ATs>
   <ATs id="_La-CYCcsEeawm7le7c2SFg" entityName="Caching Assembly Context">
-    <roles id="_abrPMCcxEeawm7le7c2SFg" entityName="Cached Assembly Context System"/>
-    <roles id="_PzxOoCcsEeawm7le7c2SFg" entityName="Cached Assembly Context"/>
+    <roles id="_abrPMCcxEeawm7le7c2SFg" entityName="Cached Assembly Context System">
+      <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_xp4JQCczEeaH1oGf1lJdJA"/>
+    </roles>
+    <roles id="_PzxOoCcsEeawm7le7c2SFg" entityName="Cached Assembly Context">
+      <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_1ipxoCczEeaH1oGf1lJdJA"/>
+    </roles>
     <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="CachingAssemblyContext.qvto">
       <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
     </completion>
