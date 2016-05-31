@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.scaledl.architecturaltemplates:Repository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.scaledl.architecturaltemplates="http://scaledl.org/ArchitecturalTemplates/Type/1.0" id="_2eRmoCOzEeSLXszsY50NUA" entityName="CloudScaleATRepository">
+<org.scaledl.architecturaltemplates:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.scaledl.architecturaltemplates="http://scaledl.org/ArchitecturalTemplates/Type/1.0" id="_2eRmoCOzEeSLXszsY50NUA" entityName="CloudScaleATRepository">
   <ATs id="_64sjgCOzEeSLXszsY50NUA" entityName="Dynamic Three Layer Three Tier">
     <roles id="_BIH6MCO0EeSLXszsY50NUA" entityName="Dynamic Three Layer Three Tier Presentation Layer Assembly" constraints="_UCl3wY0WEeWSbrz1kUpHng _V0_hcbLREeWONf-2GJUY0g">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_ud6-gCOrEeSubfGVEKswQQ"/>
@@ -11,6 +11,9 @@
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_08e9YCOrEeSubfGVEKswQQ"/>
     </roles>
     <roles id="_RtHOICPCEeSVlNuoLyDfdw" entityName="Dynamic Three Layer Three Tier System" constraints="_xb4dgoyIEeWv5ML7_MHy8g _8dyrwYyIEeWv5ML7_MHy8g _E9ElMYyJEeWv5ML7_MHy8g _NtpC8YyJEeWv5ML7_MHy8g _VfIpUYyJEeWv5ML7_MHy8g _asp3EYyJEeWv5ML7_MHy8g _lA0OgYyJEeWv5ML7_MHy8g _rKsW0YyJEeWv5ML7_MHy8g _wqK3QYyJEeWv5ML7_MHy8g _2RFccYyJEeWv5ML7_MHy8g _O5tWwY00EeW4hJjCt86aZQ _TBmesbLPEeWONf-2GJUY0g _uPlLkbLSEeWONf-2GJUY0g _hdKrUc6lEeWtjIp7SFTxwg _yPsX4c6mEeWtjIp7SFTxwg _hdX_Uc6oEeWtjIp7SFTxwg _uo924c6oEeWtjIp7SFTxwg">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicThreeLayerThreeTier.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
     </roles>
     <roles id="_oPOLUY0lEeW7y4sG0jClug" entityName="Dynamic Three Layer Three Tier Presentation Tier" constraints="_GBsn0bLREeWONf-2GJUY0g">
@@ -51,13 +54,13 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_3li1YbLSEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_o9jQ8Y0lEeW7y4sG0jClug" constraint="self.numberOfReplicas>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_9rancbLSEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" roles="_o9jQ8Y0lEeW7y4sG0jClug" constraint="self.scaleInThreshold>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_Byo7gbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" roles="_o9jQ8Y0lEeW7y4sG0jClug" constraint="self.scaleOutThreshold>0"/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicThreeLayerThreeTier.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
   <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context">
     <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context" constraints="_2e4YAkTkEeWX9I6sz1f4mQ _t4FXoZSAEeW2itUQpRx7kw _VgEIYbLTEeWONf-2GJUY0g _Z6-NcbLTEeWONf-2GJUY0g _d8jzkbLTEeWONf-2GJUY0g">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
     </roles>
     <roles id="_tly_sJQlEeSq-7Z_6FnzsQ" entityName="Dynamic Horizontal Scaling Assembly Context System" constraints="_2CfB0ETiEeWX9I6sz1f4mQ _VXHSoUT0EeWX9I6sz1f4mQ">
@@ -70,13 +73,13 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_VgEIYbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_-yzLIH4UEeS81uv5CnTOEw" constraint="self.numberOfReplicas>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_Z6-NcbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" roles="_-yzLIH4UEeS81uv5CnTOEw" constraint="self.scaleInThreshold>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_d8jzkbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" roles="_-yzLIH4UEeS81uv5CnTOEw" constraint="self.scaleOutThreshold>0"/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
   </ATs>
   <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System" constraints="_OU5_sUTqEeWX9I6sz1f4mQ _hdsNcUT1EeWX9I6sz1f4mQ _PJrEgUTqEeWX9I6sz1f4mQ _SeR4cZSBEeW2itUQpRx7kw">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingResourceContainer.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
     </roles>
     <roles id="_TuvAQH4aEeS81uv5CnTOEw" entityName="Replicable Resource Container" constraints="_pQbUgbLTEeWONf-2GJUY0g _tbowsbLTEeWONf-2GJUY0g _w8tqwbLTEeWONf-2GJUY0g">
@@ -89,13 +92,13 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_pQbUgbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_TuvAQH4aEeS81uv5CnTOEw" constraint="self.numberOfReplicas>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_tbowsbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" roles="_TuvAQH4aEeS81uv5CnTOEw" constraint="self.scaleInThreshold>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_w8tqwbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" roles="_TuvAQH4aEeS81uv5CnTOEw" constraint="self.scaleOutThreshold>0"/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingResourceContainer.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
   <ATs id="_nt1zAH4aEeS81uv5CnTOEw" entityName="Dynamic Vertical Scaling Resource Container">
     <roles id="_fhIWgH-qEeSOTOomnDiZOg" entityName="Dynamic Vertical Scaling Resource Container System" constraints="_lWA9IUTlEeWX9I6sz1f4mQ _39q0wUTlEeWX9I6sz1f4mQ _MzPVcUTmEeWX9I6sz1f4mQ _FU2A8ZA3EeWkWqBg_zv9nA _UYYRkZA3EeWkWqBg_zv9nA">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicVerticalScalingResourceContainer.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
     </roles>
     <roles id="_v2XZUH4aEeS81uv5CnTOEw" entityName="Virtualized Resource Container" constraints="__VB0IbLTEeWONf-2GJUY0g _C5wfIbLUEeWONf-2GJUY0g _GXCeUbLUEeWONf-2GJUY0g _JVfzgbLUEeWONf-2GJUY0g _NGeKwbLUEeWONf-2GJUY0g">
@@ -111,13 +114,13 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_GXCeUbLUEeWONf-2GJUY0g" entityName="Virtualized Resource Container Min Rate greater 0" roles="_v2XZUH4aEeS81uv5CnTOEw" constraint="self.minRate>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_JVfzgbLUEeWONf-2GJUY0g" entityName="Virtualized Resource Container Max Rate greater 0" roles="_v2XZUH4aEeS81uv5CnTOEw" constraint="self.maxRate>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_NGeKwbLUEeWONf-2GJUY0g" entityName="Virtualized Resource Container Step Size greater 0" roles="_v2XZUH4aEeS81uv5CnTOEw" constraint="self.stepSize>0"/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicVerticalScalingResourceContainer.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicVerticalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
   <ATs id="_i-ghUIHkEeSeK9JYh8VNzw" entityName="Static Assembly Context Loadbalancing">
     <roles id="_rotRUYHkEeSeK9JYh8VNzw" entityName="StaticAssemblyContextLoadbalancingSystem" constraints="_sctZYUTtEeWX9I6sz1f4mQ _2d000UT0EeWX9I6sz1f4mQ">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="Loadbalancing.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_dgxFkL2VEeS8D6gGtq5evQ"/>
     </roles>
     <roles id="_kk1l8IHkEeSeK9JYh8VNzw" entityName="StaticLoadbalancedAssemblyContext" constraints="_tHI2cUTtEeWX9I6sz1f4mQ _U6dEcbLUEeWONf-2GJUY0g">
@@ -127,12 +130,12 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_tHI2cUTtEeWX9I6sz1f4mQ" entityName="Assembly Context is Static Loadbalanced Assembly Context" roles="_kk1l8IHkEeSeK9JYh8VNzw" constraint="self.oclIsTypeOf(StaticLoadbalancedAssemblyContext)"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_2d000UT0EeWX9I6sz1f4mQ" entityName="System has exactly one Static Loadbalanced Assembly Context" roles="_rotRUYHkEeSeK9JYh8VNzw" constraint="self.appliedTo.oclAsType(pcm::system::System).assemblyContexts__ComposedStructure->select(a|a.hasAppliedStereotype('StaticLoadbalancedAssemblyContext'))->size()=1&#xD;&#xA;"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_U6dEcbLUEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_kk1l8IHkEeSeK9JYh8VNzw" constraint="self.numberOfReplicas>0"/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="Loadbalancing.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
   </ATs>
   <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing">
     <roles id="_OVB8wLuIEeS4YqzUTAgFdA" entityName="StaticResourceContainerLoadbalancingSystem" constraints="_iRkeQUTxEeWX9I6sz1f4mQ _LghLgUT1EeWX9I6sz1f4mQ _CYHzEUyJEeWru9L6DwDf4w">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="StaticResourceContainerLoadbalancing.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_rXqFsL0NEeSXc41T9TupKQ"/>
     </roles>
     <roles id="_QxvPwLuIEeS4YqzUTAgFdA" entityName="StaticLoadbalancedResourceContainer" constraints="_YhgqsbLUEeWONf-2GJUY0g">
@@ -142,12 +145,16 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_LghLgUT1EeWX9I6sz1f4mQ" entityName="Resource Environment has exactly one Static Loadbalanced Resource Container" roles="_OVB8wLuIEeS4YqzUTAgFdA" constraint="self.appliedTo.oclAsType(pcm::system::System).getResourceEnvironment().resourceContainer_ResourceEnvironment->select(r|r.hasAppliedStereotype('StaticLoadbalancedResourceContainer'))->size()=1"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_CYHzEUyJEeWru9L6DwDf4w" entityName="Static Loadbalanced Resource Container has Assembly Contexts" roles="_OVB8wLuIEeS4YqzUTAgFdA" constraint="self.appliedTo.oclAsType(pcm::system::System).getAllocation().allocationContexts_Allocation->select(ac|ac.resourceContainer_AllocationContext.hasAppliedStereotype('StaticLoadbalancedResourceContainer'))->collect(ac|ac.assemblyContext_AllocationContext)->size()>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_YhgqsbLUEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_QxvPwLuIEeS4YqzUTAgFdA" constraint="self.numberOfReplicas>0"/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="StaticResourceContainerLoadbalancing.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
   </ATs>
   <ATs id="_pvPiUPpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce">
     <roles id="_07Qu0PpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce System">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="HadoopMapReduce.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMTemplateCompletionParameter" fileExtension="repository" templateFileURI="HadoopMapReduce/HadoopMapReduce.repository"/>
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMTemplateCompletionParameter" fileExtension="resourceenvironment" templateFileURI="HadoopMapReduce/HadoopMapReduce.resourceenvironment"/>
+        <parameters xsi:type="org.scaledl.architecturaltemplates:IsolatedPCMTemplateCompletionParameter" fileExtension="allocation" templateFileURI="HadoopMapReduce/HadoopMapReduce.allocation"/>
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMOutputCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_cPD50PphEeSRjMxcTrWsAA"/>
     </roles>
     <roles id="_tZxTUPpWEeSRjMxcTrWsAA" entityName="Map Assembly Context">
@@ -156,13 +163,6 @@
     <roles id="_y6cGkPpWEeSRjMxcTrWsAA" entityName="Reduce Assembly Context">
       <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_g4wBwPphEeSRjMxcTrWsAA"/>
     </roles>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="HadoopMapReduce.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMTemplateCompletionParameter" fileExtension="repository" templateFileURI="HadoopMapReduce/HadoopMapReduce.repository"/>
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMTemplateCompletionParameter" fileExtension="resourceenvironment" templateFileURI="HadoopMapReduce/HadoopMapReduce.resourceenvironment"/>
-      <parameters xsi:type="org.scaledl.architecturaltemplates:IsolatedPCMTemplateCompletionParameter" fileExtension="allocation" templateFileURI="HadoopMapReduce/HadoopMapReduce.allocation"/>
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMOutputCompletionParameter" fileExtension="allocation"/>
-    </completion>
   </ATs>
   <ATs id="_cyFAcIuiEeWE_r1tdbkyww" entityName="Three Layer">
     <roles id="_slWr8IuiEeWE_r1tdbkyww" entityName="Three Layer System" constraints="_bIwAcYvJEeWmNoUKhpCz-A _olG34YvJEeWmNoUKhpCz-A _6T84MYvJEeWmNoUKhpCz-A _6oxmwYvLEeWmNoUKhpCz-A _Wh8MYYvUEeWmNoUKhpCz-A _rfchEYvUEeWmNoUKhpCz-A _2V8JgYvUEeWmNoUKhpCz-A _IZaRYYxWEeWRcb--g_aTcA _eDHkwYxWEeWRcb--g_aTcA _UVUX0YxYEeWRcb--g_aTcA _l7uN0YxYEeWRcb--g_aTcA _rCghcYxYEeWRcb--g_aTcA _UC9MIc6pEeWtjIp7SFTxwg _Tsmhoc6pEeWtjIp7SFTxwg">
@@ -194,12 +194,14 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_tegCAbLUEeWONf-2GJUY0g" entityName="Presentation Layer Assembly is not another Layer Assembly" roles="_wvU8kIujEeWE_r1tdbkyww" constraint="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_yNjLEbLUEeWONf-2GJUY0g" entityName="Middle Layer Assembly is not another Layer Assembly" roles="_ySAQQIujEeWE_r1tdbkyww" constraint="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_zwVMcbLUEeWONf-2GJUY0g" entityName="Data Layer Assembly is not another Layer Assembly" roles="_zhHuwIujEeWE_r1tdbkyww" constraint="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') "/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="ThreeLayer.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
-    </completion>
   </ATs>
   <ATs id="_kWS4cIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier">
     <roles id="_mrLsMIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier System" constraints="_iM6UkYxqEeWR64PY5KUWug _7Tq9oYxqEeWR64PY5KUWug _ChfPMYxrEeWR64PY5KUWug _Hw56YYxrEeWR64PY5KUWug _OxK4IYxrEeWR64PY5KUWug _UuhAUYxrEeWR64PY5KUWug _ZKQL0YxrEeWR64PY5KUWug _f_flUYxrEeWR64PY5KUWug _pUzH0YxrEeWR64PY5KUWug _v8NgsYxrEeWR64PY5KUWug _2MJ0wYxrEeWR64PY5KUWug _81ECcYxrEeWR64PY5KUWug _FwZwUYxtEeWR64PY5KUWug _Y_6SIYxtEeWR64PY5KUWug _wlWSYYxtEeWR64PY5KUWug _2NAecYxtEeWR64PY5KUWug _TkI8UbLVEeWONf-2GJUY0g _I8FI4c6qEeWtjIp7SFTxwg _g2esgc6qEeWtjIp7SFTxwg">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="ThreeLayerThreeTier.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMOutputCompletionParameter" fileExtension="allocation"/>
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="resourceenvironment"/>
+      </completion>
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
     </roles>
     <roles id="_r-QIUIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier Presentation Layer Assembly" constraints="_ddPvcbLVEeWONf-2GJUY0g">
@@ -242,21 +244,16 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_Y_6SIYxtEeWR64PY5KUWug" entityName="Three Layer Three Tier Sysem has exactly one Presentation Tier" roles="_mrLsMIulEeWE_r1tdbkyww" constraint="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_wlWSYYxtEeWR64PY5KUWug" entityName="Three Layer Three Tier System has exactly one Middle Tier" roles="_mrLsMIulEeWE_r1tdbkyww" constraint="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_2NAecYxtEeWR64PY5KUWug" entityName="Three Layer Three Tier System has exactly one Data Tier" roles="_mrLsMIulEeWE_r1tdbkyww" constraint="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') "/>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="ThreeLayerThreeTier.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMOutputCompletionParameter" fileExtension="allocation"/>
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="resourceenvironment"/>
-    </completion>
   </ATs>
   <ATs id="_La-CYCcsEeawm7le7c2SFg" entityName="Caching Assembly Context">
     <roles id="_abrPMCcxEeawm7le7c2SFg" entityName="Cached Assembly Context System">
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="CachingAssemblyContext.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
       <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_xp4JQCczEeaH1oGf1lJdJA"/>
     </roles>
     <roles id="_PzxOoCcsEeawm7le7c2SFg" entityName="Cached Assembly Context">
       <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_1ipxoCczEeaH1oGf1lJdJA"/>
     </roles>
-    <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="CachingAssemblyContext.qvto">
-      <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-    </completion>
   </ATs>
 </org.scaledl.architecturaltemplates:Repository>
