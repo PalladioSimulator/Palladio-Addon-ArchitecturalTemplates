@@ -5,9 +5,9 @@ modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Al
 modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
 
 transformation ScaleDown(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
-property scaleDownStepSize : Real;
+property scaleDownStepSize : String;
 property scaleDownThreshold : Real;
-property minRate : Real;
+property minRate : String;
 
 main() {
 log ('AT Completion "ScaleDown" started');	
@@ -26,9 +26,9 @@ log ('AT Completion "ScaleDown" started');
 		
 	resourceContainers -> forEach(resourceContainer){
 		if(hasAppliedStereotype(resourceContainer,"VirtualizedResourceContainer")){
-			scaleDownThreshold := getDoubleTaggedValue(resourceContainer,"scaleDownThreshold","VirtualizedResourceContainer");
-			scaleDownStepSize := getDoubleTaggedValue(resourceContainer,"stepSize","VirtualizedResourceContainer");
-			minRate := getDoubleTaggedValue(resourceContainer,"minRate","VirtualizedResourceContainer");
+			scaleDownThreshold := getDoubleTaggedValue(resourceContainer, "scaleDownThreshold", "VirtualizedResourceContainer");
+			scaleDownStepSize := getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer");
+			minRate := getStringTaggedValue(resourceContainer, "minRate", "VirtualizedResourceContainer");
 			resourceContainer. map scaleDownVirtualizedContainer();
 		};
 	};
@@ -55,11 +55,11 @@ helper scaleDownProcessingResourcesRecursively(resourceContainer : ResourceConta
 	// decrease processing rate by scaleDown
 	resourceContainer.activeResourceSpecifications_ResourceContainer->forEach(processingResourceSpecification){
 		var currentProcessingRate : String := processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification;
-    	var newProcessingRate : Real := currentProcessingRate.toReal() - scaleDownStepSize;
+    	var newProcessingRate : String := "("+currentProcessingRate + ")+" + scaleDownStepSize;
     	if(newProcessingRate >= minRate){
-    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate.toString();
+    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
     	}else{
-    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := minRate.toString();
+    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
     	};
     };
     

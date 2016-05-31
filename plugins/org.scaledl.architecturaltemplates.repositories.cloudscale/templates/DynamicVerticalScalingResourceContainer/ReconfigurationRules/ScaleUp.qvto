@@ -7,8 +7,8 @@ modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/
 transformation ScaleUp(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
 
 property scaleUpThreshold : Real;
-property scaleUpStepSize : Real;
-property maxRate : Real;
+property scaleUpStepSize : String;
+property maxRate : String;
 
 main() {
 	log ('AT Completion "ScaleUp" started');	
@@ -27,9 +27,9 @@ main() {
 	
 	resourceContainers -> forEach(resourceContainer){
 		if(hasAppliedStereotype(resourceContainer,"VirtualizedResourceContainer")){
-			scaleUpThreshold := getDoubleTaggedValue(resourceContainer,"scaleUpThreshold","VirtualizedResourceContainer");
-			scaleUpStepSize := getDoubleTaggedValue(resourceContainer,"stepSize","VirtualizedResourceContainer");
-			maxRate := getDoubleTaggedValue(resourceContainer,"maxRate","VirtualizedResourceContainer");
+			scaleUpThreshold := getDoubleTaggedValue(resourceContainer, "scaleUpThreshold", "VirtualizedResourceContainer");
+			scaleUpStepSize := getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer");
+			maxRate := getStringTaggedValue(resourceContainer, "maxRate", "VirtualizedResourceContainer");
 			resourceContainer. map scaleUpVirtualizedContainer();
 		};
 	};
@@ -57,11 +57,11 @@ helper scaleUpProcessingResourcesRecursively(resourceContainer : ResourceContain
 	// increase processing rate by scaleUp
 	resourceContainer.activeResourceSpecifications_ResourceContainer->forEach(processingResourceSpecification){
 		var currentProcessingRate : String := processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification;
-    	var newProcessingRate : Real := currentProcessingRate.toReal() + scaleUpStepSize;
+    	var newProcessingRate : String := "("+currentProcessingRate + ")+" + scaleUpStepSize;
     	if(newProcessingRate<=maxRate){
-    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate.toString();
+    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
     	}else{
-    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := maxRate.toString();
+    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
     	}
     };
     

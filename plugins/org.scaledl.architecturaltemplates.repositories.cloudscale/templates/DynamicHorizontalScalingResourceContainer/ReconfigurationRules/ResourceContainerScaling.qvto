@@ -13,6 +13,7 @@ access transformation ResourceContainerLoadbalancing, ResourceContainerReverseLo
 property numberOfReplicas : Integer;
 property scaleInThreshold : Real;
 property scaleOutThreshold : Real;
+property measurementSpecificationID : String;
 
 main() {
 	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
@@ -35,12 +36,18 @@ main() {
 
 	numberOfReplicas := getIntTaggedValue(loadBalancedResourceContainer,"numberOfReplicas","ReplicableResourceContainer");
 	scaleInThreshold := getDoubleTaggedValue(loadBalancedResourceContainer,"scaleInThreshold","ReplicableResourceContainer");
-	scaleOutThreshold := getDoubleTaggedValue(loadBalancedResourceContainer,"scaleOutThreshold","ReplicableResourceContainer");	
+	scaleOutThreshold := getDoubleTaggedValue(loadBalancedResourceContainer,"scaleOutThreshold","ReplicableResourceContainer");
+	measurementSpecificationID := getStringTaggedValue(loadBalancedResourceContainer,"measurementSpecificationID","ReplicableResourceContainer");
 	
 	var reverseLoadbalancingTransformation : ResourceContainerReverseLoadbalancing := new ResourceContainerReverseLoadbalancing(prm,pcmAllocation);
 	var loadbalancingTransformation : ResourceContainerLoadbalancing:= new ResourceContainerLoadbalancing(prm,pcmAllocation);
 	//The setting of the configuration properties to false could be unnecessary
-	if(prm.rootObjects()[RuntimeMeasurement]->checkScaleInCondition() and numberOfReplicas > 1){
+	
+	var runtimeMeasurement := prm.rootObjects()[RuntimeMeasurement];
+	assert fatal(runtimeMeasurement->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+		with log ("measurementSpecificationID not found in runtime measurements!");
+	
+	if(runtimeMeasurement->checkScaleInCondition() and numberOfReplicas > 1){
 		reverseLoadbalancingTransformation.loadbalanced := true;
 		reverseLoadbalancingTransformation->transform();
 		reverseLoadbalancingTransformation.loadbalanced := false;
@@ -50,7 +57,7 @@ main() {
 		loadbalancingTransformation->transform();
 		loadbalancingTransformation.reverseLoadbalanced := false;
 	}
-	else if(prm.rootObjects()[RuntimeMeasurement]->checkScaleOutCondition()){
+	else if(runtimeMeasurement->checkScaleOutCondition()){
 		reverseLoadbalancingTransformation.loadbalanced := true;
 		reverseLoadbalancingTransformation->transform();
 		reverseLoadbalancingTransformation.loadbalanced := false;
@@ -63,9 +70,9 @@ main() {
 }
 
 query Set(RuntimeMeasurement) :: checkScaleOutCondition() : Boolean {
-	return self->exists(measurement | measurement.measuringValue > scaleOutThreshold)
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue > scaleOutThreshold)
 }
 	
 query Set(RuntimeMeasurement) :: checkScaleInCondition() : Boolean {
-	return self->exists(measurement | measurement.measuringValue < scaleInThreshold)
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue < scaleInThreshold)
 }
