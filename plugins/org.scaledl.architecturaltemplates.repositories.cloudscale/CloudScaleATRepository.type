@@ -256,4 +256,4 @@
       <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_1ipxoCczEeaH1oGf1lJdJA"/>
     </roles>
   </ATs>
-</org.scaledl.architecturaltemplates:Repository>
+</org.scaledl.architecturaltemplates:Catalog>
