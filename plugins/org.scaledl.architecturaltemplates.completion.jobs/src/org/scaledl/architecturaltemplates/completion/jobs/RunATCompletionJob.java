@@ -2,7 +2,9 @@ package org.scaledl.architecturaltemplates.completion.jobs;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.Level;
@@ -39,6 +41,7 @@ import org.scaledl.architecturaltemplates.type.CompletionParameter;
 import org.scaledl.architecturaltemplates.type.PCMBlackboardCompletionParameter;
 import org.scaledl.architecturaltemplates.type.PCMOutputCompletionParameter;
 import org.scaledl.architecturaltemplates.type.QVTOCompletion;
+import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.util.TypeSwitch;
 
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
@@ -59,7 +62,16 @@ import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJobConfiguration;
  */
 public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> {
 
-    /** Folder with traces as created by the QVT-O engine */
+    /** An AT catalog stores templates in this folder. */
+    private static final String TEMPLATES_FOLDER = "templates";
+
+    /** An AT catalog stores completions in this folder. */
+    private static final String COMPLETIONS_FOLDER = "completions";
+
+    /** Options for QVT-O job. */
+    private static final HashMap<String, Object> QVTO_OPTIONS = new HashMap<String, Object>();
+
+    /** Folder with traces as created by the QVT-O engine. */
     private static final String TRACESFOLDER = "traces";
 
     public RunATCompletionJob(final ATExtensionJobConfiguration configuration) {
@@ -70,31 +82,46 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         super.execute(monitor);
 
         for (final AT architecturalTemplate : this.getATsFromSystem()) {
-            // configure the QVTO Job
-            final QVTOTransformationJobConfiguration qvtoConfig = new QVTOTransformationJobConfiguration();
-            qvtoConfig.setInoutModels(getModelLocations(architecturalTemplate));
-            qvtoConfig.setTraceFileURI(URI.createURI(TRACESFOLDER));
-            qvtoConfig.setScriptFileURI(getRootURI(architecturalTemplate).appendSegment("completions")
-                    .appendSegment(getCompletion(architecturalTemplate).getQvtoFileURI()));
-            qvtoConfig.setOptions(new HashMap<String, Object>());
-
-            // create and add the qvto job
-            final QVTOTransformationJob job = new QVTOTransformationJob(qvtoConfig);
-            job.setBlackboard(this.getBlackboard());
-
-            // execute transformation job
-            try {
-                job.execute(new NullProgressMonitor());
-            } catch (final JobFailedException e) {
-                if (this.logger.isEnabledFor(Level.ERROR)) {
-                    this.logger.error("Failed to perform Architectural Template completion: " + e.getMessage());
-                }
-                if (this.logger.isEnabledFor(Level.INFO)) {
-                    this.logger.info(
-                            "Trying to continue Architectural Template completion even though an internal failure occured");
-                }
+            for (final QVTOCompletion completion : getCompletions(architecturalTemplate)) {
+                executeCompletion(architecturalTemplate, completion);
             }
         }
+    }
+
+    private void executeCompletion(final AT architecturalTemplate, final QVTOCompletion completion)
+            throws UserCanceledException {
+        final QVTOTransformationJob job = createQvtoTransformationJob(architecturalTemplate, completion);
+
+        try {
+            job.execute(new NullProgressMonitor());
+        } catch (final JobFailedException e) {
+            if (this.logger.isEnabledFor(Level.ERROR)) {
+                this.logger.error("Failed to perform Architectural Template completion: " + e.getMessage());
+            }
+            if (this.logger.isEnabledFor(Level.INFO)) {
+                this.logger.info(
+                        "Trying to continue Architectural Template completion even though an internal failure occured");
+            }
+        }
+    }
+
+    private QVTOTransformationJob createQvtoTransformationJob(final AT architecturalTemplate,
+            final QVTOCompletion completion) {
+        final QVTOTransformationJob job = new QVTOTransformationJob(
+                createQvtoConfiguration(architecturalTemplate, completion));
+        job.setBlackboard(this.getBlackboard());
+        return job;
+    }
+
+    private QVTOTransformationJobConfiguration createQvtoConfiguration(final AT architecturalTemplate,
+            final QVTOCompletion completion) {
+        final QVTOTransformationJobConfiguration qvtoConfig = new QVTOTransformationJobConfiguration();
+        qvtoConfig.setInoutModels(getModelLocations(architecturalTemplate, completion));
+        qvtoConfig.setTraceFileURI(URI.createURI(TRACESFOLDER));
+        qvtoConfig.setScriptFileURI(getRootURI(architecturalTemplate).appendSegment(COMPLETIONS_FOLDER)
+                .appendSegment(completion.getQvtoFileURI()));
+        qvtoConfig.setOptions(QVTO_OPTIONS);
+        return qvtoConfig;
     }
 
     /**
@@ -103,8 +130,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
      * @param architecturalTemplate
      * @return
      */
-    private ModelLocation[] getModelLocations(final AT architecturalTemplate) {
-        final QVTOCompletion completion = getCompletion(architecturalTemplate);
+    private ModelLocation[] getModelLocations(final AT architecturalTemplate, final QVTOCompletion completion) {
         final List<ModelLocation> modelLocations = new ArrayList<ModelLocation>(completion.getParameters().size());
         for (final CompletionParameter parameter : completion.getParameters()) {
             modelLocations.add(getModelLocation(architecturalTemplate, parameter));
@@ -123,19 +149,26 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         return architecturalTemplate.eResource().getURI().trimFragment().trimSegments(1);
     }
 
-    private QVTOCompletion getCompletion(final AT architecturalTemplate) {
-        if (!(architecturalTemplate.getCompletion() instanceof QVTOCompletion)) {
-            throw new RuntimeException("This jobs assumes a QVTOCompletion");
+    private List<QVTOCompletion> getCompletions(final AT architecturalTemplate) {
+        final List<QVTOCompletion> completions = new LinkedList<QVTOCompletion>();
+
+        for (final Role role : architecturalTemplate.getRoles()) {
+
+            if (!(role.getCompletion() instanceof QVTOCompletion)) {
+                throw new RuntimeException("This jobs assumes a QVTOCompletion");
+            }
+
+            completions.add((QVTOCompletion) role.getCompletion());
         }
 
-        return (QVTOCompletion) architecturalTemplate.getCompletion();
+        return Collections.unmodifiableList(completions);
     }
 
     private ModelLocation getModelLocation(final AT architecturalTemplate, final CompletionParameter parameter) {
         final ResourceSetPartition pcmPartition = this.getBlackboard()
                 .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
-        final URI templateFolderURI = getRootURI(architecturalTemplate).appendSegment("templates");
+        final URI templateFolderURI = getRootURI(architecturalTemplate).appendSegment(TEMPLATES_FOLDER);
         final URI systemModelFolderURI = getSystemModelFolderURI();
 
         return new TypeSwitch<ModelLocation>() {
