@@ -153,12 +153,12 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         final List<QVTOCompletion> completions = new LinkedList<QVTOCompletion>();
 
         for (final Role role : architecturalTemplate.getRoles()) {
-
-            if (!(role.getCompletion() instanceof QVTOCompletion)) {
-                throw new RuntimeException("This jobs assumes a QVTOCompletion");
+            if (role.getCompletion() != null) {
+                if (!(role.getCompletion() instanceof QVTOCompletion)) {
+                    throw new RuntimeException("This jobs assumes a QVTOCompletion");
+                }
+                completions.add((QVTOCompletion) role.getCompletion());
             }
-
-            completions.add((QVTOCompletion) role.getCompletion());
         }
 
         return Collections.unmodifiableList(completions);
