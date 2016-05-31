@@ -38,13 +38,13 @@ public interface TypeFactory extends EFactory {
     Parameter createParameter();
 
     /**
-     * Returns a new object of class '<em>Repository</em>'. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Returns a new object of class '<em>Catalog</em>'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
-     * @return a new object of class '<em>Repository</em>'.
+     * @return a new object of class '<em>Catalog</em>'.
      * @generated
      */
-    Repository createRepository();
+    Catalog createCatalog();
 
     /**
      * Returns a new object of class '<em>Role</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->

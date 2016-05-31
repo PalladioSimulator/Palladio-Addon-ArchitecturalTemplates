@@ -12,17 +12,17 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
-import org.scaledl.architecturaltemplates.type.AT;
+import org.scaledl.architecturaltemplates.type.Catalog;
 import org.scaledl.architecturaltemplates.type.TypeFactory;
 import org.scaledl.architecturaltemplates.type.TypePackage;
 
 /**
- * This is the item provider adapter for a {@link org.scaledl.architecturaltemplates.type.AT}
+ * This is the item provider adapter for a {@link org.scaledl.architecturaltemplates.type.Catalog}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
-public class ATItemProvider extends EntityItemProvider {
+public class CatalogItemProvider extends EntityItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -30,7 +30,7 @@ public class ATItemProvider extends EntityItemProvider {
      *
      * @generated
      */
-    public ATItemProvider(final AdapterFactory adapterFactory) {
+    public CatalogItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -62,9 +62,7 @@ public class ATItemProvider extends EntityItemProvider {
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(TypePackage.Literals.AT__ROLES);
-            this.childrenFeatures.add(TypePackage.Literals.AT__CONSTRAINTS);
-            this.childrenFeatures.add(TypePackage.Literals.AT__RECONFIGURATION_RULE_FOLDER);
+            this.childrenFeatures.add(TypePackage.Literals.CATALOG__ATS);
         }
         return this.childrenFeatures;
     }
@@ -83,13 +81,13 @@ public class ATItemProvider extends EntityItemProvider {
     }
 
     /**
-     * This returns AT.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * This returns Catalog.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
     public Object getImage(final Object object) {
-        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/AT"));
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/Catalog"));
     }
 
     /**
@@ -100,9 +98,9 @@ public class ATItemProvider extends EntityItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((AT) object).getEntityName();
-        return label == null || label.length() == 0 ? this.getString("_UI_AT_type")
-                : this.getString("_UI_AT_type") + " " + label;
+        final String label = ((Catalog) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_Catalog_type")
+                : this.getString("_UI_Catalog_type") + " " + label;
     }
 
     /**
@@ -116,10 +114,8 @@ public class ATItemProvider extends EntityItemProvider {
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(AT.class)) {
-        case TypePackage.AT__ROLES:
-        case TypePackage.AT__CONSTRAINTS:
-        case TypePackage.AT__RECONFIGURATION_RULE_FOLDER:
+        switch (notification.getFeatureID(Catalog.class)) {
+        case TypePackage.CATALOG__ATS:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -137,13 +133,7 @@ public class ATItemProvider extends EntityItemProvider {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
-                .add(this.createChildParameter(TypePackage.Literals.AT__ROLES, TypeFactory.eINSTANCE.createRole()));
-
-        newChildDescriptors.add(this.createChildParameter(TypePackage.Literals.AT__CONSTRAINTS,
-                TypeFactory.eINSTANCE.createOCLConstraint()));
-
-        newChildDescriptors.add(this.createChildParameter(TypePackage.Literals.AT__RECONFIGURATION_RULE_FOLDER,
-                TypeFactory.eINSTANCE.createReconfigurationFolder()));
+                .add(this.createChildParameter(TypePackage.Literals.CATALOG__ATS, TypeFactory.eINSTANCE.createAT()));
     }
 
     /**

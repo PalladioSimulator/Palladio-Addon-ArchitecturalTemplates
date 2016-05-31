@@ -5,20 +5,18 @@
   <eSubpackages name="type" nsURI="http://scaledl.org/ArchitecturalTemplates/Type/1.0"
       nsPrefix="org.scaledl.architecturaltemplates">
     <eClassifiers xsi:type="ecore:EClass" name="AT" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="repository" lowerBound="1"
-          eType="#//type/Repository" eOpposite="#//type/Repository/ATs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="catalog" lowerBound="1"
+          eType="#//type/Catalog" eOpposite="#//type/Catalog/ATs"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
           eType="#//type/Role" containment="true" eOpposite="#//type/Role/AT"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
           eType="#//type/Constraint" containment="true" eOpposite="#//type/Constraint/AT"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="completion" lowerBound="1"
-          eType="#//type/Completion" containment="true" eOpposite="#//type/Completion/AT">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="reconfigurationRuleFolder"
+          eType="#//type/ReconfigurationFolder" containment="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="An Architectural Template needs exactly 1 completion for defining its semantics.&#xA;"/>
+          <details key="documentation" value="A template can provide reconfigurations to be applied during analyses."/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="reconfigurationRuleFolder"
-          eType="#//type/ReconfigurationFolder" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="AT" lowerBound="1" eType="#//type/AT"
@@ -28,18 +26,25 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="role" lowerBound="1"
-          eType="#//type/Role" eOpposite="#//type/Role/parameters"/>
+          eType="#//type/Role" eOpposite="#//type/Role/parameters">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Roles can be parametrized to specify variation points. Its completion defines how to interpret this parameter."/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" lowerBound="1"
           eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EDataType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="Catalog" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Allows to collect Architectural Templates within a catalogue."/>
+        <details key="documentation" value="Allows to collect Architectural Templates within a catalog."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ATs" upperBound="-1"
-          eType="#//type/AT" containment="true" eOpposite="#//type/AT/repository"/>
+          eType="#//type/AT" containment="true" eOpposite="#//type/AT/catalog"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Role" eSuperTypes="platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The responsibilities of an architectural element."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//type/Parameter" containment="true" eOpposite="#//type/Parameter/role"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="AT" lowerBound="1" eType="#//type/AT"
@@ -48,6 +53,8 @@
           eType="#//type/Constraint" eOpposite="#//type/Constraint/roles"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="stereotype" lowerBound="1"
           eType="ecore:EClass platform:/plugin/org.modelversioning.emfprofile/model/emfprofiles.ecore#//Stereotype"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="completion" eType="#//type/Completion"
+          containment="true" eOpposite="#//type/Completion/role"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OCLConstraint" eSuperTypes="#//type/Constraint">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraint" lowerBound="1"
@@ -64,12 +71,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A completion is a refinement transformation from AT-annotated model into a model with well-defined semantics (thus, specifying the semantics of a given AT). This particularly includes a refinement transformation to another AT-annotated model as well (the second AT also includes a completion for defining its semantics, thus, has well-defined semantics).&#xA; &#xA;As an example, consider a component annotated with an AT role &quot;3-times loabalanced&quot;. A completion could refine this component into a model with 4 components: 1 loadbalancer plus 3 replica of the originally annotated component. The loadbalancer then evenly distributes load over the 3 replica."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AT" lowerBound="1" eType="#//type/AT"
-          eOpposite="#//type/AT/completion"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" lowerBound="1"
           upperBound="-1" eType="#//type/CompletionParameter" containment="true" eOpposite="#//type/CompletionParameter/completion">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Every in- and output parameter of a completion has to exactly match this order."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//type/Role"
+          eOpposite="#//type/Role/completion">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="In addition to constraints, role semantics are defined by a completion."/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -141,6 +152,9 @@
           eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReconfigurationFolder">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A folder with self-adaptation rules."/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="folderURI" lowerBound="1"
           eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     </eClassifiers>

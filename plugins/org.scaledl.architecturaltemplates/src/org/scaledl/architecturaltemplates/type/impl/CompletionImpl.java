@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-import org.scaledl.architecturaltemplates.type.AT;
 import org.scaledl.architecturaltemplates.type.Completion;
 import org.scaledl.architecturaltemplates.type.CompletionParameter;
+import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.TypePackage;
 
 /**
@@ -22,8 +22,10 @@ import org.scaledl.architecturaltemplates.type.TypePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.scaledl.architecturaltemplates.type.impl.CompletionImpl#getAT <em>AT</em>}</li>
- *   <li>{@link org.scaledl.architecturaltemplates.type.impl.CompletionImpl#getParameters <em>Parameters</em>}</li>
+ * <li>{@link org.scaledl.architecturaltemplates.type.impl.CompletionImpl#getParameters
+ * <em>Parameters</em>}</li>
+ * <li>{@link org.scaledl.architecturaltemplates.type.impl.CompletionImpl#getRole <em>Role</em>}
+ * </li>
  * </ul>
  *
  * @generated
@@ -32,6 +34,7 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected CompletionImpl() {
@@ -40,6 +43,7 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -49,6 +53,7 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -58,117 +63,128 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public AT getAT() {
-        return (AT) eDynamicGet(TypePackage.COMPLETION__AT, TypePackage.Literals.COMPLETION__AT, true, true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    public NotificationChain basicSetAT(AT newAT, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newAT, TypePackage.COMPLETION__AT, msgs);
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @generated
-     */
-    @Override
-    public void setAT(AT newAT) {
-        eDynamicSet(TypePackage.COMPLETION__AT, TypePackage.Literals.COMPLETION__AT, newAT);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<CompletionParameter> getParameters() {
-        return (EList<CompletionParameter>) eDynamicGet(TypePackage.COMPLETION__PARAMETERS,
+        return (EList<CompletionParameter>) this.eDynamicGet(TypePackage.COMPLETION__PARAMETERS,
                 TypePackage.Literals.COMPLETION__PARAMETERS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Role getRole() {
+        return (Role) this.eDynamicGet(TypePackage.COMPLETION__ROLE, TypePackage.Literals.COMPLETION__ROLE, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public NotificationChain basicSetRole(final Role newRole, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRole, TypePackage.COMPLETION__ROLE, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setRole(final Role newRole) {
+        this.eDynamicSet(TypePackage.COMPLETION__ROLE, TypePackage.Literals.COMPLETION__ROLE, newRole);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case TypePackage.COMPLETION__AT:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetAT((AT) otherEnd, msgs);
         case TypePackage.COMPLETION__PARAMETERS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getParameters()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameters()).basicAdd(otherEnd, msgs);
+        case TypePackage.COMPLETION__ROLE:
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRole((Role) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
-        case TypePackage.COMPLETION__AT:
-            return basicSetAT(null, msgs);
         case TypePackage.COMPLETION__PARAMETERS:
-            return ((InternalEList<?>) getParameters()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getParameters()).basicRemove(otherEnd, msgs);
+        case TypePackage.COMPLETION__ROLE:
+            return this.basicSetRole(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
-        case TypePackage.COMPLETION__AT:
-            return eInternalContainer().eInverseRemove(this, TypePackage.AT__COMPLETION, AT.class, msgs);
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
+        case TypePackage.COMPLETION__ROLE:
+            return this.eInternalContainer().eInverseRemove(this, TypePackage.ROLE__COMPLETION, Role.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case TypePackage.COMPLETION__AT:
-            return getAT();
         case TypePackage.COMPLETION__PARAMETERS:
-            return getParameters();
+            return this.getParameters();
+        case TypePackage.COMPLETION__ROLE:
+            return this.getRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case TypePackage.COMPLETION__AT:
-            setAT((AT) newValue);
-            return;
         case TypePackage.COMPLETION__PARAMETERS:
-            getParameters().clear();
-            getParameters().addAll((Collection<? extends CompletionParameter>) newValue);
+            this.getParameters().clear();
+            this.getParameters().addAll((Collection<? extends CompletionParameter>) newValue);
+            return;
+        case TypePackage.COMPLETION__ROLE:
+            this.setRole((Role) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -176,16 +192,17 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
-        case TypePackage.COMPLETION__AT:
-            setAT((AT) null);
-            return;
         case TypePackage.COMPLETION__PARAMETERS:
-            getParameters().clear();
+            this.getParameters().clear();
+            return;
+        case TypePackage.COMPLETION__ROLE:
+            this.setRole((Role) null);
             return;
         }
         super.eUnset(featureID);
@@ -193,15 +210,16 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case TypePackage.COMPLETION__AT:
-            return getAT() != null;
         case TypePackage.COMPLETION__PARAMETERS:
-            return !getParameters().isEmpty();
+            return !this.getParameters().isEmpty();
+        case TypePackage.COMPLETION__ROLE:
+            return this.getRole() != null;
         }
         return super.eIsSet(featureID);
     }

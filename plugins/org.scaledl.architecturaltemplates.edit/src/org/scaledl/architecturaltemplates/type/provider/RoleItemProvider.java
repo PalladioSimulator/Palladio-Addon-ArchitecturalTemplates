@@ -96,6 +96,7 @@ public class RoleItemProvider extends EntityItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(TypePackage.Literals.ROLE__PARAMETERS);
+            this.childrenFeatures.add(TypePackage.Literals.ROLE__COMPLETION);
         }
         return this.childrenFeatures;
     }
@@ -149,6 +150,7 @@ public class RoleItemProvider extends EntityItemProvider {
 
         switch (notification.getFeatureID(Role.class)) {
         case TypePackage.ROLE__PARAMETERS:
+        case TypePackage.ROLE__COMPLETION:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -167,6 +169,9 @@ public class RoleItemProvider extends EntityItemProvider {
 
         newChildDescriptors.add(this.createChildParameter(TypePackage.Literals.ROLE__PARAMETERS,
                 TypeFactory.eINSTANCE.createParameter()));
+
+        newChildDescriptors.add(this.createChildParameter(TypePackage.Literals.ROLE__COMPLETION,
+                TypeFactory.eINSTANCE.createQVTOCompletion()));
     }
 
     /**

@@ -83,13 +83,13 @@ public interface TypePackage extends EPackage {
     int AT__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Repository</b></em>' container reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Catalog</b></em>' container reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int AT__REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+    int AT__CATALOG = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Roles</b></em>' containment reference list. <!--
@@ -110,22 +110,13 @@ public interface TypePackage extends EPackage {
     int AT__CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Completion</b></em>' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int AT__COMPLETION = EntityPackage.ENTITY_FEATURE_COUNT + 3;
-
-    /**
      * The feature id for the '<em><b>Reconfiguration Rule Folder</b></em>' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int AT__RECONFIGURATION_RULE_FOLDER = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+    int AT__RECONFIGURATION_RULE_FOLDER = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>AT</em>' class. <!-- begin-user-doc --> <!--
@@ -134,7 +125,7 @@ public interface TypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int AT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+    int AT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the '
@@ -248,15 +239,14 @@ public interface TypePackage extends EPackage {
     int PARAMETER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.scaledl.architecturaltemplates.type.impl.RepositoryImpl <em>Repository</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.scaledl.architecturaltemplates.type.impl.CatalogImpl
+     * <em>Catalog</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see org.scaledl.architecturaltemplates.type.impl.RepositoryImpl
-     * @see org.scaledl.architecturaltemplates.type.impl.TypePackageImpl#getRepository()
+     * @see org.scaledl.architecturaltemplates.type.impl.CatalogImpl
+     * @see org.scaledl.architecturaltemplates.type.impl.TypePackageImpl#getCatalog()
      * @generated
      */
-    int REPOSITORY = 3;
+    int CATALOG = 3;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -265,7 +255,7 @@ public interface TypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REPOSITORY__ID = EntityPackage.ENTITY__ID;
+    int CATALOG__ID = EntityPackage.ENTITY__ID;
 
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -274,7 +264,7 @@ public interface TypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REPOSITORY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+    int CATALOG__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
      * The feature id for the '<em><b>ATs</b></em>' containment reference list. <!-- begin-user-doc
@@ -283,16 +273,16 @@ public interface TypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REPOSITORY__ATS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+    int CATALOG__ATS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Repository</em>' class. <!-- begin-user-doc -->
+     * The number of structural features of the '<em>Catalog</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REPOSITORY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+    int CATALOG_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.scaledl.architecturaltemplates.type.impl.RoleImpl
@@ -359,13 +349,22 @@ public interface TypePackage extends EPackage {
     int ROLE__STEREOTYPE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Completion</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ROLE__COMPLETION = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Role</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the '
@@ -444,22 +443,22 @@ public interface TypePackage extends EPackage {
     int COMPLETION = 7;
 
     /**
-     * The feature id for the '<em><b>AT</b></em>' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int COMPLETION__AT = 0;
-
-    /**
      * The feature id for the '<em><b>Parameters</b></em>' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int COMPLETION__PARAMETERS = 1;
+    int COMPLETION__PARAMETERS = 0;
+
+    /**
+     * The feature id for the '<em><b>Role</b></em>' container reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int COMPLETION__ROLE = 1;
 
     /**
      * The number of structural features of the '<em>Completion</em>' class. <!-- begin-user-doc -->
@@ -482,15 +481,6 @@ public interface TypePackage extends EPackage {
     int QVTO_COMPLETION = 6;
 
     /**
-     * The feature id for the '<em><b>AT</b></em>' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int QVTO_COMPLETION__AT = COMPLETION__AT;
-
-    /**
      * The feature id for the '<em><b>Parameters</b></em>' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -498,6 +488,15 @@ public interface TypePackage extends EPackage {
      * @ordered
      */
     int QVTO_COMPLETION__PARAMETERS = COMPLETION__PARAMETERS;
+
+    /**
+     * The feature id for the '<em><b>Role</b></em>' container reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int QVTO_COMPLETION__ROLE = COMPLETION__ROLE;
 
     /**
      * The feature id for the '<em><b>Qvto File URI</b></em>' attribute. <!-- begin-user-doc -->
@@ -929,15 +928,15 @@ public interface TypePackage extends EPackage {
 
     /**
      * Returns the meta object for the container reference '
-     * {@link org.scaledl.architecturaltemplates.type.AT#getRepository <em>Repository</em>}'. <!--
+     * {@link org.scaledl.architecturaltemplates.type.AT#getCatalog <em>Catalog</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Repository</em>'.
-     * @see org.scaledl.architecturaltemplates.type.AT#getRepository()
+     * @return the meta object for the container reference '<em>Catalog</em>'.
+     * @see org.scaledl.architecturaltemplates.type.AT#getCatalog()
      * @see #getAT()
      * @generated
      */
-    EReference getAT_Repository();
+    EReference getAT_Catalog();
 
     /**
      * Returns the meta object for the containment reference list '
@@ -962,18 +961,6 @@ public interface TypePackage extends EPackage {
      * @generated
      */
     EReference getAT_Constraints();
-
-    /**
-     * Returns the meta object for the containment reference '
-     * {@link org.scaledl.architecturaltemplates.type.AT#getCompletion <em>Completion</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the containment reference '<em>Completion</em>'.
-     * @see org.scaledl.architecturaltemplates.type.AT#getCompletion()
-     * @see #getAT()
-     * @generated
-     */
-    EReference getAT_Completion();
 
     /**
      * Returns the meta object for the containment reference '
@@ -1056,26 +1043,26 @@ public interface TypePackage extends EPackage {
     EReference getParameter_DataType();
 
     /**
-     * Returns the meta object for class '{@link org.scaledl.architecturaltemplates.type.Repository
-     * <em>Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.scaledl.architecturaltemplates.type.Catalog
+     * <em>Catalog</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Repository</em>'.
-     * @see org.scaledl.architecturaltemplates.type.Repository
+     * @return the meta object for class '<em>Catalog</em>'.
+     * @see org.scaledl.architecturaltemplates.type.Catalog
      * @generated
      */
-    EClass getRepository();
+    EClass getCatalog();
 
     /**
      * Returns the meta object for the containment reference list '
-     * {@link org.scaledl.architecturaltemplates.type.Repository#getATs <em>ATs</em>}'. <!--
+     * {@link org.scaledl.architecturaltemplates.type.Catalog#getATs <em>ATs</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>ATs</em>'.
-     * @see org.scaledl.architecturaltemplates.type.Repository#getATs()
-     * @see #getRepository()
+     * @see org.scaledl.architecturaltemplates.type.Catalog#getATs()
+     * @see #getCatalog()
      * @generated
      */
-    EReference getRepository_ATs();
+    EReference getCatalog_ATs();
 
     /**
      * Returns the meta object for class '{@link org.scaledl.architecturaltemplates.type.Role
@@ -1136,6 +1123,18 @@ public interface TypePackage extends EPackage {
     EReference getRole_Stereotype();
 
     /**
+     * Returns the meta object for the containment reference '
+     * {@link org.scaledl.architecturaltemplates.type.Role#getCompletion <em>Completion</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Completion</em>'.
+     * @see org.scaledl.architecturaltemplates.type.Role#getCompletion()
+     * @see #getRole()
+     * @generated
+     */
+    EReference getRole_Completion();
+
+    /**
      * Returns the meta object for class '
      * {@link org.scaledl.architecturaltemplates.type.OCLConstraint <em>OCL Constraint</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -1192,18 +1191,6 @@ public interface TypePackage extends EPackage {
     EClass getCompletion();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.scaledl.architecturaltemplates.type.Completion#getAT <em>AT</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the container reference '<em>AT</em>'.
-     * @see org.scaledl.architecturaltemplates.type.Completion#getAT()
-     * @see #getCompletion()
-     * @generated
-     */
-    EReference getCompletion_AT();
-
-    /**
      * Returns the meta object for the containment reference list '
      * {@link org.scaledl.architecturaltemplates.type.Completion#getParameters <em>Parameters</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1214,6 +1201,18 @@ public interface TypePackage extends EPackage {
      * @generated
      */
     EReference getCompletion_Parameters();
+
+    /**
+     * Returns the meta object for the container reference '
+     * {@link org.scaledl.architecturaltemplates.type.Completion#getRole <em>Role</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the container reference '<em>Role</em>'.
+     * @see org.scaledl.architecturaltemplates.type.Completion#getRole()
+     * @see #getCompletion()
+     * @generated
+     */
+    EReference getCompletion_Role();
 
     /**
      * Returns the meta object for class '
@@ -1458,12 +1457,12 @@ public interface TypePackage extends EPackage {
         EClass AT = eINSTANCE.getAT();
 
         /**
-         * The meta object literal for the '<em><b>Repository</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Catalog</b></em>' container reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EReference AT__REPOSITORY = eINSTANCE.getAT_Repository();
+        EReference AT__CATALOG = eINSTANCE.getAT_Catalog();
 
         /**
          * The meta object literal for the '<em><b>Roles</b></em>' containment reference list
@@ -1480,14 +1479,6 @@ public interface TypePackage extends EPackage {
          * @generated
          */
         EReference AT__CONSTRAINTS = eINSTANCE.getAT_Constraints();
-
-        /**
-         * The meta object literal for the '<em><b>Completion</b></em>' containment reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference AT__COMPLETION = eINSTANCE.getAT_Completion();
 
         /**
          * The meta object literal for the '<em><b>Reconfiguration Rule Folder</b></em>' containment
@@ -1553,14 +1544,14 @@ public interface TypePackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.scaledl.architecturaltemplates.type.impl.RepositoryImpl <em>Repository</em>}'
-         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * {@link org.scaledl.architecturaltemplates.type.impl.CatalogImpl <em>Catalog</em>}' class.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
-         * @see org.scaledl.architecturaltemplates.type.impl.RepositoryImpl
-         * @see org.scaledl.architecturaltemplates.type.impl.TypePackageImpl#getRepository()
+         * @see org.scaledl.architecturaltemplates.type.impl.CatalogImpl
+         * @see org.scaledl.architecturaltemplates.type.impl.TypePackageImpl#getCatalog()
          * @generated
          */
-        EClass REPOSITORY = eINSTANCE.getRepository();
+        EClass CATALOG = eINSTANCE.getCatalog();
 
         /**
          * The meta object literal for the '<em><b>ATs</b></em>' containment reference list feature.
@@ -1568,7 +1559,7 @@ public interface TypePackage extends EPackage {
          *
          * @generated
          */
-        EReference REPOSITORY__ATS = eINSTANCE.getRepository_ATs();
+        EReference CATALOG__ATS = eINSTANCE.getCatalog_ATs();
 
         /**
          * The meta object literal for the '
@@ -1612,6 +1603,14 @@ public interface TypePackage extends EPackage {
          * @generated
          */
         EReference ROLE__STEREOTYPE = eINSTANCE.getRole_Stereotype();
+
+        /**
+         * The meta object literal for the '<em><b>Completion</b></em>' containment reference
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference ROLE__COMPLETION = eINSTANCE.getRole_Completion();
 
         /**
          * The meta object literal for the '
@@ -1663,20 +1662,20 @@ public interface TypePackage extends EPackage {
         EClass COMPLETION = eINSTANCE.getCompletion();
 
         /**
-         * The meta object literal for the '<em><b>AT</b></em>' container reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference COMPLETION__AT = eINSTANCE.getCompletion_AT();
-
-        /**
          * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
         EReference COMPLETION__PARAMETERS = eINSTANCE.getCompletion_Parameters();
+
+        /**
+         * The meta object literal for the '<em><b>Role</b></em>' container reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference COMPLETION__ROLE = eINSTANCE.getCompletion_Role();
 
         /**
          * The meta object literal for the '
@@ -1715,8 +1714,7 @@ public interface TypePackage extends EPackage {
          * <em>Generic Blackboard Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.scaledl.architecturaltemplates.type.impl.
-         *      GenericBlackboardCompletionParameterImpl
+         * @see org.scaledl.architecturaltemplates.type.impl.GenericBlackboardCompletionParameterImpl
          * @see org.scaledl.architecturaltemplates.type.impl.TypePackageImpl#getGenericBlackboardCompletionParameter()
          * @generated
          */
@@ -1851,8 +1849,7 @@ public interface TypePackage extends EPackage {
          * <em>Isolated PCM Template Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.scaledl.architecturaltemplates.type.impl.
-         *      IsolatedPCMTemplateCompletionParameterImpl
+         * @see org.scaledl.architecturaltemplates.type.impl.IsolatedPCMTemplateCompletionParameterImpl
          * @see org.scaledl.architecturaltemplates.type.impl.TypePackageImpl#getIsolatedPCMTemplateCompletionParameter()
          * @generated
          */

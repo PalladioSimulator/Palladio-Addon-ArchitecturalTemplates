@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
 import org.scaledl.architecturaltemplates.type.AT;
+import org.scaledl.architecturaltemplates.type.Catalog;
 import org.scaledl.architecturaltemplates.type.Completion;
 import org.scaledl.architecturaltemplates.type.CompletionParameter;
 import org.scaledl.architecturaltemplates.type.Constraint;
@@ -23,7 +24,6 @@ import org.scaledl.architecturaltemplates.type.PCMTemplateCompletionParameter;
 import org.scaledl.architecturaltemplates.type.Parameter;
 import org.scaledl.architecturaltemplates.type.QVTOCompletion;
 import org.scaledl.architecturaltemplates.type.ReconfigurationFolder;
-import org.scaledl.architecturaltemplates.type.Repository;
 import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.TemplateProvidingEntity;
 import org.scaledl.architecturaltemplates.type.TypePackage;
@@ -100,8 +100,8 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseRepository(final Repository object) {
-            return TypeAdapterFactory.this.createRepositoryAdapter();
+        public Adapter caseCatalog(final Catalog object) {
+            return TypeAdapterFactory.this.createCatalogAdapter();
         }
 
         @Override
@@ -254,16 +254,16 @@ public class TypeAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.scaledl.architecturaltemplates.type.Repository <em>Repository</em>}'. <!--
+     * {@link org.scaledl.architecturaltemplates.type.Catalog <em>Catalog</em>}'. <!--
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
      * @return the new adapter.
-     * @see org.scaledl.architecturaltemplates.type.Repository
+     * @see org.scaledl.architecturaltemplates.type.Catalog
      * @generated
      */
-    public Adapter createRepositoryAdapter() {
+    public Adapter createCatalogAdapter() {
         return null;
     }
 

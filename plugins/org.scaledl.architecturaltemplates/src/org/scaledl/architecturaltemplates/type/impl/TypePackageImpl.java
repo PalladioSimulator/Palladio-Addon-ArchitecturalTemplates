@@ -17,6 +17,7 @@ import org.palladiosimulator.pcm.PcmPackage;
 import org.palladiosimulator.pcm.core.entity.EntityPackage;
 import org.scaledl.architecturaltemplates.instance.InstancePackage;
 import org.scaledl.architecturaltemplates.instance.impl.InstancePackageImpl;
+import org.scaledl.architecturaltemplates.type.Catalog;
 import org.scaledl.architecturaltemplates.type.Completion;
 import org.scaledl.architecturaltemplates.type.CompletionParameter;
 import org.scaledl.architecturaltemplates.type.Constraint;
@@ -32,7 +33,6 @@ import org.scaledl.architecturaltemplates.type.PCMTemplateCompletionParameter;
 import org.scaledl.architecturaltemplates.type.Parameter;
 import org.scaledl.architecturaltemplates.type.QVTOCompletion;
 import org.scaledl.architecturaltemplates.type.ReconfigurationFolder;
-import org.scaledl.architecturaltemplates.type.Repository;
 import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.TemplateProvidingEntity;
 import org.scaledl.architecturaltemplates.type.TypeFactory;
@@ -71,7 +71,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      *
      * @generated
      */
-    private EClass repositoryEClass = null;
+    private EClass catalogEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -273,7 +273,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
-    public EReference getAT_Repository() {
+    public EReference getAT_Catalog() {
         return (EReference) this.atEClass.getEStructuralFeatures().get(0);
     }
 
@@ -303,18 +303,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
-    public EReference getAT_Completion() {
-        return (EReference) this.atEClass.getEStructuralFeatures().get(3);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EReference getAT_ReconfigurationRuleFolder() {
-        return (EReference) this.atEClass.getEStructuralFeatures().get(4);
+        return (EReference) this.atEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -383,8 +373,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
-    public EClass getRepository() {
-        return this.repositoryEClass;
+    public EClass getCatalog() {
+        return this.catalogEClass;
     }
 
     /**
@@ -393,8 +383,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
-    public EReference getRepository_ATs() {
-        return (EReference) this.repositoryEClass.getEStructuralFeatures().get(0);
+    public EReference getCatalog_ATs() {
+        return (EReference) this.catalogEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -453,6 +443,16 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
+    public EReference getRole_Completion() {
+        return (EReference) this.roleEClass.getEStructuralFeatures().get(4);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getOCLConstraint() {
         return this.oclConstraintEClass;
     }
@@ -503,7 +503,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
-    public EReference getCompletion_AT() {
+    public EReference getCompletion_Parameters() {
         return (EReference) this.completionEClass.getEStructuralFeatures().get(0);
     }
 
@@ -513,7 +513,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
      * @generated
      */
     @Override
-    public EReference getCompletion_Parameters() {
+    public EReference getCompletion_Role() {
         return (EReference) this.completionEClass.getEStructuralFeatures().get(1);
     }
 
@@ -728,10 +728,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
         // Create classes and their features
         this.atEClass = this.createEClass(AT);
-        this.createEReference(this.atEClass, AT__REPOSITORY);
+        this.createEReference(this.atEClass, AT__CATALOG);
         this.createEReference(this.atEClass, AT__ROLES);
         this.createEReference(this.atEClass, AT__CONSTRAINTS);
-        this.createEReference(this.atEClass, AT__COMPLETION);
         this.createEReference(this.atEClass, AT__RECONFIGURATION_RULE_FOLDER);
 
         this.constraintEClass = this.createEClass(CONSTRAINT);
@@ -742,14 +741,15 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
         this.createEReference(this.parameterEClass, PARAMETER__ROLE);
         this.createEReference(this.parameterEClass, PARAMETER__DATA_TYPE);
 
-        this.repositoryEClass = this.createEClass(REPOSITORY);
-        this.createEReference(this.repositoryEClass, REPOSITORY__ATS);
+        this.catalogEClass = this.createEClass(CATALOG);
+        this.createEReference(this.catalogEClass, CATALOG__ATS);
 
         this.roleEClass = this.createEClass(ROLE);
         this.createEReference(this.roleEClass, ROLE__PARAMETERS);
         this.createEReference(this.roleEClass, ROLE__AT);
         this.createEReference(this.roleEClass, ROLE__CONSTRAINTS);
         this.createEReference(this.roleEClass, ROLE__STEREOTYPE);
+        this.createEReference(this.roleEClass, ROLE__COMPLETION);
 
         this.oclConstraintEClass = this.createEClass(OCL_CONSTRAINT);
         this.createEAttribute(this.oclConstraintEClass, OCL_CONSTRAINT__CONSTRAINT);
@@ -758,8 +758,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
         this.createEAttribute(this.qvtoCompletionEClass, QVTO_COMPLETION__QVTO_FILE_URI);
 
         this.completionEClass = this.createEClass(COMPLETION);
-        this.createEReference(this.completionEClass, COMPLETION__AT);
         this.createEReference(this.completionEClass, COMPLETION__PARAMETERS);
+        this.createEReference(this.completionEClass, COMPLETION__ROLE);
 
         this.completionParameterEClass = this.createEClass(COMPLETION_PARAMETER);
         this.createEReference(this.completionParameterEClass, COMPLETION_PARAMETER__COMPLETION);
@@ -836,7 +836,7 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
         this.atEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.constraintEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.parameterEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.catalogEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.oclConstraintEClass.getESuperTypes().add(this.getConstraint());
         this.qvtoCompletionEClass.getESuperTypes().add(this.getCompletion());
@@ -856,8 +856,8 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.atEClass, org.scaledl.architecturaltemplates.type.AT.class, "AT", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getAT_Repository(), this.getRepository(), this.getRepository_ATs(), "repository", null,
-                1, 1, org.scaledl.architecturaltemplates.type.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        this.initEReference(this.getAT_Catalog(), this.getCatalog(), this.getCatalog_ATs(), "catalog", null, 1, 1,
+                org.scaledl.architecturaltemplates.type.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getAT_Roles(), this.getRole(), this.getRole_AT(), "roles", null, 0, -1,
                 org.scaledl.architecturaltemplates.type.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -865,9 +865,6 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
         this.initEReference(this.getAT_Constraints(), this.getConstraint(), this.getConstraint_AT(), "constraints",
                 null, 0, -1, org.scaledl.architecturaltemplates.type.AT.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getAT_Completion(), this.getCompletion(), this.getCompletion_AT(), "completion", null,
-                1, 1, org.scaledl.architecturaltemplates.type.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getAT_ReconfigurationRuleFolder(), this.getReconfigurationFolder(), null,
                 "reconfigurationRuleFolder", null, 0, 1, org.scaledl.architecturaltemplates.type.AT.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -891,10 +888,10 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
                 Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        this.initEClass(this.repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.catalogEClass, Catalog.class, "Catalog", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getRepository_ATs(), this.getAT(), this.getAT_Repository(), "ATs", null, 0, -1,
-                Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+        this.initEReference(this.getCatalog_ATs(), this.getAT(), this.getAT_Catalog(), "ATs", null, 0, -1,
+                Catalog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -909,6 +906,9 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getRole_Stereotype(), theEMFProfilePackage.getStereotype(), null, "stereotype", null,
                 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getRole_Completion(), this.getCompletion(), this.getCompletion_Role(), "completion",
+                null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.oclConstraintEClass, OCLConstraint.class, "OCLConstraint", !IS_ABSTRACT, !IS_INTERFACE,
@@ -925,13 +925,13 @@ public class TypePackageImpl extends EPackageImpl implements TypePackage {
 
         this.initEClass(this.completionEClass, Completion.class, "Completion", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getCompletion_AT(), this.getAT(), this.getAT_Completion(), "AT", null, 1, 1,
-                Completion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getCompletion_Parameters(), this.getCompletionParameter(),
                 this.getCompletionParameter_Completion(), "parameters", null, 1, -1, Completion.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED);
+        this.initEReference(this.getCompletion_Role(), this.getRole(), this.getRole_Completion(), "role", null, 0, 1,
+                Completion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.completionParameterEClass, CompletionParameter.class, "CompletionParameter", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.scaledl.architecturaltemplates.type.AT;
+import org.scaledl.architecturaltemplates.type.Catalog;
 import org.scaledl.architecturaltemplates.type.GenericBlackboardCompletionParameter;
 import org.scaledl.architecturaltemplates.type.GenericOutputCompletionParameter;
 import org.scaledl.architecturaltemplates.type.GenericTemplateCompletionParameter;
@@ -21,7 +22,6 @@ import org.scaledl.architecturaltemplates.type.PCMTemplateCompletionParameter;
 import org.scaledl.architecturaltemplates.type.Parameter;
 import org.scaledl.architecturaltemplates.type.QVTOCompletion;
 import org.scaledl.architecturaltemplates.type.ReconfigurationFolder;
-import org.scaledl.architecturaltemplates.type.Repository;
 import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.TypeFactory;
 import org.scaledl.architecturaltemplates.type.TypePackage;
@@ -72,8 +72,8 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
             return this.createAT();
         case TypePackage.PARAMETER:
             return this.createParameter();
-        case TypePackage.REPOSITORY:
-            return this.createRepository();
+        case TypePackage.CATALOG:
+            return this.createCatalog();
         case TypePackage.ROLE:
             return this.createRole();
         case TypePackage.OCL_CONSTRAINT:
@@ -159,9 +159,9 @@ public class TypeFactoryImpl extends EFactoryImpl implements TypeFactory {
      * @generated
      */
     @Override
-    public Repository createRepository() {
-        final RepositoryImpl repository = new RepositoryImpl();
-        return repository;
+    public Catalog createCatalog() {
+        final CatalogImpl catalog = new CatalogImpl();
+        return catalog;
     }
 
     /**

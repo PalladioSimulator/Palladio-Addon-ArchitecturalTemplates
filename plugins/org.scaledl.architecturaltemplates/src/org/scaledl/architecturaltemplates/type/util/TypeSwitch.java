@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
 import org.scaledl.architecturaltemplates.type.AT;
+import org.scaledl.architecturaltemplates.type.Catalog;
 import org.scaledl.architecturaltemplates.type.Completion;
 import org.scaledl.architecturaltemplates.type.CompletionParameter;
 import org.scaledl.architecturaltemplates.type.Constraint;
@@ -22,7 +23,6 @@ import org.scaledl.architecturaltemplates.type.PCMTemplateCompletionParameter;
 import org.scaledl.architecturaltemplates.type.Parameter;
 import org.scaledl.architecturaltemplates.type.QVTOCompletion;
 import org.scaledl.architecturaltemplates.type.ReconfigurationFolder;
-import org.scaledl.architecturaltemplates.type.Repository;
 import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.TemplateProvidingEntity;
 import org.scaledl.architecturaltemplates.type.TypePackage;
@@ -134,17 +134,17 @@ public class TypeSwitch<T> extends Switch<T> {
             }
             return result;
         }
-        case TypePackage.REPOSITORY: {
-            final Repository repository = (Repository) theEObject;
-            T result = this.caseRepository(repository);
+        case TypePackage.CATALOG: {
+            final Catalog catalog = (Catalog) theEObject;
+            T result = this.caseCatalog(catalog);
             if (result == null) {
-                result = this.caseEntity(repository);
+                result = this.caseEntity(catalog);
             }
             if (result == null) {
-                result = this.caseIdentifier(repository);
+                result = this.caseIdentifier(catalog);
             }
             if (result == null) {
-                result = this.caseNamedElement(repository);
+                result = this.caseNamedElement(catalog);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -377,17 +377,17 @@ public class TypeSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Repository</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Catalog</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Catalog</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRepository(final Repository object) {
+    public T caseCatalog(final Catalog object) {
         return null;
     }
 

@@ -8,6 +8,8 @@ import org.eclipse.emf.cdo.CDOObject;
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Reconfiguration Folder</b></em>'. <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc --> A folder with self-adaptation rules. <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

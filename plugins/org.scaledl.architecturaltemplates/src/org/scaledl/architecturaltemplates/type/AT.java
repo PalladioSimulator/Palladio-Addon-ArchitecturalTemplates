@@ -13,10 +13,9 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.scaledl.architecturaltemplates.type.AT#getRepository <em>Repository</em>}</li>
+ * <li>{@link org.scaledl.architecturaltemplates.type.AT#getCatalog <em>Catalog</em>}</li>
  * <li>{@link org.scaledl.architecturaltemplates.type.AT#getRoles <em>Roles</em>}</li>
  * <li>{@link org.scaledl.architecturaltemplates.type.AT#getConstraints <em>Constraints</em>}</li>
- * <li>{@link org.scaledl.architecturaltemplates.type.AT#getCompletion <em>Completion</em>}</li>
  * <li>{@link org.scaledl.architecturaltemplates.type.AT#getReconfigurationRuleFolder
  * <em>Reconfiguration Rule Folder</em>}</li>
  * </ul>
@@ -28,35 +27,34 @@ import org.palladiosimulator.pcm.core.entity.Entity;
 public interface AT extends Entity {
 
     /**
-     * Returns the value of the '<em><b>Repository</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.scaledl.architecturaltemplates.type.Repository#getATs <em>ATs</em>}'. <!--
-     * begin-user-doc -->
+     * Returns the value of the '<em><b>Catalog</b></em>' container reference. It is bidirectional
+     * and its opposite is '{@link org.scaledl.architecturaltemplates.type.Catalog#getATs
+     * <em>ATs</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Repository</em>' container reference isn't clear, there really
-     * should be more of a description here...
+     * If the meaning of the '<em>Catalog</em>' container reference isn't clear, there really should
+     * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Repository</em>' container reference.
-     * @see #setRepository(Repository)
-     * @see org.scaledl.architecturaltemplates.type.TypePackage#getAT_Repository()
-     * @see org.scaledl.architecturaltemplates.type.Repository#getATs
+     * @return the value of the '<em>Catalog</em>' container reference.
+     * @see #setCatalog(Catalog)
+     * @see org.scaledl.architecturaltemplates.type.TypePackage#getAT_Catalog()
+     * @see org.scaledl.architecturaltemplates.type.Catalog#getATs
      * @model opposite="ATs" required="true" transient="false"
      * @generated
      */
-    Repository getRepository();
+    Catalog getCatalog();
 
     /**
-     * Sets the value of the '{@link org.scaledl.architecturaltemplates.type.AT#getRepository
-     * <em>Repository</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.scaledl.architecturaltemplates.type.AT#getCatalog
+     * <em>Catalog</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '<em>Repository</em>' container reference.
-     * @see #getRepository()
+     *            the new value of the '<em>Catalog</em>' container reference.
+     * @see #getCatalog()
      * @generated
      */
-    void setRepository(Repository value);
+    void setCatalog(Catalog value);
 
     /**
      * Returns the value of the '<em><b>Roles</b></em>' containment reference list. The list
@@ -98,44 +96,14 @@ public interface AT extends Entity {
     EList<Constraint> getConstraints();
 
     /**
-     * Returns the value of the '<em><b>Completion</b></em>' containment reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.scaledl.architecturaltemplates.type.Completion#getAT <em>AT</em>}'. <!--
-     * begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Completion</em>' containment reference isn't clear, there really
-     * should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Completion</em>' containment reference.
-     * @see #setCompletion(Completion)
-     * @see org.scaledl.architecturaltemplates.type.TypePackage#getAT_Completion()
-     * @see org.scaledl.architecturaltemplates.type.Completion#getAT
-     * @model opposite="AT" containment="true" required="true"
-     * @generated
-     */
-    Completion getCompletion();
-
-    /**
-     * Sets the value of the '{@link org.scaledl.architecturaltemplates.type.AT#getCompletion
-     * <em>Completion</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Completion</em>' containment reference.
-     * @see #getCompletion()
-     * @generated
-     */
-    void setCompletion(Completion value);
-
-    /**
      * Returns the value of the '<em><b>Reconfiguration Rule Folder</b></em>' containment reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Reconfiguration Rule Folder</em>' containment reference isn't
      * clear, there really should be more of a description here...
      * </p>
-     * <!-- end-user-doc -->
+     * <!-- end-user-doc --> <!-- begin-model-doc --> A template can provide reconfigurations to be
+     * applied during analyses. <!-- end-model-doc -->
      *
      * @return the value of the '<em>Reconfiguration Rule Folder</em>' containment reference.
      * @see #setReconfigurationRuleFolder(ReconfigurationFolder)

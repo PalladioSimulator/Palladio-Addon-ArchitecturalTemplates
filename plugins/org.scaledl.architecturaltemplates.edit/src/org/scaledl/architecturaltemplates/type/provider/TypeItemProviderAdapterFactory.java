@@ -120,26 +120,26 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory
 
     /**
      * This keeps track of the one adapter used for all
-     * {@link org.scaledl.architecturaltemplates.type.Repository} instances. <!-- begin-user-doc -->
+     * {@link org.scaledl.architecturaltemplates.type.Catalog} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
      * @generated
      */
-    protected RepositoryItemProvider repositoryItemProvider;
+    protected CatalogItemProvider catalogItemProvider;
 
     /**
-     * This creates an adapter for a {@link org.scaledl.architecturaltemplates.type.Repository}.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * This creates an adapter for a {@link org.scaledl.architecturaltemplates.type.Catalog}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
-    public Adapter createRepositoryAdapter() {
-        if (this.repositoryItemProvider == null) {
-            this.repositoryItemProvider = new RepositoryItemProvider(this);
+    public Adapter createCatalogAdapter() {
+        if (this.catalogItemProvider == null) {
+            this.catalogItemProvider = new CatalogItemProvider(this);
         }
 
-        return this.repositoryItemProvider;
+        return this.catalogItemProvider;
     }
 
     /**
@@ -526,8 +526,8 @@ public class TypeItemProviderAdapterFactory extends TypeAdapterFactory
         if (this.parameterItemProvider != null) {
             this.parameterItemProvider.dispose();
         }
-        if (this.repositoryItemProvider != null) {
-            this.repositoryItemProvider.dispose();
+        if (this.catalogItemProvider != null) {
+            this.catalogItemProvider.dispose();
         }
         if (this.roleItemProvider != null) {
             this.roleItemProvider.dispose();

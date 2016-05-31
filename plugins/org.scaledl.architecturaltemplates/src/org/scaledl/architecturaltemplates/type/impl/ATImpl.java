@@ -11,10 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.scaledl.architecturaltemplates.type.AT;
-import org.scaledl.architecturaltemplates.type.Completion;
+import org.scaledl.architecturaltemplates.type.Catalog;
 import org.scaledl.architecturaltemplates.type.Constraint;
 import org.scaledl.architecturaltemplates.type.ReconfigurationFolder;
-import org.scaledl.architecturaltemplates.type.Repository;
 import org.scaledl.architecturaltemplates.type.Role;
 import org.scaledl.architecturaltemplates.type.TypePackage;
 
@@ -25,13 +24,10 @@ import org.scaledl.architecturaltemplates.type.TypePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.scaledl.architecturaltemplates.type.impl.ATImpl#getRepository <em>Repository</em>}
- * </li>
+ * <li>{@link org.scaledl.architecturaltemplates.type.impl.ATImpl#getCatalog <em>Catalog</em>}</li>
  * <li>{@link org.scaledl.architecturaltemplates.type.impl.ATImpl#getRoles <em>Roles</em>}</li>
  * <li>{@link org.scaledl.architecturaltemplates.type.impl.ATImpl#getConstraints
  * <em>Constraints</em>}</li>
- * <li>{@link org.scaledl.architecturaltemplates.type.impl.ATImpl#getCompletion <em>Completion</em>}
- * </li>
  * <li>{@link org.scaledl.architecturaltemplates.type.impl.ATImpl#getReconfigurationRuleFolder
  * <em>Reconfiguration Rule Folder</em>}</li>
  * </ul>
@@ -65,9 +61,8 @@ public class ATImpl extends EntityImpl implements AT {
      * @generated
      */
     @Override
-    public Repository getRepository() {
-        return (Repository) this.eDynamicGet(TypePackage.AT__REPOSITORY, TypePackage.Literals.AT__REPOSITORY, true,
-                true);
+    public Catalog getCatalog() {
+        return (Catalog) this.eDynamicGet(TypePackage.AT__CATALOG, TypePackage.Literals.AT__CATALOG, true, true);
     }
 
     /**
@@ -75,8 +70,8 @@ public class ATImpl extends EntityImpl implements AT {
      *
      * @generated
      */
-    public NotificationChain basicSetRepository(final Repository newRepository, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newRepository, TypePackage.AT__REPOSITORY, msgs);
+    public NotificationChain basicSetCatalog(final Catalog newCatalog, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newCatalog, TypePackage.AT__CATALOG, msgs);
         return msgs;
     }
 
@@ -86,8 +81,8 @@ public class ATImpl extends EntityImpl implements AT {
      * @generated
      */
     @Override
-    public void setRepository(final Repository newRepository) {
-        this.eDynamicSet(TypePackage.AT__REPOSITORY, TypePackage.Literals.AT__REPOSITORY, newRepository);
+    public void setCatalog(final Catalog newCatalog) {
+        this.eDynamicSet(TypePackage.AT__CATALOG, TypePackage.Literals.AT__CATALOG, newCatalog);
     }
 
     /**
@@ -111,37 +106,6 @@ public class ATImpl extends EntityImpl implements AT {
     public EList<Constraint> getConstraints() {
         return (EList<Constraint>) this.eDynamicGet(TypePackage.AT__CONSTRAINTS, TypePackage.Literals.AT__CONSTRAINTS,
                 true, true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Completion getCompletion() {
-        return (Completion) this.eDynamicGet(TypePackage.AT__COMPLETION, TypePackage.Literals.AT__COMPLETION, true,
-                true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public NotificationChain basicSetCompletion(final Completion newCompletion, NotificationChain msgs) {
-        msgs = this.eDynamicInverseAdd((InternalEObject) newCompletion, TypePackage.AT__COMPLETION, msgs);
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public void setCompletion(final Completion newCompletion) {
-        this.eDynamicSet(TypePackage.AT__COMPLETION, TypePackage.Literals.AT__COMPLETION, newCompletion);
     }
 
     /**
@@ -187,22 +151,15 @@ public class ATImpl extends EntityImpl implements AT {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case TypePackage.AT__REPOSITORY:
+        case TypePackage.AT__CATALOG:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
             }
-            return this.basicSetRepository((Repository) otherEnd, msgs);
+            return this.basicSetCatalog((Catalog) otherEnd, msgs);
         case TypePackage.AT__ROLES:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getRoles()).basicAdd(otherEnd, msgs);
         case TypePackage.AT__CONSTRAINTS:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getConstraints()).basicAdd(otherEnd, msgs);
-        case TypePackage.AT__COMPLETION:
-            final Completion completion = this.getCompletion();
-            if (completion != null) {
-                msgs = ((InternalEObject) completion).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE - TypePackage.AT__COMPLETION, null, msgs);
-            }
-            return this.basicSetCompletion((Completion) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -216,14 +173,12 @@ public class ATImpl extends EntityImpl implements AT {
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
         switch (featureID) {
-        case TypePackage.AT__REPOSITORY:
-            return this.basicSetRepository(null, msgs);
+        case TypePackage.AT__CATALOG:
+            return this.basicSetCatalog(null, msgs);
         case TypePackage.AT__ROLES:
             return ((InternalEList<?>) this.getRoles()).basicRemove(otherEnd, msgs);
         case TypePackage.AT__CONSTRAINTS:
             return ((InternalEList<?>) this.getConstraints()).basicRemove(otherEnd, msgs);
-        case TypePackage.AT__COMPLETION:
-            return this.basicSetCompletion(null, msgs);
         case TypePackage.AT__RECONFIGURATION_RULE_FOLDER:
             return this.basicSetReconfigurationRuleFolder(null, msgs);
         }
@@ -238,8 +193,8 @@ public class ATImpl extends EntityImpl implements AT {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
         switch (this.eContainerFeatureID()) {
-        case TypePackage.AT__REPOSITORY:
-            return this.eInternalContainer().eInverseRemove(this, TypePackage.REPOSITORY__ATS, Repository.class, msgs);
+        case TypePackage.AT__CATALOG:
+            return this.eInternalContainer().eInverseRemove(this, TypePackage.CATALOG__ATS, Catalog.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -252,14 +207,12 @@ public class ATImpl extends EntityImpl implements AT {
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case TypePackage.AT__REPOSITORY:
-            return this.getRepository();
+        case TypePackage.AT__CATALOG:
+            return this.getCatalog();
         case TypePackage.AT__ROLES:
             return this.getRoles();
         case TypePackage.AT__CONSTRAINTS:
             return this.getConstraints();
-        case TypePackage.AT__COMPLETION:
-            return this.getCompletion();
         case TypePackage.AT__RECONFIGURATION_RULE_FOLDER:
             return this.getReconfigurationRuleFolder();
         }
@@ -275,8 +228,8 @@ public class ATImpl extends EntityImpl implements AT {
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case TypePackage.AT__REPOSITORY:
-            this.setRepository((Repository) newValue);
+        case TypePackage.AT__CATALOG:
+            this.setCatalog((Catalog) newValue);
             return;
         case TypePackage.AT__ROLES:
             this.getRoles().clear();
@@ -285,9 +238,6 @@ public class ATImpl extends EntityImpl implements AT {
         case TypePackage.AT__CONSTRAINTS:
             this.getConstraints().clear();
             this.getConstraints().addAll((Collection<? extends Constraint>) newValue);
-            return;
-        case TypePackage.AT__COMPLETION:
-            this.setCompletion((Completion) newValue);
             return;
         case TypePackage.AT__RECONFIGURATION_RULE_FOLDER:
             this.setReconfigurationRuleFolder((ReconfigurationFolder) newValue);
@@ -304,17 +254,14 @@ public class ATImpl extends EntityImpl implements AT {
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case TypePackage.AT__REPOSITORY:
-            this.setRepository((Repository) null);
+        case TypePackage.AT__CATALOG:
+            this.setCatalog((Catalog) null);
             return;
         case TypePackage.AT__ROLES:
             this.getRoles().clear();
             return;
         case TypePackage.AT__CONSTRAINTS:
             this.getConstraints().clear();
-            return;
-        case TypePackage.AT__COMPLETION:
-            this.setCompletion((Completion) null);
             return;
         case TypePackage.AT__RECONFIGURATION_RULE_FOLDER:
             this.setReconfigurationRuleFolder((ReconfigurationFolder) null);
@@ -331,14 +278,12 @@ public class ATImpl extends EntityImpl implements AT {
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case TypePackage.AT__REPOSITORY:
-            return this.getRepository() != null;
+        case TypePackage.AT__CATALOG:
+            return this.getCatalog() != null;
         case TypePackage.AT__ROLES:
             return !this.getRoles().isEmpty();
         case TypePackage.AT__CONSTRAINTS:
             return !this.getConstraints().isEmpty();
-        case TypePackage.AT__COMPLETION:
-            return this.getCompletion() != null;
         case TypePackage.AT__RECONFIGURATION_RULE_FOLDER:
             return this.getReconfigurationRuleFolder() != null;
         }
