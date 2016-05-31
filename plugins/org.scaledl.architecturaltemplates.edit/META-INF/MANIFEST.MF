@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.scaledl.architecturaltemplates.edit;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.scaledl.architecturaltemplates.type.provider.ArchitecturaltemplatesEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -11,7 +11,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.scaledl.architecturaltemplates.instance.provider,
  org.scaledl.architecturaltemplates.type.provider
 Require-Bundle: org.eclipse.core.runtime,
- org.scaledl.architecturaltemplates;bundle-version="1.0.0";visibility:=reexport,
+ org.scaledl.architecturaltemplates;bundle-version="1.0.1";visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.edit;visibility:=reexport,
