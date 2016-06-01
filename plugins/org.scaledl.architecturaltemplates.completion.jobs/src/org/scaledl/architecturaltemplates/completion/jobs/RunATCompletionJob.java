@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -83,14 +84,13 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
         for (final AT architecturalTemplate : this.getATsFromSystem()) {
             for (final QVTOCompletion completion : getCompletions(architecturalTemplate)) {
-                executeCompletion(architecturalTemplate, completion);
+                executeCompletion(completion);
             }
         }
     }
 
-    private void executeCompletion(final AT architecturalTemplate, final QVTOCompletion completion)
-            throws UserCanceledException {
-        final QVTOTransformationJob job = createQvtoTransformationJob(architecturalTemplate, completion);
+    private void executeCompletion(final QVTOCompletion completion) throws UserCanceledException {
+        final QVTOTransformationJob job = createQvtoTransformationJob(completion);
 
         try {
             job.execute(new NullProgressMonitor());
@@ -105,21 +105,18 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         }
     }
 
-    private QVTOTransformationJob createQvtoTransformationJob(final AT architecturalTemplate,
-            final QVTOCompletion completion) {
-        final QVTOTransformationJob job = new QVTOTransformationJob(
-                createQvtoConfiguration(architecturalTemplate, completion));
+    private QVTOTransformationJob createQvtoTransformationJob(final QVTOCompletion completion) {
+        final QVTOTransformationJob job = new QVTOTransformationJob(createQvtoConfiguration(completion));
         job.setBlackboard(this.getBlackboard());
         return job;
     }
 
-    private QVTOTransformationJobConfiguration createQvtoConfiguration(final AT architecturalTemplate,
-            final QVTOCompletion completion) {
+    private QVTOTransformationJobConfiguration createQvtoConfiguration(final QVTOCompletion completion) {
         final QVTOTransformationJobConfiguration qvtoConfig = new QVTOTransformationJobConfiguration();
-        qvtoConfig.setInoutModels(getModelLocations(architecturalTemplate, completion));
+        qvtoConfig.setInoutModels(getModelLocations(completion));
         qvtoConfig.setTraceFileURI(URI.createURI(TRACESFOLDER));
-        qvtoConfig.setScriptFileURI(getRootURI(architecturalTemplate).appendSegment(COMPLETIONS_FOLDER)
-                .appendSegment(completion.getQvtoFileURI()));
+        qvtoConfig.setScriptFileURI(
+                getRootURI(completion).appendSegment(COMPLETIONS_FOLDER).appendSegment(completion.getQvtoFileURI()));
         qvtoConfig.setOptions(QVTO_OPTIONS);
         return qvtoConfig;
     }
@@ -130,23 +127,23 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
      * @param architecturalTemplate
      * @return
      */
-    private ModelLocation[] getModelLocations(final AT architecturalTemplate, final QVTOCompletion completion) {
+    private ModelLocation[] getModelLocations(final QVTOCompletion completion) {
         final List<ModelLocation> modelLocations = new ArrayList<ModelLocation>(completion.getParameters().size());
         for (final CompletionParameter parameter : completion.getParameters()) {
-            modelLocations.add(getModelLocation(architecturalTemplate, parameter));
+            modelLocations.add(getModelLocation(parameter));
         }
         return modelLocations.toArray(new ModelLocation[modelLocations.size()]);
     }
 
     /**
-     * Root folder of the AT.
+     * Root folder of the eObject.
      * 
-     * @param architecturalTemplate
-     *            the AT where the root folder shall be found for.
+     * @param eObject
+     *            the eObject where the root folder shall be found for.
      * @return the root folder.
      */
-    private URI getRootURI(final AT architecturalTemplate) {
-        return architecturalTemplate.eResource().getURI().trimFragment().trimSegments(1);
+    private URI getRootURI(final EObject eObject) {
+        return eObject.eResource().getURI().trimFragment().trimSegments(1);
     }
 
     private List<QVTOCompletion> getCompletions(final AT architecturalTemplate) {
@@ -164,11 +161,11 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         return Collections.unmodifiableList(completions);
     }
 
-    private ModelLocation getModelLocation(final AT architecturalTemplate, final CompletionParameter parameter) {
+    private ModelLocation getModelLocation(final CompletionParameter parameter) {
         final ResourceSetPartition pcmPartition = this.getBlackboard()
                 .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
-        final URI templateFolderURI = getRootURI(architecturalTemplate).appendSegment(TEMPLATES_FOLDER);
+        final URI templateFolderURI = getRootURI(parameter).appendSegment(TEMPLATES_FOLDER);
         final URI systemModelFolderURI = getSystemModelFolderURI();
 
         return new TypeSwitch<ModelLocation>() {
