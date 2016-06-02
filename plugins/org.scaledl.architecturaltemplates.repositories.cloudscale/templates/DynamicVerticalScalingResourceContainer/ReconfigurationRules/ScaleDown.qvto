@@ -1,13 +1,14 @@
 import org.scaledl.architecturaltemplates.repositories.cloudscale.black.ProfilesLibrary;
+import org.scaledl.architecturaltemplates.repositories.cloudscale.black.PCMLibrary;
 
 modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
 modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
 
 transformation ScaleDown(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
-property scaleDownStepSize : String;
+property scaleDownStepSize : Real;
 property scaleDownThreshold : Real;
-property minRate : String;
+property minRate : Real;
 property measurementSpecificationID : String;
 
 main() {
@@ -28,8 +29,8 @@ log ('AT Completion "ScaleDown" started');
 	resourceContainers -> forEach(resourceContainer){
 		if(hasAppliedStereotype(resourceContainer, "VirtualizedResourceContainer")){
 			scaleDownThreshold := getDoubleTaggedValue(resourceContainer, "scaleDownThreshold", "VirtualizedResourceContainer");
-			scaleDownStepSize := getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer");
-			minRate := getStringTaggedValue(resourceContainer, "minRate", "VirtualizedResourceContainer");
+			scaleDownStepSize := evaluateStoEx(getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer"));
+			minRate := evaluateStoEx(getStringTaggedValue(resourceContainer, "minRate", "VirtualizedResourceContainer"));
 			measurementSpecificationID := getStringTaggedValue(resourceContainer, "measurementSpecificationID", "VirtualizedResourceContainer");
 			
 			assert fatal(prm.rootObjects()[RuntimeMeasurement]->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
@@ -60,13 +61,11 @@ helper scaleDownProcessingResourcesRecursively(resourceContainer : ResourceConta
 
 	// decrease processing rate by scaleDown
 	resourceContainer.activeResourceSpecifications_ResourceContainer->forEach(processingResourceSpecification){
-		var currentProcessingRate : String := processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification;
-    	var newProcessingRate : String := "("+currentProcessingRate + ")-" + scaleDownStepSize;
-    	//if(newProcessingRate >= minRate){
-    		//processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
-    	//}else{
-    		//processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
-    	//};
+    	var newProcessingRate : Real := evaluateStoEx(processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification) - scaleDownStepSize;
+    	
+    	if(newProcessingRate >= minRate) {
+    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate.toString();
+    	}
     };
     
     // recursive call
