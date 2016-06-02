@@ -14,8 +14,7 @@ main() {
 log ('AT Completion "ScaleDown" started');	
 	
 	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
-		with log ("No Measurements found!");
-			
+		with log ("No Measurements found!");	
 	assert fatal(pcmAllocation.rootObjects()[Allocation]->size() > 0)
 		with log ("Allocation Model is empty!");
 		
@@ -23,18 +22,18 @@ log ('AT Completion "ScaleDown" started');
 	var resourceEnvironment : ResourceEnvironment := allocation.targetResourceEnvironment_Allocation;
 	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
 	
-	assert fatal(hasAppliedStereotype(resourceContainers,"VirtualizedResourceContainer"))
+	assert fatal(hasAppliedStereotype(resourceContainers, "VirtualizedResourceContainer"))
 		with log ("There is no Virtualized Stereotype Application!");
 	
 	resourceContainers -> forEach(resourceContainer){
-		if(hasAppliedStereotype(resourceContainer,"VirtualizedResourceContainer")){
+		if(hasAppliedStereotype(resourceContainer, "VirtualizedResourceContainer")){
 			scaleDownThreshold := getDoubleTaggedValue(resourceContainer, "scaleDownThreshold", "VirtualizedResourceContainer");
 			scaleDownStepSize := getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer");
 			minRate := getStringTaggedValue(resourceContainer, "minRate", "VirtualizedResourceContainer");
 			measurementSpecificationID := getStringTaggedValue(resourceContainer, "measurementSpecificationID", "VirtualizedResourceContainer");
 			
 			assert fatal(prm.rootObjects()[RuntimeMeasurement]->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
-				with log ("measurementSpecificationID not found in runtime measurements!");
+				with log ("measurementSpecificationID "+measurementSpecificationID+" not found in runtime measurements when scaling down!");
 				
 			resourceContainer. map scaleDownVirtualizedContainer();
 		};
@@ -62,12 +61,12 @@ helper scaleDownProcessingResourcesRecursively(resourceContainer : ResourceConta
 	// decrease processing rate by scaleDown
 	resourceContainer.activeResourceSpecifications_ResourceContainer->forEach(processingResourceSpecification){
 		var currentProcessingRate : String := processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification;
-    	var newProcessingRate : String := "("+currentProcessingRate + ")+" + scaleDownStepSize;
-    	if(newProcessingRate >= minRate){
-    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
-    	}else{
-    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
-    	};
+    	var newProcessingRate : String := "("+currentProcessingRate + ")-" + scaleDownStepSize;
+    	//if(newProcessingRate >= minRate){
+    		//processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
+    	//}else{
+    		//processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate;
+    	//};
     };
     
     // recursive call
