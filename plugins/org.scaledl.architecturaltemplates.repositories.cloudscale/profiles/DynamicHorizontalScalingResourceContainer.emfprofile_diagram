@@ -15,13 +15,13 @@
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9lagQH47EeSqFvs4kqVd7Q" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_TuvAQH4aEeS81uv5CnTOEw">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PZ8rgNGDEeSNH-qkvgNajw" name="numberOfReplicas" defaultValueLiteral="1">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PZ8rgNGDEeSNH-qkvgNajw" name="numberOfReplicas" lowerBound="1" defaultValueLiteral="1">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_R2XDkNGDEeSNH-qkvgNajw" name="scaleInThreshold" defaultValueLiteral="2">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_R2XDkNGDEeSNH-qkvgNajw" name="scaleInThreshold" lowerBound="1" defaultValueLiteral="2">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_TeZ_cNGDEeSNH-qkvgNajw" name="scaleOutThreshold" defaultValueLiteral="5">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_TeZ_cNGDEeSNH-qkvgNajw" name="scaleOutThreshold" lowerBound="1" defaultValueLiteral="5">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </eStructuralFeatures>
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_XEitwCJvEeab768vpUdnYg" name="measurementSpecificationID" lowerBound="1">

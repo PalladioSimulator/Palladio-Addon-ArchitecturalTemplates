@@ -34,10 +34,10 @@ main() {
 	assert fatal(loadBalancedResourceContainer != null)
 		with log ("There is no Replicable ResourceContainer Stereotype Application!");
 
-	numberOfReplicas := getIntTaggedValue(loadBalancedResourceContainer,"numberOfReplicas","ReplicableResourceContainer");
-	scaleInThreshold := getDoubleTaggedValue(loadBalancedResourceContainer,"scaleInThreshold","ReplicableResourceContainer");
-	scaleOutThreshold := getDoubleTaggedValue(loadBalancedResourceContainer,"scaleOutThreshold","ReplicableResourceContainer");
-	measurementSpecificationID := getStringTaggedValue(loadBalancedResourceContainer,"measurementSpecificationID","ReplicableResourceContainer");
+	numberOfReplicas := getIntTaggedValue(loadBalancedResourceContainer, "numberOfReplicas", "ReplicableResourceContainer");
+	scaleInThreshold := getDoubleTaggedValue(loadBalancedResourceContainer, "scaleInThreshold", "ReplicableResourceContainer");
+	scaleOutThreshold := getDoubleTaggedValue(loadBalancedResourceContainer, "scaleOutThreshold", "ReplicableResourceContainer");
+	measurementSpecificationID := getStringTaggedValue(loadBalancedResourceContainer, "measurementSpecificationID", "ReplicableResourceContainer");
 	
 	var reverseLoadbalancingTransformation : ResourceContainerReverseLoadbalancing := new ResourceContainerReverseLoadbalancing(prm,pcmAllocation);
 	var loadbalancingTransformation : ResourceContainerLoadbalancing:= new ResourceContainerLoadbalancing(prm,pcmAllocation);
@@ -52,7 +52,7 @@ main() {
 		reverseLoadbalancingTransformation->transform();
 		reverseLoadbalancingTransformation.loadbalanced := false;
 		numberOfReplicas:= numberOfReplicas -1;
-		setTaggedValue(loadBalancedResourceContainer,numberOfReplicas,"ReplicableResourceContainer","numberOfReplicas");
+		setTaggedValue(loadBalancedResourceContainer, numberOfReplicas, "ReplicableResourceContainer", "numberOfReplicas");
 		loadbalancingTransformation.reverseLoadbalanced := true;
 		loadbalancingTransformation->transform();
 		loadbalancingTransformation.reverseLoadbalanced := false;
@@ -62,7 +62,7 @@ main() {
 		reverseLoadbalancingTransformation->transform();
 		reverseLoadbalancingTransformation.loadbalanced := false;
 		numberOfReplicas:= numberOfReplicas +1;
-		setTaggedValue(loadBalancedResourceContainer,numberOfReplicas,"ReplicableResourceContainer","numberOfReplicas");
+		setTaggedValue(loadBalancedResourceContainer, numberOfReplicas, "ReplicableResourceContainer", "numberOfReplicas");
 		loadbalancingTransformation.reverseLoadbalanced := true;
 		loadbalancingTransformation->transform();
 		loadbalancingTransformation.reverseLoadbalanced := false;

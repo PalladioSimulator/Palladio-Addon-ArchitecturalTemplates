@@ -96,9 +96,6 @@
   </ATs>
   <ATs id="_nt1zAH4aEeS81uv5CnTOEw" entityName="Dynamic Vertical Scaling Resource Container">
     <roles id="_fhIWgH-qEeSOTOomnDiZOg" entityName="Dynamic Vertical Scaling Resource Container System" constraints="_lWA9IUTlEeWX9I6sz1f4mQ _39q0wUTlEeWX9I6sz1f4mQ _MzPVcUTmEeWX9I6sz1f4mQ _FU2A8ZA3EeWkWqBg_zv9nA _UYYRkZA3EeWkWqBg_zv9nA">
-      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicVerticalScalingResourceContainer.qvto">
-        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-      </completion>
       <stereotype href="profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
     </roles>
     <roles id="_v2XZUH4aEeS81uv5CnTOEw" entityName="Virtualized Resource Container" constraints="__VB0IbLTEeWONf-2GJUY0g _C5wfIbLUEeWONf-2GJUY0g _GXCeUbLUEeWONf-2GJUY0g _JVfzgbLUEeWONf-2GJUY0g _NGeKwbLUEeWONf-2GJUY0g">

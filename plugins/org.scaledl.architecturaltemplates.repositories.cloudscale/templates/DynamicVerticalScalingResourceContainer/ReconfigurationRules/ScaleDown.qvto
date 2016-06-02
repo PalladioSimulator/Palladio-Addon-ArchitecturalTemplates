@@ -8,6 +8,7 @@ transformation ScaleDown(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
 property scaleDownStepSize : String;
 property scaleDownThreshold : Real;
 property minRate : String;
+property measurementSpecificationID : String;
 
 main() {
 log ('AT Completion "ScaleDown" started');	
@@ -21,23 +22,29 @@ log ('AT Completion "ScaleDown" started');
 	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
 	var resourceEnvironment : ResourceEnvironment := allocation.targetResourceEnvironment_Allocation;
 	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
+	
 	assert fatal(hasAppliedStereotype(resourceContainers,"VirtualizedResourceContainer"))
 		with log ("There is no Virtualized Stereotype Application!");
-		
+	
 	resourceContainers -> forEach(resourceContainer){
 		if(hasAppliedStereotype(resourceContainer,"VirtualizedResourceContainer")){
 			scaleDownThreshold := getDoubleTaggedValue(resourceContainer, "scaleDownThreshold", "VirtualizedResourceContainer");
 			scaleDownStepSize := getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer");
 			minRate := getStringTaggedValue(resourceContainer, "minRate", "VirtualizedResourceContainer");
+			measurementSpecificationID := getStringTaggedValue(resourceContainer, "measurementSpecificationID", "VirtualizedResourceContainer");
+			
+			assert fatal(prm.rootObjects()[RuntimeMeasurement]->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+				with log ("measurementSpecificationID not found in runtime measurements!");
+				
 			resourceContainer. map scaleDownVirtualizedContainer();
 		};
 	};
 	log ('AT Completion "ScaleDown" finished');	
 }
-// FIXME need to check whether it's the right model element
+
 query Set(RuntimeMeasurement) :: checkCondition() : Boolean
 {
-	return self->exists(measurement | measurement.measuringValue < scaleDownThreshold)
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue < scaleDownThreshold)
 }
 
 mapping ResourceContainer::scaleDownVirtualizedContainer():ResourceContainer 

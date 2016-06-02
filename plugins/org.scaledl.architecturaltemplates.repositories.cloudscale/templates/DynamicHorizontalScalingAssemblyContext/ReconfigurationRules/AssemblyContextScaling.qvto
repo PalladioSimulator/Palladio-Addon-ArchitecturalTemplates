@@ -12,6 +12,7 @@ access transformation Loadbalancing, ReverseLoadbalancing;
 property numberOfReplicas : Integer;
 property scaleInThreshold : Real;
 property scaleOutThreshold : Real;
+property measurementSpecificationID : String;
 
 main() {
 	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
@@ -34,29 +35,34 @@ main() {
 	assert fatal(loadBalancedAssemblyContext != null)
 		with log ("There is no Replicable Assembly Context Stereotype Application!");
 
-	numberOfReplicas := getIntTaggedValue(loadBalancedAssemblyContext,"numberOfReplicas","ReplicableAssemblyContext");
-	scaleInThreshold := getDoubleTaggedValue(loadBalancedAssemblyContext,"scaleInThreshold","ReplicableAssemblyContext");
-	scaleOutThreshold := getDoubleTaggedValue(loadBalancedAssemblyContext,"scaleOutThreshold","ReplicableAssemblyContext");	
+	numberOfReplicas := getIntTaggedValue(loadBalancedAssemblyContext, "numberOfReplicas", "ReplicableAssemblyContext");
+	scaleInThreshold := getDoubleTaggedValue(loadBalancedAssemblyContext, "scaleInThreshold", "ReplicableAssemblyContext");
+	scaleOutThreshold := getDoubleTaggedValue(loadBalancedAssemblyContext, "scaleOutThreshold", "ReplicableAssemblyContext");
+	measurementSpecificationID := getStringTaggedValue(loadBalancedAssemblyContext, "measurementSpecificationID", "ReplicableAssemblyContext");
 	
+	var runtimeMeasurement := prm.rootObjects()[RuntimeMeasurement];
+	assert fatal(runtimeMeasurement->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+		with log ("measurementSpecificationID not found in runtime measurements!");
+		
 	var reverseLoadbalancingTransformation : ReverseLoadbalancing := new ReverseLoadbalancing(prm,pcmAllocation);
 	var loadbalancingTransformation : Loadbalancing := new Loadbalancing(prm,pcmAllocation);
 	//The setting of the configuration properties to false could be unnecessary
-	if(prm.rootObjects()[RuntimeMeasurement]->checkScaleInCondition() and numberOfReplicas > 1){
+	if(runtimeMeasurement->checkScaleInCondition() and numberOfReplicas > 1){
 		reverseLoadbalancingTransformation.loadbalanced := true;
 		reverseLoadbalancingTransformation->transform();
 		reverseLoadbalancingTransformation.loadbalanced := false;
 		numberOfReplicas:= numberOfReplicas -1;
-		setTaggedValue(loadBalancedAssemblyContext,numberOfReplicas,"ReplicableAssemblyContext","numberOfReplicas");
+		setTaggedValue(loadBalancedAssemblyContext, numberOfReplicas, "ReplicableAssemblyContext", "numberOfReplicas");
 		loadbalancingTransformation.reverseLoadbalanced := true;
 		loadbalancingTransformation->transform();
 		loadbalancingTransformation.reverseLoadbalanced := false;
 	}
-	else if(prm.rootObjects()[RuntimeMeasurement]->checkScaleOutCondition()){
+	else if(runtimeMeasurement->checkScaleOutCondition()){
 		reverseLoadbalancingTransformation.loadbalanced := true;
 		reverseLoadbalancingTransformation->transform();
 		reverseLoadbalancingTransformation.loadbalanced := false;
 		numberOfReplicas:= numberOfReplicas +1;
-		setTaggedValue(loadBalancedAssemblyContext,numberOfReplicas,"ReplicableAssemblyContext","numberOfReplicas");
+		setTaggedValue(loadBalancedAssemblyContext, numberOfReplicas, "ReplicableAssemblyContext", "numberOfReplicas");
 		loadbalancingTransformation.reverseLoadbalanced := true;
 		loadbalancingTransformation->transform();
 		loadbalancingTransformation.reverseLoadbalanced := false;
@@ -64,10 +70,10 @@ main() {
 }
 
 query Set(RuntimeMeasurement) :: checkScaleOutCondition() : Boolean {
-	return self->exists(measurement | measurement.measuringValue > scaleOutThreshold)
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue > scaleOutThreshold)
 }
 	
 query Set(RuntimeMeasurement) :: checkScaleInCondition() : Boolean {
-	return self->exists(measurement | measurement.measuringValue < scaleInThreshold)
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue < scaleInThreshold)
 }
 	

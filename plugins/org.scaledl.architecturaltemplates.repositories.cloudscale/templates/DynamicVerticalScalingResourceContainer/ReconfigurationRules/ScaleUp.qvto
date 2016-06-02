@@ -8,6 +8,7 @@ transformation ScaleUp(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
 property scaleUpThreshold : Real;
 property scaleUpStepSize : String;
 property maxRate : String;
+property measurementSpecificationID : String;
 
 main() {
 	log ('AT Completion "ScaleUp" started');	
@@ -20,24 +21,33 @@ main() {
 	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
 	var resourceEnvironment : ResourceEnvironment := allocation.targetResourceEnvironment_Allocation;
 	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
+	
 	assert fatal(hasAppliedStereotype(resourceContainers,"VirtualizedResourceContainer"))
 		with log ("There is no Virtualized Stereotype Application!");
 	
+	var runtimeMeasurement := prm.rootObjects()[RuntimeMeasurement];
+	assert fatal(runtimeMeasurement->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+		with log ("measurementSpecificationID not found in runtime measurements!");
+		
 	resourceContainers -> forEach(resourceContainer){
 		if(hasAppliedStereotype(resourceContainer,"VirtualizedResourceContainer")){
 			scaleUpThreshold := getDoubleTaggedValue(resourceContainer, "scaleUpThreshold", "VirtualizedResourceContainer");
 			scaleUpStepSize := getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer");
 			maxRate := getStringTaggedValue(resourceContainer, "maxRate", "VirtualizedResourceContainer");
+			measurementSpecificationID := getStringTaggedValue(resourceContainer, "measurementSpecificationID", "VirtualizedResourceContainer");
+			
+			assert fatal(prm.rootObjects()[RuntimeMeasurement]->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+				with log ("measurementSpecificationID not found in runtime measurements!");
+				
 			resourceContainer. map scaleUpVirtualizedContainer();
 		};
 	};
 	log ('AT Completion "ScaleUp" finished');	
 }
 
-// FIXME need to check whether it's the right model element
 query Set(RuntimeMeasurement) :: checkCondition() : Boolean
 {
-	return self->exists(measurement | measurement.measuringValue > scaleUpThreshold)
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue > scaleUpThreshold)
 }
 
 mapping ResourceContainer::scaleUpVirtualizedContainer():ResourceContainer 

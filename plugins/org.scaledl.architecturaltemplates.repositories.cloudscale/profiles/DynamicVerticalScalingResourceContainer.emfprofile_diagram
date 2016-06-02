@@ -15,19 +15,22 @@
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9lagQH47EeSqFvs4kqVd7Q" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_v2XZUH4aEeS81uv5CnTOEw">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_0ZJ3sMgLEeS6CoFWe85nBQ" name="scaleUpThreshold" defaultValueLiteral="2.0">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_0ZJ3sMgLEeS6CoFWe85nBQ" name="scaleUpThreshold" lowerBound="1" defaultValueLiteral="2.0">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Rt8AYMgMEeS6CoFWe85nBQ" name="scaleDownThreshold" defaultValueLiteral="1.0">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Rt8AYMgMEeS6CoFWe85nBQ" name="scaleDownThreshold" lowerBound="1" defaultValueLiteral="1.0">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_GefwQNF_EeSNH-qkvgNajw" name="maxRate" defaultValueLiteral="1000.0">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_GefwQNF_EeSNH-qkvgNajw" name="maxRate" lowerBound="1" defaultValueLiteral="1000.0">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_HSvQoNF_EeSNH-qkvgNajw" name="minRate" defaultValueLiteral="100.0">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_HSvQoNF_EeSNH-qkvgNajw" name="minRate" lowerBound="1" defaultValueLiteral="100.0">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ISmLINF_EeSNH-qkvgNajw" name="stepSize" defaultValueLiteral="100.0">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_ISmLINF_EeSNH-qkvgNajw" name="stepSize" lowerBound="1" defaultValueLiteral="100.0">
+        <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_IYkYgCjFEeawEeT94RsgjA" name="measurementSpecificationID" lowerBound="1">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_7MhWQH47EeSqFvs4kqVd7Q">
@@ -105,6 +108,9 @@
         </children>
         <children xmi:type="notation:Node" xmi:id="_ISmyMNF_EeSNH-qkvgNajw" type="3001" element="_ISmLINF_EeSNH-qkvgNajw">
           <layoutConstraint xmi:type="notation:Location" xmi:id="_ISmyMdF_EeSNH-qkvgNajw"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_IYmNsCjFEeawEeT94RsgjA" type="3001" element="_IYkYgCjFEeawEeT94RsgjA">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_IYmNsSjFEeawEeT94RsgjA"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_2NBWYn47EeSqFvs4kqVd7Q"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_2NBWY347EeSqFvs4kqVd7Q"/>
