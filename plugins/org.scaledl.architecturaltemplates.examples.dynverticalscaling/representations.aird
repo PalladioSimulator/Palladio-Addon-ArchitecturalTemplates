@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:org.scaledl.architecturaltemplates.repositories.cloudscale.profiles="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.dynamicverticalscalingresourcecontainer" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.dynamicverticalscalingresourcecontainer platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_W1LLkCOrEeSubfGVEKswQQ http://palladiosimulator.org/PalladioComponentModel/Repository/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//repository http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://palladiosimulator.org/PalladioComponentModel/System/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//system" xmi:id="_xvc5wCjIEeaGwKDvKDEH-Q" selectedViews="_y7P-gCjIEeaGwKDvKDEH-Q _y7bksCjIEeaGwKDvKDEH-Q" version="11.0.0.201601261200">
+  <semanticResources>Experiments/Capacity.experiments</semanticResources>
+  <semanticResources>Experiments/pcm.variation</semanticResources>
+  <semanticResources>default.usagemodel</semanticResources>
+  <semanticResources>default.allocation</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/Glassfish.repository</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/default_event_middleware.repository</semanticResources>
+  <semanticResources>default.monitorrepository</semanticResources>
+  <semanticResources>default.slo</semanticResources>
+  <semanticResources>default.system</semanticResources>
+  <semanticResources>platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository</semanticResources>
+  <semanticResources>platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram</semanticResources>
+  <semanticResources>http://www.modelversioning.org/emfprofile/application/1.1</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>http://palladiosimulator.org/PalladioComponentModel/5.1</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/Palladio.resourcetype</semanticResources>
+  <semanticResources>default.resourceenvironment</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/PrimitiveTypes.repository</semanticResources>
+  <semanticResources>default.measuringpoint</semanticResources>
+  <semanticResources>pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec</semanticResources>
+  <semanticResources>Experiments/Elasticity.experiments</semanticResources>
+  <semanticResources>UsageEvolution/verticalScalingUsageEvolution.usageevolution</semanticResources>
+  <semanticResources>http://www.modelversioning.org/emfprofile/1.1</semanticResources>
+  <semanticResources>http://sdq.ipd.uka.de/StochasticExpressions/2.2</semanticResources>
+  <semanticResources>http://sdq.ipd.uka.de/Identifier/2.1</semanticResources>
+  <semanticResources>http://sdq.ipd.uka.de/Units/2.1</semanticResources>
+  <semanticResources>UsageEvolution/verticalScalingLoad.dlim</semanticResources>
+  <semanticResources>Experiments/ElasticityWithoutDynamicScaling.experiments</semanticResources>
+  <semanticResources>http://sdq.ipd.uka.de/ProbFunction/2.1</semanticResources>
+  <semanticResources>Experiments/ReconfigurationRules.experiments</semanticResources>
+  <semanticResources>UsageEvolution/OneYearTrend.dlim</semanticResources>
+  <semanticResources>UsageEvolution/OneYearTrend.usageevolution</semanticResources>
+  <semanticResources>default.allocation_diagram</semanticResources>
+  <semanticResources>default.resourceenvironment_diagram</semanticResources>
+  <semanticResources>default.system_diagram</semanticResources>
+  <semanticResources>default.usagemodel_diagram</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_y7P-gCjIEeaGwKDvKDEH-Q">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_5N4aMCjIEeaGwKDvKDEH-Q" name="new Resourceenvironment Diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_5N4aMSjIEeaGwKDvKDEH-Q" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_5N4aMijIEeaGwKDvKDEH-Q"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_5N5BRijIEeaGwKDvKDEH-Q" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_5N5BRyjIEeaGwKDvKDEH-Q" type="Sirius" element="_5N4aMCjIEeaGwKDvKDEH-Q" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_5N5oUCjIEeaGwKDvKDEH-Q" type="2003" element="_5N4aMyjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_5N7dgCjIEeaGwKDvKDEH-Q" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_5N7dgSjIEeaGwKDvKDEH-Q" type="7004">
+              <children xmi:type="notation:Node" xmi:id="_5N9StCjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aNSjIEeaGwKDvKDEH-Q">
+                <styles xmi:type="notation:FontStyle" xmi:id="_5N9StSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_5N9StijIEeaGwKDvKDEH-Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_5N9StyjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aNyjIEeaGwKDvKDEH-Q">
+                <styles xmi:type="notation:FontStyle" xmi:id="_5N9SuCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_5N9SuSjIEeaGwKDvKDEH-Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_5N9SuijIEeaGwKDvKDEH-Q" type="3010" element="_5N4aOSjIEeaGwKDvKDEH-Q">
+                <styles xmi:type="notation:FontStyle" xmi:id="_5N9SuyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_5N9SvCjIEeaGwKDvKDEH-Q"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_5N95wCjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aOyjIEeaGwKDvKDEH-Q">
+                <styles xmi:type="notation:FontStyle" xmi:id="_5N95wSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_5N95wijIEeaGwKDvKDEH-Q"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5N7dgijIEeaGwKDvKDEH-Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5N7dgyjIEeaGwKDvKDEH-Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_5N5oUSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N5oUijIEeaGwKDvKDEH-Q" x="248" y="364"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_5N8EkCjIEeaGwKDvKDEH-Q" type="2002" element="_5N4aPSjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_5N8EkyjIEeaGwKDvKDEH-Q" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_5N8roCjIEeaGwKDvKDEH-Q" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_5N95wyjIEeaGwKDvKDEH-Q" type="3009" element="_5N4aPyjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_5N95xijIEeaGwKDvKDEH-Q" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_5N95xyjIEeaGwKDvKDEH-Q" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_5N-g1CjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aQSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N-g1SjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N-g1ijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N-g1yjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aQyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N-g2CjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N-g2SjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N-g2ijIEeaGwKDvKDEH-Q" type="3010" element="_5N4aRSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N-g2yjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N-g3CjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N_H4CjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aRyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_H4SjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_H4ijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N_H4yjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aSSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_H5CjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_H5SjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N_u8CjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aSyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_u8SjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_u8ijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_5N95yCjIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_5N95ySjIEeaGwKDvKDEH-Q"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_5N95xCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N95xSjIEeaGwKDvKDEH-Q" y="128"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_5N95yijIEeaGwKDvKDEH-Q" type="3009" element="_5N4aTSjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_5N-g0CjIEeaGwKDvKDEH-Q" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_5N-g0SjIEeaGwKDvKDEH-Q" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_5N_u8yjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aTyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_u9CjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_u9SjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N_u9ijIEeaGwKDvKDEH-Q" type="3010" element="_5N4aUSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_u9yjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_u-CjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5N_u-SjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aUyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_u-ijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_u-yjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5OAWACjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aVSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OAWASjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OAWAijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5OAWAyjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aVyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OAWBCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OAWBSjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_5N-g0ijIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_5N-g0yjIEeaGwKDvKDEH-Q"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_5N95yyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N95zCjIEeaGwKDvKDEH-Q" x="26" y="21"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5N8roSjIEeaGwKDvKDEH-Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5N8roijIEeaGwKDvKDEH-Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_5N8EkSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N8EkijIEeaGwKDvKDEH-Q" x="476" y="104" width="279" height="315"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_5N8royjIEeaGwKDvKDEH-Q" type="2002" element="_5N4aWSjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_5N8rpijIEeaGwKDvKDEH-Q" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_5N8rpyjIEeaGwKDvKDEH-Q" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_5OAWBijIEeaGwKDvKDEH-Q" type="3009" element="_5N4aWyjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_5OAWCSjIEeaGwKDvKDEH-Q" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_5OA9ECjIEeaGwKDvKDEH-Q" type="7003">
+                  <children xmi:type="notation:Node" xmi:id="_5OA9EyjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aXSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OA9FCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OA9FSjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5OA9FijIEeaGwKDvKDEH-Q" type="3010" element="_5N4aXyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OA9FyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OA9GCjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5OA9GSjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aYSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OA9GijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OA9GyjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5OA9HCjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aYyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OA9HSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OA9HijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_5OA9HyjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aZSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_5OA9ICjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5OA9ISjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_5OA9ESjIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_5OA9EijIEeaGwKDvKDEH-Q"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_5OAWByjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OAWCCjIEeaGwKDvKDEH-Q" y="128"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5N8rqCjIEeaGwKDvKDEH-Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5N8rqSjIEeaGwKDvKDEH-Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_5N8rpCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N8rpSjIEeaGwKDvKDEH-Q" x="88" y="100" height="228"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_5N8rqijIEeaGwKDvKDEH-Q" type="2003" element="_5N4aZyjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_5N9SsCjIEeaGwKDvKDEH-Q" type="5007"/>
+            <children xmi:type="notation:Node" xmi:id="_5N9SsSjIEeaGwKDvKDEH-Q" type="7004">
+              <styles xmi:type="notation:SortingStyle" xmi:id="_5N9SsijIEeaGwKDvKDEH-Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_5N9SsyjIEeaGwKDvKDEH-Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_5N8rqyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5N8rrCjIEeaGwKDvKDEH-Q" x="224" y="20"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_5N5BSCjIEeaGwKDvKDEH-Q"/>
+          <edges xmi:type="notation:Edge" xmi:id="_5OBkICjIEeaGwKDvKDEH-Q" type="4001" element="_5N4aaSjIEeaGwKDvKDEH-Q" source="_5N5oUCjIEeaGwKDvKDEH-Q" target="_5N8EkCjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_5OBkJCjIEeaGwKDvKDEH-Q" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OBkJSjIEeaGwKDvKDEH-Q" y="-4"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OBkJijIEeaGwKDvKDEH-Q" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OBkJyjIEeaGwKDvKDEH-Q" y="1"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OBkKCjIEeaGwKDvKDEH-Q" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OBkKSjIEeaGwKDvKDEH-Q" x="3" y="1"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_5OBkISjIEeaGwKDvKDEH-Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_5OBkIijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5OBkIyjIEeaGwKDvKDEH-Q" points="[67, -7, -306, 200]$[223, -109, -150, 98]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5OBkKijIEeaGwKDvKDEH-Q" id="(0.33333333333333326,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5OBkKyjIEeaGwKDvKDEH-Q" id="(0.30866425992779783,0.40894568690095845)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_5OBkLCjIEeaGwKDvKDEH-Q" type="4001" element="_5N5BQijIEeaGwKDvKDEH-Q" source="_5N5oUCjIEeaGwKDvKDEH-Q" target="_5N8royjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_5OCLMCjIEeaGwKDvKDEH-Q" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OCLMSjIEeaGwKDvKDEH-Q" x="16"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OCLMijIEeaGwKDvKDEH-Q" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OCLMyjIEeaGwKDvKDEH-Q" x="-11" y="1"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5OCLNCjIEeaGwKDvKDEH-Q" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OCLNSjIEeaGwKDvKDEH-Q" x="-15"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_5OBkLSjIEeaGwKDvKDEH-Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_5OBkLijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5OBkLyjIEeaGwKDvKDEH-Q" points="[34, -33, 186, 178]$[-78, -141, 74, 70]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5OCLNijIEeaGwKDvKDEH-Q" id="(0.6666666666666665,1.0)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5OCLNyjIEeaGwKDvKDEH-Q" id="(0.5,0.5663716814159292)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_5N4aMyjIEeaGwKDvKDEH-Q" name="Network" outgoingEdges="_5N4aaSjIEeaGwKDvKDEH-Q _5N5BQijIEeaGwKDvKDEH-Q">
+        <target xmi:type="resourceenvironment:LinkingResource" href="default.resourceenvironment#_9lNF4H4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="resourceenvironment:LinkingResource" href="default.resourceenvironment#_9lNF4H4wEeSqFvs4kqVd7Q"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aNCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" borderColor="209,209,209" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aNSjIEeaGwKDvKDEH-Q" name="LAN">
+          <target xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aNijIEeaGwKDvKDEH-Q" labelAlignment="LEFT">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='CommunicationLinkResourceSpecification']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='CommunicationLinkResourceSpecification']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aNyjIEeaGwKDvKDEH-Q" name="Latency: 0">
+          <target xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aOCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='Latency']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='Latency']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aOSjIEeaGwKDvKDEH-Q" name="Throughput: 99999">
+          <target xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aOijIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='Throughput']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='Throughput']"/>
+        </ownedElements>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aOyjIEeaGwKDvKDEH-Q" name="Failure Probability: 0.0">
+          <target xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="resourceenvironment:CommunicationLinkResourceSpecification" href="default.resourceenvironment#_9lTzkH4wEeSqFvs4kqVd7Q"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aPCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='Failure%20Probability']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='LinkingResource']/@subNodeMappings[name='Failure%20Probability']"/>
+        </ownedElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_5N4aPSjIEeaGwKDvKDEH-Q" name="Virtualized Resource Container" tooltipText="ResourceContainer" incomingEdges="_5N4aaSjIEeaGwKDvKDEH-Q" height="10">
+        <target xmi:type="resourceenvironment:ResourceContainer" href="default.resourceenvironment#_vHW8QH4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="resourceenvironment:ResourceContainer" href="default.resourceenvironment#_vHW8QH4wEeSqFvs4kqVd7Q"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aPijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" borderColor="209,209,209" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_5N4aPyjIEeaGwKDvKDEH-Q" name="VirtualizedResourceContainer">
+          <target xmi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:VirtualizedResourceContainer" href="default.resourceenvironment#/1/@stereotypeApplications.0"/>
+          <semanticElements xmi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:VirtualizedResourceContainer" href="default.resourceenvironment#/1/@stereotypeApplications.0"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aQCjIEeaGwKDvKDEH-Q" iconPath="/org.scaledl.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aQSjIEeaGwKDvKDEH-Q" name="scaleUpThreshold=1.0">
+            <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_0ZJ3sMgLEeS6CoFWe85nBQ"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_0ZJ3sMgLEeS6CoFWe85nBQ"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aQijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aQyjIEeaGwKDvKDEH-Q" name="scaleDownThreshold=0.5">
+            <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_Rt8AYMgMEeS6CoFWe85nBQ"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_Rt8AYMgMEeS6CoFWe85nBQ"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aRCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aRSjIEeaGwKDvKDEH-Q" name="maxRate=10000">
+            <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_GefwQNF_EeSNH-qkvgNajw"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_GefwQNF_EeSNH-qkvgNajw"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aRijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aRyjIEeaGwKDvKDEH-Q" name="minRate=50">
+            <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_HSvQoNF_EeSNH-qkvgNajw"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_HSvQoNF_EeSNH-qkvgNajw"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aSCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aSSjIEeaGwKDvKDEH-Q" name="stepSize=50">
+            <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_ISmLINF_EeSNH-qkvgNajw"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_ISmLINF_EeSNH-qkvgNajw"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aSijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aSyjIEeaGwKDvKDEH-Q" name="measurementSpecificationID=_EiV94NGFEeSI6PUuryS_mw">
+            <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_IYkYgCjFEeawEeT94RsgjA"/>
+            <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_IYkYgCjFEeawEeT94RsgjA"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aTCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_5N4aTSjIEeaGwKDvKDEH-Q" name="CPU">
+          <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aTijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aTyjIEeaGwKDvKDEH-Q" name="Scheduling: ProcessorSharing">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aUCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Scheduling']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Scheduling']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aUSjIEeaGwKDvKDEH-Q" name="Number of Replicas: 1">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aUijIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Number%20of%20Replicas']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Number%20of%20Replicas']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aUyjIEeaGwKDvKDEH-Q" name="Processing Rate: 50">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aVCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Processing%20Rate']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Processing%20Rate']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aVSjIEeaGwKDvKDEH-Q" name="MTTR: 0.0">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aVijIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTR']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTR']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aVyjIEeaGwKDvKDEH-Q" name="MTTF: 0.0">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_05cPoH4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aWCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTF']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTF']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_5N4aWSjIEeaGwKDvKDEH-Q" name="Normal Resource Container" tooltipText="ResourceContainer" incomingEdges="_5N5BQijIEeaGwKDvKDEH-Q" height="10">
+        <target xmi:type="resourceenvironment:ResourceContainer" href="default.resourceenvironment#_xnmEYH4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="resourceenvironment:ResourceContainer" href="default.resourceenvironment#_xnmEYH4wEeSqFvs4kqVd7Q"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aWijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" borderSize="2" borderSizeComputationExpression="2" borderColor="209,209,209" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_5N4aWyjIEeaGwKDvKDEH-Q" name="CPU">
+          <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aXCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']"/>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aXSjIEeaGwKDvKDEH-Q" name="Scheduling: ProcessorSharing">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aXijIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Scheduling']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Scheduling']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aXyjIEeaGwKDvKDEH-Q" name="Number of Replicas: 1">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aYCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Number%20of%20Replicas']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Number%20of%20Replicas']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aYSjIEeaGwKDvKDEH-Q" name="Processing Rate: 2000">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aYijIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Processing%20Rate']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='Processing%20Rate']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aYyjIEeaGwKDvKDEH-Q" name="MTTR: 0.0">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aZCjIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTR']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTR']"/>
+          </ownedElements>
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aZSjIEeaGwKDvKDEH-Q" name="MTTF: 0.0">
+            <target xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <semanticElements xmi:type="resourceenvironment:ProcessingResourceSpecification" href="default.resourceenvironment#_5_aD4H4wEeSqFvs4kqVd7Q"/>
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aZijIEeaGwKDvKDEH-Q" showIcon="false" labelAlignment="LEFT">
+              <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTF']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='ProcessingResourceSpecification%20Container']/@subNodeMappings[name='MTTF']"/>
+          </ownedElements>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_5N4aZyjIEeaGwKDvKDEH-Q" name="DynamicVerticalScalingResourceContainerProfile">
+        <target xmi:type="emfprofileapplication:ProfileImport" href="default.resourceenvironment#/1/@importedProfiles.0"/>
+        <semanticElements xmi:type="emfprofileapplication:ProfileImport" href="default.resourceenvironment#/1/@importedProfiles.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5N4aaCjIEeaGwKDvKDEH-Q" iconPath="/org.scaledl.architecturaltemplates.edit/icons/full/obj16/ATInstance.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceEnvironment%20AT%20Container']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceEnvironment%20AT%20Container']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_5N4aaSjIEeaGwKDvKDEH-Q" sourceNode="_5N4aMyjIEeaGwKDvKDEH-Q" targetNode="_5N4aPSjIEeaGwKDvKDEH-Q">
+        <target xmi:type="resourceenvironment:LinkingResource" href="default.resourceenvironment#_9lNF4H4wEeSqFvs4kqVd7Q"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_5N5BQCjIEeaGwKDvKDEH-Q" targetArrow="NoDecoration" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@edgeMappings[name='Connector']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_5N5BQSjIEeaGwKDvKDEH-Q"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@edgeMappings[name='Connector']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_5N5BQijIEeaGwKDvKDEH-Q" sourceNode="_5N4aMyjIEeaGwKDvKDEH-Q" targetNode="_5N4aWSjIEeaGwKDvKDEH-Q">
+        <target xmi:type="resourceenvironment:LinkingResource" href="default.resourceenvironment#_9lNF4H4wEeSqFvs4kqVd7Q"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_5N5BQyjIEeaGwKDvKDEH-Q" targetArrow="NoDecoration" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@edgeMappings[name='Connector']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_5N5BRCjIEeaGwKDvKDEH-Q"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@edgeMappings[name='Connector']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_5N5BRSjIEeaGwKDvKDEH-Q"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer"/>
+      <target xmi:type="resourceenvironment:ResourceEnvironment" href="default.resourceenvironment#/0"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']"/>
+  </ownedViews>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_y7bksCjIEeaGwKDvKDEH-Q">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_0LRb8CjIEeaGwKDvKDEH-Q" name="new ComposedProvidingRequiringEntity Diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_0LRb8SjIEeaGwKDvKDEH-Q" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_0LRb8ijIEeaGwKDvKDEH-Q"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_0LSDDSjIEeaGwKDvKDEH-Q" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_0LSDDijIEeaGwKDvKDEH-Q" type="Sirius" element="_0LRb8CjIEeaGwKDvKDEH-Q" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_0LSqECjIEeaGwKDvKDEH-Q" type="2002" element="_0LRb8yjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_0LSqEyjIEeaGwKDvKDEH-Q" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_0LTRICjIEeaGwKDvKDEH-Q" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_0LT4NSjIEeaGwKDvKDEH-Q" type="3008" element="_0LRb-yjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_0LUfQCjIEeaGwKDvKDEH-Q" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_0LUfQSjIEeaGwKDvKDEH-Q" type="7002">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_0LUfQijIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_0LUfQyjIEeaGwKDvKDEH-Q"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_0LVGWyjIEeaGwKDvKDEH-Q" type="3012" element="_0LRb_CjIEeaGwKDvKDEH-Q">
+                  <children xmi:type="notation:Node" xmi:id="_0LVtYCjIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_0LVtYSjIEeaGwKDvKDEH-Q" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_0LWUcCjIEeaGwKDvKDEH-Q" type="3014" element="_0LRb_ijIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_0LWUcSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LWUcijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_0LVGXCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LVGXSjIEeaGwKDvKDEH-Q" x="-22" width="30" height="30"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_0LVtYijIEeaGwKDvKDEH-Q" type="3012" element="_0LRb_yjIEeaGwKDvKDEH-Q">
+                  <children xmi:type="notation:Node" xmi:id="_0LVtZSjIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_0LVtZijIEeaGwKDvKDEH-Q" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_0LW7gCjIEeaGwKDvKDEH-Q" type="3014" element="_0LRcASjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_0LW7gSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LW7gijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_0LVtYyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LVtZCjIEeaGwKDvKDEH-Q" x="148" y="24" width="30" height="30"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LT4NijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LT4NyjIEeaGwKDvKDEH-Q" x="185" y="146"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_0LUfRCjIEeaGwKDvKDEH-Q" type="3008" element="_0LRcAyjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_0LUfRyjIEeaGwKDvKDEH-Q" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_0LUfSCjIEeaGwKDvKDEH-Q" type="7002">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_0LUfSSjIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_0LUfSijIEeaGwKDvKDEH-Q"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_0LW7gyjIEeaGwKDvKDEH-Q" type="3012" element="_0LRcBCjIEeaGwKDvKDEH-Q">
+                  <children xmi:type="notation:Node" xmi:id="_0LW7hijIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_0LW7hyjIEeaGwKDvKDEH-Q" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_0LXikCjIEeaGwKDvKDEH-Q" type="3014" element="_0LRcBijIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_0LXikSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LXikijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_0LW7hCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LW7hSjIEeaGwKDvKDEH-Q" x="-22" width="30" height="30"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_0LW7iCjIEeaGwKDvKDEH-Q" type="3012" element="_0LRcByjIEeaGwKDvKDEH-Q">
+                  <children xmi:type="notation:Node" xmi:id="_0LW7iyjIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_0LW7jCjIEeaGwKDvKDEH-Q" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_0LXikyjIEeaGwKDvKDEH-Q" type="3014" element="_0LRcCSjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_0LXilCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LXilSjIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_0LW7iSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LW7iijIEeaGwKDvKDEH-Q" x="148" y="20" width="30" height="30"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LUfRSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LUfRijIEeaGwKDvKDEH-Q" x="177" y="274"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_0LUfSyjIEeaGwKDvKDEH-Q" type="3008" element="_0LRcCyjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_0LUfTijIEeaGwKDvKDEH-Q" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_0LUfTyjIEeaGwKDvKDEH-Q" type="7002">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_0LUfUCjIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_0LUfUSjIEeaGwKDvKDEH-Q"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_0LXilijIEeaGwKDvKDEH-Q" type="3012" element="_0LRcDCjIEeaGwKDvKDEH-Q">
+                  <children xmi:type="notation:Node" xmi:id="_0LXimSjIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_0LXimijIEeaGwKDvKDEH-Q" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_0LYJoCjIEeaGwKDvKDEH-Q" type="3014" element="_0LRcDijIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_0LYJoSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LYJoijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_0LXilyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LXimCjIEeaGwKDvKDEH-Q" x="-22" width="30" height="30"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LUfTCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LUfTSjIEeaGwKDvKDEH-Q" x="505" y="150"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_0LUfUijIEeaGwKDvKDEH-Q" type="3008" element="_0LRcECjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_0LVGUCjIEeaGwKDvKDEH-Q" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_0LVGUSjIEeaGwKDvKDEH-Q" type="7002">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_0LVGUijIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_0LVGUyjIEeaGwKDvKDEH-Q"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_0LYJoyjIEeaGwKDvKDEH-Q" type="3012" element="_0LRcESjIEeaGwKDvKDEH-Q">
+                  <children xmi:type="notation:Node" xmi:id="_0LYJpijIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_0LYJpyjIEeaGwKDvKDEH-Q" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_0LYwsCjIEeaGwKDvKDEH-Q" type="3014" element="_0LRcEyjIEeaGwKDvKDEH-Q">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_0LYwsSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LYwsijIEeaGwKDvKDEH-Q"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_0LYJpCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LYJpSjIEeaGwKDvKDEH-Q" x="-22" width="30" height="30"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LUfUyjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LUfVCjIEeaGwKDvKDEH-Q" x="505" y="298"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_0LVGVCjIEeaGwKDvKDEH-Q" type="3009" element="_0LRcFSjIEeaGwKDvKDEH-Q">
+                <children xmi:type="notation:Node" xmi:id="_0LVGVyjIEeaGwKDvKDEH-Q" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_0LVGWCjIEeaGwKDvKDEH-Q" type="7003">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_0LVGWSjIEeaGwKDvKDEH-Q"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_0LVGWijIEeaGwKDvKDEH-Q"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LVGVSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LVGVijIEeaGwKDvKDEH-Q" x="215" y="38"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_0LTRISjIEeaGwKDvKDEH-Q"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_0LTRIijIEeaGwKDvKDEH-Q"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0LTRIyjIEeaGwKDvKDEH-Q" type="3012" element="_0LRb9CjIEeaGwKDvKDEH-Q">
+              <children xmi:type="notation:Node" xmi:id="_0LTRJijIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_0LTRJyjIEeaGwKDvKDEH-Q" y="-21"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_0LYwsyjIEeaGwKDvKDEH-Q" type="3014" element="_0LRb9ijIEeaGwKDvKDEH-Q">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LYwtCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LYwtSjIEeaGwKDvKDEH-Q"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_0LTRJCjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LTRJSjIEeaGwKDvKDEH-Q" x="-50" y="124" width="50" height="50"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0LT4MCjIEeaGwKDvKDEH-Q" type="3012" element="_0LRb9yjIEeaGwKDvKDEH-Q">
+              <children xmi:type="notation:Node" xmi:id="_0LT4MyjIEeaGwKDvKDEH-Q" visible="false" type="5010">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_0LT4NCjIEeaGwKDvKDEH-Q" y="-21"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_0LZXwCjIEeaGwKDvKDEH-Q" type="3014" element="_0LRb-SjIEeaGwKDvKDEH-Q">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_0LZXwSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZXwijIEeaGwKDvKDEH-Q"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_0LT4MSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LT4MijIEeaGwKDvKDEH-Q" x="9" y="321" width="50" height="50"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_0LSqESjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LSqEijIEeaGwKDvKDEH-Q" x="32" y="32" width="855" height="475"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_0LSDDyjIEeaGwKDvKDEH-Q"/>
+          <edges xmi:type="notation:Edge" xmi:id="_0LZXwyjIEeaGwKDvKDEH-Q" type="4001" element="_0LSDACjIEeaGwKDvKDEH-Q" source="_0LVtYijIEeaGwKDvKDEH-Q" target="_0LXilijIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_0LZXxyjIEeaGwKDvKDEH-Q" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZXyCjIEeaGwKDvKDEH-Q" x="-53" y="6"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0LZXySjIEeaGwKDvKDEH-Q" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZXyijIEeaGwKDvKDEH-Q" x="-7" y="16"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0LZ-0CjIEeaGwKDvKDEH-Q" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZ-0SjIEeaGwKDvKDEH-Q" x="-75" y="-1"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_0LZXxCjIEeaGwKDvKDEH-Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_0LZXxSjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0LZXxijIEeaGwKDvKDEH-Q" points="[5, -10, -137, 10]$[-20, -15, -162, 5]$[-20, -28, -162, -8]$[-8, -28, -150, -8]$[127, -21, -15, -1]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0LZ-0ijIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0LZ-0yjIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_0LZ-1CjIEeaGwKDvKDEH-Q" type="4001" element="_0LSDAyjIEeaGwKDvKDEH-Q" source="_0LW7iCjIEeaGwKDvKDEH-Q" target="_0LYJoyjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_0LZ-2CjIEeaGwKDvKDEH-Q" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZ-2SjIEeaGwKDvKDEH-Q" x="6" y="1"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0LZ-2ijIEeaGwKDvKDEH-Q" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZ-2yjIEeaGwKDvKDEH-Q" x="-4" y="-3"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0LZ-3CjIEeaGwKDvKDEH-Q" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZ-3SjIEeaGwKDvKDEH-Q" x="-8" y="-2"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_0LZ-1SjIEeaGwKDvKDEH-Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_0LZ-1ijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0LZ-1yjIEeaGwKDvKDEH-Q" points="[15, 0, -135, -4]$[151, 4, 1, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0LZ-3ijIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0LZ-3yjIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_0LZ-4CjIEeaGwKDvKDEH-Q" type="4001" element="_0LSDBijIEeaGwKDvKDEH-Q" source="_0LTRIyjIEeaGwKDvKDEH-Q" target="_0LVGWyjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_0LZ-5CjIEeaGwKDvKDEH-Q" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0LZ-5SjIEeaGwKDvKDEH-Q" x="2" y="-7"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0Lal4CjIEeaGwKDvKDEH-Q" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Lal4SjIEeaGwKDvKDEH-Q" x="-1" y="8"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0Lal4ijIEeaGwKDvKDEH-Q" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Lal4yjIEeaGwKDvKDEH-Q" x="-2" y="6"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_0LZ-4SjIEeaGwKDvKDEH-Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_0LZ-4ijIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0LZ-4yjIEeaGwKDvKDEH-Q" points="[25, 1, -175, -17]$[191, 10, -9, -8]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0Lal5CjIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0Lal5SjIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_0Lal5ijIEeaGwKDvKDEH-Q" type="4001" element="_0LSDCSjIEeaGwKDvKDEH-Q" source="_0LT4MCjIEeaGwKDvKDEH-Q" target="_0LW7gyjIEeaGwKDvKDEH-Q">
+            <children xmi:type="notation:Node" xmi:id="_0Lal6ijIEeaGwKDvKDEH-Q" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Lal6yjIEeaGwKDvKDEH-Q" x="-6" y="-9"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0Lal7CjIEeaGwKDvKDEH-Q" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Lal7SjIEeaGwKDvKDEH-Q" x="6" y="8"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_0Lal7ijIEeaGwKDvKDEH-Q" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0Lal7yjIEeaGwKDvKDEH-Q" x="7" y="7"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_0Lal5yjIEeaGwKDvKDEH-Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_0Lal6CjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_0Lal6SjIEeaGwKDvKDEH-Q" points="[19, -2, -203, 49]$[207, -48, -15, 3]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0Lal8CjIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_0Lal8SjIEeaGwKDvKDEH-Q" id="(0.5,0.5)"/>
+          </edges>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_0LRb8yjIEeaGwKDvKDEH-Q" name="defaultSystem">
+        <target xmi:type="system:System" href="default.system#_zigHUH4vEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="system:System" href="default.system#_zigHUH4vEeSqFvs4kqVd7Q"/>
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRb9CjIEeaGwKDvKDEH-Q" name="Provided_IAlice" outgoingEdges="_0LSDBijIEeaGwKDvKDEH-Q" width="5" height="5">
+          <target xmi:type="repository:OperationProvidedRole" href="default.system#_-TPtEH4vEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="repository:OperationProvidedRole" href="default.system#_-TPtEH4vEeSqFvs4kqVd7Q"/>
+          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRb9SjIEeaGwKDvKDEH-Q"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRb9ijIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+            <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@borderedNodeMappings[name='ExternalOperationProvidedRole%20Node']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@borderedNodeMappings[name='ExternalOperationProvidedRole%20Node']"/>
+        </ownedBorderedNodes>
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRb9yjIEeaGwKDvKDEH-Q" name="Provided_IAlice2" outgoingEdges="_0LSDCSjIEeaGwKDvKDEH-Q" width="5" height="5">
+          <target xmi:type="repository:OperationProvidedRole" href="default.system#_CB-ooH4wEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="repository:OperationProvidedRole" href="default.system#_CB-ooH4wEeSqFvs4kqVd7Q"/>
+          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRb-CjIEeaGwKDvKDEH-Q"/>
+          <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRb-SjIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+            <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@borderedNodeMappings[name='ExternalOperationProvidedRole%20Node']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@borderedNodeMappings[name='ExternalOperationProvidedRole%20Node']"/>
+        </ownedBorderedNodes>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_0LRb-ijIEeaGwKDvKDEH-Q" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_0LRb-yjIEeaGwKDvKDEH-Q" name="Assembly_Alice &lt;Alice>">
+          <target xmi:type="composition:AssemblyContext" href="default.system#_0wlEAH4vEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="composition:AssemblyContext" href="default.system#_0wlEAH4vEeSqFvs4kqVd7Q"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRb_CjIEeaGwKDvKDEH-Q" name="Provided_IAlice_Alice" incomingEdges="_0LSDBijIEeaGwKDvKDEH-Q" width="3" height="3">
+            <target xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+            <semanticElements xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRb_SjIEeaGwKDvKDEH-Q"/>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRb_ijIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']"/>
+          </ownedBorderedNodes>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRb_yjIEeaGwKDvKDEH-Q" name="Required_IBob_Alice" outgoingEdges="_0LSDACjIEeaGwKDvKDEH-Q" width="3" height="3">
+            <target xmi:type="repository:OperationRequiredRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+            <semanticElements xmi:type="repository:OperationRequiredRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRcACjIEeaGwKDvKDEH-Q"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRcASjIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationRequiredRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationRequiredRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationRequiredRole%20Node']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_0LRcAijIEeaGwKDvKDEH-Q" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_0LRcAyjIEeaGwKDvKDEH-Q" name="Assembly_Alice &lt;Alice>">
+          <target xmi:type="composition:AssemblyContext" href="default.system#_6AihwH4vEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="composition:AssemblyContext" href="default.system#_6AihwH4vEeSqFvs4kqVd7Q"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRcBCjIEeaGwKDvKDEH-Q" name="Provided_IAlice_Alice" incomingEdges="_0LSDCSjIEeaGwKDvKDEH-Q" width="3" height="3">
+            <target xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+            <semanticElements xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRcBSjIEeaGwKDvKDEH-Q"/>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRcBijIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']"/>
+          </ownedBorderedNodes>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRcByjIEeaGwKDvKDEH-Q" name="Required_IBob_Alice" outgoingEdges="_0LSDAyjIEeaGwKDvKDEH-Q" width="3" height="3">
+            <target xmi:type="repository:OperationRequiredRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+            <semanticElements xmi:type="repository:OperationRequiredRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRcCCjIEeaGwKDvKDEH-Q"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRcCSjIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationRequiredRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationRequiredRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationRequiredRole%20Node']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_0LRcCijIEeaGwKDvKDEH-Q" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_0LRcCyjIEeaGwKDvKDEH-Q" name="Assembly_Bob &lt;Bob>">
+          <target xmi:type="composition:AssemblyContext" href="default.system#_7wOWsH4vEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="composition:AssemblyContext" href="default.system#_7wOWsH4vEeSqFvs4kqVd7Q"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRcDCjIEeaGwKDvKDEH-Q" name="Provided_IBob_Bob" incomingEdges="_0LSDACjIEeaGwKDvKDEH-Q" width="3" height="3">
+            <target xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+            <semanticElements xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRcDSjIEeaGwKDvKDEH-Q"/>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRcDijIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_0LRcDyjIEeaGwKDvKDEH-Q" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_0LRcECjIEeaGwKDvKDEH-Q" name="Assembly_Bob &lt;Bob>">
+          <target xmi:type="composition:AssemblyContext" href="default.system#_8ouE8H4vEeSqFvs4kqVd7Q"/>
+          <semanticElements xmi:type="composition:AssemblyContext" href="default.system#_8ouE8H4vEeSqFvs4kqVd7Q"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_0LRcESjIEeaGwKDvKDEH-Q" name="Provided_IBob_Bob" incomingEdges="_0LSDAyjIEeaGwKDvKDEH-Q" width="3" height="3">
+            <target xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+            <semanticElements xmi:type="repository:OperationProvidedRole" href="platform:/resource/org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_0LRcEijIEeaGwKDvKDEH-Q"/>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_0LRcEyjIEeaGwKDvKDEH-Q" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_0LRcFCjIEeaGwKDvKDEH-Q" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']"/>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_0LRcFSjIEeaGwKDvKDEH-Q" name="DynamicVerticalScalingResourceContainerSystem">
+          <target xmi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:DynamicVerticalScalingResourceContainerSystem" href="default.system#/1/@stereotypeApplications.0"/>
+          <semanticElements xmi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:DynamicVerticalScalingResourceContainerSystem" href="default.system#/1/@stereotypeApplications.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_0LRcFijIEeaGwKDvKDEH-Q" iconPath="/org.scaledl.architecturaltemplates.edit/icons/full/obj16/ATInstance.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_0LSDACjIEeaGwKDvKDEH-Q" sourceNode="_0LRb_yjIEeaGwKDvKDEH-Q" targetNode="_0LRcDCjIEeaGwKDvKDEH-Q">
+        <target xmi:type="composition:AssemblyConnector" href="default.system#_IeNFMH4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="composition:AssemblyConnector" href="default.system#_IeNFMH4wEeSqFvs4kqVd7Q"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_0LSDASjIEeaGwKDvKDEH-Q" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='AssemblyConnector%20Edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_0LSDAijIEeaGwKDvKDEH-Q"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='AssemblyConnector%20Edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_0LSDAyjIEeaGwKDvKDEH-Q" sourceNode="_0LRcByjIEeaGwKDvKDEH-Q" targetNode="_0LRcESjIEeaGwKDvKDEH-Q">
+        <target xmi:type="composition:AssemblyConnector" href="default.system#_I-uYUH4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="composition:AssemblyConnector" href="default.system#_I-uYUH4wEeSqFvs4kqVd7Q"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_0LSDBCjIEeaGwKDvKDEH-Q" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='AssemblyConnector%20Edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_0LSDBSjIEeaGwKDvKDEH-Q"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='AssemblyConnector%20Edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_0LSDBijIEeaGwKDvKDEH-Q" sourceNode="_0LRb9CjIEeaGwKDvKDEH-Q" targetNode="_0LRb_CjIEeaGwKDvKDEH-Q">
+        <target xmi:type="composition:ProvidedDelegationConnector" href="default.system#_HFKOoH4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="composition:ProvidedDelegationConnector" href="default.system#_HFKOoH4wEeSqFvs4kqVd7Q"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_0LSDByjIEeaGwKDvKDEH-Q" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='ProvidedDelegationConnector%20Edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_0LSDCCjIEeaGwKDvKDEH-Q"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='ProvidedDelegationConnector%20Edge']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_0LSDCSjIEeaGwKDvKDEH-Q" sourceNode="_0LRb9yjIEeaGwKDvKDEH-Q" targetNode="_0LRcBCjIEeaGwKDvKDEH-Q">
+        <target xmi:type="composition:ProvidedDelegationConnector" href="default.system#_H33d8H4wEeSqFvs4kqVd7Q"/>
+        <semanticElements xmi:type="composition:ProvidedDelegationConnector" href="default.system#_H33d8H4wEeSqFvs4kqVd7Q"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_0LSDCijIEeaGwKDvKDEH-Q" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='ProvidedDelegationConnector%20Edge']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_0LSDCyjIEeaGwKDvKDEH-Q"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@edgeMappings[name='ProvidedDelegationConnector%20Edge']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_0LSDDCjIEeaGwKDvKDEH-Q"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer"/>
+      <target xmi:type="system:System" href="default.system#_zigHUH4vEeSqFvs4kqVd7Q"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>
