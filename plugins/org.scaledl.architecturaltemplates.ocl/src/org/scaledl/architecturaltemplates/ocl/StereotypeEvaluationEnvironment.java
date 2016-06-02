@@ -13,6 +13,7 @@ import org.palladiosimulator.analyzer.workflow.jobs.LoadPCMModelsIntoBlackboardJ
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 public class StereotypeEvaluationEnvironment extends EcoreEvaluationEnvironment {
@@ -24,7 +25,7 @@ public class StereotypeEvaluationEnvironment extends EcoreEvaluationEnvironment 
         this.blackboard = blackboard;
     }
 
-    StereotypeEvaluationEnvironment(
+    public StereotypeEvaluationEnvironment(
             final EvaluationEnvironment<EClassifier, EOperation, EStructuralFeature, EClass, EObject> parent,
             final MDSDBlackboard blackboard) {
         super(parent);
@@ -43,6 +44,7 @@ public class StereotypeEvaluationEnvironment extends EcoreEvaluationEnvironment 
         case "hasAppliedStereotype":
             return StereotypeAPI.isStereotypeApplied((Entity) source, (String) args[0]);
         case "getDoubleTaggedValue":
+        case "getStringTaggedValue":
             return StereotypeAPI.getTaggedValue((Entity) source, (String) args[0], (String) args[1]);
         case "parseDouble":
             return Double.parseDouble((String) source);
@@ -50,6 +52,8 @@ public class StereotypeEvaluationEnvironment extends EcoreEvaluationEnvironment 
             return getAllocation();
         case "getResourceEnvironment":
             return getResourceEnvironment();
+        case "evaluateStoEx":
+            return Context.evaluateStatic((String) source, Double.class);
         }
 
         throw new UnsupportedOperationException(); // unknown operation

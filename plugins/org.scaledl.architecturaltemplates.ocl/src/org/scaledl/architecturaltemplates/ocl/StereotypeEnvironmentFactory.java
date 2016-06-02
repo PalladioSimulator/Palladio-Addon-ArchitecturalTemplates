@@ -18,6 +18,7 @@ import org.eclipse.ocl.ecore.SendSignalAction;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 public class StereotypeEnvironmentFactory extends EcoreEnvironmentFactory {
+
     private final MDSDBlackboard blackboard;
 
     public StereotypeEnvironmentFactory(final MDSDBlackboard blackboard) {
@@ -27,8 +28,7 @@ public class StereotypeEnvironmentFactory extends EcoreEnvironmentFactory {
 
     @Override
     public Environment<EPackage, EClassifier, EOperation, EStructuralFeature, EEnumLiteral, EParameter, EObject, CallOperationAction, SendSignalAction, Constraint, EClass, EObject> createEnvironment() {
-        final StereotypeEnvironment result = new StereotypeEnvironment(this, null);
-        return result;
+        return new StereotypeEnvironment(this, null);
     }
 
     @Override
@@ -38,18 +38,17 @@ public class StereotypeEnvironmentFactory extends EcoreEnvironmentFactory {
             throw new IllegalArgumentException("Parent environment must be my environment: " + parent);
         }
 
-        final StereotypeEnvironment result = new StereotypeEnvironment((StereotypeEnvironment) parent);
-        return result;
+        return new StereotypeEnvironment((StereotypeEnvironment) parent);
     }
 
     @Override
     public EvaluationEnvironment<EClassifier, EOperation, EStructuralFeature, EClass, EObject> createEvaluationEnvironment() {
-        return new StereotypeEvaluationEnvironment(this, blackboard);
+        return new StereotypeEvaluationEnvironment(this, this.blackboard);
     }
 
     @Override
     public EvaluationEnvironment<EClassifier, EOperation, EStructuralFeature, EClass, EObject> createEvaluationEnvironment(
             final EvaluationEnvironment<EClassifier, EOperation, EStructuralFeature, EClass, EObject> parent) {
-        return new StereotypeEvaluationEnvironment(parent, blackboard);
+        return new StereotypeEvaluationEnvironment(parent, this.blackboard);
     }
 }
