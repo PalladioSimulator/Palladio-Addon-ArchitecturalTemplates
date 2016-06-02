@@ -22,7 +22,7 @@
     <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:DynamicHorizontalScalingAssemblyContextSystem" appliedTo="_UWcxkJUFEeSkwMoUcKTtwg">
       <extension href="../../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_F-_DAJQkEeSq-7Z_6FnzsQ"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:ReplicableAssemblyContext" appliedTo="_XclcEJUFEeSkwMoUcKTtwg" numberOfReplicas="2" scaleInThreshold="0.5" scaleOutThreshold="1.0">
+    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:ReplicableAssemblyContext" appliedTo="_XclcEJUFEeSkwMoUcKTtwg" numberOfReplicas="2" scaleInThreshold="0.5" scaleOutThreshold="1.0" measurementSpecificationID="_BnKq8MgpEeSoeLjDqqaSGA">
       <extension href="../../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_XWQ34JQkEeSq-7Z_6FnzsQ"/>
     </stereotypeApplications>
     <importedProfiles nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.dynamichorizontalscalingassemblycontext" location="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram"/>
