@@ -73,29 +73,29 @@
               <children xmi:type="notation:Node" xmi:id="_5N95wyjIEeaGwKDvKDEH-Q" type="3009" element="_5N4aPyjIEeaGwKDvKDEH-Q">
                 <children xmi:type="notation:Node" xmi:id="_5N95xijIEeaGwKDvKDEH-Q" type="5004"/>
                 <children xmi:type="notation:Node" xmi:id="_5N95xyjIEeaGwKDvKDEH-Q" type="7003">
-                  <children xmi:type="notation:Node" xmi:id="_5N-g1CjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aQSjIEeaGwKDvKDEH-Q">
-                    <styles xmi:type="notation:FontStyle" xmi:id="_5N-g1SjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
-                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N-g1ijIEeaGwKDvKDEH-Q"/>
+                  <children xmi:type="notation:Node" xmi:id="_Bf1cwCjeEeaju4z0PO05pg" type="3010" element="_BehOICjeEeaju4z0PO05pg">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_Bf1cwSjeEeaju4z0PO05pg" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf1cwijeEeaju4z0PO05pg"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_5N-g1yjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aQyjIEeaGwKDvKDEH-Q">
-                    <styles xmi:type="notation:FontStyle" xmi:id="_5N-g2CjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
-                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N-g2SjIEeaGwKDvKDEH-Q"/>
+                  <children xmi:type="notation:Node" xmi:id="_Bf4gECjeEeaju4z0PO05pg" type="3010" element="_Be8E4CjeEeaju4z0PO05pg">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_Bf4gESjeEeaju4z0PO05pg" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf4gEijeEeaju4z0PO05pg"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_5N-g2ijIEeaGwKDvKDEH-Q" type="3010" element="_5N4aRSjIEeaGwKDvKDEH-Q">
-                    <styles xmi:type="notation:FontStyle" xmi:id="_5N-g2yjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
-                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N-g3CjIEeaGwKDvKDEH-Q"/>
+                  <children xmi:type="notation:Node" xmi:id="_Bf4gEyjeEeaju4z0PO05pg" type="3010" element="_Be9TACjeEeaju4z0PO05pg">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_Bf4gFCjeEeaju4z0PO05pg" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf4gFSjeEeaju4z0PO05pg"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_5N_H4CjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aRyjIEeaGwKDvKDEH-Q">
-                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_H4SjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
-                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_H4ijIEeaGwKDvKDEH-Q"/>
+                  <children xmi:type="notation:Node" xmi:id="_Bf4gFijeEeaju4z0PO05pg" type="3010" element="_Be96ECjeEeaju4z0PO05pg">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_Bf4gFyjeEeaju4z0PO05pg" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf4gGCjeEeaju4z0PO05pg"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_5N_H4yjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aSSjIEeaGwKDvKDEH-Q">
-                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_H5CjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
-                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_H5SjIEeaGwKDvKDEH-Q"/>
+                  <children xmi:type="notation:Node" xmi:id="_Bf5HICjeEeaju4z0PO05pg" type="3010" element="_Be-hICjeEeaju4z0PO05pg">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_Bf5HISjeEeaju4z0PO05pg" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf5HIijeEeaju4z0PO05pg"/>
                   </children>
-                  <children xmi:type="notation:Node" xmi:id="_5N_u8CjIEeaGwKDvKDEH-Q" type="3010" element="_5N4aSyjIEeaGwKDvKDEH-Q">
-                    <styles xmi:type="notation:FontStyle" xmi:id="_5N_u8SjIEeaGwKDvKDEH-Q" fontName=".SF NS Text" fontHeight="8"/>
-                    <layoutConstraint xmi:type="notation:Location" xmi:id="_5N_u8ijIEeaGwKDvKDEH-Q"/>
+                  <children xmi:type="notation:Node" xmi:id="_Bf5HIyjeEeaju4z0PO05pg" type="3010" element="_Be_IMCjeEeaju4z0PO05pg">
+                    <styles xmi:type="notation:FontStyle" xmi:id="_Bf5HJCjeEeaju4z0PO05pg" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_Bf5HJSjeEeaju4z0PO05pg"/>
                   </children>
                   <styles xmi:type="notation:SortingStyle" xmi:id="_5N95yCjIEeaGwKDvKDEH-Q"/>
                   <styles xmi:type="notation:FilteringStyle" xmi:id="_5N95ySjIEeaGwKDvKDEH-Q"/>
@@ -280,50 +280,50 @@
             <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']"/>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aQSjIEeaGwKDvKDEH-Q" name="scaleUpThreshold=1.0">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_BehOICjeEeaju4z0PO05pg" name="scaleUpThreshold=1.0">
             <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_0ZJ3sMgLEeS6CoFWe85nBQ"/>
             <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_0ZJ3sMgLEeS6CoFWe85nBQ"/>
-            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aQijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_Be7d0CjeEeaju4z0PO05pg" labelAlignment="LEFT" labelPosition="node">
               <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
           </ownedElements>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aQyjIEeaGwKDvKDEH-Q" name="scaleDownThreshold=0.5">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Be8E4CjeEeaju4z0PO05pg" name="scaleDownThreshold=0.5">
             <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_Rt8AYMgMEeS6CoFWe85nBQ"/>
             <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_Rt8AYMgMEeS6CoFWe85nBQ"/>
-            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aRCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_Be8r8CjeEeaju4z0PO05pg" labelAlignment="LEFT" labelPosition="node">
               <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
           </ownedElements>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aRSjIEeaGwKDvKDEH-Q" name="maxRate=10000">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Be9TACjeEeaju4z0PO05pg" name="maxRate=10000">
             <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_GefwQNF_EeSNH-qkvgNajw"/>
             <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_GefwQNF_EeSNH-qkvgNajw"/>
-            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aRijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_Be9TASjeEeaju4z0PO05pg" labelAlignment="LEFT" labelPosition="node">
               <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
           </ownedElements>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aRyjIEeaGwKDvKDEH-Q" name="minRate=50">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Be96ECjeEeaju4z0PO05pg" name="minRate=50">
             <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_HSvQoNF_EeSNH-qkvgNajw"/>
             <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_HSvQoNF_EeSNH-qkvgNajw"/>
-            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aSCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_Be96ESjeEeaju4z0PO05pg" labelAlignment="LEFT" labelPosition="node">
               <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
           </ownedElements>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aSSjIEeaGwKDvKDEH-Q" name="stepSize=50">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Be-hICjeEeaju4z0PO05pg" name="stepSize=50">
             <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_ISmLINF_EeSNH-qkvgNajw"/>
             <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_ISmLINF_EeSNH-qkvgNajw"/>
-            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aSijIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_Be-hISjeEeaju4z0PO05pg" labelAlignment="LEFT" labelPosition="node">
               <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
           </ownedElements>
-          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_5N4aSyjIEeaGwKDvKDEH-Q" name="measurementSpecificationID=_EiV94NGFEeSI6PUuryS_mw">
+          <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_Be_IMCjeEeaju4z0PO05pg" name="measurementSpecificationID=_EiV94NGFEeSI6PUuryS_mw">
             <target xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_IYkYgCjFEeawEeT94RsgjA"/>
             <semanticElements xmi:type="ecore:EAttribute" href="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_IYkYgCjFEeawEeT94RsgjA"/>
-            <ownedStyle xmi:type="diagram:Square" xmi:id="_5N4aTCjIEeaGwKDvKDEH-Q" labelAlignment="LEFT" labelPosition="node">
+            <ownedStyle xmi:type="diagram:Square" xmi:id="_Be_IMSjeEeaju4z0PO05pg" labelAlignment="LEFT" labelPosition="node">
               <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']/@style"/>
             </ownedStyle>
             <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.resourceenvironment.design/description/resourceenvironment.odesign#//@ownedViewpoints[name='Resource%20Environment%20Design']/@ownedRepresentations[name='Resourceenvironment%20Diagram']/@defaultLayer/@containerMappings[name='ResourceContainer']/@subContainerMappings[name='Role%20Container']/@subNodeMappings[name='RoleParameter%20Node']"/>
