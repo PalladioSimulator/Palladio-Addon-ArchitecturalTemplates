@@ -1,0 +1,15 @@
+package org.scaledl.architecturaltemplates.repositories.cloudscale.black;
+
+import de.uka.ipd.sdq.simucomframework.Context;
+
+public class PCMLibrary {
+
+    public PCMLibrary() {
+        super();
+    }
+
+    public static Double evaluateStoEx(final String stoEx) {
+        return Context.evaluateStatic(stoEx, Double.class);
+    }
+
+}

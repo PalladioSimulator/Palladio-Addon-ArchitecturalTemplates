@@ -59,5 +59,25 @@
             </metamodel>
          </library>
       </unit>
+        <unit
+              name="PCMLibrary"
+              namespace="org.scaledl.architecturaltemplates.repositories.cloudscale.black">
+           <library
+                 class="org.scaledl.architecturaltemplates.repositories.cloudscale.black.PCMLibrary"
+                 name="PCMLibrary">
+              <metamodel
+                    nsURI="http://www.eclipse.org/emf/2002/Ecore">
+              </metamodel>
+              <metamodel
+                    nsURI="http://www.modelversioning.org/emfprofile/1.1">
+              </metamodel>
+              <metamodel
+                    nsURI="http://www.modelversioning.org/emfprofile/application/1.1">
+              </metamodel>
+              <metamodel
+                    nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.1">
+              </metamodel>
+           </library>
+        </unit>
    </extension>
 </plugin>
