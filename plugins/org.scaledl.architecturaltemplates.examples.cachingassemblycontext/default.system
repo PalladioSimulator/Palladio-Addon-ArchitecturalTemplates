@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.scaledl.architecturaltemplates.repositories.cloudscale.profiles="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.cachingdassemblycontext" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
+  <system:System id="_84D0kCHcEd6lJo4DCALHMw" entityName="EspressoAccountingSystem">
+    <assemblyContexts__ComposedStructure id="_9c3KwCHcEd6lJo4DCALHMw" entityName="Assembly_EspressoAccounting">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_os1t4CHbEd62GabW1zGSBw"/>
+    </assemblyContexts__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="__VHF0CHcEd6lJo4DCALHMw" entityName="ProvDelegation Provided_AnInterface -> Provided_AnInterface_AComponent" outerProvidedRole_ProvidedDelegationConnector="_-r1fUCHcEd6lJo4DCALHMw" assemblyContext_ProvidedDelegationConnector="_9c3KwCHcEd6lJo4DCALHMw">
+      <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_qZKs0CHbEd62GabW1zGSBw"/>
+    </connectors__ComposedStructure>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_-r1fUCHcEd6lJo4DCALHMw" entityName="Provided_Accounting">
+      <providedInterface__OperationProvidedRole href="default.repository#_n7g-oCHbEd62GabW1zGSBw"/>
+    </providedRoles_InterfaceProvidingEntity>
+  </system:System>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:CachedAssemblyContextSystem" appliedTo="_84D0kCHcEd6lJo4DCALHMw">
+      <extension href="../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/CachingAssemblyContext.emfprofile_diagram#_GYJvICc0EeaH1oGf1lJdJA"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:CachedAssemblyContext" appliedTo="_9c3KwCHcEd6lJo4DCALHMw" hitRate="0.5">
+      <extension href="../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/CachingAssemblyContext.emfprofile_diagram#_Fxh0ACc0EeaH1oGf1lJdJA"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.cachingdassemblycontext" location="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/CachingAssemblyContext.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

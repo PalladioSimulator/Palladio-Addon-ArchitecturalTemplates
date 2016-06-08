@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.palladiosimulator.experimentautomation.application.launchConfigurationType">
+<stringAttribute key="Experiment Automation" value="platform:/resource/org.scaledl.architecturaltemplates.examples.cachingassemblycontext/Experiments/CachingAssemblyContext.experiments"/>
+<intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
+<stringAttribute key="org.scaledl.architecturaltemplates.completion.config.modelStorageLocation" value="org.scaledl.architecturaltemplates.temporary"/>
+<booleanAttribute key="org.scaledl.architecturaltemplates.completion.config.storeCompletedModels" value="true"/>
+<stringAttribute key="outpath" value="org.palladiosimulator.temporary"/>
+</launchConfiguration>
