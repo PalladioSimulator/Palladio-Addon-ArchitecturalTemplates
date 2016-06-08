@@ -11,10 +11,10 @@
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_08e9YCOrEeSubfGVEKswQQ"/>
     </roles>
     <roles id="_RtHOICPCEeSVlNuoLyDfdw" entityName="Dynamic Three Layer Three Tier System" constraints="_xb4dgoyIEeWv5ML7_MHy8g _8dyrwYyIEeWv5ML7_MHy8g _E9ElMYyJEeWv5ML7_MHy8g _NtpC8YyJEeWv5ML7_MHy8g _VfIpUYyJEeWv5ML7_MHy8g _asp3EYyJEeWv5ML7_MHy8g _lA0OgYyJEeWv5ML7_MHy8g _rKsW0YyJEeWv5ML7_MHy8g _wqK3QYyJEeWv5ML7_MHy8g _2RFccYyJEeWv5ML7_MHy8g _O5tWwY00EeW4hJjCt86aZQ _TBmesbLPEeWONf-2GJUY0g _uPlLkbLSEeWONf-2GJUY0g _hdKrUc6lEeWtjIp7SFTxwg _yPsX4c6mEeWtjIp7SFTxwg _hdX_Uc6oEeWtjIp7SFTxwg _uo924c6oEeWtjIp7SFTxwg">
+      <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicThreeLayerThreeTier.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
       </completion>
-      <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
     </roles>
     <roles id="_oPOLUY0lEeW7y4sG0jClug" entityName="Dynamic Three Layer Three Tier Presentation Tier" constraints="_GBsn0bLREeWONf-2GJUY0g">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_eDjokI0lEeW7y4sG0jClug"/>
@@ -58,10 +58,10 @@
   </ATs>
   <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context">
     <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context" constraints="_2e4YAkTkEeWX9I6sz1f4mQ _t4FXoZSAEeW2itUQpRx7kw _VgEIYbLTEeWONf-2GJUY0g _Z6-NcbLTEeWONf-2GJUY0g _d8jzkbLTEeWONf-2GJUY0g">
+      <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
       </completion>
-      <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
     </roles>
     <roles id="_tly_sJQlEeSq-7Z_6FnzsQ" entityName="Dynamic Horizontal Scaling Assembly Context System" constraints="_2CfB0ETiEeWX9I6sz1f4mQ _VXHSoUT0EeWX9I6sz1f4mQ">
       <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_DFBzUJQkEeSq-7Z_6FnzsQ"/>
@@ -77,10 +77,10 @@
   </ATs>
   <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System" constraints="_OU5_sUTqEeWX9I6sz1f4mQ _hdsNcUT1EeWX9I6sz1f4mQ _PJrEgUTqEeWX9I6sz1f4mQ _SeR4cZSBEeW2itUQpRx7kw">
+      <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingResourceContainer.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
       </completion>
-      <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
     </roles>
     <roles id="_TuvAQH4aEeS81uv5CnTOEw" entityName="Replicable Resource Container" constraints="_pQbUgbLTEeWONf-2GJUY0g _tbowsbLTEeWONf-2GJUY0g _w8tqwbLTEeWONf-2GJUY0g">
       <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_2M_hMH47EeSqFvs4kqVd7Q"/>
@@ -115,10 +115,10 @@
   </ATs>
   <ATs id="_i-ghUIHkEeSeK9JYh8VNzw" entityName="Static Assembly Context Loadbalancing">
     <roles id="_rotRUYHkEeSeK9JYh8VNzw" entityName="StaticAssemblyContextLoadbalancingSystem" constraints="_sctZYUTtEeWX9I6sz1f4mQ _2d000UT0EeWX9I6sz1f4mQ">
+      <stereotype href="profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_dgxFkL2VEeS8D6gGtq5evQ"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="Loadbalancing.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
       </completion>
-      <stereotype href="profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_dgxFkL2VEeS8D6gGtq5evQ"/>
     </roles>
     <roles id="_kk1l8IHkEeSeK9JYh8VNzw" entityName="StaticLoadbalancedAssemblyContext" constraints="_tHI2cUTtEeWX9I6sz1f4mQ _U6dEcbLUEeWONf-2GJUY0g">
       <stereotype href="profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_kAT74L2VEeS8D6gGtq5evQ"/>
@@ -130,10 +130,10 @@
   </ATs>
   <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing">
     <roles id="_OVB8wLuIEeS4YqzUTAgFdA" entityName="StaticResourceContainerLoadbalancingSystem" constraints="_iRkeQUTxEeWX9I6sz1f4mQ _LghLgUT1EeWX9I6sz1f4mQ _CYHzEUyJEeWru9L6DwDf4w">
+      <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_rXqFsL0NEeSXc41T9TupKQ"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="StaticResourceContainerLoadbalancing.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
       </completion>
-      <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_rXqFsL0NEeSXc41T9TupKQ"/>
     </roles>
     <roles id="_QxvPwLuIEeS4YqzUTAgFdA" entityName="StaticLoadbalancedResourceContainer" constraints="_YhgqsbLUEeWONf-2GJUY0g">
       <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_4S2w0L0NEeSXc41T9TupKQ"/>
@@ -145,6 +145,7 @@
   </ATs>
   <ATs id="_pvPiUPpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce">
     <roles id="_07Qu0PpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce System">
+      <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_cPD50PphEeSRjMxcTrWsAA"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="HadoopMapReduce.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMTemplateCompletionParameter" fileExtension="repository" templateFileURI="HadoopMapReduce/HadoopMapReduce.repository"/>
@@ -152,7 +153,6 @@
         <parameters xsi:type="org.scaledl.architecturaltemplates:IsolatedPCMTemplateCompletionParameter" fileExtension="allocation" templateFileURI="HadoopMapReduce/HadoopMapReduce.allocation"/>
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMOutputCompletionParameter" fileExtension="allocation"/>
       </completion>
-      <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_cPD50PphEeSRjMxcTrWsAA"/>
     </roles>
     <roles id="_tZxTUPpWEeSRjMxcTrWsAA" entityName="Map Assembly Context">
       <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_d-IqwPphEeSRjMxcTrWsAA"/>
@@ -194,12 +194,12 @@
   </ATs>
   <ATs id="_kWS4cIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier">
     <roles id="_mrLsMIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier System" constraints="_iM6UkYxqEeWR64PY5KUWug _7Tq9oYxqEeWR64PY5KUWug _ChfPMYxrEeWR64PY5KUWug _Hw56YYxrEeWR64PY5KUWug _OxK4IYxrEeWR64PY5KUWug _UuhAUYxrEeWR64PY5KUWug _ZKQL0YxrEeWR64PY5KUWug _f_flUYxrEeWR64PY5KUWug _pUzH0YxrEeWR64PY5KUWug _v8NgsYxrEeWR64PY5KUWug _2MJ0wYxrEeWR64PY5KUWug _81ECcYxrEeWR64PY5KUWug _FwZwUYxtEeWR64PY5KUWug _Y_6SIYxtEeWR64PY5KUWug _wlWSYYxtEeWR64PY5KUWug _2NAecYxtEeWR64PY5KUWug _TkI8UbLVEeWONf-2GJUY0g _I8FI4c6qEeWtjIp7SFTxwg _g2esgc6qEeWtjIp7SFTxwg">
+      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
       <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="ThreeLayerThreeTier.qvto">
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter"/>
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMOutputCompletionParameter" fileExtension="allocation"/>
         <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="resourceenvironment"/>
       </completion>
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
     </roles>
     <roles id="_r-QIUIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier Presentation Layer Assembly" constraints="_ddPvcbLVEeWONf-2GJUY0g">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_viBogIuOEeWE_r1tdbkyww"/>
@@ -244,13 +244,13 @@
   </ATs>
   <ATs id="_La-CYCcsEeawm7le7c2SFg" entityName="Caching Assembly Context">
     <roles id="_abrPMCcxEeawm7le7c2SFg" entityName="Cached Assembly Context System">
-      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="CachingAssemblyContext.qvto">
-        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
-      </completion>
       <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_xp4JQCczEeaH1oGf1lJdJA"/>
     </roles>
     <roles id="_PzxOoCcsEeawm7le7c2SFg" entityName="Cached Assembly Context">
       <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_1ipxoCczEeaH1oGf1lJdJA"/>
+      <completion xsi:type="org.scaledl.architecturaltemplates:QVTOCompletion" qvtoFileURI="CachingAssemblyContext.qvto">
+        <parameters xsi:type="org.scaledl.architecturaltemplates:PCMBlackboardCompletionParameter" fileExtension="allocation"/>
+      </completion>
     </roles>
   </ATs>
 </org.scaledl.architecturaltemplates:Catalog>
