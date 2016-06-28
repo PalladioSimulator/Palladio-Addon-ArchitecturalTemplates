@@ -61,7 +61,7 @@ public class OCLConstraintItemProvider extends ConstraintItemProvider {
                 this.getString("_UI_OCLConstraint_constraint_feature"),
                 this.getString("_UI_PropertyDescriptor_description", "_UI_OCLConstraint_constraint_feature",
                         "_UI_OCLConstraint_type"),
-                ArchitecturaltemplatesPackage.Literals.OCL_CONSTRAINT__CONSTRAINT, true, false, false,
+                ArchitecturaltemplatesPackage.Literals.OCL_CONSTRAINT__CONSTRAINT, true, true, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
@@ -83,7 +83,7 @@ public class OCLConstraintItemProvider extends ConstraintItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((OCLConstraint) object).getId();
+        final String label = ((OCLConstraint) object).getEntityName();
         return label == null || label.length() == 0 ? this.getString("_UI_OCLConstraint_type")
                 : this.getString("_UI_OCLConstraint_type") + " " + label;
     }

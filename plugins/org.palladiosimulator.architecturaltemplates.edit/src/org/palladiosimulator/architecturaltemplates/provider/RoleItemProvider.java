@@ -132,7 +132,7 @@ public class RoleItemProvider extends EntityItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((Role) object).getId();
+        final String label = ((Role) object).getEntityName();
         return label == null || label.length() == 0 ? this.getString("_UI_Role_type")
                 : this.getString("_UI_Role_type") + " " + label;
     }

@@ -160,7 +160,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This keeps track of the editing domain that is used to track all changes to the model. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AdapterFactoryEditingDomain editingDomain;
@@ -235,7 +235,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This shows how a table view works. A table can be used as a list with icons. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected TableViewer tableViewer;
@@ -297,7 +297,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
@@ -387,7 +387,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * Adapter used to update the problem indication when resources are demanded loaded. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
@@ -935,7 +935,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This returns the viewer as required by the {@link IViewerProvider} interface. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1451,7 +1451,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This deals with how we want selection in the outliner to affect the other views. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void handleContentOutlineSelection(final ISelection selection) {
@@ -1490,7 +1490,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This is for implementing {@link IEditorPart} and simply tests the command stack. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1501,7 +1501,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
     /**
      * This is for implementing {@link IEditorPart} and simply saves the model file. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

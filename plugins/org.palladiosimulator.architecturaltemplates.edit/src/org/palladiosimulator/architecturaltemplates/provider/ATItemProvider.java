@@ -100,7 +100,7 @@ public class ATItemProvider extends EntityItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((AT) object).getId();
+        final String label = ((AT) object).getEntityName();
         return label == null || label.length() == 0 ? this.getString("_UI_AT_type")
                 : this.getString("_UI_AT_type") + " " + label;
     }
