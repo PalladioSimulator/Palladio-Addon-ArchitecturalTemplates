@@ -17,16 +17,16 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartition;
-import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
-import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
-import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.CompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.Role;
-import org.palladiosimulator.architecturaltemplates.util.TypeSwitch;
+import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
+import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
+import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
+import org.palladiosimulator.architecturaltemplates.util.ArchitecturaltemplatesSwitch;
 import org.palladiosimulator.monitorrepository.MonitorRepository;
 import org.palladiosimulator.monitorrepository.impl.MonitorRepositoryFactoryImpl;
 import org.palladiosimulator.monitorrepository.util.MonitorRepositoryResourceImpl;
@@ -168,7 +168,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         final URI templateFolderURI = getRootURI(parameter).appendSegment(TEMPLATES_FOLDER);
         final URI systemModelFolderURI = getSystemModelFolderURI();
 
-        return new TypeSwitch<ModelLocation>() {
+        return new ArchitecturaltemplatesSwitch<ModelLocation>() {
 
             /**
              * Load models from template
