@@ -99,7 +99,7 @@ public class CatalogItemProvider extends EntityItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((Catalog) object).getId();
+        final String label = ((Catalog) object).getEntityName();
         return label == null || label.length() == 0 ? this.getString("_UI_Catalog_type")
                 : this.getString("_UI_Catalog_type") + " " + label;
     }

@@ -35,7 +35,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Parameter/role"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Parameter/dataType"/>
     </genClasses>
-    <genClasses ecoreClass="architecturaltemplates.ecore#//Catalog">
+    <genClasses ecoreClass="architecturaltemplates.ecore#//Catalog" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Catalog/ATs"/>
     </genClasses>
     <genClasses ecoreClass="architecturaltemplates.ecore#//Role" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
