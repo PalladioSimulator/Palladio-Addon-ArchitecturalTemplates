@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <emfprofile:Profile xmi:id="_juO-IIVSEeSIDYic9BH_wA" name="LoadbalancedProfile" nsURI="http://scaledl.org/repository/Loadbalancing" nsPrefix="org.palladiosimulator.architecturaltemplates.catalog.profiles">
+  <emfprofile:Profile xmi:id="_juO-IIVSEeSIDYic9BH_wA" name="LoadbalancedProfile" nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.loadbalanced" nsPrefix="org.palladiosimulator.architecturaltemplates.catalog.profiles">
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_Bk5E0IVTEeSIDYic9BH_wA" name="OriginalAssemblyContext">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_L5GfkIVTEeSIDYic9BH_wA" upperBound="1">

@@ -21,11 +21,11 @@ import org.eclipse.ocl.helper.OCLHelper;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.architecturaltemplates.OCLConstraint;
+import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
 import org.palladiosimulator.architecturaltemplates.ocl.StereotypeEnvironmentFactory;
-import org.palladiosimulator.architecturaltemplates.OCLConstraint;
-import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
@@ -70,7 +70,7 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
                         final OCLConstraint oclConstraint = (OCLConstraint) constraint;
                         try {
                             invariant = helper.createInvariant(oclConstraint.getConstraint());
-                            final Query constraintEvaluation = ocl.createQuery(invariant);
+                            final Query<?, ?, ?> constraintEvaluation = ocl.createQuery(invariant);
                             if (!constraintEvaluation.check(stereotypeApplication)) {
                                 this.logger.error("Constraint: " + oclConstraint.getEntityName() + " failed.");
                             } else {

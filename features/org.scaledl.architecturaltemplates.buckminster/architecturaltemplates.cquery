@@ -2,7 +2,6 @@
     <cq:rootRequest name="org.palladiosimulator.architecturaltemplates.buckminster" componentType="eclipse.feature"/>
     <cq:advisorNode namePattern="^org\.palladiosimulator\.license$" sourceLevel="REQUIRE" useWorkspace="false"/>
     <cq:advisorNode namePattern="^org\.palladiosimulator\.branding$" sourceLevel="REQUIRE" useWorkspace="false"/>
-    <cq:advisorNode namePattern="^org\.scaledl\.architecturaltemplates.*" sourceLevel="REQUIRE" useWorkspace="false"/>
-    <cq:advisorNode namePattern="^org\.palladiosimulator\.editors.*" sourceLevel="REQUIRE" useWorkspace="false"/>
+    <cq:advisorNode namePattern="^org\.palladiosimulator\.architecturaltemplates.*" sourceLevel="REQUIRE" useWorkspace="false"/>
     <cq:advisorNode namePattern=".*" sourceLevel="REJECT"/>
 </cq:componentQuery>

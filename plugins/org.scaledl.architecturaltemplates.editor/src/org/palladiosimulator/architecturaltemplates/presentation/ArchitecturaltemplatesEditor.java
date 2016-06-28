@@ -1334,7 +1334,7 @@ public class ArchitecturaltemplatesEditor extends MultiPageEditorPart
      * 
      * @generated
      */
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public Object getAdapter(final Class key) {
         if (key.equals(IContentOutlinePage.class)) {

@@ -1,70 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
-  <rm:locator pattern="^org\.palladiosimulator\.editors.*" searchPathRef="ArchitecturalTemplates-Features" failOnError="false"/>
-  <rm:locator pattern="^org\.scaledl\.architecturaltemplates.*" searchPathRef="ArchitecturalTemplates-Features" failOnError="false"/>
-  <rm:locator pattern="^org\.palladiosimulator\.editors.*" searchPathRef="ArchitecturalTemplates" failOnError="false"/>
-  <rm:locator pattern="^org\.scaledl\.architecturaltemplates.*" searchPathRef="ArchitecturalTemplates" failOnError="true"/>
-  <rm:locator searchPathRef="eclipse-updates" failOnError="false" />
-  <rm:locator searchPathRef="eclipse-release" failOnError="false" />
-  <rm:locator searchPathRef="epp" failOnError="false" />
-  <rm:locator searchPathRef="orbit" failOnError="false" />
-  <rm:locator pattern="^org\.eclipse\.xtend.*" searchPathRef="xtext" failOnError="false"/>
-  <rm:locator pattern="^org\.eclipse\.xtext.*" searchPathRef="xtext" failOnError="false"/>
+
+  <rm:property key="resolveFrom" value="release"/>
+
+  <rm:locator pattern="^org\.palladiosimulator\.architecturaltemplates.*" searchPathRef="ArchitecturalTemplates-Features" failOnError="false"/>
+  <rm:locator pattern="^org\.palladiosimulator\.architecturaltemplates.*" searchPathRef="ArchitecturalTemplates" failOnError="true"/>
 
   <rm:redirect pattern=".*"
 		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Incubation/ExperimentAutomation/trunk/org.palladiosimulator.experimentautomation.buckminster/experimentautomation.rmap" />
   
   <rm:searchPath name="ArchitecturalTemplates-Features">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="git" resolutionFilter="">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="git" resolutionFilter="" source="true">
       <rm:uri format="{0}/GIT,features/{1}">
           <bc:propertyRef key="workspace.root" />
           <bc:propertyRef key="buckminster.component" />
         </rm:uri>
-      <rm:property key="git.remote.uri" value="https://github.com/CloudScale-Project/ArchitecturalTemplates"/>      
+      <rm:property key="git.remote.uri" value="https://github.com/PalladioSimulator/Architectural-Templates"/>      
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/features/"/>
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/features/"/>
     </rm:provider>
   </rm:searchPath>
   
   <rm:searchPath name="ArchitecturalTemplates">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="git" resolutionFilter="">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="git" resolutionFilter="" source="true">
       <rm:uri format="{0}/GIT,plugins/{1}">
           <bc:propertyRef key="workspace.root" />
           <bc:propertyRef key="buckminster.component" />
         </rm:uri>
-      <rm:property key="git.remote.uri" value="https://github.com/CloudScale-Project/ArchitecturalTemplates"/>      
+      <rm:property key="git.remote.uri" value="https://github.com/PalladioSimulator/Architectural-Templates"/>      
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/plugins/"/>
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/plugins/"/>
     </rm:provider>
   </rm:searchPath>
-  
-  <rm:searchPath name="orbit">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
-      <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/"/>
-    </rm:provider>
-  </rm:searchPath>
-   
-   <rm:searchPath name="eclipse-release">
-        <rm:provider componentTypes="osgi.bundle,eclipse.feature"
-            readerType="p2" source="false" mutable="false">
-            <rm:uri format="http://download.eclipse.org/releases/mars" />
-        </rm:provider>
-   </rm:searchPath>
-   
-   <rm:searchPath name="eclipse-updates">
-        <rm:provider componentTypes="osgi.bundle,eclipse.feature"
-            readerType="p2" source="false" mutable="false">
-            <rm:uri format="http://download.eclipse.org/eclipse/updates/4.5" />
-        </rm:provider>
-    </rm:searchPath>
-    
-    <rm:searchPath name="epp">
-        <rm:provider componentTypes="osgi.bundle,eclipse.feature"
-            readerType="p2" source="false" mutable="false">
-            <rm:uri format="http://download.eclipse.org/technology/epp/packages/mars" />
-        </rm:provider>
-    </rm:searchPath>
-    
-    <rm:searchPath name="xtext">
-      <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-        <rm:uri format="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-      </rm:provider>
-    </rm:searchPath>
 
 </rm:rmap>
