@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<slo:ServiceLevelObjectiveRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:slo="http://palladiosimulator.org/ServiceLevelObjective/1.0">
-  <servicelevelobjectives id="_AcGwwJUKEeSMz-4971dv6A" name="Three Seconds Response Time" description="Three Seconds Response Time">
-    <upperThreshold xsi:type="slo:HardThreshold" id="_PocYEpUKEeSMz-4971dv6A" thresholdLimit="3 s"/>
-    <measurementSpecification href="videoStreaming.monitorrepository#_BnKq8MgpEeSoeLjDqqaSGA"/>
-  </servicelevelobjectives>
-</slo:ServiceLevelObjectiveRepository>

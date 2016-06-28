@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<slo:ServiceLevelObjectiveRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:slo="http://palladiosimulator.org/ServiceLevelObjective/1.0">
-  <servicelevelobjectives id="_bSm9ENeNEeSA0bC90sbXyw" name="Three Seconds Response Time" description="Three Seconds Response Time">
-    <upperThreshold xsi:type="slo:HardThreshold" id="_syab0teNEeSA0bC90sbXyw" thresholdLimit="3 s"/>
-    <measurementSpecification href="simpleExample.monitorrepository#_rJvAENeIEeSA0bC90sbXyw"/>
-  </servicelevelobjectives>
-</slo:ServiceLevelObjectiveRepository>

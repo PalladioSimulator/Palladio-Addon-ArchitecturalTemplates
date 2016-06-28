@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.palladiosimulator.edp2.models:MeasuringPointRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.edp2.models="http://palladiosimulator.org/EDP2/MeasuringPoint/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_QC0hsC2XEeaMKoNy15g05A">
-  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: EspressoOrderingUsageScenario" resourceURIRepresentation="platform:/resource/org.palladiosimulator.architecturaltemplates.examples.cachingassemblycontext/default.usagemodel#_LPnI8CHdEd6lJo4DCALHMw">
-    <usageScenario href="default.usagemodel#_LPnI8CHdEd6lJo4DCALHMw"/>
-  </measuringPoints>
-  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in AppServer" resourceURIRepresentation="platform:/resource/org.palladiosimulator.architecturaltemplates.examples.cachingassemblycontext/My.resourceenvironment#_KFRwgCpXEeKNWc2UWjbmuw">
-    <activeResource href="My.resourceenvironment#_KFRwgCpXEeKNWc2UWjbmuw"/>
-  </measuringPoints>
-</org.palladiosimulator.edp2.models:MeasuringPointRepository>
