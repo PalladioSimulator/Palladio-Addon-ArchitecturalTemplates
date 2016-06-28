@@ -25,12 +25,12 @@ null
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.palladiosimulator.architecturaltemplates.type.presentation.TypeModelWizardID"
-            name="%_UI_TypeModelWizard_label"
-            class="org.palladiosimulator.architecturaltemplates.type.presentation.TypeModelWizard"
+            id="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesModelWizardID"
+            name="%_UI_ArchitecturaltemplatesModelWizard_label"
+            class="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/TypeModelFile.gif">
-         <description>%_UI_TypeModelWizard_description</description>
+            icon="icons/full/obj16/ArchitecturaltemplatesModelFile.gif">
+         <description>%_UI_ArchitecturaltemplatesModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -38,40 +38,12 @@ null
    <extension point="org.eclipse.ui.editors">
       <!-- @generated architecturaltemplates -->
       <editor
-            id="org.palladiosimulator.architecturaltemplates.type.presentation.TypeEditorID"
-            name="%_UI_TypeEditor_label"
-            icon="icons/full/obj16/TypeModelFile.gif"
-            extensions="type"
-            class="org.palladiosimulator.architecturaltemplates.type.presentation.TypeEditor"
-            contributorClass="org.palladiosimulator.architecturaltemplates.type.presentation.TypeActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated architecturaltemplates -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceModelWizardID"
-            name="%_UI_InstanceModelWizard_label"
-            class="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/InstanceModelFile.gif">
-         <description>%_UI_InstanceModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated architecturaltemplates -->
-      <editor
-            id="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceEditorID"
-            name="%_UI_InstanceEditor_label"
-            icon="icons/full/obj16/InstanceModelFile.gif"
-            extensions="instance"
-            class="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceEditor"
-            contributorClass="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceActionBarContributor">
+            id="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesEditorID"
+            name="%_UI_ArchitecturaltemplatesEditor_label"
+            icon="icons/full/obj16/ArchitecturaltemplatesModelFile.gif"
+            extensions="architecturaltemplates"
+            class="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesEditor"
+            contributorClass="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesActionBarContributor">
       </editor>
    </extension>
 </plugin>

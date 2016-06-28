@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated architecturaltemplates -->
       <factory
-            uri="http://scaledl.org/ArchitecturalTemplates/Type/1.0"
-            class="org.palladiosimulator.architecturaltemplates.type.provider.TypeItemProviderAdapterFactory"
+            uri="http://palladiosimulator.org/ArchitecturalTemplates/1.0"
+            class="org.palladiosimulator.architecturaltemplates.provider.ArchitecturaltemplatesItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -19,16 +19,4 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated architecturaltemplates -->
-      <factory
-            uri="http://scaledl.org/ArchitecturalTemplates/Instance/1.0"
-            class="org.palladiosimulator.architecturaltemplates.instance.provider.InstanceItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
 </plugin>

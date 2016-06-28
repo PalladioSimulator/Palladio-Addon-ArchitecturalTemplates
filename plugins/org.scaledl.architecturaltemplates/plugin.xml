@@ -9,30 +9,9 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated architecturaltemplates -->
       <package
-            uri="http://scaledl.org/ArchitecturalTemplates/Type/1.0"
-            class="org.palladiosimulator.architecturaltemplates.type.TypePackage"
+            uri="http://palladiosimulator.org/ArchitecturalTemplates/1.0"
+            class="org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage"
             genModel="model/architecturaltemplates.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated architecturaltemplates -->
-      <parser
-            type="type"
-            class="org.palladiosimulator.architecturaltemplates.type.util.TypeResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated architecturaltemplates -->
-      <package
-            uri="http://scaledl.org/ArchitecturalTemplates/Instance/1.0"
-            class="org.palladiosimulator.architecturaltemplates.instance.InstancePackage"
-            genModel="model/architecturaltemplates.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated architecturaltemplates -->
-      <parser
-            type="instance"
-            class="org.palladiosimulator.architecturaltemplates.instance.util.InstanceResourceFactoryImpl"/>
-   </extension>
 </plugin>
