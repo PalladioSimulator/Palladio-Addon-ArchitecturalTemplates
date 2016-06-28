@@ -40,7 +40,7 @@ public class ATExtensionTab extends AbstractLaunchConfigurationTab {
     public static final String MODEL_STORAGE_LOCATION = "org.palladiosimulator.architecturaltemplates.jobs.config.modelStorageLocation";
 
     /** Default model storage location. */
-    public static final String DEFAULT_MODEL_STORAGE_LOCATION = "org.scaledl.architecturaltemplates.temporary";
+    public static final String DEFAULT_MODEL_STORAGE_LOCATION = "org.palladiosimulator.architecturaltemplates.temporary";
 
     /** The path to the image file for the tab icon. */
     public static final String CONFIGURATION_TAB_IMAGE_PATH = "icons/ATLogo15x15.png";

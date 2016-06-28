@@ -10,7 +10,7 @@
       <!-- @generated architecturaltemplates -->
       <package
             uri="http://scaledl.org/ArchitecturalTemplates/Type/1.0"
-            class="org.scaledl.architecturaltemplates.type.TypePackage"
+            class="org.palladiosimulator.architecturaltemplates.type.TypePackage"
             genModel="model/architecturaltemplates.genmodel"/>
    </extension>
 
@@ -18,14 +18,14 @@
       <!-- @generated architecturaltemplates -->
       <parser
             type="type"
-            class="org.scaledl.architecturaltemplates.type.util.TypeResourceFactoryImpl"/>
+            class="org.palladiosimulator.architecturaltemplates.type.util.TypeResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated architecturaltemplates -->
       <package
             uri="http://scaledl.org/ArchitecturalTemplates/Instance/1.0"
-            class="org.scaledl.architecturaltemplates.instance.InstancePackage"
+            class="org.palladiosimulator.architecturaltemplates.instance.InstancePackage"
             genModel="model/architecturaltemplates.genmodel"/>
    </extension>
 
@@ -33,6 +33,6 @@
       <!-- @generated architecturaltemplates -->
       <parser
             type="instance"
-            class="org.scaledl.architecturaltemplates.instance.util.InstanceResourceFactoryImpl"/>
+            class="org.palladiosimulator.architecturaltemplates.instance.util.InstanceResourceFactoryImpl"/>
    </extension>
 </plugin>

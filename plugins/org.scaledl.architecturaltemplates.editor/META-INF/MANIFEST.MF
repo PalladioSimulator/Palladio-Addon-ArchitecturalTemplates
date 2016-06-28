@@ -4,12 +4,12 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.scaledl.architecturaltemplates.type.presentation.ArchitecturaltemplatesEditorPlugin$Implementation
+Bundle-Activator: org.palladiosimulator.architecturaltemplates.type.presentation.ArchitecturaltemplatesEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.scaledl.architecturaltemplates.instance.presentation,
- org.scaledl.architecturaltemplates.type.presentation
+Export-Package: org.palladiosimulator.architecturaltemplates.instance.presentation,
+ org.palladiosimulator.architecturaltemplates.type.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.palladiosimulator.architecturaltemplates.edit;bundle-version="1.0.0";visibility:=reexport,

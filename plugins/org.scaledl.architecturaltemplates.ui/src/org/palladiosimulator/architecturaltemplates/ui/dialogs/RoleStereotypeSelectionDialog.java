@@ -13,8 +13,8 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.modelversioning.emfprofile.Stereotype;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
+import org.palladiosimulator.architecturaltemplates.type.Role;
 import org.palladiosimulator.commons.eclipseutils.FileHelper;
-import org.scaledl.architecturaltemplates.type.Role;
 
 /**
  * A dialog for selecting {@link Role}-{@link Stereotype}s.
@@ -50,7 +50,7 @@ public class RoleStereotypeSelectionDialog extends ElementListSelectionDialog {
                 if (this.roleImage == null) {
                     try {
                         this.roleImage = new Image(Display.getCurrent(), new FileInputStream(FileHelper.getFile(
-                                "platform:plugin/org.scaledl.architecturaltemplates.edit/icons/full/obj16/Role.gif")));
+                                "platform:plugin/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role.gif")));
                     } catch (final FileNotFoundException e) {
                         e.printStackTrace(); // TODO proper error handling
                     }

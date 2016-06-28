@@ -10,7 +10,7 @@
       <!-- @generated architecturaltemplates -->
       <factory
             uri="http://scaledl.org/ArchitecturalTemplates/Type/1.0"
-            class="org.scaledl.architecturaltemplates.type.provider.TypeItemProviderAdapterFactory"
+            class="org.palladiosimulator.architecturaltemplates.type.provider.TypeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -23,7 +23,7 @@
       <!-- @generated architecturaltemplates -->
       <factory
             uri="http://scaledl.org/ArchitecturalTemplates/Instance/1.0"
-            class="org.scaledl.architecturaltemplates.instance.provider.InstanceItemProviderAdapterFactory"
+            class="org.palladiosimulator.architecturaltemplates.instance.provider.InstanceItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

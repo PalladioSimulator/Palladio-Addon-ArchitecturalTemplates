@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.scaledl.architecturaltemplates/src" modelPluginID="org.scaledl.architecturaltemplates"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.palladiosimulator.architecturaltemplates/src" modelPluginID="org.palladiosimulator.architecturaltemplates"
     modelName="Architecturaltemplates" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
     rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" rootImplementsInterface=""
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
@@ -10,7 +10,7 @@
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages prefix="Architecturaltemplates" basePackage="org.palladiosimulator"
       ecorePackage="architecturaltemplates.ecore#/" publicationLocation="">
-    <nestedGenPackages prefix="Type" basePackage="org.scaledl.architecturaltemplates"
+    <nestedGenPackages prefix="Type" basePackage="org.palladiosimulator.architecturaltemplates"
         resource="XML" disposableProviderFactory="true" ecorePackage="architecturaltemplates.ecore#//type">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="architecturaltemplates.ecore#//type/PCMFileExtensions">
         <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/SYSTEM"/>
@@ -82,7 +82,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/GenericOutputCompletionParameter/fileExtension"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Instance" basePackage="org.scaledl.architecturaltemplates"
+    <nestedGenPackages prefix="Instance" basePackage="org.palladiosimulator.architecturaltemplates"
         resource="XML" disposableProviderFactory="true" ecorePackage="architecturaltemplates.ecore#//instance">
       <genClasses ecoreClass="architecturaltemplates.ecore#//instance/ATInstance">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/role2components"/>

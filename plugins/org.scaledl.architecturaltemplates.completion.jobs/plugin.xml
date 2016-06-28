@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="org.scaledl.architecturaltemplates.completion.jobs.workflow_extension"
+         id="org.palladiosimulator.architecturaltemplates.completion.jobs.workflow_extension"
          name="Architectural Template: Workflow Extension"
          point="de.uka.ipd.sdq.workflow.job">
       <workflow_job
@@ -12,17 +12,17 @@
       </workflow_job>
    </extension>
    <extension
-         id="org.scaledl.architecturaltemplates.completion.jobs.tab_extension"
+         id="org.palladiosimulator.architecturaltemplates.completion.jobs.tab_extension"
          name="Architectural Template: Tab Extension"
          point="de.uka.ipd.sdq.workflow.tab.extension">
       <workflow_extension
-            name="org.scaledl.architecturaltemplates.completion.jobs.tab_extension"
+            name="org.palladiosimulator.architecturaltemplates.completion.jobs.tab_extension"
             runconfig_tab="org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionTab"
             workflow_id="workflow.extension.experimentautomation.tabs">
       </workflow_extension>
    </extension>
    <extension
-         id="org.scaledl.architecturaltemplates.simulizar.configurator"
+         id="org.palladiosimulator.architecturaltemplates.simulizar.configurator"
          name="Architectural Template: SimuLizar Configurator"
          point="org.palladiosimulator.simulizar.configurator">
       <configurator

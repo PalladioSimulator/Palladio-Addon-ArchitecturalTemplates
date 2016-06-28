@@ -13,13 +13,13 @@ import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.registry.IProfileRegistry;
 import org.modelversioning.emfprofileapplication.ProfileImport;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.architecturaltemplates.type.AT;
+import org.palladiosimulator.architecturaltemplates.type.Role;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.system.System;
-import org.scaledl.architecturaltemplates.type.AT;
-import org.scaledl.architecturaltemplates.type.Role;
 
 /**
  * An API class providing methods to interact with Architectural Templates

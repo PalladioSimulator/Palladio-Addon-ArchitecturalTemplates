@@ -25,9 +25,9 @@ null
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.scaledl.architecturaltemplates.type.presentation.TypeModelWizardID"
+            id="org.palladiosimulator.architecturaltemplates.type.presentation.TypeModelWizardID"
             name="%_UI_TypeModelWizard_label"
-            class="org.scaledl.architecturaltemplates.type.presentation.TypeModelWizard"
+            class="org.palladiosimulator.architecturaltemplates.type.presentation.TypeModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/TypeModelFile.gif">
          <description>%_UI_TypeModelWizard_description</description>
@@ -38,12 +38,12 @@ null
    <extension point="org.eclipse.ui.editors">
       <!-- @generated architecturaltemplates -->
       <editor
-            id="org.scaledl.architecturaltemplates.type.presentation.TypeEditorID"
+            id="org.palladiosimulator.architecturaltemplates.type.presentation.TypeEditorID"
             name="%_UI_TypeEditor_label"
             icon="icons/full/obj16/TypeModelFile.gif"
             extensions="type"
-            class="org.scaledl.architecturaltemplates.type.presentation.TypeEditor"
-            contributorClass="org.scaledl.architecturaltemplates.type.presentation.TypeActionBarContributor">
+            class="org.palladiosimulator.architecturaltemplates.type.presentation.TypeEditor"
+            contributorClass="org.palladiosimulator.architecturaltemplates.type.presentation.TypeActionBarContributor">
       </editor>
    </extension>
 
@@ -53,9 +53,9 @@ null
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="org.scaledl.architecturaltemplates.instance.presentation.InstanceModelWizardID"
+            id="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceModelWizardID"
             name="%_UI_InstanceModelWizard_label"
-            class="org.scaledl.architecturaltemplates.instance.presentation.InstanceModelWizard"
+            class="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/InstanceModelFile.gif">
          <description>%_UI_InstanceModelWizard_description</description>
@@ -66,12 +66,12 @@ null
    <extension point="org.eclipse.ui.editors">
       <!-- @generated architecturaltemplates -->
       <editor
-            id="org.scaledl.architecturaltemplates.instance.presentation.InstanceEditorID"
+            id="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceEditorID"
             name="%_UI_InstanceEditor_label"
             icon="icons/full/obj16/InstanceModelFile.gif"
             extensions="instance"
-            class="org.scaledl.architecturaltemplates.instance.presentation.InstanceEditor"
-            contributorClass="org.scaledl.architecturaltemplates.instance.presentation.InstanceActionBarContributor">
+            class="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceEditor"
+            contributorClass="org.palladiosimulator.architecturaltemplates.instance.presentation.InstanceActionBarContributor">
       </editor>
    </extension>
 </plugin>

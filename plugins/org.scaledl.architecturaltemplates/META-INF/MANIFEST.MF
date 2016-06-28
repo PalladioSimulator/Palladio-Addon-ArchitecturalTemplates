@@ -7,12 +7,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.scaledl.architecturaltemplates.instance,
- org.scaledl.architecturaltemplates.instance.impl,
- org.scaledl.architecturaltemplates.instance.util,
- org.scaledl.architecturaltemplates.type,
- org.scaledl.architecturaltemplates.type.impl,
- org.scaledl.architecturaltemplates.type.util
+Export-Package: org.palladiosimulator.architecturaltemplates.instance,
+ org.palladiosimulator.architecturaltemplates.instance.impl,
+ org.palladiosimulator.architecturaltemplates.instance.util,
+ org.palladiosimulator.architecturaltemplates.type,
+ org.palladiosimulator.architecturaltemplates.type.impl,
+ org.palladiosimulator.architecturaltemplates.type.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.cdo;visibility:=reexport,

@@ -8,8 +8,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.modelversioning.emfprofile.Profile;
-import org.scaledl.architecturaltemplates.type.AT;
-import org.scaledl.architecturaltemplates.type.provider.TypeItemProviderAdapterFactory;
+import org.palladiosimulator.architecturaltemplates.type.AT;
+import org.palladiosimulator.architecturaltemplates.type.provider.TypeItemProviderAdapterFactory;
 
 /**
  * A dialog for selecting an Architectural Template ({@link AT}).

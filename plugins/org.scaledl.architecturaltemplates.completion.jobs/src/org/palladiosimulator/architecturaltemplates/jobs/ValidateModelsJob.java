@@ -24,12 +24,12 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
 import org.palladiosimulator.architecturaltemplates.ocl.StereotypeEnvironmentFactory;
+import org.palladiosimulator.architecturaltemplates.type.OCLConstraint;
+import org.palladiosimulator.architecturaltemplates.type.Role;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 import org.palladiosimulator.pcm.system.SystemPackage;
-import org.scaledl.architecturaltemplates.type.OCLConstraint;
-import org.scaledl.architecturaltemplates.type.Role;
 
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
@@ -61,11 +61,11 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
             for (final StereotypeApplication stereotypeApplication : stereotypeApplications) {
                 // set the OCL context classifier
                 helper.setInstanceContext(stereotypeApplication);
-                final EList<org.scaledl.architecturaltemplates.type.Constraint> constraints = this
+                final EList<org.palladiosimulator.architecturaltemplates.type.Constraint> constraints = this
                         .getConstraintsFromStereotypeApplication(stereotypeApplication);
 
                 Constraint invariant = null;
-                for (final org.scaledl.architecturaltemplates.type.Constraint constraint : constraints) {
+                for (final org.palladiosimulator.architecturaltemplates.type.Constraint constraint : constraints) {
                     if (constraint instanceof OCLConstraint) {
                         final OCLConstraint oclConstraint = (OCLConstraint) constraint;
                         try {
@@ -108,10 +108,10 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
         }
     }
 
-    private EList<org.scaledl.architecturaltemplates.type.Constraint> getConstraintsFromStereotypeApplication(
+    private EList<org.palladiosimulator.architecturaltemplates.type.Constraint> getConstraintsFromStereotypeApplication(
             final StereotypeApplication stereotypeApplication) {
         final Stereotype stereotype = stereotypeApplication.getStereotype();
-        EList<org.scaledl.architecturaltemplates.type.Constraint> constraints = new BasicEList<org.scaledl.architecturaltemplates.type.Constraint>();
+        EList<org.palladiosimulator.architecturaltemplates.type.Constraint> constraints = new BasicEList<org.palladiosimulator.architecturaltemplates.type.Constraint>();
         final EStructuralFeature roleURI = stereotype.getTaggedValue("roleURI");
         if (roleURI != null) {
             final EObject eObject = EMFLoadHelper.loadAndResolveEObject(roleURI.getDefaultValueLiteral());
