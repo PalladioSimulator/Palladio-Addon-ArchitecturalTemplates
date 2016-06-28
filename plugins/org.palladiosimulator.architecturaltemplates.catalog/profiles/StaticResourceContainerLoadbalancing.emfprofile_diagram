@@ -3,7 +3,7 @@
   <emfprofile:Profile xmi:id="_TC7WgL0NEeSXc41T9TupKQ" name="StaticResourceContainerLoadbalancingProfile" nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticresourcecontainerloadbalancing" nsPrefix="org.palladiosimulator.architecturaltemplates.catalog.profiles">
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_rXqFsL0NEeSXc41T9TupKQ" name="StaticResourceContainerLoadbalancingSystem">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vSEs0L0NEeSXc41T9TupKQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_OVB8wLuIEeS4YqzUTAgFdA">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_vSEs0L0NEeSXc41T9TupKQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/Default.architecturaltemplates#_OVB8wLuIEeS4YqzUTAgFdA">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_tveRoL0NEeSXc41T9TupKQ" upperBound="1">
@@ -12,7 +12,7 @@
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_4S2w0L0NEeSXc41T9TupKQ" name="StaticLoadbalancedResourceContainer">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_60u3sL0NEeSXc41T9TupKQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_QxvPwLuIEeS4YqzUTAgFdA">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_60u3sL0NEeSXc41T9TupKQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/Default.architecturaltemplates#_QxvPwLuIEeS4YqzUTAgFdA">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="__jnosL0NEeSXc41T9TupKQ" name="numberOfReplicas" defaultValueLiteral="1">
