@@ -16,10 +16,6 @@
          id="org.palladiosimulator.architecturaltemplates.examples.feature"
          version="0.0.0"/>
 
-   <includes
-         id="org.palladiosimulator.editors.feature"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.junit"/>
