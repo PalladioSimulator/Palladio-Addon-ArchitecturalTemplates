@@ -58,7 +58,7 @@
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="__zap4X4wEeSqFvs4kqVd7Q" x="313" y="389"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_uZ1H4X4wEeSqFvs4kqVd7Q"/>
-  <element xmi:type="resourceenvironment:ResourceEnvironment" href="default.resourceenvironment#/"/>
+  <element xmi:type="resourceenvironment:ResourceEnvironment" href="default.resourceenvironment#/0"/>
   <edges xmi:type="notation:Connector" xmi:id="_DAEMEH4xEeSqFvs4kqVd7Q" type="4003" source="__zap4H4wEeSqFvs4kqVd7Q" target="_vHYxcH4wEeSqFvs4kqVd7Q">
     <styles xmi:type="notation:FontStyle" xmi:id="_DAEMEX4xEeSqFvs4kqVd7Q" fontName=".Helvetica Neue DeskInterface"/>
     <element xsi:nil="true"/>
