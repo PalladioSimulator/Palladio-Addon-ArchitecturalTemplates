@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="eu.cloudscaleproject.targetplatformbuild" componentType="buckminster" version="1.0.0">
-    <cs:dependencies>
-        <cs:dependency name="org.eclipse.epp.package.modeling.feature" componentType="eclipse.feature"/>
-    </cs:dependencies>
-</cs:cspec>

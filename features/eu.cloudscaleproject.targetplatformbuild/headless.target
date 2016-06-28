@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.5"?><target name="headless" sequenceNumber="3">
-<locations>
-<location path="./TP" type="Directory"/>
-<location path="/var/lib/jenkins/jobs/Buckminster Target Platform/lastSuccessful/archive/targetPlatform" type="Profile"/>
-</locations>
-</target>
