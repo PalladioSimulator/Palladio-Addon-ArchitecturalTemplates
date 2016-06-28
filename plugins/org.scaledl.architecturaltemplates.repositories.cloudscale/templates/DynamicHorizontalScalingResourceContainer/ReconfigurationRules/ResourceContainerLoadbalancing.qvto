@@ -1,4 +1,4 @@
-import org.scaledl.architecturaltemplates.repositories.cloudscale.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
 
 modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
 modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';

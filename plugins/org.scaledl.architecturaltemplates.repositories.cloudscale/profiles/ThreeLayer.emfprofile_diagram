@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <emfprofile:Profile xmi:id="_d5jdUIuLEeWE_r1tdbkyww" name="ThreeLayerProfile" nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.threelayer" nsPrefix="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles">
+  <emfprofile:Profile xmi:id="_d5jdUIuLEeWE_r1tdbkyww" name="ThreeLayerProfile" nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.threelayer" nsPrefix="org.palladiosimulator.architecturaltemplates.catalog.profiles">
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_5-mnAIuMEeWE_r1tdbkyww" name="PresentationLayerAssembly">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_VU2J4IxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_wvU8kIujEeWE_r1tdbkyww">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_VU2J4IxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_wvU8kIujEeWE_r1tdbkyww">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="__IEbMIuMEeWE_r1tdbkyww">
@@ -12,7 +12,7 @@
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_74HGUIuMEeWE_r1tdbkyww" name="MiddleLayerAssembly">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_XnBA0IxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_ySAQQIujEeWE_r1tdbkyww">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_XnBA0IxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_ySAQQIujEeWE_r1tdbkyww">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_Aa1DkIuNEeWE_r1tdbkyww">
@@ -21,7 +21,7 @@
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_9h_1QIuMEeWE_r1tdbkyww" name="DataLayerAssembly">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_W47LwIxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_zhHuwIujEeWE_r1tdbkyww">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_W47LwIxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_zhHuwIujEeWE_r1tdbkyww">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_DeRmcIuNEeWE_r1tdbkyww">
@@ -30,7 +30,7 @@
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_VS-XIIuNEeWE_r1tdbkyww" name="ThreeLayerSystem">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_e0G5oIxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_slWr8IuiEeWE_r1tdbkyww">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_e0G5oIxSEeWRcb--g_aTcA" name="roleURI" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_slWr8IuiEeWE_r1tdbkyww">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_Xl5cAIuNEeWE_r1tdbkyww" lowerBound="1" upperBound="1">

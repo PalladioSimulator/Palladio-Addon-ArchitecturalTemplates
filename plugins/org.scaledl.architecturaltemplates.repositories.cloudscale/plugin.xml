@@ -43,7 +43,7 @@
             name="ProfilesLibrary"
             namespace="org.scaledl.architecturaltemplates.repositories.cloudscale.black">
          <library
-               class="org.scaledl.architecturaltemplates.repositories.cloudscale.black.ProfilesLibrary"
+               class="org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary"
                name="ProfilesLibrary">
             <metamodel
                   nsURI="http://www.eclipse.org/emf/2002/Ecore">
@@ -63,7 +63,7 @@
               name="PCMLibrary"
               namespace="org.scaledl.architecturaltemplates.repositories.cloudscale.black">
            <library
-                 class="org.scaledl.architecturaltemplates.repositories.cloudscale.black.PCMLibrary"
+                 class="org.palladiosimulator.architecturaltemplates.catalog.black.PCMLibrary"
                  name="PCMLibrary">
               <metamodel
                     nsURI="http://www.eclipse.org/emf/2002/Ecore">

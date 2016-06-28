@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <emfprofile:Profile xmi:id="_0q3P0JQjEeSq-7Z_6FnzsQ" name="DynamicHorizontalScalingAssemblyContextProfile" nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.dynamichorizontalscalingassemblycontext" nsPrefix="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles">
+  <emfprofile:Profile xmi:id="_0q3P0JQjEeSq-7Z_6FnzsQ" name="DynamicHorizontalScalingAssemblyContextProfile" nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingassemblycontext" nsPrefix="org.palladiosimulator.architecturaltemplates.catalog.profiles">
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_DFBzUJQkEeSq-7Z_6FnzsQ" name="DynamicHorizontalScalingAssemblyContextSystem">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_LXpJwJQkEeSq-7Z_6FnzsQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_tly_sJQlEeSq-7Z_6FnzsQ">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_LXpJwJQkEeSq-7Z_6FnzsQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_tly_sJQlEeSq-7Z_6FnzsQ">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_F-_DAJQkEeSq-7Z_6FnzsQ" lowerBound="1" upperBound="1">
@@ -12,7 +12,7 @@
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_T5PXYJQkEeSq-7Z_6FnzsQ" name="ReplicableAssemblyContext" iconPath="">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_XncugJQkEeSq-7Z_6FnzsQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_-yzLIH4UEeS81uv5CnTOEw">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_XncugJQkEeSq-7Z_6FnzsQ" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_-yzLIH4UEeS81uv5CnTOEw">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_iSd3AJQ1EeSQN58w_W_prw" name="numberOfReplicas" lowerBound="1" defaultValueLiteral="1">

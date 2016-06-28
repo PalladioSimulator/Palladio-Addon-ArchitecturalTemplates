@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
-  <emfprofile:Profile xmi:id="_W1LLkCOrEeSubfGVEKswQQ" name="DynamicHorizontalScalingResourceContainerProfile" nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.dynamichorizontalscalingresourcecontainer" nsPrefix="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles">
+  <emfprofile:Profile xmi:id="_W1LLkCOrEeSubfGVEKswQQ" name="DynamicHorizontalScalingResourceContainerProfile" nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" nsPrefix="org.palladiosimulator.architecturaltemplates.catalog.profiles">
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_paph0CO_EeSbfv_s0ToTIw" name="DynamicHorizontalScalingResourceContainerSystem">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_hfcSgEDOEeStM_n5R_Fc_g" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_c9Rl4H46EeSqFvs4kqVd7Q">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_hfcSgEDOEeStM_n5R_Fc_g" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_c9Rl4H46EeSqFvs4kqVd7Q">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_Xr9AkCPBEeSbfv_s0ToTIw" lowerBound="1" upperBound="1">
@@ -12,7 +12,7 @@
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_2M_hMH47EeSqFvs4kqVd7Q" name="ReplicableResourceContainer">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9lagQH47EeSqFvs4kqVd7Q" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/CloudScaleATRepository.type#_TuvAQH4aEeS81uv5CnTOEw">
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9lagQH47EeSqFvs4kqVd7Q" name="roleURI" lowerBound="1" changeable="false" defaultValueLiteral="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/CloudScaleATRepository.type#_TuvAQH4aEeS81uv5CnTOEw">
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_PZ8rgNGDEeSNH-qkvgNajw" name="numberOfReplicas" lowerBound="1" defaultValueLiteral="1">

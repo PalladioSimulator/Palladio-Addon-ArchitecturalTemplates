@@ -54,7 +54,7 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_3li1YbLSEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_o9jQ8Y0lEeW7y4sG0jClug" constraint="self.numberOfReplicas>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_9rancbLSEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" roles="_o9jQ8Y0lEeW7y4sG0jClug" constraint="self.scaleInThreshold>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_Byo7gbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" roles="_o9jQ8Y0lEeW7y4sG0jClug" constraint="self.scaleOutThreshold>0"/>
-    <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
   <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context">
     <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context" constraints="_2e4YAkTkEeWX9I6sz1f4mQ _t4FXoZSAEeW2itUQpRx7kw _VgEIYbLTEeWONf-2GJUY0g _Z6-NcbLTEeWONf-2GJUY0g _d8jzkbLTEeWONf-2GJUY0g">
@@ -73,7 +73,7 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_VgEIYbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_-yzLIH4UEeS81uv5CnTOEw" constraint="self.numberOfReplicas>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_Z6-NcbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" roles="_-yzLIH4UEeS81uv5CnTOEw" constraint="self.scaleInThreshold>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_d8jzkbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" roles="_-yzLIH4UEeS81uv5CnTOEw" constraint="self.scaleOutThreshold>0"/>
-    <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
   </ATs>
   <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System" constraints="_OU5_sUTqEeWX9I6sz1f4mQ _hdsNcUT1EeWX9I6sz1f4mQ _PJrEgUTqEeWX9I6sz1f4mQ _SeR4cZSBEeW2itUQpRx7kw">
@@ -92,7 +92,7 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_pQbUgbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" roles="_TuvAQH4aEeS81uv5CnTOEw" constraint="self.numberOfReplicas>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_tbowsbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" roles="_TuvAQH4aEeS81uv5CnTOEw" constraint="self.scaleInThreshold>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_w8tqwbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" roles="_TuvAQH4aEeS81uv5CnTOEw" constraint="self.scaleOutThreshold>0"/>
-    <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
   <ATs id="_nt1zAH4aEeS81uv5CnTOEw" entityName="Dynamic Vertical Scaling Resource Container">
     <roles id="_fhIWgH-qEeSOTOomnDiZOg" entityName="Dynamic Vertical Scaling Resource Container System" constraints="_lWA9IUTlEeWX9I6sz1f4mQ _39q0wUTlEeWX9I6sz1f4mQ _MzPVcUTmEeWX9I6sz1f4mQ _FU2A8ZA3EeWkWqBg_zv9nA _UYYRkZA3EeWkWqBg_zv9nA">
@@ -111,7 +111,7 @@
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_GXCeUbLUEeWONf-2GJUY0g" entityName="Virtualized Resource Container Min Rate greater 0" roles="_v2XZUH4aEeS81uv5CnTOEw" constraint="self.minRate.evaluateStoEx()>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_JVfzgbLUEeWONf-2GJUY0g" entityName="Virtualized Resource Container Max Rate greater 0" roles="_v2XZUH4aEeS81uv5CnTOEw" constraint="self.maxRate.evaluateStoEx()>0"/>
     <constraints xsi:type="org.scaledl.architecturaltemplates:OCLConstraint" id="_NGeKwbLUEeWONf-2GJUY0g" entityName="Virtualized Resource Container Step Size greater 0" roles="_v2XZUH4aEeS81uv5CnTOEw" constraint="self.stepSize.evaluateStoEx()>0"/>
-    <reconfigurationRuleFolder folderURI="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/DynamicVerticalScalingResourceContainer/ReconfigurationRules"/>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicVerticalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
   <ATs id="_i-ghUIHkEeSeK9JYh8VNzw" entityName="Static Assembly Context Loadbalancing">
     <roles id="_rotRUYHkEeSeK9JYh8VNzw" entityName="StaticAssemblyContextLoadbalancingSystem" constraints="_sctZYUTtEeWX9I6sz1f4mQ _2d000UT0EeWX9I6sz1f4mQ">

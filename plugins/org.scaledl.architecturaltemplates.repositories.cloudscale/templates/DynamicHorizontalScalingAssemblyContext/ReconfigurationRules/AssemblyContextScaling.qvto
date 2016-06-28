@@ -1,4 +1,4 @@
-import org.scaledl.architecturaltemplates.repositories.cloudscale.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
 import ReverseLoadbalancing;
 import Loadbalancing;
 

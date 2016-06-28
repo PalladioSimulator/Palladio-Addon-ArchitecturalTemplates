@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - Jobs
-Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.completion.jobs;singleton:=true
+Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.jobs;singleton:=true
 Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -23,5 +23,5 @@ Require-Bundle: de.uka.ipd.sdq.workflow;bundle-version="2.1.0",
  org.palladiosimulator.experimentautomation.application;bundle-version="1.0.0",
  org.palladiosimulator.architecturaltemplates.ocl;bundle-version="1.0.0",
  org.palladiosimulator.architecturaltemplates.api
-Export-Package: org.scaledl.architecturaltemplates.completion.config,
- org.scaledl.architecturaltemplates.completion.jobs
+Export-Package: org.palladiosimulator.architecturaltemplates.jobs,
+ org.palladiosimulator.architecturaltemplates.jobs.config

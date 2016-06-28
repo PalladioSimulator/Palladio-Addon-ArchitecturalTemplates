@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.scaledl.architecturaltemplates.repositories.cloudscale.profiles="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.threelayerthreetier" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.threelayerthreetier" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1">
   <resourceenvironment:ResourceEnvironment>
     <linkingResources__ResourceEnvironment id="_KjgfcCPIEeSwPfc4EJw-WA" entityName="LocalNetwork" connectedResourceContainers_LinkingResource="_Fg46ICPIEeSwPfc4EJw-WA _HAQbICPIEeSwPfc4EJw-WA _ETFqQCPIEeSwPfc4EJw-WA">
       <communicationLinkResourceSpecifications_LinkingResource id="_KjsssCPIEeSwPfc4EJw-WA">
@@ -31,15 +31,15 @@
     </resourceContainer_ResourceEnvironment>
   </resourceenvironment:ResourceEnvironment>
   <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:PresentationTier" appliedTo="_ETFqQCPIEeSwPfc4EJw-WA">
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:PresentationTier" appliedTo="_ETFqQCPIEeSwPfc4EJw-WA">
       <extension href="../../profiles/ThreeLayerThreeTier.emfprofile_diagram#_-GY0YIuPEeWE_r1tdbkyww"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:MiddleTier" appliedTo="_Fg46ICPIEeSwPfc4EJw-WA">
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:MiddleTier" appliedTo="_Fg46ICPIEeSwPfc4EJw-WA">
       <extension href="../../profiles/ThreeLayerThreeTier.emfprofile_diagram#_C5og8IuQEeWE_r1tdbkyww"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:PresentationTier" appliedTo="_HAQbICPIEeSwPfc4EJw-WA">
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:PresentationTier" appliedTo="_HAQbICPIEeSwPfc4EJw-WA">
       <extension href="../../profiles/ThreeLayerThreeTier.emfprofile_diagram#_-GY0YIuPEeWE_r1tdbkyww"/>
     </stereotypeApplications>
-    <importedProfiles nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.threelayerthreetier" location="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/ThreeLayerThreeTier.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.threelayerthreetier" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayerThreeTier.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>

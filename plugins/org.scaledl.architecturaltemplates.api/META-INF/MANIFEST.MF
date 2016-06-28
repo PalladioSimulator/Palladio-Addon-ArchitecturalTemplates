@@ -11,4 +11,4 @@ Require-Bundle: org.modelversioning.emfprofile;bundle-version="1.1.0",
  org.palladiosimulator.architecturaltemplates;bundle-version="1.0.0",
  org.modelversioning.emfprofile.registry,
  org.eclipse.emf.ecore
-Export-Package: org.scaledl.architecturaltemplates.api
+Export-Package: org.palladiosimulator.architecturaltemplates.api

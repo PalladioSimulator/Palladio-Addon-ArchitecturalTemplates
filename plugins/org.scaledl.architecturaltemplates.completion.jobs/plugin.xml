@@ -6,8 +6,8 @@
          name="Architectural Template: Workflow Extension"
          point="de.uka.ipd.sdq.workflow.job">
       <workflow_job
-            extension_configurationbuilder="org.scaledl.architecturaltemplates.completion.config.ATExtensionConfigurationBuilder"
-            extension_job="org.scaledl.architecturaltemplates.completion.jobs.RunATJob"
+            extension_configurationbuilder="org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionConfigurationBuilder"
+            extension_job="org.palladiosimulator.architecturaltemplates.jobs.RunATJob"
             workflow_id="workflow.extension.experimentautomation.before.experimentrun">
       </workflow_job>
    </extension>
@@ -17,7 +17,7 @@
          point="de.uka.ipd.sdq.workflow.tab.extension">
       <workflow_extension
             name="org.scaledl.architecturaltemplates.completion.jobs.tab_extension"
-            runconfig_tab="org.scaledl.architecturaltemplates.completion.config.ATExtensionTab"
+            runconfig_tab="org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionTab"
             workflow_id="workflow.extension.experimentautomation.tabs">
       </workflow_extension>
    </extension>
@@ -26,7 +26,7 @@
          name="Architectural Template: SimuLizar Configurator"
          point="org.palladiosimulator.simulizar.configurator">
       <configurator
-            configurator="org.scaledl.architecturaltemplates.completion.config.SimuLizarConfigurator">
+            configurator="org.palladiosimulator.architecturaltemplates.jobs.config.SimuLizarConfigurator">
       </configurator>
    </extension>
 

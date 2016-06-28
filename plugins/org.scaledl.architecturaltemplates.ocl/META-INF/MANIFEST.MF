@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - OCL Support
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.ocl;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.scaledl.architecturaltemplates.ocl.Activator
+Bundle-Activator: org.palladiosimulator.architecturaltemplates.ocl.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ocl.pivot;bundle-version="1.0.0",
@@ -19,5 +19,5 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: org.scaledl.architecturaltemplates.ocl
+Export-Package: org.palladiosimulator.architecturaltemplates.ocl
 Bundle-Vendor: palladiosimulator.org
