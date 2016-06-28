@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Completion
+Bundle-Name: Architectural Templates - Jobs
 Bundle-SymbolicName: org.scaledl.architecturaltemplates.completion.jobs;singleton:=true
 Bundle-Version: 1.0.1.qualifier
-Bundle-Vendor: cloudscaleproject.eu
+Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: de.uka.ipd.sdq.workflow;bundle-version="2.1.0",
  de.uka.ipd.sdq.workflow.mdsd;bundle-version="2.1.1",
