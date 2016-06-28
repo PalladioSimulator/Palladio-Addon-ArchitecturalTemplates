@@ -27,7 +27,7 @@
    </requires>
 
    <plugin
-         id="org.scaledl.architecturaltemplates.repositories.cloudscale"
+         id="org.palladiosimulator.architecturaltemplates.catalog"
          download-size="0"
          install-size="0"
          version="0.0.0"

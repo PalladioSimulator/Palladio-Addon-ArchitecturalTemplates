@@ -6,7 +6,7 @@
       <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_HMQHQ2wrEeS8KpnxUVYq6Q" predecessor="_1WjhcJ6eEeWwV9kbWFlZYg"/>
       <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_1WjhcJ6eEeWwV9kbWFlZYg" successor="_HMQHQ2wrEeS8KpnxUVYq6Q" predecessor="_HMQHQmwrEeS8KpnxUVYq6Q">
         <providedRole_EntryLevelSystemCall href="mapreduce.system#_aRTLYJ6eEeWwV9kbWFlZYg"/>
-        <operationSignature__EntryLevelSystemCall href="../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/templates/HadoopMapReduce/HadoopMapReduce.repository#_ti8voG6MEeSV1eFf5EVYSQ"/>
+        <operationSignature__EntryLevelSystemCall href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_ti8voG6MEeSV1eFf5EVYSQ"/>
       </actions_ScenarioBehaviour>
     </scenarioBehaviour_UsageScenario>
     <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">

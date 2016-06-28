@@ -41,7 +41,7 @@
          point="org.eclipse.m2m.qvt.oml.javaBlackboxUnits">
         <unit
             name="ProfilesLibrary"
-            namespace="org.scaledl.architecturaltemplates.repositories.cloudscale.black">
+            namespace="org.palladiosimulator.architecturaltemplates.catalog.black">
          <library
                class="org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary"
                name="ProfilesLibrary">
@@ -61,7 +61,7 @@
       </unit>
         <unit
               name="PCMLibrary"
-              namespace="org.scaledl.architecturaltemplates.repositories.cloudscale.black">
+              namespace="org.palladiosimulator.architecturaltemplates.catalog.black">
            <library
                  class="org.palladiosimulator.architecturaltemplates.catalog.black.PCMLibrary"
                  name="PCMLibrary">

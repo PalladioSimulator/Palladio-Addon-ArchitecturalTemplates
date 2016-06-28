@@ -6,7 +6,7 @@
       <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_5zn0g77EEeSuir3ZgvAmUQ" predecessor="_7AURIL7EEeSuir3ZgvAmUQ"/>
       <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_7AURIL7EEeSuir3ZgvAmUQ" successor="_5zn0g77EEeSuir3ZgvAmUQ" predecessor="_5zn0gr7EEeSuir3ZgvAmUQ">
         <providedRole_EntryLevelSystemCall href="staticAssemblyContextSystem.system#_qeLmcL7CEeSuir3ZgvAmUQ"/>
-        <operationSignature__EntryLevelSystemCall href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
+        <operationSignature__EntryLevelSystemCall href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
       </actions_ScenarioBehaviour>
     </scenarioBehaviour_UsageScenario>
     <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="30">

@@ -6,11 +6,11 @@
       <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_bdkcwH4xEeSqFvs4kqVd7Q" predecessor="_jXzvcH4xEeSqFvs4kqVd7Q"/>
       <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_guDe8H4xEeSqFvs4kqVd7Q" successor="_jXzvcH4xEeSqFvs4kqVd7Q" predecessor="_bdjOoH4xEeSqFvs4kqVd7Q">
         <providedRole_EntryLevelSystemCall href="default.system#_-TPtEH4vEeSqFvs4kqVd7Q"/>
-        <operationSignature__EntryLevelSystemCall href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
+        <operationSignature__EntryLevelSystemCall href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
       </actions_ScenarioBehaviour>
       <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_jXzvcH4xEeSqFvs4kqVd7Q" successor="_bdkcwH4xEeSqFvs4kqVd7Q" predecessor="_guDe8H4xEeSqFvs4kqVd7Q">
         <providedRole_EntryLevelSystemCall href="default.system#_CB-ooH4wEeSqFvs4kqVd7Q"/>
-        <operationSignature__EntryLevelSystemCall href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
+        <operationSignature__EntryLevelSystemCall href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
       </actions_ScenarioBehaviour>
     </scenarioBehaviour_UsageScenario>
     <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">

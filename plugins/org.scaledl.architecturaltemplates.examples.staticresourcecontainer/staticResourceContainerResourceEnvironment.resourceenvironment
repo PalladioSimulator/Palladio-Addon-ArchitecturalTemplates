@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.scaledl.architecturaltemplates.repositories.cloudscale.profiles="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.staticresourcecontainerloadbalancing" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticresourcecontainerloadbalancing" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1">
   <resourceenvironment:ResourceEnvironment>
     <linkingResources__ResourceEnvironment id="_2tml0MKVEeSWFuHcXeRvDQ" entityName="WebShopLinkingResource" connectedResourceContainers_LinkingResource="_7chzEMKVEeSWFuHcXeRvDQ _6EEyYMKVEeSWFuHcXeRvDQ __r9n8MKVEeSWFuHcXeRvDQ">
       <communicationLinkResourceSpecifications_LinkingResource id="_2tvvwMKVEeSWFuHcXeRvDQ">
@@ -31,9 +31,9 @@
     </resourceContainer_ResourceEnvironment>
   </resourceenvironment:ResourceEnvironment>
   <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:StaticLoadbalancedResourceContainer" appliedTo="_7chzEMKVEeSWFuHcXeRvDQ" numberOfReplicas="3">
-      <extension href="../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_58BuEL0NEeSXc41T9TupKQ"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StaticLoadbalancedResourceContainer" appliedTo="_7chzEMKVEeSWFuHcXeRvDQ" numberOfReplicas="3">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_58BuEL0NEeSXc41T9TupKQ"/>
     </stereotypeApplications>
-    <importedProfiles nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.staticresourcecontainerloadbalancing" location="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticresourcecontainerloadbalancing" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.scaledl.architecturaltemplates.repositories.cloudscale.profiles="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.componentstate" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.componentstate" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
   <repository:Repository id="_hMbOQMKTEeSWFuHcXeRvDQ" entityName="defaultRepository">
     <components__Repository xsi:type="repository:BasicComponent" id="_pAAfUMKTEeSWFuHcXeRvDQ" entityName="WebShopFrontEnd">
       <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_xlEQoMKTEeSWFuHcXeRvDQ" entityName="Provided_IWebShopFrontEnd_WebShopFrontEnd" providedInterface__OperationProvidedRole="_qgT0cMKTEeSWFuHcXeRvDQ"/>
@@ -72,12 +72,12 @@
     </interfaces__Repository>
   </repository:Repository>
   <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:StatelessComponent" appliedTo="_daFIkMKUEeSWFuHcXeRvDQ">
-      <extension href="../org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StatelessComponent" appliedTo="_daFIkMKUEeSWFuHcXeRvDQ">
+      <extension href="../org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:StatelessComponent" appliedTo="_gqABMMKUEeSWFuHcXeRvDQ">
-      <extension href="../org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StatelessComponent" appliedTo="_gqABMMKUEeSWFuHcXeRvDQ">
+      <extension href="../org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
     </stereotypeApplications>
-    <importedProfiles nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.componentstate" location="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/ComponentState.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.componentstate" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>

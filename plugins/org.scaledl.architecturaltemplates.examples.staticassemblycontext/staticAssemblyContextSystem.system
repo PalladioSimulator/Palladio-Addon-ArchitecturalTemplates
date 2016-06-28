@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.scaledl.architecturaltemplates.repositories.cloudscale.profiles="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.staticassemblycontextloadbalancing" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticassemblycontextloadbalancing" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
   <system:System id="_jKRT8L7CEeSuir3ZgvAmUQ" entityName="defaultSystem">
     <assemblyContexts__ComposedStructure id="_lTmX8L7CEeSuir3ZgvAmUQ" entityName="Assembly_Alice &lt;Alice>">
-      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#__CpuUPqQEeKForNjxJiaVQ"/>
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#__CpuUPqQEeKForNjxJiaVQ"/>
     </assemblyContexts__ComposedStructure>
     <assemblyContexts__ComposedStructure id="_rUs-wL7CEeSuir3ZgvAmUQ" entityName="Assembly_Bob &lt;Bob>">
-      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_AC5DUPqREeKForNjxJiaVQ"/>
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_AC5DUPqREeKForNjxJiaVQ"/>
     </assemblyContexts__ComposedStructure>
     <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_sE5FkL7CEeSuir3ZgvAmUQ" entityName="Connector Assembly_Alice &lt;Alice> -> Assembly_Bob &lt;Bob>" requiringAssemblyContext_AssemblyConnector="_lTmX8L7CEeSuir3ZgvAmUQ" providingAssemblyContext_AssemblyConnector="_rUs-wL7CEeSuir3ZgvAmUQ">
-      <providedRole_AssemblyConnector href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
-      <requiredRole_AssemblyConnector href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+      <providedRole_AssemblyConnector href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+      <requiredRole_AssemblyConnector href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
     </connectors__ComposedStructure>
     <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_t7OVEL7CEeSuir3ZgvAmUQ" entityName="ProvDelegation Provided_IAlice -> Provided_IAlice_Alice" outerProvidedRole_ProvidedDelegationConnector="_qeLmcL7CEeSuir3ZgvAmUQ" assemblyContext_ProvidedDelegationConnector="_lTmX8L7CEeSuir3ZgvAmUQ">
-      <innerProvidedRole_ProvidedDelegationConnector href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+      <innerProvidedRole_ProvidedDelegationConnector href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
     </connectors__ComposedStructure>
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_qeLmcL7CEeSuir3ZgvAmUQ" entityName="Provided_IAlice">
-      <providedInterface__OperationProvidedRole href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_H8VEwPqREeKForNjxJiaVQ"/>
+      <providedInterface__OperationProvidedRole href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_H8VEwPqREeKForNjxJiaVQ"/>
     </providedRoles_InterfaceProvidingEntity>
   </system:System>
   <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:StaticAssemblyContextLoadbalancingSystem" appliedTo="_jKRT8L7CEeSuir3ZgvAmUQ">
-      <extension href="../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_hnEzoL2VEeS8D6gGtq5evQ"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StaticAssemblyContextLoadbalancingSystem" appliedTo="_jKRT8L7CEeSuir3ZgvAmUQ">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_hnEzoL2VEeS8D6gGtq5evQ"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles:StaticLoadbalancedAssemblyContext" appliedTo="_rUs-wL7CEeSuir3ZgvAmUQ" numberOfReplicas="3">
-      <extension href="../../plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_2c7oML2VEeS8D6gGtq5evQ"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StaticLoadbalancedAssemblyContext" appliedTo="_rUs-wL7CEeSuir3ZgvAmUQ" numberOfReplicas="3">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_2c7oML2VEeS8D6gGtq5evQ"/>
     </stereotypeApplications>
-    <importedProfiles nsURI="org.scaledl.architecturaltemplates.repositories.cloudscale.profiles.staticassemblycontextloadbalancing" location="platform:/plugin/org.scaledl.architecturaltemplates.repositories.cloudscale/profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticassemblycontextloadbalancing" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>

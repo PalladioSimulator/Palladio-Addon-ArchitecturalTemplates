@@ -13,11 +13,11 @@
    </description>
 
    <includes
-         id="org.scaledl.architecturaltemplates.feature"
+         id="org.palladiosimulator.architecturaltemplates.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.scaledl.architecturaltemplates.examples.feature"
+         id="org.palladiosimulator.architecturaltemplates.examples.feature"
          version="0.0.0"/>
 
    <includes

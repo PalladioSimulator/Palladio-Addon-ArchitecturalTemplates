@@ -9,14 +9,14 @@
           <children xsi:type="notation:DecorationNode" type="5007">
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
-          <element href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+          <element href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
           <children xsi:type="notation:DecorationNode" type="5008">
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
-          <element href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+          <element href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="staticAssemblyContextSystem.system#_lTmX8L7CEeSuir3ZgvAmUQ"/>
@@ -28,7 +28,7 @@
           <children xsi:type="notation:DecorationNode" type="5007">
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
-          <element href="../org.scaledl.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+          <element href="../org.palladiosimulator.architecturaltemplates.examples.aliceandbob/AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="staticAssemblyContextSystem.system#_rUs-wL7CEeSuir3ZgvAmUQ"/>
