@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.palladiosimulator.architecturaltemplates.examples.feature"
-      label="Architectural Templates - CloudScale AT Catalogue"
+      label="Architectural Templates - Default Catalog"
       version="1.0.0.qualifier"
       provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
@@ -9,7 +9,7 @@
       license-feature-version="1.0.0">
 
    <description url="http://wiki.cloudscale-project.eu/index.php/HowTos">
-      CloudScale&apos;s AT catalogue provides best practice ATs for designing and analyzing scalable, elastic, and cost-efficient SaaS applications.
+      Default AT catalog provides best practice ATs for distributed computing (layered architectures, loadbalancers, caches), cloud computing (horizontal and vertical scaling), and big data (Hadoop MapReduce).
    </description>
 
    <requires>
