@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<org.palladiosimulator.architecturaltemplates:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.architecturaltemplates="http://palladiosimulator.org/ArchitecturalTemplates/Type/1.0" id="_2eRmoCOzEeSLXszsY50NUA" entityName="Default AT Catalog">
+<org.palladiosimulator.architecturaltemplates:Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.architecturaltemplates="http://palladiosimulator.org/ArchitecturalTemplates/1.0" id="_2eRmoCOzEeSLXszsY50NUA" entityName="Default AT Catalog">
   <ATs id="_64sjgCOzEeSLXszsY50NUA" entityName="Dynamic Three Layer Three Tier">
     <roles id="_BIH6MCO0EeSLXszsY50NUA" entityName="Dynamic Three Layer Three Tier Presentation Layer Assembly" constraints="_UCl3wY0WEeWSbrz1kUpHng _V0_hcbLREeWONf-2GJUY0g">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_ud6-gCOrEeSubfGVEKswQQ"/>
