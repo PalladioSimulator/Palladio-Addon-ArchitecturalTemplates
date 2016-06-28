@@ -1,0 +1,91 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+
+/**
+ * Transforms a 3-layer PCM instance (System annotated with 3-layer 3-tier AT roles) to a PCM instance
+ * fitting to a given 3-tier resource environment with exactly three resource containers (Resource Containers annotated with 3-layer 3-tier AT roles).
+ * Each layer is assigned to the corresponding tier in the resulting Allocation. 
+ *
+ * @author Sebastian Lehrig
+ * @author Daria Giacinto
+ **/
+ 
+transformation ThreeLayerThreeTier(inout pcmSystem : PCM_SYS,
+						   	  inout pcmResourceEnvironment : PCM_RES_ENV,
+						   	  out pcmAllocation : PCM_ALLOC);
+						   	  
+//String constants of the Three Layer Three Tier Profile					   			 
+property threeLayerThreeTierProfile : String = "ThreeLayerThreeTierProfile";
+property threeLayerThreeTierSystemStereotype : String = "ThreeLayerThreeTierSystem";
+property presentationLayerStereotype : String = "PresentationLayerAssembly";
+property presentationTierStereotype : String = "PresentationTier";
+property middleLayerStereotype : String = "MiddleLayerAssembly";
+property middleTierStereotype : String = "MiddleTier";
+property dataLayerStereotype : String = "DataLayerAssembly";
+property dataTierStereotype : String = "DataTier";
+
+main() {
+
+	log ('Architectural Template Transformation "Three Layer Three Tier" started!');
+	
+	var system : System := pcmSystem.rootObjects()![System];
+	
+	assert fatal(isProfileApplied(system.oclAsType(EObject), threeLayerThreeTierProfile))
+		with log ("The System has no " + threeLayerThreeTierProfile + " applied.");
+		
+	assert fatal(hasAppliedStereotype(system, threeLayerThreeTierSystemStereotype))
+		with log ("The System is not a " + threeLayerThreeTierSystemStereotype + "!");
+		
+	var assemblyContexts : Set(AssemblyContext) := system.assemblyContexts__ComposedStructure;	
+	var resourceEnvironment : ResourceEnvironment := pcmResourceEnvironment.rootObjects()![ResourceEnvironment];
+	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;	
+	
+	var allocation : Allocation := system.map createAllocation(resourceEnvironment);
+	allocateLayerAssembliesToTiers(assemblyContexts,resourceContainers,allocation);
+	
+	log ('Architectural Template Transformation "Three Layer Three Tier" finished!');
+}
+
+helper allocateLayerAssembliesToTiers(assemblyContexts : Set(AssemblyContext), resourceContainers : Set(ResourceContainer), allocation : Allocation) {
+	var system : System := pcmSystem.rootObjects()![System]; 
+	var resourceContainer : ResourceContainer;
+	var assemblyStereotypeApplication : String;
+	assemblyContexts -> forEach(assemblyContext){
+		
+		if(hasAppliedStereotype(assemblyContext,presentationLayerStereotype)){
+			assemblyStereotypeApplication := "PresentationLayerAssembly";
+			resourceContainer := resourceContainers -> any(rc|hasAppliedStereotype(rc,presentationTierStereotype));
+		}
+		else if(hasAppliedStereotype(assemblyContext,middleLayerStereotype)){
+			assemblyStereotypeApplication := "MiddleLayerAssembly";
+			resourceContainer := resourceContainers -> any(rc|hasAppliedStereotype(rc,middleTierStereotype));
+		}
+		else if(hasAppliedStereotype(assemblyContext,dataLayerStereotype)){
+			assemblyStereotypeApplication := "DataLayerAssembly";
+			resourceContainer := resourceContainers -> any(rc|hasAppliedStereotype(rc,dataTierStereotype));
+		};
+		
+		removeStereotypeApplications(assemblyContext,assemblyStereotypeApplication);	
+		new AllocationContext(assemblyContext, resourceContainer, allocation);
+	}
+};
+
+mapping System::createAllocation(resourceEnvironment:ResourceEnvironment) : Allocation@pcmAllocation{
+	id := self.id + "_ThreeLayerThreeTierAllocation";
+	entityName := "ThreeLayerThreeTierAllocation";
+	system_Allocation := self;
+	targetResourceEnvironment_Allocation := resourceEnvironment;
+}
+
+constructor AllocationContext :: AllocationContext (ac : AssemblyContext, rc: ResourceContainer, allocation : Allocation){
+	id := ac.id + "_" + ac.entityName +  "_AllocationContext";
+	entityName := "Allocation_" + ac.entityName;
+	assemblyContext_AllocationContext := ac;
+	resourceContainer_AllocationContext := rc;
+	allocation_AllocationContext := allocation;
+}

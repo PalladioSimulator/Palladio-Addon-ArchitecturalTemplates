@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.hadoopmapreduce" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description org.palladiosimulator.architecturaltemplates.catalog.profiles.hadoopmapreduce platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/HadoopMapReduce.emfprofile_diagram#_Fot0gPpgEeSRjMxcTrWsAA http://palladiosimulator.org/PalladioComponentModel/Repository/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//repository http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://palladiosimulator.org/PalladioComponentModel/System/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//system" xmi:id="_jdBzUKP9EeWcbd9OtfrtyQ" selectedViews="_l9wqsKP9EeWcbd9OtfrtyQ" version="10.1.0.201509162000">
+  <semanticResources>mapreduce.repository</semanticResources>
+  <semanticResources>platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/Palladio.resourcetype</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/PrimitiveTypes.repository</semanticResources>
+  <semanticResources>mapreduce.repository_diagram</semanticResources>
+  <semanticResources>mapreduce.system</semanticResources>
+  <semanticResources>mapreduce.usagemodel</semanticResources>
+  <semanticResources>mapreduce.usagemodel_diagram</semanticResources>
+  <semanticResources>platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/HadoopMapReduce.emfprofile_diagram</semanticResources>
+  <semanticResources>mapreduce.measuringpoint</semanticResources>
+  <semanticResources>mapreduce.monitorrepository</semanticResources>
+  <semanticResources>pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/Glassfish.repository</semanticResources>
+  <semanticResources>pathmap://PCM_MODELS/default_event_middleware.repository</semanticResources>
+  <semanticResources>Experiments/NormalRun.experiments</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_l9wqsKP9EeWcbd9OtfrtyQ">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_7lsMsKQOEeWAQvtAPq2LOQ" name="Hadoop MapReduce System">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7lsMsaQOEeWAQvtAPq2LOQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_7lsMsqQOEeWAQvtAPq2LOQ"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7l9ScKQOEeWAQvtAPq2LOQ" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_7l9ScaQOEeWAQvtAPq2LOQ" type="Sirius" element="_7lsMsKQOEeWAQvtAPq2LOQ" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_7mBj4KQOEeWAQvtAPq2LOQ" type="2002" element="_7lsMs6QOEeWAQvtAPq2LOQ">
+            <children xmi:type="notation:Node" xmi:id="_7mL78KQOEeWAQvtAPq2LOQ" type="5006"/>
+            <children xmi:type="notation:Node" xmi:id="_7mMjAKQOEeWAQvtAPq2LOQ" type="7001">
+              <children xmi:type="notation:Node" xmi:id="_7mbzkKQOEeWAQvtAPq2LOQ" type="3008" element="_7lsMuKQOEeWAQvtAPq2LOQ">
+                <children xmi:type="notation:Node" xmi:id="_7mcaoKQOEeWAQvtAPq2LOQ" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_7mdowKQOEeWAQvtAPq2LOQ" type="7002">
+                  <children xmi:type="notation:Node" xmi:id="_5gM08KQQEeWAQvtAPq2LOQ" type="3009" element="_5f89UKQQEeWAQvtAPq2LOQ">
+                    <children xmi:type="notation:Node" xmi:id="_5gNcAKQQEeWAQvtAPq2LOQ" type="5004"/>
+                    <children xmi:type="notation:Node" xmi:id="_5gNcAaQQEeWAQvtAPq2LOQ" type="7003">
+                      <styles xmi:type="notation:SortingStyle" xmi:id="_5gNcAqQQEeWAQvtAPq2LOQ"/>
+                      <styles xmi:type="notation:FilteringStyle" xmi:id="_5gNcA6QQEeWAQvtAPq2LOQ"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_5gM08aQQEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5gM08qQQEeWAQvtAPq2LOQ" x="3" y="22"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_7mdowaQOEeWAQvtAPq2LOQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_7mdowqQOEeWAQvtAPq2LOQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_7meP1KQOEeWAQvtAPq2LOQ" type="3012" element="_7lsMuaQOEeWAQvtAPq2LOQ">
+                  <children xmi:type="notation:Node" xmi:id="_7me24KQOEeWAQvtAPq2LOQ" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_7me24aQOEeWAQvtAPq2LOQ" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_7mgsEKQOEeWAQvtAPq2LOQ" type="3014" element="_7lsMu6QOEeWAQvtAPq2LOQ">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_7mgsEaQOEeWAQvtAPq2LOQ" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mgsEqQOEeWAQvtAPq2LOQ"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_7meP1aQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7meP1qQOEeWAQvtAPq2LOQ" x="64" y="-30" width="30" height="30"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_7mbzkaQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mbzkqQOEeWAQvtAPq2LOQ" x="95" y="118"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_7mdow6QOEeWAQvtAPq2LOQ" type="3008" element="_7lsMvaQOEeWAQvtAPq2LOQ">
+                <children xmi:type="notation:Node" xmi:id="_7meP0KQOEeWAQvtAPq2LOQ" type="5005"/>
+                <children xmi:type="notation:Node" xmi:id="_7meP0aQOEeWAQvtAPq2LOQ" type="7002">
+                  <children xmi:type="notation:Node" xmi:id="_4cnRAKQQEeWAQvtAPq2LOQ" type="3009" element="_4cQrsKQQEeWAQvtAPq2LOQ">
+                    <children xmi:type="notation:Node" xmi:id="_4cn4EKQQEeWAQvtAPq2LOQ" type="5004"/>
+                    <children xmi:type="notation:Node" xmi:id="_4cn4EaQQEeWAQvtAPq2LOQ" type="7003">
+                      <styles xmi:type="notation:SortingStyle" xmi:id="_4cn4EqQQEeWAQvtAPq2LOQ"/>
+                      <styles xmi:type="notation:FilteringStyle" xmi:id="_4cn4E6QQEeWAQvtAPq2LOQ"/>
+                    </children>
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_4cnRAaQQEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4cnRAqQQEeWAQvtAPq2LOQ" x="7" y="18"/>
+                  </children>
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_7meP0qQOEeWAQvtAPq2LOQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_7meP06QOEeWAQvtAPq2LOQ"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_7mhTIKQOEeWAQvtAPq2LOQ" type="3012" element="_7lsMvqQOEeWAQvtAPq2LOQ">
+                  <children xmi:type="notation:Node" xmi:id="_7mh6MKQOEeWAQvtAPq2LOQ" visible="false" type="5010">
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_7mh6MaQOEeWAQvtAPq2LOQ" x="31"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_7mihQKQOEeWAQvtAPq2LOQ" type="3014" element="_7lsMwKQOEeWAQvtAPq2LOQ">
+                    <styles xmi:type="notation:ShapeStyle" xmi:id="_7mihQaQOEeWAQvtAPq2LOQ" fontName=".SF NS Text"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mihQqQOEeWAQvtAPq2LOQ"/>
+                  </children>
+                  <styles xmi:type="notation:ShapeStyle" xmi:id="_7mhTIaQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mhTIqQOEeWAQvtAPq2LOQ" x="64" y="-30" width="30" height="30"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_7mdoxKQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mdoxaQOEeWAQvtAPq2LOQ" x="343" y="118"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_9sWXMKQOEeWAQvtAPq2LOQ" type="3009" element="_9rYG0KQOEeWAQvtAPq2LOQ">
+                <children xmi:type="notation:Node" xmi:id="_9sW-QKQOEeWAQvtAPq2LOQ" type="5004"/>
+                <children xmi:type="notation:Node" xmi:id="_9sXlUKQOEeWAQvtAPq2LOQ" type="7003">
+                  <styles xmi:type="notation:SortingStyle" xmi:id="_9sXlUaQOEeWAQvtAPq2LOQ"/>
+                  <styles xmi:type="notation:FilteringStyle" xmi:id="_9sXlUqQOEeWAQvtAPq2LOQ"/>
+                </children>
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_9sWXMaQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9sWXMqQOEeWAQvtAPq2LOQ" x="211" y="26"/>
+              </children>
+              <styles xmi:type="notation:SortingStyle" xmi:id="_7mMjAaQOEeWAQvtAPq2LOQ"/>
+              <styles xmi:type="notation:FilteringStyle" xmi:id="_7mMjAqQOEeWAQvtAPq2LOQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7mPmUKQOEeWAQvtAPq2LOQ" type="3012" element="_7lsMtKQOEeWAQvtAPq2LOQ">
+              <children xmi:type="notation:Node" xmi:id="_7mVs8KQOEeWAQvtAPq2LOQ" visible="false" type="5010">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_7mVs8aQOEeWAQvtAPq2LOQ" y="-21"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_7mihQ6QOEeWAQvtAPq2LOQ" type="3014" element="_7lsMtqQOEeWAQvtAPq2LOQ">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_7mihRKQOEeWAQvtAPq2LOQ" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mihRaQOEeWAQvtAPq2LOQ"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7mPmUaQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mPmUqQOEeWAQvtAPq2LOQ" x="-50" y="112" width="50" height="50"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7mBj4aQOEeWAQvtAPq2LOQ" fontName=".SF NS Text" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7mBj4qQOEeWAQvtAPq2LOQ" width="547" height="239"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_7l9ScqQOEeWAQvtAPq2LOQ"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_7lsMs6QOEeWAQvtAPq2LOQ" name="Hadoop MapReduce System">
+        <target xmi:type="system:System" href="mapreduce.system#_R9RfsJ6eEeWwV9kbWFlZYg"/>
+        <semanticElements xmi:type="system:System" href="mapreduce.system#_R9RfsJ6eEeWwV9kbWFlZYg"/>
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7lsMtKQOEeWAQvtAPq2LOQ" name="Provided_JobContext" width="5" height="5">
+          <target xmi:type="repository:OperationProvidedRole" href="mapreduce.system#_aRTLYJ6eEeWwV9kbWFlZYg"/>
+          <semanticElements xmi:type="repository:OperationProvidedRole" href="mapreduce.system#_aRTLYJ6eEeWwV9kbWFlZYg"/>
+          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_7lsMtaQOEeWAQvtAPq2LOQ"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_7lsMtqQOEeWAQvtAPq2LOQ" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+            <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@borderedNodeMappings[name='ExternalOperationProvidedRole%20Node']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@borderedNodeMappings[name='ExternalOperationProvidedRole%20Node']"/>
+        </ownedBorderedNodes>
+        <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_7lsMt6QOEeWAQvtAPq2LOQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+          <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']"/>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_7lsMuKQOEeWAQvtAPq2LOQ" name="Assembly_Map &lt;Map>">
+          <target xmi:type="composition:AssemblyContext" href="mapreduce.system#_S-mZ0J6eEeWwV9kbWFlZYg"/>
+          <semanticElements xmi:type="composition:AssemblyContext" href="mapreduce.system#_S-mZ0J6eEeWwV9kbWFlZYg"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7lsMuaQOEeWAQvtAPq2LOQ" name="Provided_IMap_Map" width="3" height="3">
+            <target xmi:type="repository:OperationProvidedRole" href="mapreduce.repository#_LvRh0Z6dEeWwV9kbWFlZYg"/>
+            <semanticElements xmi:type="repository:OperationProvidedRole" href="mapreduce.repository#_LvRh0Z6dEeWwV9kbWFlZYg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_7lsMuqQOEeWAQvtAPq2LOQ"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_7lsMu6QOEeWAQvtAPq2LOQ" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_7lsMvKQOEeWAQvtAPq2LOQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_5f89UKQQEeWAQvtAPq2LOQ" name="MapAssemblyContext">
+            <target xmi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:MapAssemblyContext" href="mapreduce.system#/1/@stereotypeApplications.2"/>
+            <semanticElements xmi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:MapAssemblyContext" href="mapreduce.system#/1/@stereotypeApplications.2"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_5gAAoKQQEeWAQvtAPq2LOQ" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_7lsMvaQOEeWAQvtAPq2LOQ" name="Assembly_Reduce &lt;Reduce>">
+          <target xmi:type="composition:AssemblyContext" href="mapreduce.system#_YH3ZsJ6eEeWwV9kbWFlZYg"/>
+          <semanticElements xmi:type="composition:AssemblyContext" href="mapreduce.system#_YH3ZsJ6eEeWwV9kbWFlZYg"/>
+          <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7lsMvqQOEeWAQvtAPq2LOQ" name="Provided_IReduce_Reduce" width="3" height="3">
+            <target xmi:type="repository:OperationProvidedRole" href="mapreduce.repository#_KLZ7UZ6dEeWwV9kbWFlZYg"/>
+            <semanticElements xmi:type="repository:OperationProvidedRole" href="mapreduce.repository#_KLZ7UZ6dEeWwV9kbWFlZYg"/>
+            <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_7lsMv6QOEeWAQvtAPq2LOQ"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:CustomStyle" xmi:id="_7lsMwKQOEeWAQvtAPq2LOQ" hideLabelByDefault="true" id="org.palladiosimulator.editors.composedprovidingrequiringentity.operationProvidedRole">
+              <description xmi:type="style:CustomStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@borderedNodeMappings[name='OperationProvidedRole%20Node']"/>
+          </ownedBorderedNodes>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_7lsMwaQOEeWAQvtAPq2LOQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']"/>
+          <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_4cQrsKQQEeWAQvtAPq2LOQ" name="ReduceAssemblyContext">
+            <target xmi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:ReduceAssemblyContext" href="mapreduce.system#/1/@stereotypeApplications.1"/>
+            <semanticElements xmi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:ReduceAssemblyContext" href="mapreduce.system#/1/@stereotypeApplications.1"/>
+            <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+            <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+            <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+            <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_4cTvAKQQEeWAQvtAPq2LOQ" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/Role2Component.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+              <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']/@style"/>
+            </ownedStyle>
+            <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='AssemblyContext%20Container']/@subContainerMappings[name='Role%20Container']"/>
+          </ownedDiagramElements>
+        </ownedDiagramElements>
+        <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_9rYG0KQOEeWAQvtAPq2LOQ" name="HadoopMapReduceSystem">
+          <target xmi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:HadoopMapReduceSystem" href="mapreduce.system#/1/@stereotypeApplications.0"/>
+          <semanticElements xmi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:HadoopMapReduceSystem" href="mapreduce.system#/1/@stereotypeApplications.0"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_9reNcKQOEeWAQvtAPq2LOQ" iconPath="/org.palladiosimulator.architecturaltemplates.edit/icons/full/obj16/ATInstance.gif" borderSize="1" borderSizeComputationExpression="1" backgroundColor="209,209,209">
+            <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer/@containerMappings[name='ComposedProvidingRequiringEntity%20Node']/@subContainerMappings[name='System%20Role%20Container']"/>
+        </ownedDiagramElements>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_7lsMwqQOEeWAQvtAPq2LOQ"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']/@ownedRepresentations[name='ComposedProvidingRequiringEntity%20Diagram']/@defaultLayer"/>
+      <target xmi:type="system:System" href="mapreduce.system#_R9RfsJ6eEeWwV9kbWFlZYg"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.composedprovidingrequiringentity.design/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

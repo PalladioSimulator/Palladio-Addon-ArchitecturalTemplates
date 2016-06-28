@@ -1,0 +1,253 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCMEntity uses pcm::core::entity('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+
+transformation ResourceContainerReverseLoadbalancing(in prm : PRM,inout pcmAllocation : PCM_ALLOC);
+
+configuration property loadbalanced : Boolean;									
+property listOfRootObjects : List(NamedElement);
+property dict : Dict(AssemblyContext,AssemblyContext);
+
+main() {
+
+	if(loadbalanced){
+	
+		var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
+		var allocationContexts : Set(AllocationContext) := allocation.allocationContexts_Allocation;
+		var system : System := allocation.system_Allocation;
+		var resourceEnvironment : ResourceEnvironment := allocation.targetResourceEnvironment_Allocation;
+		var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
+		var loadbalancerResourceContainer : ResourceContainer;
+		loadbalancerResourceContainer := resourceContainers -> selectOne(resourceContainer : ResourceContainer |
+						hasAppliedStereotype(resourceContainer,"LoadbalancerResourceContainer"));
+				
+		assert fatal(loadbalancerResourceContainer != null)
+			with log ("There is no Loadbalancer ResourceContainer Stereotype Application!");	
+			
+		
+		var originalResourceContainer : ResourceContainer;
+		var duplicatedResourceContainers : Set(ResourceContainer);
+		var loadbalancerResourceContainers : Set(ResourceContainer);
+		
+		resourceContainers -> forEach(resourceContainer){
+			if(hasAppliedStereotype(resourceContainer,"DuplicateResourceContainer")){
+				duplicatedResourceContainers += resourceContainer;
+				removeStereotypeApplications(resourceContainer,"DuplicateResourceContainer");
+			}
+			else if(hasAppliedStereotype(resourceContainer,"OriginalResourceContainer")){
+				originalResourceContainer := resourceContainer;
+			}
+			else if(hasAppliedStereotype(resourceContainer,"LoadbalancerResourceContainer")){
+				loadbalancerResourceContainers += resourceContainer;
+				removeStereotypeApplications(resourceContainer,"LoadbalancerResourceContainer");
+			};
+		};
+		
+		var duplicatedAssemblyContexts : Set(AssemblyContext) := getAllAssemblyContextsOnResourceContainer(duplicatedResourceContainers,allocationContexts);
+		var loadbalancerAssemblyContexts : Set(AssemblyContext) := getAllAssemblyContextsOnResourceContainer(loadbalancerResourceContainers,allocationContexts);
+		var originalAssemblyContexts : Set(AssemblyContext) := getAllAssemblyContextsOnResourceContainer(originalResourceContainer,allocationContexts);
+		var loadbalancerRepositoryComponents : Set(RepositoryComponent);
+		loadbalancerAssemblyContexts ->forEach(loadbalancerAssemblyContext){
+			loadbalancerRepositoryComponents += loadbalancerAssemblyContext.encapsulatedComponent__AssemblyContext;
+		};
+		var assemblyConnectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector);
+		var sourceAssemblyContext : AssemblyContext;
+		var targetAssemblyContext : AssemblyContext;
+		assemblyConnectors ->forEach(assemblyConnector){
+			sourceAssemblyContext := getRequiringAssemblyContext(assemblyConnector);
+			targetAssemblyContext := getProvidingAssemblyContext(assemblyConnector);
+			if(loadbalancerAssemblyContexts->includes(sourceAssemblyContext) and originalAssemblyContexts->includes(targetAssemblyContext)){
+				dict->put(sourceAssemblyContext,targetAssemblyContext);
+			};
+		};
+		var repository : Repository := loadbalancerAssemblyContexts->any(true).encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+		
+		listOfRootObjects ->add(allocation);
+		listOfRootObjects ->add(resourceEnvironment);	
+		listOfRootObjects ->add(system);
+		listOfRootObjects ->add(repository);	
+		
+		reverseSystem(duplicatedAssemblyContexts,loadbalancerAssemblyContexts);
+		
+		var loadbalancerAndDuplicatedResourceContainer : Set(ResourceContainer) := loadbalancerResourceContainers;
+		loadbalancerAndDuplicatedResourceContainer+= duplicatedResourceContainers;
+		var loadbalancerAndDuplicatedAllocationContexts : Set(AllocationContext) := allocationContexts -> select(allocationContext : AllocationContext|loadbalancerAndDuplicatedResourceContainer->includes(allocationContext.resourceContainer_AllocationContext));
+		reverseResourceEnvironment(loadbalancerAndDuplicatedResourceContainer,resourceEnvironment);
+		reverseAllocation(loadbalancerAndDuplicatedAllocationContexts);
+		reverseRepository(loadbalancerRepositoryComponents);
+	};	
+}
+
+/**
+ * Returns the set of assembly contexts allocated on one of the resource containers
+ */
+query getAllAssemblyContextsOnResourceContainer(resourceContainers : Set(ResourceContainer),allocationContexts : Set(AllocationContext)) : Set(AssemblyContext) {
+	var assemblyContexts : Set(AssemblyContext);
+	allocationContexts -> forEach(allocationContext){
+		if(resourceContainers->includes(allocationContext.resourceContainer_AllocationContext)){
+			assemblyContexts += allocationContext.assemblyContext_AllocationContext;
+		}
+	};
+	return assemblyContexts; 
+}
+
+/**
+ * Returns the set of assembly contexts allocated on one of the resource containers
+ */
+query getAllAssemblyContextsOnResourceContainer(resourceContainer : ResourceContainer,allocationContexts : Set(AllocationContext)) : Set(AssemblyContext) {
+	var assemblyContexts : Set(AssemblyContext);
+	allocationContexts -> forEach(allocationContext){
+		if(allocationContext.resourceContainer_AllocationContext.id.=(resourceContainer.id)){
+			assemblyContexts += allocationContext.assemblyContext_AllocationContext;
+		}
+	};
+	return assemblyContexts; 
+}
+
+/**
+ * Remove all Provided and RequiredRoles from the Loadbalancer RepositoryComponent and then remove the component
+ */
+helper reverseRepository(loadbalancerRepositoryComponents : Set(RepositoryComponent)){
+	loadbalancerRepositoryComponents->forEach(loadbalancerRepositoryComponent){
+		removeRepositoryComponent(loadbalancerRepositoryComponent);
+	};
+}
+
+helper reverseAllocation(allocationContexts : Set(AllocationContext)){
+	allocationContexts->forEach(allocationContext){
+		removeAllocationContext(allocationContext);
+	};
+}
+
+helper reverseResourceEnvironment(resourceContainers : Set(ResourceContainer), resourceEnvironment : ResourceEnvironment){
+	resourceContainers->forEach(resourceContainer){
+		removeResourceContainer(resourceContainer);
+	};
+	removeLinkingResource(resourceEnvironment.linkingResources__ResourceEnvironment);
+}
+/**
+ * Remove the Loadbalancer AssemblyContext and all replicated AssemblyContexts from the System,update the Assembly 
+ * and ProvidedDelegation or remove them, respectively
+ */
+helper reverseSystem(duplicateAssemblyContexts:Set(AssemblyContext), loadbalancerAssemblyContexts : Set(AssemblyContext)){
+	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
+	var system : System := allocation.system_Allocation;
+	var connectors : Set(Connector) := system.connectors__ComposedStructure;
+	var providingAssemblyContext : AssemblyContext;
+	var originalAssemblyContextOperationProvidedRole : OperationProvidedRole;
+	var originalAssemblyContext : AssemblyContext;
+	connectors->forEach(connector) {
+		if(connector.oclIsTypeOf(AssemblyConnector)){
+			var assemblyConnector : AssemblyConnector := connector.oclAsType(AssemblyConnector);
+			var requiringAssemblyContext : AssemblyContext := getRequiringAssemblyContext(assemblyConnector);
+			providingAssemblyContext := getProvidingAssemblyContext(assemblyConnector);
+			if(duplicateAssemblyContexts ->includes(providingAssemblyContext) or 
+				duplicateAssemblyContexts -> includes(requiringAssemblyContext) or 
+				loadbalancerAssemblyContexts -> includes(requiringAssemblyContext)){
+				removeAssemblyConnector(assemblyConnector);
+			}
+			else if(loadbalancerAssemblyContexts->includes(providingAssemblyContext)){
+				originalAssemblyContext := dict->get(providingAssemblyContext);
+				originalAssemblyContextOperationProvidedRole := originalAssemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity 
+					->selectOne(providedRole : ProvidedRole | providedRole.oclAsType(OperationProvidedRole).providedInterface__OperationProvidedRole.id  = assemblyConnector.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole.id).oclAsType(OperationProvidedRole);
+				assemblyConnector.providingAssemblyContext_AssemblyConnector := originalAssemblyContext;
+				assemblyConnector.providedRole_AssemblyConnector := originalAssemblyContextOperationProvidedRole;
+			}
+		}
+		else if(connector.oclIsTypeOf(ProvidedDelegationConnector)){
+			var providedDelegationConnector : ProvidedDelegationConnector := connector.oclAsType(ProvidedDelegationConnector);
+			providingAssemblyContext := getProvidingAssemblyContext(providedDelegationConnector);
+			if(loadbalancerAssemblyContexts->includes(providingAssemblyContext)){
+				originalAssemblyContext := dict->get(providingAssemblyContext);
+				originalAssemblyContextOperationProvidedRole := originalAssemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity 
+					->selectOne(providedRole : ProvidedRole | providedRole.oclAsType(OperationProvidedRole).providedInterface__OperationProvidedRole.id = providedDelegationConnector.innerProvidedRole_ProvidedDelegationConnector.providedInterface__OperationProvidedRole.id).oclAsType(OperationProvidedRole);
+				providedDelegationConnector.assemblyContext_ProvidedDelegationConnector := originalAssemblyContext;
+				providedDelegationConnector.innerProvidedRole_ProvidedDelegationConnector := originalAssemblyContextOperationProvidedRole;
+			}
+		}	
+	};
+	
+	loadbalancerAssemblyContexts ->forEach(loadbalancerAssemblyContext){
+		removeAssemblyContext(loadbalancerAssemblyContext);
+	};
+	
+	duplicateAssemblyContexts -> forEach(duplicateAssembylContext){
+		removeAssemblyContext(duplicateAssembylContext);
+	};
+	
+};
+
+/**
+ * Remove a LinkingResource when it is connected with only one ResourceContainer
+ */
+helper removeLinkingResource(linkingResources : Set(LinkingResource)){
+	linkingResources->forEach(linkingResource){
+		var connectedResourceContainer : Set(ResourceContainer) := linkingResource.connectedResourceContainers_LinkingResource;
+		if(connectedResourceContainer->size()<2){
+			delete(listOfRootObjects,linkingResource);
+		}
+	};
+	 
+}
+	
+	/**
+ * Remove the AssemblyContext of the System Model
+ */
+helper removeAssemblyContext(assemblyContext: AssemblyContext){
+	delete(listOfRootObjects,assemblyContext);
+}
+
+/**
+ * Remove the AssemblyConnector of the System Model
+ */
+helper removeAssemblyConnector(assemblyConnector: AssemblyConnector){
+	delete(listOfRootObjects,assemblyConnector);
+}
+/**
+ * Remove the AllocationContext of the Allocation Model
+ */
+helper removeAllocationContext(allocationContext : AllocationContext){
+	delete(listOfRootObjects,allocationContext);
+}
+
+
+/**
+ * Remove the AllocationContext of the ResourceEnvironment Model
+ */
+helper removeResourceContainer(resourceContainer : ResourceContainer){
+	delete(listOfRootObjects,resourceContainer); 
+}
+
+/**
+ * Remove the RepositoryComponent of the Repository Model
+ */
+helper removeRepositoryComponent(repositoryComponent: RepositoryComponent){
+	delete(listOfRootObjects,repositoryComponent);
+}
+
+/**
+ * Returns the requiring component of a given AssemblyConnector.
+ */
+query getRequiringAssemblyContext(assemblyConnector : AssemblyConnector) : AssemblyContext {
+	return assemblyConnector.requiringAssemblyContext_AssemblyConnector;
+}
+
+/**
+ * Returns the providing component of a given AssemblyConnector.
+ */
+query getProvidingAssemblyContext(assemblyConnector : AssemblyConnector) : AssemblyContext {
+	return assemblyConnector.providingAssemblyContext_AssemblyConnector;
+}
+
+/**
+ * Returns the providing component of a given ProvidedDelegationConnector.
+ */
+query getProvidingAssemblyContext(providedDelegationConnector : ProvidedDelegationConnector) : AssemblyContext {
+	return providedDelegationConnector.assemblyContext_ProvidedDelegationConnector;
+}

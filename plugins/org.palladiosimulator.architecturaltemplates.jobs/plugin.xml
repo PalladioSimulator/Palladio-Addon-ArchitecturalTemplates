@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.palladiosimulator.architecturaltemplates.completion.jobs.workflow_extension"
+         name="Architectural Template: Workflow Extension"
+         point="de.uka.ipd.sdq.workflow.job">
+      <workflow_job
+            extension_configurationbuilder="org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionConfigurationBuilder"
+            extension_job="org.palladiosimulator.architecturaltemplates.jobs.RunATJob"
+            workflow_id="workflow.extension.experimentautomation.before.experimentrun">
+      </workflow_job>
+   </extension>
+   <extension
+         id="org.palladiosimulator.architecturaltemplates.completion.jobs.tab_extension"
+         name="Architectural Template: Tab Extension"
+         point="de.uka.ipd.sdq.workflow.tab.extension">
+      <workflow_extension
+            name="org.palladiosimulator.architecturaltemplates.completion.jobs.tab_extension"
+            runconfig_tab="org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionTab"
+            workflow_id="workflow.extension.experimentautomation.tabs">
+      </workflow_extension>
+   </extension>
+   <extension
+         id="org.palladiosimulator.architecturaltemplates.simulizar.configurator"
+         name="Architectural Template: SimuLizar Configurator"
+         point="org.palladiosimulator.simulizar.configurator">
+      <configurator
+            configurator="org.palladiosimulator.architecturaltemplates.jobs.config.SimuLizarConfigurator">
+      </configurator>
+   </extension>
+
+</plugin>

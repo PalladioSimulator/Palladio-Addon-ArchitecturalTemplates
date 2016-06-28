@@ -1,0 +1,714 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_COMPLETION uses 'http://palladiosimulator.org/AnalyzerFramework/Completions/1.0';
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCMSEFF_PERFORMANCE uses pcm::seff::seff_performance('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_RESOURCETYPE uses pcm::resourcetype('http://palladiosimulator.org/PalladioComponentModel/5.1');
+
+transformation StaticResourceContainerLoadbalancing(inout pcmAllocation : PCM_ALLOC);
+
+//String constants of the Static Assembly Context Loadbalancing Profile					   			 
+property staticResourceContainerLoadbalancingProfile : String = "StaticResourceContainerLoadbalancingProfile";
+property staticResourceContainerLoadbalancingSystemStereotype : String = "StaticResourceContainerLoadbalancingSystem";
+property staticLoadbalancedResourceContainerStereotype : String = "StaticLoadbalancedResourceContainer";
+
+//String constants of the Dynamic Horizontal Scaling Assembly Context  Profile	
+property dynamicHorizontalScalingResourceContainerProfile : String = "DynamicHorizontalScalingResourceContainerProfile";
+property dynamicHorizontalScalingResourceContainerSystemStereotype : String = "DynamicHorizontalScalingResourceContainerSystem";
+property replicableResourceContainerStereotype : String = "ReplicableResourceContainer"; 
+
+//String constants of the Loadbalanced Profile	
+property loadbalancedProfile : String = "LoadbalancedProfile";
+property originalResourceContainerStereotype : String = "OriginalResourceContainer";
+property originalAssemblyContextStereotype : String = "OriginalAssemblyContext";
+property loadbalancerResourceContainerStereotype : String = "LoadbalancerResourceContainer";
+property loadbalancerAssemblyContextStereotype : String = "LoadbalancerAssemblyContext";
+property duplicateAssemblyContextStereotype : String = "DuplicateAssemblyContext";
+property duplicateResourceContainerStereotype : String = "DuplicateResourceContainer";
+
+//String constants of Tagged Values
+property numberOfReplicasTaggedValue : String = "numberOfReplicas";
+property originalAssemblyContextTaggedValue : String = "originalAssemblyContext";
+
+property numberOfReplicas : Integer;
+
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+
+main() {
+	log('AT Completion "StaticResourceContainerLoadbalancing" started');	
+	
+	assert fatal((isProfileApplied(system.oclAsType(EObject), staticResourceContainerLoadbalancingProfile)) or 
+				(isProfileApplied(system.oclAsType(EObject), dynamicHorizontalScalingResourceContainerProfile)))
+		with log ("The system has no Profile applied!");
+		
+	assert fatal((isProfileApplied(resourceEnvironment.oclAsType(EObject), staticResourceContainerLoadbalancingProfile)) or 
+				(isProfileApplied(resourceEnvironment.oclAsType(EObject), dynamicHorizontalScalingResourceContainerProfile)))
+		with log ("The resource environment has no Profile applied!");	
+		
+	// Check whether we have a static loadbalancer (i.e., with a StaticLoadbalancedResourceContainer) or a dynamic one (i.e., with a ReplicableResourceContainer)
+	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
+	var appliedStereotype : String;
+	if(hasAppliedStereotype(resourceContainers, staticLoadbalancedResourceContainerStereotype)){
+		assert fatal(hasAppliedStereotype(system, staticResourceContainerLoadbalancingSystemStereotype))
+			with log("The system must have the AT role " + staticResourceContainerLoadbalancingSystemStereotype + " applied!");
+		
+		appliedStereotype := staticLoadbalancedResourceContainerStereotype;
+	}
+	else if(hasAppliedStereotype(resourceContainers, replicableResourceContainerStereotype)){
+		assert fatal(hasAppliedStereotype(system, dynamicHorizontalScalingResourceContainerSystemStereotype))
+			with log("The system must have the AT role " + dynamicHorizontalScalingResourceContainerSystemStereotype + " applied!");
+		appliedStereotype := replicableResourceContainerStereotype;	
+	};
+	assert fatal(appliedStereotypesEqualsOne(resourceContainers, appliedStereotype))
+		with log ("There is more than one Stereotype Application!");
+	
+	// Get the resource container that shall be load-balanced from the AT role
+	var originalResourceContainer : ResourceContainer := resourceEnvironment.resourceContainer_ResourceEnvironment->selectOne(container : ResourceContainer | hasAppliedStereotype(container, appliedStereotype));
+	assert fatal(originalResourceContainer != null)
+		with log ("There must be a resource container that has the AT role '" + appliedStereotype + "' applied!");
+		
+	// Ensure that resource environment and system are marked as load-balanced
+	if(not isProfileApplied(resourceEnvironment.oclAsType(EObject), loadbalancedProfile)) {
+		applyProfile(resourceEnvironment.oclAsType(EObject), loadbalancedProfile);
+	};
+	
+	if(not isProfileApplied(system.oclAsType(EObject), loadbalancedProfile)) {
+		applyProfile(system.oclAsType(EObject), loadbalancedProfile);
+	};
+	
+	// Mark original load-balanced container
+	if(not hasAppliedStereotype(originalResourceContainer, originalResourceContainerStereotype)){
+  		//apply Stereotype OriginalAssemblyContext from the Loadbalanced Profile. Needed when the system should be scaled in    
+  		applyStereotype(originalResourceContainer, originalResourceContainerStereotype);
+ 	};	
+
+	// Create load balancer
+	numberOfReplicas := getIntTaggedValue(originalResourceContainer, numberOfReplicasTaggedValue, appliedStereotype);
+	createLoadbalancer(originalResourceContainer);
+	
+	log('AT Completion "StaticResourceContainerLoadbalancing" finished');	
+}
+
+helper createLoadbalancer(originalResourceContainer : ResourceContainer) {	
+	// loadbalancer container
+	var loadbalancerResourceContainer : ResourceContainer := 
+		new ResourceContainer(originalResourceContainer.entityName+"_Loadbalancer", originalResourceContainer);
+	applyStereotype(loadbalancerResourceContainer, loadbalancerResourceContainerStereotype);
+	duplicateLinkingResources(loadbalancerResourceContainer, originalResourceContainer);
+
+	// assembly & allocation with original container
+	findLoadBalancerConnectors(originalResourceContainer, loadbalancerResourceContainer)
+		->map createLoadbalancerForConnector(originalResourceContainer, loadbalancerResourceContainer);
+		
+	// duplicate (create replica) of original resource container
+	var counter : Integer := 1;
+	while(counter < numberOfReplicas) {
+	 	duplicateResourceContainer(counter, originalResourceContainer);
+	 	counter := counter + 1;
+	};
+}
+			  
+mapping inout Connector::createLoadbalancerForConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : Connector 
+	disjuncts AssemblyConnector::createLoadbalancerForAssemblyConnector,
+			  ProvidedDelegationConnector::createLoadbalancerForProvidedDelegationConnector,
+			  AssemblyInfrastructureConnector::createLoadbalancerForAssemblyInfrastructureConnector,
+			  ProvidedInfrastructureDelegationConnector::createLoadbalancerForProvidedInfrastructureDelegationConnector {}
+			  
+abstract mapping inout Connector::abstractCreateLoadbalancerForConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : Connector {
+	entityName := self.entityName+"_from_loadbalancer";
+	parentStructure__Connector := self.parentStructure__Connector;
+}
+
+mapping inout AssemblyConnector::createLoadbalancerForAssemblyConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : AssemblyConnector
+	inherits Connector::abstractCreateLoadbalancerForConnector
+		when{self.providingAssemblyContext_AssemblyConnector.resolve(BasicComponent)->isEmpty() or self.providingAssemblyContext_AssemblyConnector.resolve(BasicComponent)->size()<self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->size()}
+ {
+	var loadBalancerAssemblyContext : AssemblyContext :=
+		self
+		.providingAssemblyContext_AssemblyConnector
+		.createLoadBalancer(self.providedRole_AssemblyConnector, loadbalancerResourceContainer);
+		
+	if(not(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype))){
+		applyStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype);
+	};
+	
+	if(not(hasAppliedStereotype(self.providingAssemblyContext_AssemblyConnector, originalAssemblyContextStereotype))){
+		applyStereotype(self.providingAssemblyContext_AssemblyConnector, originalAssemblyContextStereotype);
+	}; 
+	
+	if(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype)){
+		setStringTaggedValue(loadBalancerAssemblyContext, self.providingAssemblyContext_AssemblyConnector.id, loadbalancerAssemblyContextStereotype, originalAssemblyContextTaggedValue);
+	};
+	
+	// new assembly connector for original container: loadbalancer -> providing assembly context
+	requiringAssemblyContext_AssemblyConnector := loadBalancerAssemblyContext;
+	providingAssemblyContext_AssemblyConnector := self.providingAssemblyContext_AssemblyConnector;
+	providedRole_AssemblyConnector := self.providedRole_AssemblyConnector;
+	requiredRole_AssemblyConnector := loadBalancerAssemblyContext
+		.encapsulatedComponent__AssemblyContext
+		.requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]->asOrderedSet()->at(1);
+			
+	// old assembly connector: requiring assembly context (as is!) -> loadbalancer (new!)
+	self.providingAssemblyContext_AssemblyConnector := loadBalancerAssemblyContext;
+	self.providedRole_AssemblyConnector :=
+		loadBalancerAssemblyContext
+		.encapsulatedComponent__AssemblyContext
+		.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
+}
+
+mapping inout AssemblyInfrastructureConnector::createLoadbalancerForAssemblyInfrastructureConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer): AssemblyInfrastructureConnector
+	inherits Connector::abstractCreateLoadbalancerForConnector 
+		when{self.providingAssemblyContext__AssemblyInfrastructureConnector.resolve(BasicComponent)->isEmpty() or self.providingAssemblyContext__AssemblyInfrastructureConnector.resolve(BasicComponent)->size()<self.providingAssemblyContext__AssemblyInfrastructureConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->size()}
+	
+{
+	var loadBalancerAssemblyContext : AssemblyContext := self.providingAssemblyContext__AssemblyInfrastructureConnector.createLoadBalancer(self.providedRole__AssemblyInfrastructureConnector, loadbalancerResourceContainer);
+	
+	if(not(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype))){
+		applyStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype);
+	};
+	
+	requiringAssemblyContext__AssemblyInfrastructureConnector := loadBalancerAssemblyContext;
+	providingAssemblyContext__AssemblyInfrastructureConnector := self.providingAssemblyContext__AssemblyInfrastructureConnector;
+	providedRole__AssemblyInfrastructureConnector := self.providedRole__AssemblyInfrastructureConnector;
+	requiredRole__AssemblyInfrastructureConnector := loadBalancerAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity[InfrastructureRequiredRole]->asOrderedSet()->at(1);
+
+	if(not(hasAppliedStereotype(self.providingAssemblyContext__AssemblyInfrastructureConnector, originalAssemblyContextStereotype))){
+		applyStereotype(self.providingAssemblyContext__AssemblyInfrastructureConnector, originalAssemblyContextStereotype);
+	}; 
+	
+	if(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype)){
+		setStringTaggedValue(loadBalancerAssemblyContext, self.providingAssemblyContext__AssemblyInfrastructureConnector.id, loadbalancerAssemblyContextStereotype, originalAssemblyContextTaggedValue);
+	};
+	self.providingAssemblyContext__AssemblyInfrastructureConnector := loadBalancerAssemblyContext;
+	self.providedRole__AssemblyInfrastructureConnector := loadBalancerAssemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity![InfrastructureProvidedRole];
+}
+
+mapping inout ProvidedDelegationConnector::createLoadbalancerForProvidedDelegationConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : AssemblyConnector
+		inherits Connector::abstractCreateLoadbalancerForConnector 
+			when{self.assemblyContext_ProvidedDelegationConnector.resolve(BasicComponent)->isEmpty() or self.assemblyContext_ProvidedDelegationConnector.resolve(BasicComponent)->size()<self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->size()}
+{
+	var loadBalancerAssemblyContext : AssemblyContext :=
+		self
+		.assemblyContext_ProvidedDelegationConnector
+		.createLoadBalancer(self.innerProvidedRole_ProvidedDelegationConnector, loadbalancerResourceContainer);
+			
+	if(not(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype))){
+		applyStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype);
+	};
+	// new assembly connector: loadbalancer -> providing assembly context
+	requiringAssemblyContext_AssemblyConnector := loadBalancerAssemblyContext;
+	providingAssemblyContext_AssemblyConnector := self.assemblyContext_ProvidedDelegationConnector;
+	providedRole_AssemblyConnector := self.innerProvidedRole_ProvidedDelegationConnector;
+	requiredRole_AssemblyConnector := loadBalancerAssemblyContext
+		.encapsulatedComponent__AssemblyContext
+		.requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]->asOrderedSet()->at(1);
+		
+	if(not(hasAppliedStereotype(self.assemblyContext_ProvidedDelegationConnector, originalAssemblyContextStereotype))){
+		applyStereotype(self.assemblyContext_ProvidedDelegationConnector, originalAssemblyContextStereotype);
+	}; 
+	
+	if(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype)){
+		setStringTaggedValue(loadBalancerAssemblyContext, self.assemblyContext_ProvidedDelegationConnector.id, loadbalancerAssemblyContextStereotype, originalAssemblyContextTaggedValue);
+	};
+	// old provided delegation connector: outer provided role (as is!) -> loadbalancer (new!)
+	self.innerProvidedRole_ProvidedDelegationConnector := loadBalancerAssemblyContext
+			.encapsulatedComponent__AssemblyContext
+			.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
+	self.assemblyContext_ProvidedDelegationConnector := loadBalancerAssemblyContext;
+}
+
+mapping inout ProvidedInfrastructureDelegationConnector::createLoadbalancerForProvidedInfrastructureDelegationConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : AssemblyInfrastructureConnector
+		inherits Connector::abstractCreateLoadbalancerForConnector 
+		when{self.assemblyContext__ProvidedInfrastructureDelegationConnector.resolve(BasicComponent)->isEmpty() or self.assemblyContext__ProvidedInfrastructureDelegationConnector.resolve(BasicComponent)->size()<self.assemblyContext__ProvidedInfrastructureDelegationConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->size()}
+		
+{
+	var loadBalancerAssemblyContext : AssemblyContext :=
+		self
+		.assemblyContext__ProvidedInfrastructureDelegationConnector
+		.createLoadBalancer(self.innerProvidedRole__ProvidedInfrastructureDelegationConnector, loadbalancerResourceContainer);
+	
+	if(not(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype))){
+		applyStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype);
+	};
+	// new assembly connector: loadbalancer -> providing assembly context
+	requiringAssemblyContext__AssemblyInfrastructureConnector := loadBalancerAssemblyContext;
+	providingAssemblyContext__AssemblyInfrastructureConnector := self.assemblyContext__ProvidedInfrastructureDelegationConnector;
+	providedRole__AssemblyInfrastructureConnector := self.innerProvidedRole__ProvidedInfrastructureDelegationConnector;
+	requiredRole__AssemblyInfrastructureConnector := loadBalancerAssemblyContext
+		.encapsulatedComponent__AssemblyContext
+		.requiredRoles_InterfaceRequiringEntity[InfrastructureRequiredRole]->asOrderedSet()->at(1);
+		
+	if(not(hasAppliedStereotype(self.assemblyContext__ProvidedInfrastructureDelegationConnector, originalAssemblyContextStereotype))){
+		applyStereotype(self.assemblyContext__ProvidedInfrastructureDelegationConnector, originalAssemblyContextStereotype);
+	}; 
+	
+	if(hasAppliedStereotype(loadBalancerAssemblyContext, loadbalancerAssemblyContextStereotype)){
+		setStringTaggedValue(loadBalancerAssemblyContext, self.assemblyContext__ProvidedInfrastructureDelegationConnector.id, loadbalancerAssemblyContextStereotype, originalAssemblyContextTaggedValue);
+	};
+	// old provided delegation connector: outer provided role (as is!) -> loadbalancer (new!)
+	self.innerProvidedRole__ProvidedInfrastructureDelegationConnector := loadBalancerAssemblyContext
+			.encapsulatedComponent__AssemblyContext
+			.providedRoles_InterfaceProvidingEntity![InfrastructureProvidedRole];
+	self.assemblyContext__ProvidedInfrastructureDelegationConnector := loadBalancerAssemblyContext;
+}
+
+helper AssemblyContext::createLoadBalancer(operationProvidedRole : OperationProvidedRole, loadbalancerResourceContainer : ResourceContainer) : AssemblyContext {
+	var loadBalancer : BasicComponent := self.map assemblyToLoadbalancerBasicComponent(operationProvidedRole);
+	var loadBalancerAssemblyContext : AssemblyContext := new AssemblyContext(loadBalancer);	
+	var loadBalancerAllocationContext : AllocationContext := new AllocationContext(loadBalancerAssemblyContext, loadbalancerResourceContainer);
+	
+	return loadBalancerAssemblyContext;
+}
+
+helper AssemblyContext::createLoadBalancer(infrastructureProvidedRole : InfrastructureProvidedRole, loadbalancerResourceContainer : ResourceContainer) : AssemblyContext{
+	var loadBalancer : BasicComponent := self.map assemblyToLoadbalancerBasicComponent(infrastructureProvidedRole);
+	var loadBalancerAssemblyContext : AssemblyContext := new AssemblyContext(loadBalancer);	
+	var loadBalancerAllocationContext : AllocationContext := new AllocationContext(loadBalancerAssemblyContext, loadbalancerResourceContainer);
+	
+	return loadBalancerAssemblyContext;
+}
+
+mapping AssemblyContext::assemblyToLoadbalancerBasicComponent(operationProvidedRole : OperationProvidedRole) : BasicComponent {
+	entityName := "LoadBalancer_" + self.entityName + "_" + operationProvidedRole.entityName;
+	providedRoles_InterfaceProvidingEntity += new OperationProvidedRole(operationProvidedRole);
+	var counter : Integer := 1;
+	while(counter <= numberOfReplicas){
+		requiredRoles_InterfaceRequiringEntity += new OperationRequiredRole(operationProvidedRole, counter);
+		counter := counter + 1;
+	};	
+	repository__RepositoryComponent := self.encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+	componentParameterUsage_ImplementationComponentType := self.encapsulatedComponent__AssemblyContext[ImplementationComponentType].componentParameterUsage_ImplementationComponentType;
+	operationProvidedRole.providedInterface__OperationProvidedRole.signatures__OperationInterface->forEach(operationSignature){
+  		serviceEffectSpecifications__BasicComponent += new ResourceDemandingSEFF(operationSignature, requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]);
+	};
+};
+
+mapping AssemblyContext::assemblyToLoadbalancerBasicComponent(infrastructureProvidedRole : InfrastructureProvidedRole) : BasicComponent {
+	entityName := "LoadBalancer_" + self.entityName + "_" + infrastructureProvidedRole.entityName;
+	providedRoles_InterfaceProvidingEntity += new InfrastructureProvidedRole(infrastructureProvidedRole);
+	var counter : Integer := 1;
+	while(counter <= numberOfReplicas){
+		requiredRoles_InterfaceRequiringEntity += new InfrastructureRequiredRole(infrastructureProvidedRole, counter);
+		counter := counter + 1;
+	};	
+	repository__RepositoryComponent := self.encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+	componentParameterUsage_ImplementationComponentType := self.encapsulatedComponent__AssemblyContext[ImplementationComponentType].componentParameterUsage_ImplementationComponentType;
+	infrastructureProvidedRole.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface->forEach(infrastructureSignature){
+  		serviceEffectSpecifications__BasicComponent += new ResourceDemandingSEFF(infrastructureSignature, requiredRoles_InterfaceRequiringEntity[InfrastructureRequiredRole]);
+	};
+};
+
+helper duplicateResourceContainer(counter : Integer, originalResourceContainer : ResourceContainer) : ResourceContainer {
+	var duplicatedResourceContainer := 
+		new ResourceContainer("duplicate_"+counter.toString(), originalResourceContainer);
+	
+	duplicateLinkingResources(duplicatedResourceContainer, originalResourceContainer);
+	duplicateAssemblyAndAllocation(counter, duplicatedResourceContainer, originalResourceContainer);
+ 	applyStereotype(duplicatedResourceContainer, duplicateResourceContainerStereotype);
+	
+	return duplicatedResourceContainer;
+}
+
+/**
+* Uses the original resource container as a blue-print to duplicate linking resources.
+*
+* As loadbalancer resource containers has already been created, there is a linking resource
+* connected to both loadbalancer and the original container. The duplicate is therefore added
+* to that linking resource.
+*/
+helper duplicateLinkingResources(newResourceContainer : ResourceContainer, originalResourceContainer : ResourceContainer) {
+	var originalLinkingResources := findLinkingResources(originalResourceContainer);
+
+	// create a LinkingResource in the ResourcesEnvironment when none exists
+	// FIXME: parameters of latency and throughput for the CommunicationLinkResourceSpecification should be changed, or they should be defined by the user
+	if (originalLinkingResources->isEmpty()){
+		originalLinkingResources += new LinkingResource(originalResourceContainer, "0", "10000");
+	};
+
+	originalLinkingResources->forEach(linkingResource){
+		linkingResource.connectedResourceContainers_LinkingResource += newResourceContainer;
+	};
+}
+
+helper duplicateAssemblyAndAllocation(counter : Integer, newResourceContainer : ResourceContainer, originalResourceContainer : ResourceContainer) {
+	allocation
+		.allocationContexts_Allocation
+		->select(allocationContext | allocationContext.resourceContainer_AllocationContext.id = originalResourceContainer.id)
+		.assemblyContext_AllocationContext
+		->map duplicateAssemblyContext(counter, newResourceContainer)
+		->forEach(assemblyContext) {
+			system
+				.connectors__ComposedStructure
+				->forEach (connector){
+					connector
+						->map duplicateConnector(counter, assemblyContext);
+				};
+		};
+	annotateAllOriginalAssemblyContexts(originalResourceContainer);
+}
+
+helper annotateAllOriginalAssemblyContexts(originalResourceContainer : ResourceContainer){
+	allocation.allocationContexts_Allocation
+			->select(allocationContext | allocationContext.resourceContainer_AllocationContext.id = originalResourceContainer.id)
+			.assemblyContext_AllocationContext->forEach(assembly){
+			if(not(hasAppliedStereotype(assembly, originalAssemblyContextStereotype))){
+				applyStereotype(assembly, originalAssemblyContextStereotype);	
+				}
+			};
+}
+
+mapping AssemblyContext::duplicateAssemblyContext(counter : Integer, newResourceContainer : ResourceContainer) : AssemblyContext {
+	entityName := "Assembly_" + self.encapsulatedComponent__AssemblyContext.entityName+"_Replica"+counter.toString();
+	encapsulatedComponent__AssemblyContext := self.encapsulatedComponent__AssemblyContext;
+	parentStructure__AssemblyContext := self.parentStructure__AssemblyContext;
+	configParameterUsages__AssemblyContext := self.configParameterUsages__AssemblyContext;
+	
+	applyStereotype(result, duplicateAssemblyContextStereotype);
+	setStringTaggedValue(result, self.id, duplicateAssemblyContextStereotype, originalAssemblyContextTaggedValue);
+	
+	result->map duplicateAllocationContext(newResourceContainer);
+}
+
+mapping AssemblyContext::duplicateAllocationContext(newResourceContainer : ResourceContainer) : AllocationContext {
+	entityName := "Allocation_" + self.entityName;
+	assemblyContext_AllocationContext := self;
+	resourceContainer_AllocationContext := newResourceContainer;
+	allocation_AllocationContext := allocation;
+}
+
+mapping Connector::duplicateConnector(counter : Integer, newAssemblyContext : AssemblyContext) : Connector 
+	disjuncts AssemblyConnector::duplicateAssemblyConnector,
+			  AssemblyInfrastructureConnector::duplicateAssemblyInfrastructureConnector,
+			  RequiredDelegationConnector::duplicateRequiredDelegationConnector,
+			  RequiredInfrastructureDelegationConnector::duplicateRequiredInfrastructureDelegationConnector,
+			  AssemblyConnector::duplicateLoadBalancerConnector,
+			  AssemblyInfrastructureConnector::duplicateLoadBalancerInfrastructureConnector {}
+
+abstract mapping Connector::abstractDuplicateConnector(counter : Integer, originalAssemblyContext : AssemblyContext) : Connector {
+	entityName := self.entityName+"_replica_"+counter.toString();
+	parentStructure__Connector := self.parentStructure__Connector;
+}
+
+mapping AssemblyConnector::duplicateAssemblyConnector(counter : Integer, newAssemblyContext : AssemblyContext) : AssemblyConnector
+        inherits Connector::abstractDuplicateConnector
+		when{self.requiringAssemblyContext_AssemblyConnector.id = newAssemblyContext.invresolveone(AssemblyContext).id} {
+	requiringAssemblyContext_AssemblyConnector := newAssemblyContext;
+	if (findResourceContainer(self.requiringAssemblyContext_AssemblyConnector).id = findResourceContainer(self.providingAssemblyContext_AssemblyConnector).id) {
+		providingAssemblyContext_AssemblyConnector := self.providingAssemblyContext_AssemblyConnector.resolveone(AssemblyContext);
+	} else {
+		providingAssemblyContext_AssemblyConnector := self.providingAssemblyContext_AssemblyConnector;
+	};
+	
+	providedRole_AssemblyConnector := self.providedRole_AssemblyConnector;
+	requiredRole_AssemblyConnector := self.requiredRole_AssemblyConnector;
+}
+
+mapping AssemblyInfrastructureConnector::duplicateAssemblyInfrastructureConnector(counter : Integer, newAssemblyContext : AssemblyContext) : AssemblyInfrastructureConnector
+        inherits Connector::abstractDuplicateConnector
+		when{self.requiringAssemblyContext__AssemblyInfrastructureConnector.id = newAssemblyContext.invresolveone(AssemblyContext).id} {
+	requiringAssemblyContext__AssemblyInfrastructureConnector := newAssemblyContext;
+	if (findResourceContainer(self.requiringAssemblyContext__AssemblyInfrastructureConnector).id = findResourceContainer(self.providingAssemblyContext__AssemblyInfrastructureConnector).id) {
+		providingAssemblyContext__AssemblyInfrastructureConnector := self.providingAssemblyContext__AssemblyInfrastructureConnector.resolveone(AssemblyContext);
+	} else {
+		providingAssemblyContext__AssemblyInfrastructureConnector := self.providingAssemblyContext__AssemblyInfrastructureConnector;
+	};
+	
+	providedRole__AssemblyInfrastructureConnector := self.providedRole__AssemblyInfrastructureConnector;
+	requiredRole__AssemblyInfrastructureConnector := self.requiredRole__AssemblyInfrastructureConnector;
+}
+
+mapping AssemblyConnector::duplicateLoadBalancerConnector(counter : Integer, newAssemblyContext : AssemblyContext) : AssemblyConnector 
+		inherits Connector::abstractDuplicateConnector
+		when{self.requiringAssemblyContext_AssemblyConnector.id != newAssemblyContext.invresolveone(AssemblyContext).id and
+		     self.providingAssemblyContext_AssemblyConnector.id = newAssemblyContext.invresolveone(AssemblyContext).id and not
+		     (findResourceContainer(self.requiringAssemblyContext_AssemblyConnector).id = findResourceContainer(self.providingAssemblyContext_AssemblyConnector).id) and
+		     hasAppliedStereotype(self.requiringAssemblyContext_AssemblyConnector, loadbalancerAssemblyContextStereotype)} {
+	requiringAssemblyContext_AssemblyConnector := self.requiringAssemblyContext_AssemblyConnector;
+	providingAssemblyContext_AssemblyConnector := newAssemblyContext;
+	providedRole_AssemblyConnector := self.providedRole_AssemblyConnector;
+	requiredRole_AssemblyConnector := self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext
+			.requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]->asOrderedSet()->at(counter+1);
+}
+
+mapping AssemblyInfrastructureConnector::duplicateLoadBalancerInfrastructureConnector(counter : Integer, newAssemblyContext : AssemblyContext) : AssemblyInfrastructureConnector 
+		inherits Connector::abstractDuplicateConnector
+		when{self.requiringAssemblyContext__AssemblyInfrastructureConnector.id != newAssemblyContext.invresolveone(AssemblyContext).id and
+		     self.providingAssemblyContext__AssemblyInfrastructureConnector.id = newAssemblyContext.invresolveone(AssemblyContext).id and not
+		     (findResourceContainer(self.requiringAssemblyContext__AssemblyInfrastructureConnector).id = findResourceContainer(self.providingAssemblyContext__AssemblyInfrastructureConnector).id) and
+		     hasAppliedStereotype(self.requiringAssemblyContext__AssemblyInfrastructureConnector, loadbalancerAssemblyContextStereotype)} {
+	requiringAssemblyContext__AssemblyInfrastructureConnector := self.requiringAssemblyContext__AssemblyInfrastructureConnector;
+	providingAssemblyContext__AssemblyInfrastructureConnector := newAssemblyContext;
+	providedRole__AssemblyInfrastructureConnector := self.providedRole__AssemblyInfrastructureConnector;
+	requiredRole__AssemblyInfrastructureConnector := self.requiringAssemblyContext__AssemblyInfrastructureConnector.encapsulatedComponent__AssemblyContext
+			.requiredRoles_InterfaceRequiringEntity[InfrastructureRequiredRole]->asOrderedSet()->at(counter+1);
+}
+
+mapping RequiredDelegationConnector::duplicateRequiredDelegationConnector(counter : Integer, newAssemblyContext : AssemblyContext) : RequiredDelegationConnector
+	    inherits Connector::abstractDuplicateConnector
+		when{self.assemblyContext_RequiredDelegationConnector.id = newAssemblyContext.invresolveone(AssemblyContext).id} {
+	innerRequiredRole_RequiredDelegationConnector := self.innerRequiredRole_RequiredDelegationConnector;
+	outerRequiredRole_RequiredDelegationConnector := self.outerRequiredRole_RequiredDelegationConnector;
+	assemblyContext_RequiredDelegationConnector := newAssemblyContext;
+}
+
+mapping RequiredInfrastructureDelegationConnector::duplicateRequiredInfrastructureDelegationConnector(counter : Integer, newAssemblyContext : AssemblyContext) : RequiredInfrastructureDelegationConnector
+	    inherits Connector::abstractDuplicateConnector
+		when{self.assemblyContext__RequiredInfrastructureDelegationConnector.id = newAssemblyContext.invresolveone(AssemblyContext).id} {
+	innerRequiredRole__RequiredInfrastructureDelegationConnector := self.innerRequiredRole__RequiredInfrastructureDelegationConnector;
+	outerRequiredRole__RequiredInfrastructureDelegationConnector := self.outerRequiredRole__RequiredInfrastructureDelegationConnector;
+	assemblyContext__RequiredInfrastructureDelegationConnector := newAssemblyContext;
+}
+
+constructor LinkingResource :: LinkingResource (resourceContainer : ResourceContainer, latency : String, throughput : String){
+	connectedResourceContainers_LinkingResource := resourceContainer;
+	resourceEnvironment_LinkingResource := resourceContainer.resourceEnvironment_ResourceContainer;
+	communicationLinkResourceSpecifications_LinkingResource := new CommunicationLinkResourceSpecification(resourceContainer,latency,throughput);
+}
+
+constructor CommunicationLinkResourceSpecification::CommunicationLinkResourceSpecification(resourceContainer : ResourceContainer, latency:String,throughput:String){
+	latency_CommunicationLinkResourceSpecification := new PCMRandomVariable(latency);
+	throughput_CommunicationLinkResourceSpecification := new PCMRandomVariable(throughput);
+	communicationLinkResourceType_CommunicationLinkResourceSpecification := resourceContainer.activeResourceSpecifications_ResourceContainer.activeResourceType_ActiveResourceSpecification.resourceRepository_ResourceType.availableResourceTypes_ResourceRepository->selectByType(CommunicationLinkResourceType)->selectOne(resourceType : ResourceType |resourceType.id = "_o3sScH2AEdyH8uerKnHYug");
+}
+
+/**Creates a PCMRandomVariable with a specified input parameter
+*/
+constructor PCMRandomVariable::PCMRandomVariable(spec:String){
+	specification := spec;
+}
+
+constructor RequiredDelegationConnector::RequiredDelegationConnector(assemblyContext : AssemblyContext, innerRequiredRole : OperationRequiredRole, outerRequiredRole : OperationRequiredRole){
+	entityName := "RequiredDelegation " + innerRequiredRole.entityName + " " + outerRequiredRole.entityName;
+	assemblyContext_RequiredDelegationConnector := assemblyContext;
+	innerRequiredRole_RequiredDelegationConnector := innerRequiredRole;
+	outerRequiredRole_RequiredDelegationConnector := outerRequiredRole;
+	parentStructure__Connector := system;
+}
+
+constructor ResourceDemandingSEFF::ResourceDemandingSEFF (operationSignature : OperationSignature, requiredRoles : Set(OperationRequiredRole)){
+	describedService__SEFF := operationSignature;
+	var startAction : StartAction := object StartAction{};
+	var branchAction : BranchAction := object BranchAction{
+		entityName := "LoadBalancer Branch";
+		predecessor_AbstractAction := startAction;
+		
+		requiredRoles->forEach(requiredRole){
+		    var probability : Real := 1.0 / requiredRoles->size();
+			branches_Branch += object ProbabilisticBranchTransition{
+			    entityName := "Branch for "+requiredRole.entityName;
+			    branchProbability := probability;
+			    branchBehaviour_BranchTransition := object ResourceDemandingBehaviour{
+			    	var innerStartAction : StartAction := object StartAction{};
+			    	var delegatingExternalCallAction : DelegatingExternalCallAction := object DelegatingExternalCallAction{
+			    		predecessor_AbstractAction := innerStartAction;
+			    		entityName := "Call "+operationSignature.entityName;
+			    		role_ExternalService := requiredRole;
+			    		calledService_ExternalService := operationSignature;
+			    	};
+			    	var innerStopAction : StopAction := object StopAction{
+						predecessor_AbstractAction := delegatingExternalCallAction;
+					};
+					
+					steps_Behaviour += innerStartAction;
+					steps_Behaviour += delegatingExternalCallAction;
+					steps_Behaviour += innerStopAction;
+			    };
+			};
+		};
+	};
+	var stopAction : StopAction := object StopAction{
+		predecessor_AbstractAction := branchAction;
+	};
+	steps_Behaviour += startAction;
+	steps_Behaviour += branchAction;
+	steps_Behaviour += stopAction;
+}
+
+constructor ResourceDemandingSEFF::ResourceDemandingSEFF (infrastructureSignature : InfrastructureSignature, requiredRoles : Set(InfrastructureRequiredRole)){
+	describedService__SEFF := infrastructureSignature;
+	var startAction : StartAction := object StartAction{};
+	var branchAction : BranchAction := object BranchAction{
+		entityName := "LoadBalancer Branch";
+		predecessor_AbstractAction := startAction;
+		
+		requiredRoles->forEach(requiredRole){
+		    var probability : Real := 1.0 / requiredRoles->size();
+			branches_Branch += object ProbabilisticBranchTransition{
+			    entityName := "Branch for "+requiredRole.entityName;
+			    branchProbability := probability;
+			    branchBehaviour_BranchTransition := object ResourceDemandingBehaviour{
+			    	var innerStartAction : StartAction := object StartAction{};
+			    	var internalCallAction : InternalAction:= object InternalAction{
+			    		entityName := "Call "+infrastructureSignature.entityName;
+			    		predecessor_AbstractAction := innerStartAction;
+			    		infrastructureCall__Action := object InfrastructureCall{
+			    			entityName := "InfrastructureCall " + requiredRole.entityName;
+			    			signature__InfrastructureCall := infrastructureSignature;
+			    			requiredRole__InfrastructureCall := requiredRole;
+			    			numberOfCalls__InfrastructureCall := new PCMRandomVariable("1");
+			    		};
+			    	};
+			    	var innerStopAction : StopAction := object StopAction{
+						predecessor_AbstractAction := internalCallAction;
+					};
+					
+					steps_Behaviour += innerStartAction;
+					steps_Behaviour += internalCallAction;
+					steps_Behaviour += innerStopAction;
+			    };
+			};
+		};
+	};
+	var stopAction : StopAction := object StopAction{
+		predecessor_AbstractAction := branchAction;
+	};
+	steps_Behaviour += startAction;
+	steps_Behaviour += branchAction;
+	steps_Behaviour += stopAction;
+}
+
+constructor OperationProvidedRole::OperationProvidedRole(pr:OperationProvidedRole){
+	entityName := "Provided_" + pr.providedInterface__OperationProvidedRole.entityName + "_LoadBalancer";
+	providedInterface__OperationProvidedRole := pr.providedInterface__OperationProvidedRole;
+}
+
+constructor OperationRequiredRole::OperationRequiredRole(rr:OperationProvidedRole, i:Integer){
+	entityName := "Required_" + rr.providedInterface__OperationProvidedRole.entityName +"_LoadBalancer_"+i.toString();
+	requiredInterface__OperationRequiredRole := rr.providedInterface__OperationProvidedRole;
+}
+
+constructor InfrastructureProvidedRole::InfrastructureProvidedRole(providedRole : InfrastructureProvidedRole){
+	entityName := "Provided_" + providedRole.providedInterface__InfrastructureProvidedRole.entityName + "_LoadBalancer";
+	providedInterface__InfrastructureProvidedRole := providedRole.providedInterface__InfrastructureProvidedRole;
+}
+
+constructor InfrastructureRequiredRole::InfrastructureRequiredRole(providedRole : InfrastructureProvidedRole, counter : Integer){
+	entityName := "Required_" + providedRole.providedInterface__InfrastructureProvidedRole.entityName +"_LoadBalancer_"+counter.toString();
+	requiredInterface__InfrastructureRequiredRole := providedRole.providedInterface__InfrastructureProvidedRole;
+}
+
+constructor AssemblyContext::AssemblyContext(bc : RepositoryComponent){
+	entityName := "Assembly_"+bc.entityName;
+	encapsulatedComponent__AssemblyContext := bc;
+	parentStructure__AssemblyContext := system;
+}
+
+constructor ResourceContainer::ResourceContainer(name : String, originalResourceContainer : ResourceContainer){
+	entityName :=
+		originalResourceContainer.entityName + "_"+name;
+		
+	resourceEnvironment_ResourceContainer := 
+		originalResourceContainer.resourceEnvironment_ResourceContainer;
+	
+	originalResourceContainer
+		.activeResourceSpecifications_ResourceContainer
+		->forEach (activeResource) {
+			activeResourceSpecifications_ResourceContainer += new ProcessingResourceSpecification(activeResource);
+		};
+	
+	if(originalResourceContainer.nestedResourceContainers__ResourceContainer->size()>0)	{
+		nestedResourceContainers__ResourceContainer := originalResourceContainer.duplicateNestedResourceContainer();
+	};
+}
+
+helper ResourceContainer::duplicateNestedResourceContainer():Set(ResourceContainer){
+	var nestedResourceContainer : Set(ResourceContainer);
+	self.nestedResourceContainers__ResourceContainer->forEach(rc){
+		nestedResourceContainer += new ResourceContainer(rc.entityName, rc);	
+	};
+	return nestedResourceContainer;
+}
+
+constructor ProcessingResourceSpecification::ProcessingResourceSpecification(p : ProcessingResourceSpecification) {
+	MTTF := p.MTTF;
+	MTTR := p.MTTR;
+	schedulingPolicy := p.schedulingPolicy;
+	requiredByContainer := p.requiredByContainer;
+	processingRate_ProcessingResourceSpecification := new PCMRandomVariable(p.processingRate_ProcessingResourceSpecification);
+	numberOfReplicas := p.numberOfReplicas;
+	activeResourceType_ActiveResourceSpecification := p.activeResourceType_ActiveResourceSpecification;
+}
+
+constructor PCMRandomVariable::PCMRandomVariable(pcmRandomVariable : PCMRandomVariable) {
+	specification := pcmRandomVariable.specification;
+}
+
+constructor AllocationContext::AllocationContext(ac : AssemblyContext, rc: ResourceContainer){
+	entityName := "Allocation_" + ac.entityName;
+	assemblyContext_AllocationContext := ac;
+	resourceContainer_AllocationContext := rc;
+	allocation_AllocationContext := allocation;
+}
+
+/**
+ * Returns the all LinkingResources connected to the given ResourceContainer.
+ */
+query findLinkingResources(resourceContainer : ResourceContainer) : Set(LinkingResource) {
+	return 
+		resourceContainer
+		.resourceEnvironment_ResourceContainer.linkingResources__ResourceEnvironment 
+		->select( l : LinkingResource |
+			l.connectedResourceContainers_LinkingResource
+			->includes(resourceContainer)
+		);
+}
+
+
+query findLoadBalancerConnectors(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : Set(Connector) {
+	var loadBalancerConnectors : Set(Connector) :=
+		system
+		.connectors__ComposedStructure
+		[AssemblyConnector]
+		->select(assemblyConnector | 
+			findResourceContainer(assemblyConnector.requiringAssemblyContext_AssemblyConnector).id != originalResourceContainer.id and
+			findResourceContainer(assemblyConnector.providingAssemblyContext_AssemblyConnector).id = originalResourceContainer.id
+		);
+		
+	loadBalancerConnectors +=
+		system
+		.connectors__ComposedStructure
+		[ProvidedDelegationConnector]
+		->select(assemblyConnector | 
+			findResourceContainer(assemblyConnector.assemblyContext_ProvidedDelegationConnector).id = originalResourceContainer.id
+		);
+		
+	loadBalancerConnectors +=
+		system
+		.connectors__ComposedStructure
+		[AssemblyInfrastructureConnector]
+		->select(assemblyConnector | 
+			findResourceContainer(assemblyConnector.requiringAssemblyContext__AssemblyInfrastructureConnector).id != originalResourceContainer.id and
+			findResourceContainer(assemblyConnector.providingAssemblyContext__AssemblyInfrastructureConnector).id = originalResourceContainer.id
+		);
+		
+	loadBalancerConnectors +=
+		system
+		.connectors__ComposedStructure
+		[ProvidedInfrastructureDelegationConnector]
+		->select(assemblyConnector | 
+			findResourceContainer(assemblyConnector.assemblyContext__ProvidedInfrastructureDelegationConnector).id = originalResourceContainer.id
+		);
+		
+	return loadBalancerConnectors;
+}
+
+/**
+ * Returns the ResourceContainer the AllocationContext corresponds to.
+ */
+query findResourceContainer(assemblyContext : AssemblyContext) : ResourceContainer {
+	return  allocation.allocationContexts_Allocation->selectOne(
+		ac : AllocationContext | 
+		ac.assemblyContext_AllocationContext.id = assemblyContext.id
+		).resourceContainer_AllocationContext;
+}
+		
+	

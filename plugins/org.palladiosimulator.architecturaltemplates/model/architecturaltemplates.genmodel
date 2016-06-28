@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.palladiosimulator.architecturaltemplates/src" modelPluginID="org.palladiosimulator.architecturaltemplates"
+    modelName="Architecturaltemplates" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject"
+    rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl" rootImplementsInterface=""
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
+    complianceLevel="6.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.modelversioning.emfprofile/model/emfprofiles.genmodel#//emfprofile ../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.eclipse.ocl/model/OCL.genmodel#//ocl ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    importOrganizing="true" cleanup="true">
+  <foreignModel>architecturaltemplates.ecore</foreignModel>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <genPackages prefix="Architecturaltemplates" basePackage="org.palladiosimulator"
+      ecorePackage="architecturaltemplates.ecore#/" publicationLocation="">
+    <nestedGenPackages prefix="Type" basePackage="org.palladiosimulator.architecturaltemplates"
+        resource="XML" disposableProviderFactory="true" ecorePackage="architecturaltemplates.ecore#//type">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="architecturaltemplates.ecore#//type/PCMFileExtensions">
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/SYSTEM"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/ALLOCATION"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/RESOURCEENVIRONMENT"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/REPOSITORY"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/USAGEMODEL"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/RESOURCETYPE"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/MONITORREPOSITORY"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/PCMMEASURINGPOINT"/>
+        <genEnumLiterals ecoreEnumLiteral="architecturaltemplates.ecore#//type/PCMFileExtensions/SERVICELEVELOBJECTIVE"/>
+      </genEnums>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/AT" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/AT/repository"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/AT/roles"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/AT/constraints"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/AT/completion"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//type/Constraint">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Constraint/AT"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Constraint/roles"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/Parameter">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Parameter/role"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Parameter/dataType"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/Repository" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Repository/ATs"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/Role" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Role/parameters"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Role/AT"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Role/constraints"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Role/stereotype"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/OCLConstraint" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
+        <genFeatures notify="false" createChild="false" propertyCategory="" propertyMultiLine="true"
+            propertySortChoices="true" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/OCLConstraint/constraint"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/QVTOCompletion">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/QVTOCompletion/qvtoFileURI"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//type/Completion">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Completion/AT"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/Completion/parameters"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//type/CompletionParameter">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//type/CompletionParameter/completion"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/GenericTemplateCompletionParameter"/>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/GenericBlackboardCompletionParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/GenericBlackboardCompletionParameter/fileExtension"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/PCMBlackboardCompletionParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/PCMBlackboardCompletionParameter/fileExtension"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/PCMTemplateCompletionParameter"/>
+      <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//type/TemplateProvidingEntity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/TemplateProvidingEntity/templateFileURI"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/PCMOutputCompletionParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/PCMOutputCompletionParameter/fileExtension"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//type/GenericOutputCompletionParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//type/GenericOutputCompletionParameter/fileExtension"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Instance" basePackage="org.palladiosimulator.architecturaltemplates"
+        resource="XML" disposableProviderFactory="true" ecorePackage="architecturaltemplates.ecore#//instance">
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/ATInstance">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/role2components"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/component2roles"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/AT2Components"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/parameterValues"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ATInstance/role2resources"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/Component2Role">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Component2Role/component"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Component2Role/roles"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Component2Role/ATInstance"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/Role2Component">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Role2Component/component"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Role2Component/role"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Role2Component/ATInstance"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//instance/ParameterValue">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ParameterValue/type"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/ParameterValue/architecturalTemplateInstance"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/EnumParameter"/>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/IntegerParameter"/>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/FloatParameter"/>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/StringParameter">
+        <genTypeParameters ecoreTypeParameter="architecturaltemplates.ecore#//instance/StringParameter/T"/>
+      </genClasses>
+      <genClasses ecoreClass="architecturaltemplates.ecore#//instance/Role2Resource">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Role2Resource/ATInstance"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Role2Resource/resource"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference architecturaltemplates.ecore#//instance/Role2Resource/role"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//allocation http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment" xmi:id="_JVx8oZUJEeSMz-4971dv6A" type="allocation" name="videoStreaming.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_JYqRgJUJEeSMz-4971dv6A" type="2003" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYqRgpUJEeSMz-4971dv6A" type="5008"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYqRg5UJEeSMz-4971dv6A" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_KEYvEJUJEeSMz-4971dv6A" type="3002" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_KEZWIJUJEeSMz-4971dv6A" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_KEZWIZUJEeSMz-4971dv6A" type="5007"/>
+        <element xmi:type="allocation:AllocationContext" href="videoStreaming.allocation#_JxEKcJUJEeSMz-4971dv6A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KEYvEZUJEeSMz-4971dv6A" x="43" y="-1"/>
+      </children>
+    </children>
+    <element xmi:type="resourceenvironment:ResourceContainer" href="videoStreaming.resourceenvironment#_kAsc4JUFEeSkwMoUcKTtwg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JYqRgZUJEeSMz-4971dv6A"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_JYqRhJUJEeSMz-4971dv6A" type="2003" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYqRhpUJEeSMz-4971dv6A" type="5008"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_JYq4kJUJEeSMz-4971dv6A" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_K4j-AJUJEeSMz-4971dv6A" type="3002" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_K4j-ApUJEeSMz-4971dv6A" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_K4j-A5UJEeSMz-4971dv6A" type="5007"/>
+        <element xmi:type="allocation:AllocationContext" href="videoStreaming.allocation#_Kmk2IJUJEeSMz-4971dv6A"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K4j-AZUJEeSMz-4971dv6A" x="78" y="3"/>
+      </children>
+    </children>
+    <element xmi:type="resourceenvironment:ResourceContainer" href="videoStreaming.resourceenvironment#_rZyxYJUFEeSkwMoUcKTtwg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JYqRhZUJEeSMz-4971dv6A" x="20" y="125"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_JVyjsJUJEeSMz-4971dv6A"/>
+  <element xmi:type="allocation:Allocation" href="videoStreaming.allocation#_JVx8oJUJEeSMz-4971dv6A"/>
+</notation:Diagram>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usageevolution:UsageEvolution xmlns:usageevolution="http://usageevolution/1.0" id="_EuOTEOkFEeSOuKhiaS9JpA" entityName="Vertical Scaling Usage Evolution">
+  <usages id="_64aPEOkFEeSJkvRgtGgk5Q">
+    <loadEvolution href="verticalScalingLoad.dlim#/"/>
+    <scenario href="../default.usagemodel#_bdhZcH4xEeSqFvs4kqVd7Q"/>
+  </usages>
+</usageevolution:UsageEvolution>

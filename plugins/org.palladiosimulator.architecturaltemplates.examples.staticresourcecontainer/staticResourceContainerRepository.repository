@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.componentstate" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
+  <repository:Repository id="_hMbOQMKTEeSWFuHcXeRvDQ" entityName="defaultRepository">
+    <components__Repository xsi:type="repository:BasicComponent" id="_pAAfUMKTEeSWFuHcXeRvDQ" entityName="WebShopFrontEnd">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_xlEQoMKTEeSWFuHcXeRvDQ" entityName="Provided_IWebShopFrontEnd_WebShopFrontEnd" providedInterface__OperationProvidedRole="_qgT0cMKTEeSWFuHcXeRvDQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_3pDzYMKTEeSWFuHcXeRvDQ" entityName="Required_IWebShopManagement_WebShopFrontEnd" requiredInterface__OperationRequiredRole="_1BjloMKTEeSWFuHcXeRvDQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_TUexkMKUEeSWFuHcXeRvDQ" entityName="Required_IWebShopOrder_WebShopFrontEnd" requiredInterface__OperationRequiredRole="_Pxyt8MKUEeSWFuHcXeRvDQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_xlIiEMKTEeSWFuHcXeRvDQ" describedService__SEFF="_tJMiQMKTEeSWFuHcXeRvDQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_xlJJIMKTEeSWFuHcXeRvDQ" entityName="start" successor_AbstractAction="_rlihsMKUEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_xlJJIcKTEeSWFuHcXeRvDQ" entityName="stop" predecessor_AbstractAction="_rlihsMKUEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_rlihsMKUEeSWFuHcXeRvDQ" predecessor_AbstractAction="_xlJJIMKTEeSWFuHcXeRvDQ" successor_AbstractAction="_xlJJIcKTEeSWFuHcXeRvDQ" calledService_ExternalService="_4y-o0MKTEeSWFuHcXeRvDQ" role_ExternalService="_3pDzYMKTEeSWFuHcXeRvDQ"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_xlJwMMKTEeSWFuHcXeRvDQ" describedService__SEFF="_uwgeUMKTEeSWFuHcXeRvDQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_xlJwMcKTEeSWFuHcXeRvDQ" entityName="start" successor_AbstractAction="_yiJugMKUEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_xlJwMsKTEeSWFuHcXeRvDQ" entityName="stop" predecessor_AbstractAction="_yiJugMKUEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_yiJugMKUEeSWFuHcXeRvDQ" predecessor_AbstractAction="_xlJwMcKTEeSWFuHcXeRvDQ" successor_AbstractAction="_xlJwMsKTEeSWFuHcXeRvDQ" calledService_ExternalService="_RaNdQMKUEeSWFuHcXeRvDQ" role_ExternalService="_TUexkMKUEeSWFuHcXeRvDQ"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_BPjMgMKUEeSWFuHcXeRvDQ" entityName="WebShopDatabase">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_JGcQQMKUEeSWFuHcXeRvDQ" entityName="Provided_IWebShopDatabase_WebShopDatabase" providedInterface__OperationProvidedRole="_EETzIMKUEeSWFuHcXeRvDQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_JGc3UMKUEeSWFuHcXeRvDQ" describedService__SEFF="_GHfL0MKUEeSWFuHcXeRvDQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_JGc3UcKUEeSWFuHcXeRvDQ" entityName="start" successor_AbstractAction="_Ql1kkMKVEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_JGc3UsKUEeSWFuHcXeRvDQ" entityName="stop" predecessor_AbstractAction="_Ql1kkMKVEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:InternalAction" id="_Ql1kkMKVEeSWFuHcXeRvDQ" entityName="SearchArticle" predecessor_AbstractAction="_JGc3UcKUEeSWFuHcXeRvDQ" successor_AbstractAction="_JGc3UsKUEeSWFuHcXeRvDQ">
+          <resourceDemand_Action>
+            <specification_ParametericResourceDemand specification="10"/>
+            <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          </resourceDemand_Action>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_daFIkMKUEeSWFuHcXeRvDQ" entityName="WebShopLogin">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_f0iY0MKUEeSWFuHcXeRvDQ" entityName="Provided_IWebShopLogin_WebShopLogin" providedInterface__OperationProvidedRole="_1BjloMKTEeSWFuHcXeRvDQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_f0iY0cKUEeSWFuHcXeRvDQ" describedService__SEFF="_4y-o0MKTEeSWFuHcXeRvDQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_f0i_4MKUEeSWFuHcXeRvDQ" entityName="start" successor_AbstractAction="_I9ViIMKVEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_f0i_4cKUEeSWFuHcXeRvDQ" entityName="stop" predecessor_AbstractAction="_I9ViIMKVEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:InternalAction" id="_I9ViIMKVEeSWFuHcXeRvDQ" entityName="CheckNameAndPW" predecessor_AbstractAction="_f0i_4MKUEeSWFuHcXeRvDQ" successor_AbstractAction="_f0i_4cKUEeSWFuHcXeRvDQ">
+          <resourceDemand_Action>
+            <specification_ParametericResourceDemand specification="10"/>
+            <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          </resourceDemand_Action>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_gqABMMKUEeSWFuHcXeRvDQ" entityName="WebShopOrder">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_in9isMKUEeSWFuHcXeRvDQ" entityName="Provided_IWebShopOrder_WebShopOrder" providedInterface__OperationProvidedRole="_Pxyt8MKUEeSWFuHcXeRvDQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_ki6McMKUEeSWFuHcXeRvDQ" entityName="Required_IWebShopDatabase_WebShopOrder" requiredInterface__OperationRequiredRole="_EETzIMKUEeSWFuHcXeRvDQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_in9iscKUEeSWFuHcXeRvDQ" describedService__SEFF="_RaNdQMKUEeSWFuHcXeRvDQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_in9issKUEeSWFuHcXeRvDQ" entityName="start" successor_AbstractAction="_7RxKAMKUEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_in-JwMKUEeSWFuHcXeRvDQ" entityName="stop" predecessor_AbstractAction="_DeFEIMKVEeSWFuHcXeRvDQ"/>
+        <steps_Behaviour xsi:type="seff:InternalAction" id="_7RxKAMKUEeSWFuHcXeRvDQ" entityName="checkMaxPriceOfOrder" predecessor_AbstractAction="_in9issKUEeSWFuHcXeRvDQ" successor_AbstractAction="_DeFEIMKVEeSWFuHcXeRvDQ">
+          <resourceDemand_Action>
+            <specification_ParametericResourceDemand specification="20"/>
+            <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          </resourceDemand_Action>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_DeFEIMKVEeSWFuHcXeRvDQ" predecessor_AbstractAction="_7RxKAMKUEeSWFuHcXeRvDQ" successor_AbstractAction="_in-JwMKUEeSWFuHcXeRvDQ" calledService_ExternalService="_GHfL0MKUEeSWFuHcXeRvDQ" role_ExternalService="_ki6McMKUEeSWFuHcXeRvDQ"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_qgT0cMKTEeSWFuHcXeRvDQ" entityName="IWebShopFrontEnd">
+      <signatures__OperationInterface id="_tJMiQMKTEeSWFuHcXeRvDQ" entityName="login"/>
+      <signatures__OperationInterface id="_uwgeUMKTEeSWFuHcXeRvDQ" entityName="order"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_1BjloMKTEeSWFuHcXeRvDQ" entityName="IWebShopLogin">
+      <signatures__OperationInterface id="_4y-o0MKTEeSWFuHcXeRvDQ" entityName="login"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_EETzIMKUEeSWFuHcXeRvDQ" entityName="IWebShopDatabase">
+      <signatures__OperationInterface id="_GHfL0MKUEeSWFuHcXeRvDQ" entityName="getArticlePrice"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_Pxyt8MKUEeSWFuHcXeRvDQ" entityName="IWebShopOrder">
+      <signatures__OperationInterface id="_RaNdQMKUEeSWFuHcXeRvDQ" entityName="order"/>
+    </interfaces__Repository>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StatelessComponent" appliedTo="_daFIkMKUEeSWFuHcXeRvDQ">
+      <extension href="../org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StatelessComponent" appliedTo="_gqABMMKUEeSWFuHcXeRvDQ">
+      <extension href="../org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.componentstate" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

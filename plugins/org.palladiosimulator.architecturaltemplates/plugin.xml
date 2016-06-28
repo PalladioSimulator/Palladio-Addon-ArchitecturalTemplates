@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated architecturaltemplates -->
+      <package
+            uri="http://palladiosimulator.org/ArchitecturalTemplates/1.0"
+            class="org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage"
+            genModel="model/architecturaltemplates.genmodel"/>
+   </extension>
+
+</plugin>

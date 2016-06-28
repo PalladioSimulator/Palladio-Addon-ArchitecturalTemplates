@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1">
+  <usageScenario_UsageModel id="_af6LkMKWEeSWFuHcXeRvDQ" entityName="defaultUsageScenario">
+    <scenarioBehaviour_UsageScenario id="_af8n0MKWEeSWFuHcXeRvDQ" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_agCHYMKWEeSWFuHcXeRvDQ" successor="_-jl1MMKWEeSWFuHcXeRvDQ"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_agD8kMKWEeSWFuHcXeRvDQ" predecessor="_-jl1MMKWEeSWFuHcXeRvDQ"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Branch" id="_-jl1MMKWEeSWFuHcXeRvDQ" successor="_agD8kMKWEeSWFuHcXeRvDQ" predecessor="_agCHYMKWEeSWFuHcXeRvDQ">
+        <branchTransitions_Branch branchProbability="0.5">
+          <branchedBehaviour_BranchTransition id="_JPDSUMKXEeSWFuHcXeRvDQ">
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_JPD5YMKXEeSWFuHcXeRvDQ" successor="_P7n4AMKXEeSWFuHcXeRvDQ"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_JPD5YcKXEeSWFuHcXeRvDQ" predecessor="_P7n4AMKXEeSWFuHcXeRvDQ"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_P7n4AMKXEeSWFuHcXeRvDQ" successor="_JPD5YcKXEeSWFuHcXeRvDQ" predecessor="_JPD5YMKXEeSWFuHcXeRvDQ">
+              <providedRole_EntryLevelSystemCall href="staticResourceContainerSystem.system#_dynH4MKVEeSWFuHcXeRvDQ"/>
+              <operationSignature__EntryLevelSystemCall href="staticResourceContainerRepository.repository#_tJMiQMKTEeSWFuHcXeRvDQ"/>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+        <branchTransitions_Branch branchProbability="0.5">
+          <branchedBehaviour_BranchTransition id="_VmPRcMKXEeSWFuHcXeRvDQ">
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_VmPRccKXEeSWFuHcXeRvDQ" successor="_XDlZMMKXEeSWFuHcXeRvDQ"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_VmP4gMKXEeSWFuHcXeRvDQ" predecessor="_XDlZMMKXEeSWFuHcXeRvDQ"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_XDlZMMKXEeSWFuHcXeRvDQ" successor="_VmP4gMKXEeSWFuHcXeRvDQ" predecessor="_VmPRccKXEeSWFuHcXeRvDQ">
+              <providedRole_EntryLevelSystemCall href="staticResourceContainerSystem.system#_dynH4MKVEeSWFuHcXeRvDQ"/>
+              <operationSignature__EntryLevelSystemCall href="staticResourceContainerRepository.repository#_uwgeUMKTEeSWFuHcXeRvDQ"/>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="30">
+      <thinkTime_ClosedWorkload specification="0.0"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+</usagemodel:UsageModel>

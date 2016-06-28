@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="duplicateReplicableResourceContainer" package="ReplicableTransformation" module="ReplicableTransformation">
+      <runtimeMappingOperation href="qvto:/module.env#//duplicateReplicableResourceContainer"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="ResourceContainer">
+        <value modelElement="_fxoLAAXLEeOk2t-0hHhTJg"/>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="ResourceContainer">
+        <value modelElement="_fxoLAAXLEeOk2t-0hHhTJg_duplicate"/>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>

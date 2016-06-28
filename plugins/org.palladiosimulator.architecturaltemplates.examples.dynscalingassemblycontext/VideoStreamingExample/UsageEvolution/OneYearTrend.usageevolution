@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usageevolution:UsageEvolution xmlns:usageevolution="http://usageevolution/1.0" id="_RuRaAJaoEeSP0_kLa2fLig" entityName="OneYear">
+  <usages id="_SKVq8JaoEeSP0_kLa2fLig">
+    <loadEvolution href="OneYearTrend.dlim#/"/>
+    <scenario href="../videoStreaming.usagemodel#_NcFyEJUGEeSkwMoUcKTtwg"/>
+  </usages>
+</usageevolution:UsageEvolution>

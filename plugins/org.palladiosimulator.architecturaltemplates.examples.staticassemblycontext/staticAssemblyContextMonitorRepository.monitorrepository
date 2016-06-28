@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_ZBVJUNcREeSNV4TmK_35qw" entityName="Default Monitor Set">
+  <monitors id="_OhCyseNMEeS_urNI4LXenw" entityName="Response Times - Usage Scenario">
+    <measurementSpecifications id="_PPnv8uNMEeS_urNI4LXenw" statisticalCharacterization="ArithmeticMean">
+      <temporalRestriction xsi:type="monitorrepository:Intervall" id="_j6jt8ONMEeS_urNI4LXenw" intervall="10.0"/>
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="staticAssemblyContextMeasuringPointRepository.measuringpoint#//@measuringPoints.0"/>
+  </monitors>
+  <monitors id="_xwtlcONMEeS_urNI4LXenw" entityName="Number of Resource Containers">
+    <measurementSpecifications id="_0RanoONMEeS_urNI4LXenw">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_e7x3gq-eEeSgL6DrxYuwZg"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="staticAssemblyContextMeasuringPointRepository.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+</monitorrepository:MonitorRepository>

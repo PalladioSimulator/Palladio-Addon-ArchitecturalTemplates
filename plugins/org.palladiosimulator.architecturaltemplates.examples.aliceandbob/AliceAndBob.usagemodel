@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1">
+  <usageScenario_UsageModel id="_lgv0gAXMEeOk2t-0hHhTJg" entityName="defaultUsageScenario">
+    <scenarioBehaviour_UsageScenario id="_lgxCoAXMEeOk2t-0hHhTJg" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_lgyQwAXMEeOk2t-0hHhTJg" successor="_reJnEAXMEeOk2t-0hHhTJg"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_lgyQwQXMEeOk2t-0hHhTJg" predecessor="_reJnEAXMEeOk2t-0hHhTJg"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_reJnEAXMEeOk2t-0hHhTJg" successor="_lgyQwQXMEeOk2t-0hHhTJg" predecessor="_lgyQwAXMEeOk2t-0hHhTJg">
+        <providedRole_EntryLevelSystemCall href="AliceAndBob.system#_QpnqEAXLEeOk2t-0hHhTJg"/>
+        <operationSignature__EntryLevelSystemCall href="AliceAndBob.repository#_WfyuMPqREeKForNjxJiaVQ"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="10.0"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+</usagemodel:UsageModel>

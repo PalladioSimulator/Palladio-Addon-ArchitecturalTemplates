@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1" id="_4nEQAAXKEeOk2t-0hHhTJg" entityName="AliceAndBobSystem">
+  <assemblyContexts__ComposedStructure id="_AX0PgAXLEeOk2t-0hHhTJg" entityName="Assembly_Bob &lt;Bob>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="AliceAndBob.repository#_AC5DUPqREeKForNjxJiaVQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_JzxMkAXLEeOk2t-0hHhTJg" entityName="Assembly_Alice &lt;Alice>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="AliceAndBob.repository#__CpuUPqQEeKForNjxJiaVQ"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_NkGDkAXLEeOk2t-0hHhTJg" entityName="Connector Assembly_Alice &lt;Alice> -> Assembly_Bob &lt;Bob>" requiringAssemblyContext_AssemblyConnector="_JzxMkAXLEeOk2t-0hHhTJg" providingAssemblyContext_AssemblyConnector="_AX0PgAXLEeOk2t-0hHhTJg">
+    <providedRole_AssemblyConnector href="AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+    <requiredRole_AssemblyConnector href="AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_VFbuEAXLEeOk2t-0hHhTJg" entityName="ProvDelegation Provided_IAlice -> Provided_IAlice_Alice" outerProvidedRole_ProvidedDelegationConnector="_QpnqEAXLEeOk2t-0hHhTJg" assemblyContext_ProvidedDelegationConnector="_JzxMkAXLEeOk2t-0hHhTJg">
+    <innerProvidedRole_ProvidedDelegationConnector href="AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_QpnqEAXLEeOk2t-0hHhTJg" entityName="Provided_IAlice">
+    <providedInterface__OperationProvidedRole href="AliceAndBob.repository#_H8VEwPqREeKForNjxJiaVQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

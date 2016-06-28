@@ -1,0 +1,75 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.catalog.black.PCMLibrary;
+
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+
+transformation ScaleUp(in prm : PRM, inout pcmAllocation : PCM_ALLOC);
+property scaleUpThreshold : Real;
+property scaleUpStepSize : Real;
+property maxRate : Real;
+property measurementSpecificationID : String;
+
+main() {
+	log ('AT Completion "ScaleUp" started');	
+	
+	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
+		with log ("No Measurements found!");
+	assert fatal(pcmAllocation.rootObjects()[Allocation]->size() > 0)
+		with log ("Allocation Model is empty!");
+			
+	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
+	var resourceEnvironment : ResourceEnvironment := allocation.targetResourceEnvironment_Allocation;
+	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
+	
+	assert fatal(hasAppliedStereotype(resourceContainers, "VirtualizedResourceContainer"))
+		with log ("There is no Virtualized Stereotype Application!");
+		
+	resourceContainers -> forEach(resourceContainer){
+		if(hasAppliedStereotype(resourceContainer, "VirtualizedResourceContainer")){
+			scaleUpThreshold := getDoubleTaggedValue(resourceContainer, "scaleUpThreshold", "VirtualizedResourceContainer");
+			scaleUpStepSize := evaluateStoEx(getStringTaggedValue(resourceContainer, "stepSize", "VirtualizedResourceContainer"));
+			maxRate := evaluateStoEx(getStringTaggedValue(resourceContainer, "maxRate", "VirtualizedResourceContainer"));
+			measurementSpecificationID := getStringTaggedValue(resourceContainer, "measurementSpecificationID", "VirtualizedResourceContainer");
+			
+			assert fatal(prm.rootObjects()[RuntimeMeasurement]->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+				with log ("measurementSpecificationID "+measurementSpecificationID+" not found in runtime measurements when scaling up!");
+				
+			resourceContainer. map scaleUpVirtualizedContainer();
+		};
+	};
+	log ('AT Completion "ScaleUp" finished');	
+}
+
+query Set(RuntimeMeasurement) :: checkCondition() : Boolean
+{
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue > scaleUpThreshold)
+}
+
+mapping ResourceContainer::scaleUpVirtualizedContainer():ResourceContainer 
+	when{prm.rootObjects()[RuntimeMeasurement]->checkCondition()}
+{
+	log ('Scaling Up ResourceContainer ' + self.entityName);
+	scaleUpProcessingResourcesRecursively(self);
+}
+
+/**
+ * Recursively scale up ProcessingResources.
+ */
+helper scaleUpProcessingResourcesRecursively(resourceContainer : ResourceContainer) {
+
+	// increase processing rate by scaleUp
+	resourceContainer.activeResourceSpecifications_ResourceContainer->forEach(processingResourceSpecification){
+    	var newProcessingRate : Real := evaluateStoEx(processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification) + scaleUpStepSize;
+    	
+    	if(newProcessingRate <= maxRate) {
+    		processingResourceSpecification.processingRate_ProcessingResourceSpecification.specification := newProcessingRate.toString();
+    	}
+    };
+    
+    // recursive call
+	resourceContainer.nestedResourceContainers__ResourceContainer->forEach(nestedResourceContainer){
+		scaleUpProcessingResourcesRecursively(nestedResourceContainer);
+	};		
+}

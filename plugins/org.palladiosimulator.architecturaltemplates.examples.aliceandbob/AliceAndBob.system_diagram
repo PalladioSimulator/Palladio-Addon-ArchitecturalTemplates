@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" type="CompositeModel" name="AliceAndBob.system_diagram" measurementUnit="Pixel">
+  <children xsi:type="notation:Shape" type="2002" fontName="Segoe UI">
+    <children xsi:type="notation:DecorationNode" type="5012"/>
+    <children xsi:type="notation:DecorationNode" type="7002">
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="-37" y="-19"/>
+          </children>
+          <element href="AliceAndBob.repository#_DNt7EAXKEeOk2t-0hHhTJg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="AliceAndBob.system#_AX0PgAXLEeOk2t-0hHhTJg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="325" y="175" width="163"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="-20" y="50"/>
+          </children>
+          <element href="AliceAndBob.repository#_CrA2oAXKEeOk2t-0hHhTJg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="52" y="65"/>
+          </children>
+          <element href="AliceAndBob.repository#_DjO4EAXKEeOk2t-0hHhTJg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="AliceAndBob.system#_JzxMkAXLEeOk2t-0hHhTJg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="50" y="175" width="161"/>
+      </children>
+    </children>
+    <children xsi:type="notation:Shape" type="3011" fontName="Segoe UI">
+      <children xsi:type="notation:DecorationNode" type="5013">
+        <layoutConstraint xsi:type="notation:Location" y="5"/>
+      </children>
+      <element href="AliceAndBob.system#_QpnqEAXLEeOk2t-0hHhTJg"/>
+      <layoutConstraint xsi:type="notation:Bounds"/>
+    </children>
+    <element href="AliceAndBob.system#_4nEQAAXKEeOk2t-0hHhTJg"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="300" y="40"/>
+  </children>
+  <styles xsi:type="notation:DiagramStyle"/>
+  <element href="AliceAndBob.system#_4nEQAAXKEeOk2t-0hHhTJg"/>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.1/@children.2" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="AliceAndBob.system#_NkGDkAXLEeOk2t-0hHhTJg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -47, 2]$[53, 0, -1, 2]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4006" source="//@children.0/@children.2" target="//@children.0/@children.1/@children.1/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="AliceAndBob.system#_VFbuEAXLEeOk2t-0hHhTJg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -60, 50]$[90, -51, 0, -1]"/>
+  </edges>
+</notation:Diagram>

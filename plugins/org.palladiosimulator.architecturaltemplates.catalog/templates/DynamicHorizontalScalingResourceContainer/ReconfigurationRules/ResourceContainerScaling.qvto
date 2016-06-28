@@ -1,0 +1,78 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import ResourceContainerReverseLoadbalancing;
+import ResourceContainerLoadbalancing;
+
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+
+transformation ResourceContainerScaling(in prm : PRM, inout pcmAllocation : PCM_ALLOC) 
+access transformation ResourceContainerLoadbalancing, ResourceContainerReverseLoadbalancing;
+
+property numberOfReplicas : Integer;
+property scaleInThreshold : Real;
+property scaleOutThreshold : Real;
+property measurementSpecificationID : String;
+
+main() {
+	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
+		with log ("No Measurements found!");
+			
+	assert fatal(pcmAllocation.rootObjects()[Allocation]->size() > 0)
+		with log ("Allocation Model is empty!");
+		
+	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
+	var resourceEnvironment : ResourceEnvironment := allocation.targetResourceEnvironment_Allocation;
+	
+	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
+	
+	//get the stereotyped AssemblyContext
+	var loadBalancedResourceContainer : ResourceContainer := resourceContainers -> selectOne(resourceContainer : ResourceContainer |
+						hasAppliedStereotype(resourceContainer,"ReplicableResourceContainer"));
+						
+	assert fatal(loadBalancedResourceContainer != null)
+		with log ("There is no Replicable ResourceContainer Stereotype Application!");
+
+	numberOfReplicas := getIntTaggedValue(loadBalancedResourceContainer, "numberOfReplicas", "ReplicableResourceContainer");
+	scaleInThreshold := getDoubleTaggedValue(loadBalancedResourceContainer, "scaleInThreshold", "ReplicableResourceContainer");
+	scaleOutThreshold := getDoubleTaggedValue(loadBalancedResourceContainer, "scaleOutThreshold", "ReplicableResourceContainer");
+	measurementSpecificationID := getStringTaggedValue(loadBalancedResourceContainer, "measurementSpecificationID", "ReplicableResourceContainer");
+	
+	var reverseLoadbalancingTransformation : ResourceContainerReverseLoadbalancing := new ResourceContainerReverseLoadbalancing(prm,pcmAllocation);
+	var loadbalancingTransformation : ResourceContainerLoadbalancing:= new ResourceContainerLoadbalancing(prm,pcmAllocation);
+	//The setting of the configuration properties to false could be unnecessary
+	
+	var runtimeMeasurement := prm.rootObjects()[RuntimeMeasurement];
+	assert fatal(runtimeMeasurement->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+		with log ("measurementSpecificationID not found in runtime measurements!");
+	
+	if(runtimeMeasurement->checkScaleInCondition() and numberOfReplicas > 1){
+		reverseLoadbalancingTransformation.loadbalanced := true;
+		reverseLoadbalancingTransformation->transform();
+		reverseLoadbalancingTransformation.loadbalanced := false;
+		numberOfReplicas:= numberOfReplicas -1;
+		setTaggedValue(loadBalancedResourceContainer, numberOfReplicas, "ReplicableResourceContainer", "numberOfReplicas");
+		loadbalancingTransformation.reverseLoadbalanced := true;
+		loadbalancingTransformation->transform();
+		loadbalancingTransformation.reverseLoadbalanced := false;
+	}
+	else if(runtimeMeasurement->checkScaleOutCondition()){
+		reverseLoadbalancingTransformation.loadbalanced := true;
+		reverseLoadbalancingTransformation->transform();
+		reverseLoadbalancingTransformation.loadbalanced := false;
+		numberOfReplicas:= numberOfReplicas +1;
+		setTaggedValue(loadBalancedResourceContainer, numberOfReplicas, "ReplicableResourceContainer", "numberOfReplicas");
+		loadbalancingTransformation.reverseLoadbalanced := true;
+		loadbalancingTransformation->transform();
+		loadbalancingTransformation.reverseLoadbalanced := false;
+	};
+}
+
+query Set(RuntimeMeasurement) :: checkScaleOutCondition() : Boolean {
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue > scaleOutThreshold)
+}
+	
+query Set(RuntimeMeasurement) :: checkScaleInCondition() : Boolean {
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue < scaleInThreshold)
+}

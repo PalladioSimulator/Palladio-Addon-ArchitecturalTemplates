@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_GI1rcL7KEeSuir3ZgvAmUQ" entityName="defaultAllocation">
+  <targetResourceEnvironment_Allocation href="staticAssemblyContextResourceEnvironment.resourceenvironment#/"/>
+  <system_Allocation href="staticAssemblyContextSystem.system#_jKRT8L7CEeSuir3ZgvAmUQ"/>
+  <allocationContexts_Allocation id="_GiceQL7KEeSuir3ZgvAmUQ" entityName="Allocation_Assembly_Alice &lt;Alice> &lt;Alice>">
+    <resourceContainer_AllocationContext href="staticAssemblyContextResourceEnvironment.resourceenvironment#_yN4dEL7CEeSuir3ZgvAmUQ"/>
+    <assemblyContext_AllocationContext href="staticAssemblyContextSystem.system#_lTmX8L7CEeSuir3ZgvAmUQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_HVIfcL7KEeSuir3ZgvAmUQ" entityName="Allocation_Assembly_Bob &lt;Bob> &lt;Bob>">
+    <resourceContainer_AllocationContext href="staticAssemblyContextResourceEnvironment.resourceenvironment#_zUuwYL7CEeSuir3ZgvAmUQ"/>
+    <assemblyContext_AllocationContext href="staticAssemblyContextSystem.system#_rUs-wL7CEeSuir3ZgvAmUQ"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

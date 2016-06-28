@@ -1,0 +1,55 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import Loadbalancing;
+
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+	
+/**
+ * Transforms a system where assembly context are annotated with the "Replicable Assembly
+ * Context" AT roles to a PCM instance where each such assembly context can dynamically
+ * horizontal scale. Each replicated assembly context is allocated to a crorrespond
+ * replicated resource container. This resource container has the same specification as
+ * the original container.
+ *
+ * Replication is based on upper and lower thresholds for scaling out and in, respectively.
+ * Such thresholds stick to average response times taken at the component in intervals.
+ * Intervals and thresholds can externally be set via properties.
+ *
+ * TODO How can properties be externally set?
+ * FIXME Copied from the original ThreeLayer completion; did not start further implementation yet :(
+ *
+ * @see http://cloudscale.xlab.si/wiki/index.php/Dynamic_Horizontal_Scaling_CAT
+ *
+ * @author Sebastian Lehrig
+ * @author Daria Giacinto
+ **/
+transformation DynamicHorizontalScalingAssemblyContext(inout pcmAllocation : PCM_ALLOC)
+	access transformation Loadbalancing;
+	
+//String constants of the DynamicHorizontalScalingAssemblyContext Profile					   			 
+property dynamicHorizontalScalingAssemblyContextProfile : String = "DynamicHorizontalScalingAssemblyContextProfile";
+property dynamicHorizontalScalingAssemblyContextSystemStereotype : String = "DynamicHorizontalScalingAssemblyContextSystem";
+					   
+main() {	
+	log ('Architectural Template Transformation "Dynamic Horizontal Scaling Assembly Context" started');
+	
+	// Get relevant PCM model elements
+	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
+	var system : System := allocation.system_Allocation;
+	
+	assert fatal(isProfileApplied(system.oclAsType(EObject), dynamicHorizontalScalingAssemblyContextProfile))
+		with log ("The system has no " + dynamicHorizontalScalingAssemblyContextProfile + " applied.");
+		
+	assert fatal(hasAppliedStereotype(system, dynamicHorizontalScalingAssemblyContextSystemStereotype))
+		with log ("The system is not a " + dynamicHorizontalScalingAssemblyContextSystemStereotype + "!");
+		
+	// apply loadbalancing profile
+	//if (not isProfileApplied(system, "LoadbalancedProfile")) {
+	//	applyProfile(system, "LoadbalancedProfile");
+	//}
+	
+	// execute loadbalancing completion
+	new Loadbalancing(pcmAllocation)->transform();
+	log ('Architectural Template Transformation "Dynamic Horizontal Scaling Assembly Context" finished');
+}

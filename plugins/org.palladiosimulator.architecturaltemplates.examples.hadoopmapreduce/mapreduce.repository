@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" id="_nrzwEJ6bEeWwV9kbWFlZYg" entityName="defaultRepository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_rpK9gJ6bEeWwV9kbWFlZYg" entityName="Map">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_LvRh0Z6dEeWwV9kbWFlZYg" entityName="Provided_IMap_Map">
+      <providedInterface__OperationProvidedRole href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_k9r5sJzqEeWiy9Rfn8ggZg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <parentCompleteComponentTypes href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_6gjlQJzqEeWiy9Rfn8ggZg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_nH0nUJ6dEeWwV9kbWFlZYg">
+      <describedService__SEFF xsi:type="repository:OperationSignature" href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_nmqHEJzqEeWiy9Rfn8ggZg"/>
+      <steps_Behaviour xsi:type="seff:StartAction" id="_njDKwJ6dEeWwV9kbWFlZYg" entityName="start" successor_AbstractAction="_wKh98J6dEeWwV9kbWFlZYg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_njDx0J6dEeWwV9kbWFlZYg" entityName="stop" predecessor_AbstractAction="_wKh98J6dEeWwV9kbWFlZYg"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_wKh98J6dEeWwV9kbWFlZYg" entityName="map" predecessor_AbstractAction="_njDKwJ6dEeWwV9kbWFlZYg" successor_AbstractAction="_njDx0J6dEeWwV9kbWFlZYg">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="2.5E+9*DoublePDF[(149.73;0)(151.6020625;0.25)(152.775;0.339991954947707)(153.404;0.410008045052293)]"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_sOsFYJ6bEeWwV9kbWFlZYg" entityName="Reduce">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_KLZ7UZ6dEeWwV9kbWFlZYg" entityName="Provided_IReduce_Reduce">
+      <providedInterface__OperationProvidedRole href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_lsWWgJzqEeWiy9Rfn8ggZg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_mNd34J6dEeWwV9kbWFlZYg">
+      <describedService__SEFF xsi:type="repository:OperationSignature" href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_mw6K0JzqEeWiy9Rfn8ggZg"/>
+      <steps_Behaviour xsi:type="seff:StartAction" id="_mkuhUJ6dEeWwV9kbWFlZYg" entityName="start" successor_AbstractAction="_1O-IMJ6dEeWwV9kbWFlZYg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_mkvIYJ6dEeWwV9kbWFlZYg" entityName="stop" predecessor_AbstractAction="_1O-IMJ6dEeWwV9kbWFlZYg"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_1O-IMJ6dEeWwV9kbWFlZYg" entityName="reduce" predecessor_AbstractAction="_mkuhUJ6dEeWwV9kbWFlZYg" successor_AbstractAction="_mkvIYJ6dEeWwV9kbWFlZYg">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="2.5E+9*DoublePDF[(5.666;0)(6.49;0.349788672865596)(8.626;0.238884192730347)(8.722;0.411327134404057)]"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+</repository:Repository>

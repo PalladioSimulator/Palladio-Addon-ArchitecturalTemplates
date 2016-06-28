@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.componentstate" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
+  <repository:Repository id="_0ZgNoNcMEeSyUvPi1U6uGw" entityName="defaultRepository">
+    <components__Repository xsi:type="repository:BasicComponent" id="_6Ww2QNcMEeSyUvPi1U6uGw" entityName="SimpleBasicComponent">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Cu4-0NcNEeSyUvPi1U6uGw" entityName="Provided_SimpleInterface_SimpleBasicComponent" providedInterface__OperationProvidedRole="_5L4XgNcMEeSyUvPi1U6uGw"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_Cu4-0dcNEeSyUvPi1U6uGw" describedService__SEFF="_8uSHQNcMEeSyUvPi1U6uGw">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_Cu4-0tcNEeSyUvPi1U6uGw" entityName="start" successor_AbstractAction="_FsCFYNcNEeSyUvPi1U6uGw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_Cu4-09cNEeSyUvPi1U6uGw" entityName="stop" predecessor_AbstractAction="_FsCFYNcNEeSyUvPi1U6uGw"/>
+        <steps_Behaviour xsi:type="seff:InternalAction" id="_FsCFYNcNEeSyUvPi1U6uGw" entityName="DoSomethingSimpleInternally" predecessor_AbstractAction="_Cu4-0tcNEeSyUvPi1U6uGw" successor_AbstractAction="_Cu4-09cNEeSyUvPi1U6uGw">
+          <resourceDemand_Action>
+            <specification_ParametericResourceDemand specification="15"/>
+            <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+          </resourceDemand_Action>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_5L4XgNcMEeSyUvPi1U6uGw" entityName="SimpleInterface">
+      <signatures__OperationInterface id="_8uSHQNcMEeSyUvPi1U6uGw" entityName="doSomethingSimple"/>
+    </interfaces__Repository>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:StatelessComponent" appliedTo="_6Ww2QNcMEeSyUvPi1U6uGw">
+      <extension href="../../org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram#_6MmfoEaUEeWQL8VXv1nD6Q"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.componentstate" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ComponentState.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.cost.profile="org.palladiosimulator.cost.profile.cost" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1">
+  <resourceenvironment:ResourceEnvironment entityName="NormalAndReplicableResources">
+    <linkingResources__ResourceEnvironment id="_9lNF4H4wEeSqFvs4kqVd7Q" entityName="Network" connectedResourceContainers_LinkingResource="_vHW8QH4wEeSqFvs4kqVd7Q _xnmEYH4wEeSqFvs4kqVd7Q">
+      <communicationLinkResourceSpecifications_LinkingResource id="_9lTzkH4wEeSqFvs4kqVd7Q">
+        <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+        <latency_CommunicationLinkResourceSpecification specification="0"/>
+        <throughput_CommunicationLinkResourceSpecification specification="99999"/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_vHW8QH4wEeSqFvs4kqVd7Q" entityName="Replicable Resource Container">
+      <activeResourceSpecifications_ResourceContainer id="_05cPoH4wEeSqFvs4kqVd7Q">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        <processingRate_ProcessingResourceSpecification specification="150"/>
+      </activeResourceSpecifications_ResourceContainer>
+    </resourceContainer_ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_xnmEYH4wEeSqFvs4kqVd7Q" entityName="Normal Resource Container">
+      <activeResourceSpecifications_ResourceContainer id="_5_aD4H4wEeSqFvs4kqVd7Q">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        <processingRate_ProcessingResourceSpecification specification="2000"/>
+      </activeResourceSpecifications_ResourceContainer>
+    </resourceContainer_ResourceEnvironment>
+  </resourceenvironment:ResourceEnvironment>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:ReplicableResourceContainer" appliedTo="_vHW8QH4wEeSqFvs4kqVd7Q" scaleInThreshold="0.5" scaleOutThreshold="1.5">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_7MhWQH47EeSqFvs4kqVd7Q"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.cost.profile:Price" appliedTo="_vHW8QH4wEeSqFvs4kqVd7Q" amount="10.0" interval="10.0">
+      <extension href="../../plugin/org.palladiosimulator.cost.profile/cost.emfprofile_diagram#_ytsIkH5vEeWkMatJbqONig"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.cost.profile:Price" appliedTo="_xnmEYH4wEeSqFvs4kqVd7Q" amount="10.0" interval="10.0">
+      <extension href="../../plugin/org.palladiosimulator.cost.profile/cost.emfprofile_diagram#_ytsIkH5vEeWkMatJbqONig"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.cost.profile:CostReport" appliedTo="/0" interval="30.0">
+      <extension href="../../plugin/org.palladiosimulator.cost.profile/cost.emfprofile_diagram#_R7S0EH5wEeWkMatJbqONig"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.cost.profile.cost" location="platform:/plugin/org.palladiosimulator.cost.profile/cost.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

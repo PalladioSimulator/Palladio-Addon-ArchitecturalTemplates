@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.palladiosimulator.edp2.models:MeasuringPointRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.edp2.models="http://palladiosimulator.org/EDP2/MeasuringPoint/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_YuTPsKQREeWAQvtAPq2LOQ">
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: MapReduceUsageScenario" resourceURIRepresentation="platform:/resource/org.palladiosimulator.architecturaltemplates.examples.HadoopMapReduce/HadoopMapReduce.usagemodel#_HMQHQGwrEeS8KpnxUVYq6Q">
+    <usageScenario href="mapreduce.usagemodel#_HMQHQGwrEeS8KpnxUVYq6Q"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from CustomMapper to Required_IMap_CustomMapper->map [___SJwJ6VEeWiy9Rfn8ggZg]" resourceURIRepresentation="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#___SJwJ6VEeWiy9Rfn8ggZg">
+    <externalCall href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#___SJwJ6VEeWiy9Rfn8ggZg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from CustomReducer to Required_IReduce_CustomReducer->reduce [_1yUmgJ6VEeWiy9Rfn8ggZg]" resourceURIRepresentation="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_1yUmgJ6VEeWiy9Rfn8ggZg">
+    <externalCall href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_1yUmgJ6VEeWiy9Rfn8ggZg"/>
+  </measuringPoints>
+</org.palladiosimulator.edp2.models:MeasuringPointRepository>

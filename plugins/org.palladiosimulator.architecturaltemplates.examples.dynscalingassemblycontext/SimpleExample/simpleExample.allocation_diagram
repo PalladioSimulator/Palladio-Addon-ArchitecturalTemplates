@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//allocation http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1 http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment" xmi:id="_vhhVkdcNEeSyUvPi1U6uGw" type="allocation" name="simpleExample.allocation_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_vkkCgtcNEeSyUvPi1U6uGw" type="2003" fontName="Segoe UI">
+    <children xmi:type="notation:DecorationNode" xmi:id="_vkkChNcNEeSyUvPi1U6uGw" type="5008"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vkkChdcNEeSyUvPi1U6uGw" type="7003">
+      <children xmi:type="notation:Shape" xmi:id="_wkLFYNcNEeSyUvPi1U6uGw" type="3002" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_wkLFYtcNEeSyUvPi1U6uGw" type="5006"/>
+        <children xmi:type="notation:DecorationNode" xmi:id="_wkLFY9cNEeSyUvPi1U6uGw" type="5007"/>
+        <element xmi:type="allocation:AllocationContext" href="simpleExample.allocation#_wWjgINcNEeSyUvPi1U6uGw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wkLFYdcNEeSyUvPi1U6uGw" x="25" y="28" width="196" height="16"/>
+      </children>
+    </children>
+    <element xmi:type="resourceenvironment:ResourceContainer" href="simpleExample.resourceenvironment#_jYw0ANcNEeSyUvPi1U6uGw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vkkCg9cNEeSyUvPi1U6uGw" x="155" y="185" width="236" height="121"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_vhhVktcNEeSyUvPi1U6uGw"/>
+  <element xmi:type="allocation:Allocation" href="simpleExample.allocation#_vhhVkNcNEeSyUvPi1U6uGw"/>
+</notation:Diagram>

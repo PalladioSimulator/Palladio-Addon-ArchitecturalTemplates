@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+null
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated architecturaltemplates -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesModelWizardID"
+            name="%_UI_ArchitecturaltemplatesModelWizard_label"
+            class="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ArchitecturaltemplatesModelFile.gif">
+         <description>%_UI_ArchitecturaltemplatesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated architecturaltemplates -->
+      <editor
+            id="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesEditorID"
+            name="%_UI_ArchitecturaltemplatesEditor_label"
+            icon="icons/full/obj16/ArchitecturaltemplatesModelFile.gif"
+            extensions="architecturaltemplates"
+            class="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesEditor"
+            contributorClass="org.palladiosimulator.architecturaltemplates.presentation.ArchitecturaltemplatesActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

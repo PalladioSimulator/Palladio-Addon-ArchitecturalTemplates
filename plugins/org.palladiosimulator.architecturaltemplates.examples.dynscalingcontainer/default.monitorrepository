@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_ZBVJUNcREeSNV4TmK_35qw" entityName="Default Monitor Set">
+  <monitors id="_Gr1xsdONEeSjW_w7tGZZCA" entityName="Response Times - Usage Scenario">
+    <measurementSpecifications id="_JwvGENONEeSjW_w7tGZZCA" statisticalCharacterization="ArithmeticMean">
+      <temporalRestriction xsi:type="monitorrepository:Intervall" id="_QB4UBNONEeSjW_w7tGZZCA" intervall="10.0"/>
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="default.measuringpoint#//@measuringPoints.0"/>
+  </monitors>
+  <monitors id="_ROQAgdONEeSjW_w7tGZZCA" entityName="Number of Resource Container - Resource Environment">
+    <measurementSpecifications id="_Uv47QNONEeSjW_w7tGZZCA">
+      <temporalRestriction xsi:type="monitorrepository:Intervall" id="_6g-AoN9bEeSUE-SMyNWSKA"/>
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_e7x3gq-eEeSgL6DrxYuwZg"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="default.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+  <monitors id="_-terAFo2EeWsV9LtPY1D6Q" entityName="Operation Cost - Resource Environment">
+    <measurementSpecifications id="_DxPf0Fo3EeWsV9LtPY1D6Q" statisticalCharacterization="ArithmeticMean">
+      <metricDescription xsi:type="metricspec:MetricSetDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_IiHVQdgLEeSCcbn_evnMvQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="default.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+</monitorrepository:MonitorRepository>
