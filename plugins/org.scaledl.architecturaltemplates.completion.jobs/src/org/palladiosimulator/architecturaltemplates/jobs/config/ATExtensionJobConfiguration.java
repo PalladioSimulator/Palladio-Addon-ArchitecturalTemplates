@@ -1,6 +1,6 @@
 package org.palladiosimulator.architecturaltemplates.jobs.config;
 
-import org.palladiosimulator.architecturaltemplates.type.AT;
+import org.palladiosimulator.architecturaltemplates.AT;
 
 import de.uka.ipd.sdq.workflow.extension.AbstractExtensionJobConfiguration;
 

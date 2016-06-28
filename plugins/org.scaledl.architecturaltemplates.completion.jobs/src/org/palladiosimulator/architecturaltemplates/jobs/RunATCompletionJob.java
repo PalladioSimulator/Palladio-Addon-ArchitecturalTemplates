@@ -20,13 +20,13 @@ import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartitio
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
-import org.palladiosimulator.architecturaltemplates.type.AT;
-import org.palladiosimulator.architecturaltemplates.type.CompletionParameter;
-import org.palladiosimulator.architecturaltemplates.type.PCMBlackboardCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.type.PCMOutputCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.type.QVTOCompletion;
-import org.palladiosimulator.architecturaltemplates.type.Role;
-import org.palladiosimulator.architecturaltemplates.type.util.TypeSwitch;
+import org.palladiosimulator.architecturaltemplates.AT;
+import org.palladiosimulator.architecturaltemplates.CompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
+import org.palladiosimulator.architecturaltemplates.Role;
+import org.palladiosimulator.architecturaltemplates.util.TypeSwitch;
 import org.palladiosimulator.monitorrepository.MonitorRepository;
 import org.palladiosimulator.monitorrepository.impl.MonitorRepositoryFactoryImpl;
 import org.palladiosimulator.monitorrepository.util.MonitorRepositoryResourceImpl;
@@ -175,7 +175,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
              */
             @Override
             public ModelLocation casePCMTemplateCompletionParameter(
-                    final org.palladiosimulator.architecturaltemplates.type.PCMTemplateCompletionParameter object) {
+                    final org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter object) {
 
                 final String[] segments = URI.createURI(object.getTemplateFileURI()).segments();
                 final URI templateURI = templateFolderURI.appendSegments(segments);
@@ -197,7 +197,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
             @Override
             public ModelLocation caseIsolatedPCMTemplateCompletionParameter(
-                    final org.palladiosimulator.architecturaltemplates.type.IsolatedPCMTemplateCompletionParameter object) {
+                    final org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter object) {
                 final String[] segments = URI.createURI(object.getTemplateFileURI()).segments();
                 final URI templateURI = templateFolderURI.appendSegments(segments);
                 final String lastSegment = templateURI.lastSegment();

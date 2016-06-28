@@ -13,7 +13,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.modelversioning.emfprofile.Stereotype;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
-import org.palladiosimulator.architecturaltemplates.type.Role;
+import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.commons.eclipseutils.FileHelper;
 
 /**
