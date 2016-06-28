@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.scaledl.architecturaltemplates.examples.feature"
-      label="ScaleDL Architectural Templates - CloudScale AT Catalogue"
+      id="org.palladiosimulator.architecturaltemplates.examples.feature"
+      label="Architectural Templates - CloudScale AT Catalogue"
       version="1.0.0.qualifier"
+      provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
