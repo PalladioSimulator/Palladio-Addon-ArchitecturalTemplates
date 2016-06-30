@@ -18,10 +18,10 @@
       <rm:property key="git.remote.uri" value="https://github.com/PalladioSimulator/Architectural-Templates"/>      
     </rm:provider>
     <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/features/"/>
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/"/>
     </rm:provider>
     <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/features/"/>
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/"/>
     </rm:provider>
   </rm:searchPath>
   
@@ -34,10 +34,10 @@
       <rm:property key="git.remote.uri" value="https://github.com/PalladioSimulator/Architectural-Templates"/>      
     </rm:provider>
     <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/plugins/"/>
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/"/>
     </rm:provider>
     <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/plugins/"/>
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/"/>
     </rm:provider>
   </rm:searchPath>
 
