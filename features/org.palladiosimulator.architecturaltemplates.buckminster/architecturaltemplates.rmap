@@ -10,6 +10,12 @@
 		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Incubation/ExperimentAutomation/trunk/org.palladiosimulator.experimentautomation.buckminster/experimentautomation.rmap" />
   
   <rm:searchPath name="ArchitecturalTemplates-Features">
+    <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/features/"/>
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/features/"/>
+    </rm:provider>
     <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="git" resolutionFilter="" source="true">
       <rm:uri format="{0}/GIT,features/{1}">
           <bc:propertyRef key="workspace.root" />
@@ -17,27 +23,21 @@
         </rm:uri>
       <rm:property key="git.remote.uri" value="https://github.com/PalladioSimulator/Architectural-Templates"/>      
     </rm:provider>
-    <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/features/"/>
-    </rm:provider>
-    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/features/"/>
-    </rm:provider>
   </rm:searchPath>
   
   <rm:searchPath name="ArchitecturalTemplates">
+  	<rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/"/>
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/"/>
+    </rm:provider>
     <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="git" resolutionFilter="" source="true">
       <rm:uri format="{0}/GIT,plugins/{1}">
           <bc:propertyRef key="workspace.root" />
           <bc:propertyRef key="buckminster.component" />
         </rm:uri>
       <rm:property key="git.remote.uri" value="https://github.com/PalladioSimulator/Architectural-Templates"/>      
-    </rm:provider>
-    <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/plugins/"/>
-    </rm:provider>
-    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/plugins/"/>
     </rm:provider>
   </rm:searchPath>
 
