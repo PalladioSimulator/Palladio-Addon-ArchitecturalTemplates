@@ -7,65 +7,63 @@ We extend the PCM via the the Architectural Template language and provide a cata
 Eclipse Update Sites
 -----------------------------------------
 
+##### Latest Build
+- https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/releases/latest/
+
 ##### Nightly Build
-- http://cloudscale.xlab.si/cse/updatesites/architecturaltemplates/nightly/
+- https://sdqweb.ipd.kit.edu/eclipse/architecturaltemplates/nightly/
 
 
 Architectural Template Catalogue
 -----------------------------------------
-In CloudScale, we collected Architectural Templates for designing and analyzing scalable, elastic, and efficient SaaS applications.
+We provide a default Architectural Template Catalogue with formalizations of commonly used architectural styles, architectural patterns, and reference architectures.
 
-##### Description for all templates in CloudScale Wiki:
+##### Description for all Architectural Templates in CloudScale Wiki:
 - http://wiki.cloudscale-project.eu/index.php/HowTos
 
 ##### Plugin with all template resources:
-- org.scaledl.architecturaltemplates.repositories.cloudscale
+- org.palladiosimulator.architecturaltemplates.catalog
+
+Editor Integration of Architectural Templates
+-----------------------------------------
+
+The [Sirius-based editors][1] for the Palladio Component Model fully support the applycation of Architectural Templates.
+
 
 Example applications of Architectural Templates
 -----------------------------------------
 ##### Feature
-- org.scaledl.architecturaltemplates.examples.feature
+- org.palladiosimulator.architecturaltemplates.examples.feature
 
 ##### Included Plugins
-- org.scaledl.architecturaltemplates.examples.aliceandbob
-- org.scaledl.architecturaltemplates.examples.dynscalingassemblycontext
-- org.scaledl.architecturaltemplates.examples.dynscalingcontainer
-- org.scaledl.architecturaltemplates.examples.dynverticalscaling
-- org.scaledl.architecturaltemplates.examples.staticassemblycontext
-- org.scaledl.architecturaltemplates.examples.staticresourcecontainer
+- org.palladiosimulator.architecturaltemplates.examples.*
 
 Develop Architectural Templates
 -----------------------------------------
 
-1. Download and install [Eclipse Modeling Tools][1]
+1. Download and install [Eclipse Modeling Tools][2]
 2. Download and install Eclipse plugin dependencies for Architectural Templates development.
 	- Go to Eclipse->Help->Install New Software
 	- Add Architectural Templates nightly update site: "http://cloudscale.xlab.si/cse/updatesites/architecturaltemplates/nightly/".
 	- Install Architectural Templates feature.
 3. Clone repository
-	$ git clone https://github.com/CloudScale-Project/ArchitecturalTemplates.git
-4. Import Architectural Templates plugins, under "plugins/" directory, into the workbench.
+	$ git clone https://github.com/PalladioSimulator/Architectural-Templates.git
+4. Import Architectural Templates plugins into the workbench.
 
 Core Features of Architectural Templates
 -----------------------------------------
 ##### Features
-- org.scaledl.architecturaltemplates.feature
-- org.scaledl.architecturaltemplates.buckminster
+- org.palladiosimulator.architecturaltemplates.feature
+- org.palladiosimulator.architecturaltemplates.buckminster
 
 ##### Included Plugins
-- org.scaledl.architecturaltemplates
-- org.scaledl.architecturaltemplates.edit
-- org.scaledl.architecturaltemplates.editor
-- org.scaledl.architecturaltemplates.completion.jobs
+- org.palladiosimulator.architecturaltemplates
+- org.palladiosimulator.architecturaltemplates.api
+- org.palladiosimulator.architecturaltemplates.edit
+- org.palladiosimulator.architecturaltemplates.editor
+- org.palladiosimulator.architecturaltemplates.jobs
+- org.palladiosimulator.architecturaltemplates.ocl
+- org.palladiosimulator.architecturaltemplates.ui
 
-UI Features of Architectural Templates
------------------------------------------
-##### Features
-- org.palladiosimulator.editors.feature
-
-##### Included Plugins
-- org.palladiosimulator.editors.composedprovidingrequiringentity.design
-- org.palladiosimulator.editors.gmf.runtime.diagram.ui.extension
-- org.palladiosimulator.editors.util
-
-[1]: https://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr2
+[1]: https://github.com/PalladioSimulator/Palladio-Editors-Sirius
+[2]: https://www.eclipse.org/downloads/packages/eclipse-modeling-tools/lunasr2
