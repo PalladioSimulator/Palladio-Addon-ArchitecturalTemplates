@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.ui,
  org.modelversioning.emfprofile,
  de.uka.ipd.sdq.workflow.mdsd,
  org.palladiosimulator.analyzer.workflow,
- de.uka.ipd.sdq.simucomframework;bundle-version="2.0.2",
+ de.uka.ipd.sdq.simucomframework;bundle-version="2.0.1",
  de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
