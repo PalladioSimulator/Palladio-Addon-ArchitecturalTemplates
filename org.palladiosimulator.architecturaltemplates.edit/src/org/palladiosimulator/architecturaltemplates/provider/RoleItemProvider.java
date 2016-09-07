@@ -47,23 +47,8 @@ public class RoleItemProvider extends EntityItemProvider {
             super.getPropertyDescriptors(object);
 
             this.addStereotypePropertyDescriptor(object);
-            this.addConstraintsPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Constraints feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addConstraintsPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_Role_constraints_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_Role_constraints_feature", "_UI_Role_type"),
-                ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS, true, false, true, null, null, null));
     }
 
     /**
@@ -94,6 +79,7 @@ public class RoleItemProvider extends EntityItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION);
+            this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS);
         }
         return this.childrenFeatures;
     }
@@ -147,6 +133,7 @@ public class RoleItemProvider extends EntityItemProvider {
 
         switch (notification.getFeatureID(Role.class)) {
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
@@ -165,6 +152,9 @@ public class RoleItemProvider extends EntityItemProvider {
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION,
                 ArchitecturaltemplatesFactory.eINSTANCE.createQVTOCompletion()));
+
+        newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS,
+                ArchitecturaltemplatesFactory.eINSTANCE.createOCLConstraint()));
     }
 
     /**

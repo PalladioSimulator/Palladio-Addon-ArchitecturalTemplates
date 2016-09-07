@@ -45,7 +45,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      *
      * @generated
      */
-    String eNS_PREFIX = "org.palladiosimulator";
+    String eNS_PREFIX = "org.palladiosimulator.architecturaltemplates";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->

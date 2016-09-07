@@ -24,30 +24,24 @@
     <genClasses ecoreClass="architecturaltemplates.ecore#//AT" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//AT/catalog"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//AT/roles"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//AT/constraints"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//AT/reconfigurationRuleFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//AT/documentation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//AT/defaultInstanceURI"/>
     </genClasses>
     <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//Constraint">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Constraint/AT"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Constraint/roles"/>
-    </genClasses>
-    <genClasses ecoreClass="architecturaltemplates.ecore#//Parameter">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Parameter/role"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Parameter/dataType"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Constraint/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//Constraint/expression"/>
     </genClasses>
     <genClasses ecoreClass="architecturaltemplates.ecore#//Catalog" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Catalog/ATs"/>
     </genClasses>
     <genClasses ecoreClass="architecturaltemplates.ecore#//Role" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Role/parameters"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Role/AT"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Role/constraints"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Role/stereotype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Role/completion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Role/constraints"/>
     </genClasses>
-    <genClasses ecoreClass="architecturaltemplates.ecore#//OCLConstraint" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//OCLConstraint/constraint"/>
-    </genClasses>
+    <genClasses ecoreClass="architecturaltemplates.ecore#//OCLConstraint" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
     <genClasses ecoreClass="architecturaltemplates.ecore#//QVTOCompletion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//QVTOCompletion/qvtoFileURI"/>
     </genClasses>
