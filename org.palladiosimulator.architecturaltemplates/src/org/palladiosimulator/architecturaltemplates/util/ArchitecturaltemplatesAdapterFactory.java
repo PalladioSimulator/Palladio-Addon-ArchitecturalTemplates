@@ -20,7 +20,6 @@ import org.palladiosimulator.architecturaltemplates.OCLConstraint;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.Parameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
@@ -92,11 +91,6 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseConstraint(final Constraint object) {
             return ArchitecturaltemplatesAdapterFactory.this.createConstraintAdapter();
-        }
-
-        @Override
-        public Adapter caseParameter(final Parameter object) {
-            return ArchitecturaltemplatesAdapterFactory.this.createParameterAdapter();
         }
 
         @Override
@@ -234,21 +228,6 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createConstraintAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class
-     * '{@link org.palladiosimulator.architecturaltemplates.Parameter <em>Parameter</em>}'. <!--
-     * begin-user-doc --> This default implementation returns null so that we can easily ignore
-     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     *
-     * @return the new adapter.
-     * @see org.palladiosimulator.architecturaltemplates.Parameter
-     * @generated
-     */
-    public Adapter createParameterAdapter() {
         return null;
     }
 

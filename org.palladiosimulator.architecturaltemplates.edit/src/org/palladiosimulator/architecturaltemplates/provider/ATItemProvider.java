@@ -9,7 +9,9 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesFactory;
@@ -45,8 +47,42 @@ public class ATItemProvider extends EntityItemProvider {
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            this.addDocumentationPropertyDescriptor(object);
+            this.addDefaultInstanceURIPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Documentation feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addDocumentationPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this
+                .createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(), this.getString("_UI_AT_documentation_feature"),
+                        this.getString("_UI_PropertyDescriptor_description", "_UI_AT_documentation_feature",
+                                "_UI_AT_type"),
+                        ArchitecturaltemplatesPackage.Literals.AT__DOCUMENTATION, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+    }
+
+    /**
+     * This adds a property descriptor for the Default Instance URI feature. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addDefaultInstanceURIPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AT_defaultInstanceURI_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_AT_defaultInstanceURI_feature",
+                        "_UI_AT_type"),
+                ArchitecturaltemplatesPackage.Literals.AT__DEFAULT_INSTANCE_URI, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -63,7 +99,6 @@ public class ATItemProvider extends EntityItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.AT__ROLES);
-            this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.AT__CONSTRAINTS);
             this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.AT__RECONFIGURATION_RULE_FOLDER);
         }
         return this.childrenFeatures;
@@ -117,8 +152,11 @@ public class ATItemProvider extends EntityItemProvider {
         this.updateChildren(notification);
 
         switch (notification.getFeatureID(AT.class)) {
+        case ArchitecturaltemplatesPackage.AT__DOCUMENTATION:
+        case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            return;
         case ArchitecturaltemplatesPackage.AT__ROLES:
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
         case ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -138,9 +176,6 @@ public class ATItemProvider extends EntityItemProvider {
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.AT__ROLES,
                 ArchitecturaltemplatesFactory.eINSTANCE.createRole()));
-
-        newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.AT__CONSTRAINTS,
-                ArchitecturaltemplatesFactory.eINSTANCE.createOCLConstraint()));
 
         newChildDescriptors
                 .add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.AT__RECONFIGURATION_RULE_FOLDER,

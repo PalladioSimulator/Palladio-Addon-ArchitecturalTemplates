@@ -37,7 +37,7 @@ import org.eclipse.ui.PartInitException;
 /**
  * This is the action bar contributor for the Architecturaltemplates model editor. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ArchitecturaltemplatesActionBarContributor extends EditingDomainActionBarContributor
@@ -53,7 +53,7 @@ public class ArchitecturaltemplatesActionBarContributor extends EditingDomainAct
     /**
      * This keeps track of the current selection provider. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected ISelectionProvider selectionProvider;
@@ -108,7 +108,7 @@ public class ArchitecturaltemplatesActionBarContributor extends EditingDomainAct
      * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding
      * to each descriptor generated for the current selection by the item provider. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<IAction> createChildActions;
@@ -242,7 +242,7 @@ public class ArchitecturaltemplatesActionBarContributor extends EditingDomainAct
      * {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and
      * siblings that can be added to the selected object and updating the menus accordingly. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -379,7 +379,7 @@ public class ArchitecturaltemplatesActionBarContributor extends EditingDomainAct
     /**
      * This populates the pop-up menu before it appears. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -418,7 +418,7 @@ public class ArchitecturaltemplatesActionBarContributor extends EditingDomainAct
     /**
      * This ensures that a delete action will clean up all references to deleted objects. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -2,7 +2,6 @@
  */
 package org.palladiosimulator.architecturaltemplates;
 
-import org.eclipse.emf.common.util.EList;
 import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
@@ -13,8 +12,9 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.Constraint#getAT <em>AT</em>}</li>
- * <li>{@link org.palladiosimulator.architecturaltemplates.Constraint#getRoles <em>Roles</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Constraint#getRole <em>Role</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Constraint#getExpression
+ * <em>Expression</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getConstraint()
@@ -24,52 +24,61 @@ import org.palladiosimulator.pcm.core.entity.Entity;
 public interface Constraint extends Entity {
 
     /**
-     * Returns the value of the '<em><b>AT</b></em>' container reference. It is bidirectional and
-     * its opposite is '{@link org.palladiosimulator.architecturaltemplates.AT#getConstraints
+     * Returns the value of the '<em><b>Role</b></em>' container reference. It is bidirectional and
+     * its opposite is '{@link org.palladiosimulator.architecturaltemplates.Role#getConstraints
      * <em>Constraints</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>AT</em>' container reference isn't clear, there really should be
+     * If the meaning of the '<em>Role</em>' container reference isn't clear, there really should be
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>AT</em>' container reference.
-     * @see #setAT(AT)
-     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getConstraint_AT()
-     * @see org.palladiosimulator.architecturaltemplates.AT#getConstraints
+     * @return the value of the '<em>Role</em>' container reference.
+     * @see #setRole(Role)
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getConstraint_Role()
+     * @see org.palladiosimulator.architecturaltemplates.Role#getConstraints
      * @model opposite="constraints" required="true" transient="false"
      * @generated
      */
-    AT getAT();
+    Role getRole();
 
     /**
-     * Sets the value of the '{@link org.palladiosimulator.architecturaltemplates.Constraint#getAT
-     * <em>AT</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the '{@link org.palladiosimulator.architecturaltemplates.Constraint#getRole
+     * <em>Role</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '<em>AT</em>' container reference.
-     * @see #getAT()
+     *            the new value of the '<em>Role</em>' container reference.
+     * @see #getRole()
      * @generated
      */
-    void setAT(AT value);
+    void setRole(Role value);
 
     /**
-     * Returns the value of the '<em><b>Roles</b></em>' reference list. The list contents are of
-     * type {@link org.palladiosimulator.architecturaltemplates.Role}. It is bidirectional and its
-     * opposite is '{@link org.palladiosimulator.architecturaltemplates.Role#getConstraints
-     * <em>Constraints</em>}'. <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Expression</b></em>' attribute. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Roles</em>' reference list isn't clear, there really should be
+     * If the meaning of the '<em>Expression</em>' attribute isn't clear, there really should be
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Roles</em>' reference list.
-     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getConstraint_Roles()
-     * @see org.palladiosimulator.architecturaltemplates.Role#getConstraints
-     * @model opposite="constraints"
+     * @return the value of the '<em>Expression</em>' attribute.
+     * @see #setExpression(String)
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getConstraint_Expression()
+     * @model required="true"
      * @generated
      */
-    EList<Role> getRoles();
+    String getExpression();
+
+    /**
+     * Sets the value of the
+     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getExpression
+     * <em>Expression</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Expression</em>' attribute.
+     * @see #getExpression()
+     * @generated
+     */
+    void setExpression(String value);
 
 } // Constraint

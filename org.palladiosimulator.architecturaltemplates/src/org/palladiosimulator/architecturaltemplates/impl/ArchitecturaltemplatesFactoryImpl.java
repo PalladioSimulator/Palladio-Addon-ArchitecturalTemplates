@@ -21,7 +21,6 @@ import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParam
 import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.Parameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
@@ -70,8 +69,6 @@ public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements A
         switch (eClass.getClassifierID()) {
         case ArchitecturaltemplatesPackage.AT:
             return this.createAT();
-        case ArchitecturaltemplatesPackage.PARAMETER:
-            return this.createParameter();
         case ArchitecturaltemplatesPackage.CATALOG:
             return this.createCatalog();
         case ArchitecturaltemplatesPackage.ROLE:
@@ -140,17 +137,6 @@ public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements A
     public AT createAT() {
         final ATImpl at = new ATImpl();
         return at;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Parameter createParameter() {
-        final ParameterImpl parameter = new ParameterImpl();
-        return parameter;
     }
 
     /**

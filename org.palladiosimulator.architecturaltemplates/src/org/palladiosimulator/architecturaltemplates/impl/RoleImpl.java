@@ -14,7 +14,6 @@ import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.Completion;
 import org.palladiosimulator.architecturaltemplates.Constraint;
-import org.palladiosimulator.architecturaltemplates.Parameter;
 import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 
@@ -25,15 +24,13 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getParameters
- * <em>Parameters</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getAT <em>AT</em>}</li>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraints
- * <em>Constraints</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getStereotype
  * <em>Stereotype</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getCompletion
  * <em>Completion</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraints
+ * <em>Constraints</em>}</li>
  * </ul>
  *
  * @generated
@@ -57,18 +54,6 @@ public class RoleImpl extends EntityImpl implements Role {
     @Override
     protected EClass eStaticClass() {
         return ArchitecturaltemplatesPackage.Literals.ROLE;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    @SuppressWarnings("unchecked")
-    public EList<Parameter> getParameters() {
-        return (EList<Parameter>) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__PARAMETERS,
-                ArchitecturaltemplatesPackage.Literals.ROLE__PARAMETERS, true, true);
     }
 
     /**
@@ -189,15 +174,11 @@ public class RoleImpl extends EntityImpl implements Role {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameters()).basicAdd(otherEnd, msgs);
         case ArchitecturaltemplatesPackage.ROLE__AT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
             }
             return this.basicSetAT((AT) otherEnd, msgs);
-        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getConstraints()).basicAdd(otherEnd, msgs);
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             final Completion completion = this.getCompletion();
             if (completion != null) {
@@ -205,6 +186,8 @@ public class RoleImpl extends EntityImpl implements Role {
                         EOPPOSITE_FEATURE_BASE - ArchitecturaltemplatesPackage.ROLE__COMPLETION, null, msgs);
             }
             return this.basicSetCompletion((Completion) otherEnd, msgs);
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getConstraints()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -218,14 +201,12 @@ public class RoleImpl extends EntityImpl implements Role {
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
-            return ((InternalEList<?>) this.getParameters()).basicRemove(otherEnd, msgs);
         case ArchitecturaltemplatesPackage.ROLE__AT:
             return this.basicSetAT(null, msgs);
-        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-            return ((InternalEList<?>) this.getConstraints()).basicRemove(otherEnd, msgs);
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             return this.basicSetCompletion(null, msgs);
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return ((InternalEList<?>) this.getConstraints()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -253,12 +234,8 @@ public class RoleImpl extends EntityImpl implements Role {
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
-            return this.getParameters();
         case ArchitecturaltemplatesPackage.ROLE__AT:
             return this.getAT();
-        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-            return this.getConstraints();
         case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
             if (resolve) {
                 return this.getStereotype();
@@ -266,6 +243,8 @@ public class RoleImpl extends EntityImpl implements Role {
             return this.basicGetStereotype();
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             return this.getCompletion();
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return this.getConstraints();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -279,22 +258,18 @@ public class RoleImpl extends EntityImpl implements Role {
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
-            this.getParameters().clear();
-            this.getParameters().addAll((Collection<? extends Parameter>) newValue);
-            return;
         case ArchitecturaltemplatesPackage.ROLE__AT:
             this.setAT((AT) newValue);
-            return;
-        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-            this.getConstraints().clear();
-            this.getConstraints().addAll((Collection<? extends Constraint>) newValue);
             return;
         case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
             this.setStereotype((Stereotype) newValue);
             return;
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             this.setCompletion((Completion) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            this.getConstraints().clear();
+            this.getConstraints().addAll((Collection<? extends Constraint>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -308,20 +283,17 @@ public class RoleImpl extends EntityImpl implements Role {
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
-            this.getParameters().clear();
-            return;
         case ArchitecturaltemplatesPackage.ROLE__AT:
             this.setAT((AT) null);
-            return;
-        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-            this.getConstraints().clear();
             return;
         case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
             this.setStereotype((Stereotype) null);
             return;
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             this.setCompletion((Completion) null);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            this.getConstraints().clear();
             return;
         }
         super.eUnset(featureID);
@@ -335,16 +307,14 @@ public class RoleImpl extends EntityImpl implements Role {
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
-            return !this.getParameters().isEmpty();
         case ArchitecturaltemplatesPackage.ROLE__AT:
             return this.getAT() != null;
-        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-            return !this.getConstraints().isEmpty();
         case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
             return this.basicGetStereotype() != null;
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             return this.getCompletion() != null;
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return !this.getConstraints().isEmpty();
         }
         return super.eIsSet(featureID);
     }

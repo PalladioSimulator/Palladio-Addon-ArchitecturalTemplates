@@ -102,22 +102,31 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int AT__ROLES = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Constraints</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int AT__CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 2;
-
-    /**
      * The feature id for the '<em><b>Reconfiguration Rule Folder</b></em>' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int AT__RECONFIGURATION_RULE_FOLDER = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+    int AT__RECONFIGURATION_RULE_FOLDER = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Documentation</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AT__DOCUMENTATION = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Default Instance URI</b></em>' attribute. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AT__DEFAULT_INSTANCE_URI = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>AT</em>' class. <!-- begin-user-doc --> <!--
@@ -126,7 +135,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int AT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+    int AT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the
@@ -158,22 +167,22 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int CONSTRAINT__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>AT</b></em>' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The feature id for the '<em><b>Role</b></em>' container reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CONSTRAINT__AT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+    int CONSTRAINT__ROLE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Roles</b></em>' reference list. <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int CONSTRAINT__ROLES = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+    int CONSTRAINT__EXPRESSION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Constraint</em>' class. <!-- begin-user-doc -->
@@ -186,62 +195,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
 
     /**
      * The meta object id for the
-     * '{@link org.palladiosimulator.architecturaltemplates.impl.ParameterImpl <em>Parameter</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see org.palladiosimulator.architecturaltemplates.impl.ParameterImpl
-     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getParameter()
-     * @generated
-     */
-    int PARAMETER = 2;
-
-    /**
-     * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PARAMETER__ID = EntityPackage.ENTITY__ID;
-
-    /**
-     * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PARAMETER__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
-
-    /**
-     * The feature id for the '<em><b>Role</b></em>' container reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PARAMETER__ROLE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-    /**
-     * The feature id for the '<em><b>Data Type</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PARAMETER__DATA_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
-
-    /**
-     * The number of structural features of the '<em>Parameter</em>' class. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PARAMETER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
-
-    /**
-     * The meta object id for the
      * '{@link org.palladiosimulator.architecturaltemplates.impl.CatalogImpl <em>Catalog</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -249,7 +202,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getCatalog()
      * @generated
      */
-    int CATALOG = 3;
+    int CATALOG = 2;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -295,7 +248,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getRole()
      * @generated
      */
-    int ROLE = 4;
+    int ROLE = 3;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -316,31 +269,13 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int ROLE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Parameters</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ROLE__PARAMETERS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-    /**
      * The feature id for the '<em><b>AT</b></em>' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ROLE__AT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
-
-    /**
-     * The feature id for the '<em><b>Constraints</b></em>' reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ROLE__CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+    int ROLE__AT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Stereotype</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -349,7 +284,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ROLE__STEREOTYPE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
+    int ROLE__STEREOTYPE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' containment reference. <!--
@@ -358,7 +293,16 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ROLE__COMPLETION = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+    int ROLE__COMPLETION = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+    /**
+     * The feature id for the '<em><b>Constraints</b></em>' containment reference list. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ROLE__CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Role</em>' class. <!-- begin-user-doc --> <!--
@@ -367,7 +311,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
      * The meta object id for the
@@ -378,7 +322,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getOCLConstraint()
      * @generated
      */
-    int OCL_CONSTRAINT = 5;
+    int OCL_CONSTRAINT = 4;
 
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -399,31 +343,22 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int OCL_CONSTRAINT__ENTITY_NAME = CONSTRAINT__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>AT</b></em>' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The feature id for the '<em><b>Role</b></em>' container reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int OCL_CONSTRAINT__AT = CONSTRAINT__AT;
+    int OCL_CONSTRAINT__ROLE = CONSTRAINT__ROLE;
 
     /**
-     * The feature id for the '<em><b>Roles</b></em>' reference list. <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int OCL_CONSTRAINT__ROLES = CONSTRAINT__ROLES;
-
-    /**
-     * The feature id for the '<em><b>Constraint</b></em>' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int OCL_CONSTRAINT__CONSTRAINT = CONSTRAINT_FEATURE_COUNT + 0;
+    int OCL_CONSTRAINT__EXPRESSION = CONSTRAINT__EXPRESSION;
 
     /**
      * The number of structural features of the '<em>OCL Constraint</em>' class. <!-- begin-user-doc
@@ -432,7 +367,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int OCL_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 1;
+    int OCL_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the
@@ -443,7 +378,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getCompletion()
      * @generated
      */
-    int COMPLETION = 7;
+    int COMPLETION = 6;
 
     /**
      * The feature id for the '<em><b>Parameters</b></em>' containment reference list. <!--
@@ -481,7 +416,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getQVTOCompletion()
      * @generated
      */
-    int QVTO_COMPLETION = 6;
+    int QVTO_COMPLETION = 5;
 
     /**
      * The feature id for the '<em><b>Parameters</b></em>' containment reference list. <!--
@@ -528,7 +463,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getCompletionParameter()
      * @generated
      */
-    int COMPLETION_PARAMETER = 8;
+    int COMPLETION_PARAMETER = 7;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -558,7 +493,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericBlackboardCompletionParameter()
      * @generated
      */
-    int GENERIC_BLACKBOARD_COMPLETION_PARAMETER = 10;
+    int GENERIC_BLACKBOARD_COMPLETION_PARAMETER = 9;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -597,7 +532,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericTemplateCompletionParameter()
      * @generated
      */
-    int GENERIC_TEMPLATE_COMPLETION_PARAMETER = 9;
+    int GENERIC_TEMPLATE_COMPLETION_PARAMETER = 8;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -646,7 +581,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMBlackboardCompletionParameter()
      * @generated
      */
-    int PCM_BLACKBOARD_COMPLETION_PARAMETER = 11;
+    int PCM_BLACKBOARD_COMPLETION_PARAMETER = 10;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -685,7 +620,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMTemplateCompletionParameter()
      * @generated
      */
-    int PCM_TEMPLATE_COMPLETION_PARAMETER = 12;
+    int PCM_TEMPLATE_COMPLETION_PARAMETER = 11;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -732,7 +667,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getTemplateProvidingEntity()
      * @generated
      */
-    int TEMPLATE_PROVIDING_ENTITY = 13;
+    int TEMPLATE_PROVIDING_ENTITY = 12;
 
     /**
      * The feature id for the '<em><b>Template File URI</b></em>' attribute. <!-- begin-user-doc -->
@@ -762,7 +697,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMOutputCompletionParameter()
      * @generated
      */
-    int PCM_OUTPUT_COMPLETION_PARAMETER = 14;
+    int PCM_OUTPUT_COMPLETION_PARAMETER = 13;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -801,7 +736,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericOutputCompletionParameter()
      * @generated
      */
-    int GENERIC_OUTPUT_COMPLETION_PARAMETER = 15;
+    int GENERIC_OUTPUT_COMPLETION_PARAMETER = 14;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -839,7 +774,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getReconfigurationFolder()
      * @generated
      */
-    int RECONFIGURATION_FOLDER = 16;
+    int RECONFIGURATION_FOLDER = 15;
 
     /**
      * The feature id for the '<em><b>Folder URI</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -869,7 +804,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getIsolatedPCMTemplateCompletionParameter()
      * @generated
      */
-    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER = 17;
+    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER = 16;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -918,7 +853,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMFileExtensions()
      * @generated
      */
-    int PCM_FILE_EXTENSIONS = 18;
+    int PCM_FILE_EXTENSIONS = 17;
 
     /**
      * Returns the meta object for class '{@link org.palladiosimulator.architecturaltemplates.AT
@@ -955,18 +890,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EReference getAT_Roles();
 
     /**
-     * Returns the meta object for the containment reference list
-     * '{@link org.palladiosimulator.architecturaltemplates.AT#getConstraints
-     * <em>Constraints</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the containment reference list '<em>Constraints</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.AT#getConstraints()
-     * @see #getAT()
-     * @generated
-     */
-    EReference getAT_Constraints();
-
-    /**
      * Returns the meta object for the containment reference
      * '{@link org.palladiosimulator.architecturaltemplates.AT#getReconfigurationRuleFolder
      * <em>Reconfiguration Rule Folder</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -977,6 +900,30 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      */
     EReference getAT_ReconfigurationRuleFolder();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.architecturaltemplates.AT#getDocumentation
+     * <em>Documentation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Documentation</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.AT#getDocumentation()
+     * @see #getAT()
+     * @generated
+     */
+    EAttribute getAT_Documentation();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.architecturaltemplates.AT#getDefaultInstanceURI <em>Default
+     * Instance URI</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Default Instance URI</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.AT#getDefaultInstanceURI()
+     * @see #getAT()
+     * @generated
+     */
+    EAttribute getAT_DefaultInstanceURI();
 
     /**
      * Returns the meta object for class
@@ -991,62 +938,27 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
 
     /**
      * Returns the meta object for the container reference
-     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getAT <em>AT</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the container reference '<em>AT</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.Constraint#getAT()
-     * @see #getConstraint()
-     * @generated
-     */
-    EReference getConstraint_AT();
-
-    /**
-     * Returns the meta object for the reference list
-     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getRoles <em>Roles</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the reference list '<em>Roles</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.Constraint#getRoles()
-     * @see #getConstraint()
-     * @generated
-     */
-    EReference getConstraint_Roles();
-
-    /**
-     * Returns the meta object for class
-     * '{@link org.palladiosimulator.architecturaltemplates.Parameter <em>Parameter</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for class '<em>Parameter</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.Parameter
-     * @generated
-     */
-    EClass getParameter();
-
-    /**
-     * Returns the meta object for the container reference
-     * '{@link org.palladiosimulator.architecturaltemplates.Parameter#getRole <em>Role</em>}'. <!--
+     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getRole <em>Role</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Role</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.Parameter#getRole()
-     * @see #getParameter()
+     * @see org.palladiosimulator.architecturaltemplates.Constraint#getRole()
+     * @see #getConstraint()
      * @generated
      */
-    EReference getParameter_Role();
+    EReference getConstraint_Role();
 
     /**
-     * Returns the meta object for the reference
-     * '{@link org.palladiosimulator.architecturaltemplates.Parameter#getDataType <em>Data
-     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getExpression
+     * <em>Expression</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '<em>Data Type</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.Parameter#getDataType()
-     * @see #getParameter()
+     * @return the meta object for the attribute '<em>Expression</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.Constraint#getExpression()
+     * @see #getConstraint()
      * @generated
      */
-    EReference getParameter_DataType();
+    EAttribute getConstraint_Expression();
 
     /**
      * Returns the meta object for class
@@ -1082,18 +994,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EClass getRole();
 
     /**
-     * Returns the meta object for the containment reference list
-     * '{@link org.palladiosimulator.architecturaltemplates.Role#getParameters
-     * <em>Parameters</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the containment reference list '<em>Parameters</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.Role#getParameters()
-     * @see #getRole()
-     * @generated
-     */
-    EReference getRole_Parameters();
-
-    /**
      * Returns the meta object for the container reference
      * '{@link org.palladiosimulator.architecturaltemplates.Role#getAT <em>AT</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -1106,11 +1006,11 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EReference getRole_AT();
 
     /**
-     * Returns the meta object for the reference list
+     * Returns the meta object for the containment reference list
      * '{@link org.palladiosimulator.architecturaltemplates.Role#getConstraints
      * <em>Constraints</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference list '<em>Constraints</em>'.
+     * @return the meta object for the containment reference list '<em>Constraints</em>'.
      * @see org.palladiosimulator.architecturaltemplates.Role#getConstraints()
      * @see #getRole()
      * @generated
@@ -1151,18 +1051,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      */
     EClass getOCLConstraint();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.OCLConstraint#getConstraint
-     * <em>Constraint</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Constraint</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.OCLConstraint#getConstraint()
-     * @see #getOCLConstraint()
-     * @generated
-     */
-    EAttribute getOCLConstraint_Constraint();
 
     /**
      * Returns the meta object for class
@@ -1481,20 +1369,28 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
         EReference AT__ROLES = eINSTANCE.getAT_Roles();
 
         /**
-         * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference AT__CONSTRAINTS = eINSTANCE.getAT_Constraints();
-
-        /**
          * The meta object literal for the '<em><b>Reconfiguration Rule Folder</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
         EReference AT__RECONFIGURATION_RULE_FOLDER = eINSTANCE.getAT_ReconfigurationRuleFolder();
+
+        /**
+         * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute AT__DOCUMENTATION = eINSTANCE.getAT_Documentation();
+
+        /**
+         * The meta object literal for the '<em><b>Default Instance URI</b></em>' attribute feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute AT__DEFAULT_INSTANCE_URI = eINSTANCE.getAT_DefaultInstanceURI();
 
         /**
          * The meta object literal for the
@@ -1508,47 +1404,20 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
         EClass CONSTRAINT = eINSTANCE.getConstraint();
 
         /**
-         * The meta object literal for the '<em><b>AT</b></em>' container reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference CONSTRAINT__AT = eINSTANCE.getConstraint_AT();
-
-        /**
-         * The meta object literal for the '<em><b>Roles</b></em>' reference list feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference CONSTRAINT__ROLES = eINSTANCE.getConstraint_Roles();
-
-        /**
-         * The meta object literal for the
-         * '{@link org.palladiosimulator.architecturaltemplates.impl.ParameterImpl
-         * <em>Parameter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @see org.palladiosimulator.architecturaltemplates.impl.ParameterImpl
-         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getParameter()
-         * @generated
-         */
-        EClass PARAMETER = eINSTANCE.getParameter();
-
-        /**
          * The meta object literal for the '<em><b>Role</b></em>' container reference feature. <!--
          * begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EReference PARAMETER__ROLE = eINSTANCE.getParameter_Role();
+        EReference CONSTRAINT__ROLE = eINSTANCE.getConstraint_Role();
 
         /**
-         * The meta object literal for the '<em><b>Data Type</b></em>' reference feature. <!--
+         * The meta object literal for the '<em><b>Expression</b></em>' attribute feature. <!--
          * begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EReference PARAMETER__DATA_TYPE = eINSTANCE.getParameter_DataType();
+        EAttribute CONSTRAINT__EXPRESSION = eINSTANCE.getConstraint_Expression();
 
         /**
          * The meta object literal for the
@@ -1581,14 +1450,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
         EClass ROLE = eINSTANCE.getRole();
 
         /**
-         * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EReference ROLE__PARAMETERS = eINSTANCE.getRole_Parameters();
-
-        /**
          * The meta object literal for the '<em><b>AT</b></em>' container reference feature. <!--
          * begin-user-doc --> <!-- end-user-doc -->
          *
@@ -1597,8 +1458,8 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
         EReference ROLE__AT = eINSTANCE.getRole_AT();
 
         /**
-         * The meta object literal for the '<em><b>Constraints</b></em>' reference list feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -1630,14 +1491,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EClass OCL_CONSTRAINT = eINSTANCE.getOCLConstraint();
-
-        /**
-         * The meta object literal for the '<em><b>Constraint</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute OCL_CONSTRAINT__CONSTRAINT = eINSTANCE.getOCLConstraint_Constraint();
 
         /**
          * The meta object literal for the

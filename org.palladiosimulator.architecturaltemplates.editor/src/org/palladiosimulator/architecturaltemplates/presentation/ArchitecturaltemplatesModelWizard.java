@@ -61,7 +61,7 @@ import org.palladiosimulator.architecturaltemplates.provider.Architecturaltempla
 /**
  * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc
  * -->
- * 
+ *
  * @generated
  */
 public class ArchitecturaltemplatesModelWizard extends Wizard implements INewWizard {
@@ -116,7 +116,7 @@ public class ArchitecturaltemplatesModelWizard extends Wizard implements INewWiz
     /**
      * Remember the selection during initialization for populating the default container. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IStructuredSelection selection;
@@ -503,7 +503,7 @@ public class ArchitecturaltemplatesModelWizard extends Wizard implements INewWiz
         /**
          * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
          * -->
-         * 
+         *
          * @generated
          */
         protected String getLabel(final String typeName) {

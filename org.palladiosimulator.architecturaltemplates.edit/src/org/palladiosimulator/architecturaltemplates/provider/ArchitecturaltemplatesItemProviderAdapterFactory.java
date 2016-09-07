@@ -95,30 +95,6 @@ public class ArchitecturaltemplatesItemProviderAdapterFactory extends Architectu
 
     /**
      * This keeps track of the one adapter used for all
-     * {@link org.palladiosimulator.architecturaltemplates.Parameter} instances. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected ParameterItemProvider parameterItemProvider;
-
-    /**
-     * This creates an adapter for a {@link org.palladiosimulator.architecturaltemplates.Parameter}.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Adapter createParameterAdapter() {
-        if (this.parameterItemProvider == null) {
-            this.parameterItemProvider = new ParameterItemProvider(this);
-        }
-
-        return this.parameterItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.architecturaltemplates.Catalog} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

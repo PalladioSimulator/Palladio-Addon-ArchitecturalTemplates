@@ -10,6 +10,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.Constraint;
 import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
@@ -44,24 +46,25 @@ public class ConstraintItemProvider extends EntityItemProvider {
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addRolesPropertyDescriptor(object);
+            this.addExpressionPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Roles feature. <!-- begin-user-doc --> <!--
+     * This adds a property descriptor for the Expression feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      */
-    protected void addRolesPropertyDescriptor(final Object object) {
+    protected void addExpressionPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_Constraint_roles_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_Constraint_roles_feature",
+                this.getString("_UI_Constraint_expression_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_Constraint_expression_feature",
                         "_UI_Constraint_type"),
-                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__ROLES, true, false, true, null, null, null));
+                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__EXPRESSION, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -87,6 +90,12 @@ public class ConstraintItemProvider extends EntityItemProvider {
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
+
+        switch (notification.getFeatureID(Constraint.class)) {
+        case ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION:
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            return;
+        }
         super.notifyChanged(notification);
     }
 

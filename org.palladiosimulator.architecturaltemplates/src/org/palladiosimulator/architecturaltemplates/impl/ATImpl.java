@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.Catalog;
-import org.palladiosimulator.architecturaltemplates.Constraint;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
@@ -27,15 +26,36 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getCatalog
  * <em>Catalog</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getRoles <em>Roles</em>}</li>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getConstraints
- * <em>Constraints</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getReconfigurationRuleFolder
  * <em>Reconfiguration Rule Folder</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getDocumentation
+ * <em>Documentation</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getDefaultInstanceURI
+ * <em>Default Instance URI</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ATImpl extends EntityImpl implements AT {
+
+    /**
+     * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getDocumentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String DOCUMENTATION_EDEFAULT = null;
+    /**
+     * The default value of the '{@link #getDefaultInstanceURI() <em>Default Instance URI</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getDefaultInstanceURI()
+     * @generated
+     * @ordered
+     */
+    protected static final String DEFAULT_INSTANCE_URI_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -106,18 +126,6 @@ public class ATImpl extends EntityImpl implements AT {
      * @generated
      */
     @Override
-    @SuppressWarnings("unchecked")
-    public EList<Constraint> getConstraints() {
-        return (EList<Constraint>) this.eDynamicGet(ArchitecturaltemplatesPackage.AT__CONSTRAINTS,
-                ArchitecturaltemplatesPackage.Literals.AT__CONSTRAINTS, true, true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public ReconfigurationFolder getReconfigurationRuleFolder() {
         return (ReconfigurationFolder) this.eDynamicGet(ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER,
                 ArchitecturaltemplatesPackage.Literals.AT__RECONFIGURATION_RULE_FOLDER, true, true);
@@ -151,6 +159,50 @@ public class ATImpl extends EntityImpl implements AT {
      *
      * @generated
      */
+    @Override
+    public String getDocumentation() {
+        return (String) this.eDynamicGet(ArchitecturaltemplatesPackage.AT__DOCUMENTATION,
+                ArchitecturaltemplatesPackage.Literals.AT__DOCUMENTATION, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setDocumentation(final String newDocumentation) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.AT__DOCUMENTATION,
+                ArchitecturaltemplatesPackage.Literals.AT__DOCUMENTATION, newDocumentation);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String getDefaultInstanceURI() {
+        return (String) this.eDynamicGet(ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI,
+                ArchitecturaltemplatesPackage.Literals.AT__DEFAULT_INSTANCE_URI, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setDefaultInstanceURI(final String newDefaultInstanceURI) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI,
+                ArchitecturaltemplatesPackage.Literals.AT__DEFAULT_INSTANCE_URI, newDefaultInstanceURI);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
@@ -162,8 +214,6 @@ public class ATImpl extends EntityImpl implements AT {
             return this.basicSetCatalog((Catalog) otherEnd, msgs);
         case ArchitecturaltemplatesPackage.AT__ROLES:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getRoles()).basicAdd(otherEnd, msgs);
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getConstraints()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -181,8 +231,6 @@ public class ATImpl extends EntityImpl implements AT {
             return this.basicSetCatalog(null, msgs);
         case ArchitecturaltemplatesPackage.AT__ROLES:
             return ((InternalEList<?>) this.getRoles()).basicRemove(otherEnd, msgs);
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
-            return ((InternalEList<?>) this.getConstraints()).basicRemove(otherEnd, msgs);
         case ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER:
             return this.basicSetReconfigurationRuleFolder(null, msgs);
         }
@@ -216,10 +264,12 @@ public class ATImpl extends EntityImpl implements AT {
             return this.getCatalog();
         case ArchitecturaltemplatesPackage.AT__ROLES:
             return this.getRoles();
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
-            return this.getConstraints();
         case ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER:
             return this.getReconfigurationRuleFolder();
+        case ArchitecturaltemplatesPackage.AT__DOCUMENTATION:
+            return this.getDocumentation();
+        case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
+            return this.getDefaultInstanceURI();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -240,12 +290,14 @@ public class ATImpl extends EntityImpl implements AT {
             this.getRoles().clear();
             this.getRoles().addAll((Collection<? extends Role>) newValue);
             return;
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
-            this.getConstraints().clear();
-            this.getConstraints().addAll((Collection<? extends Constraint>) newValue);
-            return;
         case ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER:
             this.setReconfigurationRuleFolder((ReconfigurationFolder) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.AT__DOCUMENTATION:
+            this.setDocumentation((String) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
+            this.setDefaultInstanceURI((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -265,11 +317,14 @@ public class ATImpl extends EntityImpl implements AT {
         case ArchitecturaltemplatesPackage.AT__ROLES:
             this.getRoles().clear();
             return;
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
-            this.getConstraints().clear();
-            return;
         case ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER:
             this.setReconfigurationRuleFolder((ReconfigurationFolder) null);
+            return;
+        case ArchitecturaltemplatesPackage.AT__DOCUMENTATION:
+            this.setDocumentation(DOCUMENTATION_EDEFAULT);
+            return;
+        case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
+            this.setDefaultInstanceURI(DEFAULT_INSTANCE_URI_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -287,10 +342,14 @@ public class ATImpl extends EntityImpl implements AT {
             return this.getCatalog() != null;
         case ArchitecturaltemplatesPackage.AT__ROLES:
             return !this.getRoles().isEmpty();
-        case ArchitecturaltemplatesPackage.AT__CONSTRAINTS:
-            return !this.getConstraints().isEmpty();
         case ArchitecturaltemplatesPackage.AT__RECONFIGURATION_RULE_FOLDER:
             return this.getReconfigurationRuleFolder() != null;
+        case ArchitecturaltemplatesPackage.AT__DOCUMENTATION:
+            return DOCUMENTATION_EDEFAULT == null ? this.getDocumentation() != null
+                    : !DOCUMENTATION_EDEFAULT.equals(this.getDocumentation());
+        case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
+            return DEFAULT_INSTANCE_URI_EDEFAULT == null ? this.getDefaultInstanceURI() != null
+                    : !DEFAULT_INSTANCE_URI_EDEFAULT.equals(this.getDefaultInstanceURI());
         }
         return super.eIsSet(featureID);
     }

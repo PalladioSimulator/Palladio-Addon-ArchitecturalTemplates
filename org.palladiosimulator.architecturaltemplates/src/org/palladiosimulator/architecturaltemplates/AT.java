@@ -15,10 +15,12 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <ul>
  * <li>{@link org.palladiosimulator.architecturaltemplates.AT#getCatalog <em>Catalog</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.AT#getRoles <em>Roles</em>}</li>
- * <li>{@link org.palladiosimulator.architecturaltemplates.AT#getConstraints
- * <em>Constraints</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.AT#getReconfigurationRuleFolder
  * <em>Reconfiguration Rule Folder</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.AT#getDocumentation
+ * <em>Documentation</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.AT#getDefaultInstanceURI <em>Default
+ * Instance URI</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getAT()
@@ -78,26 +80,6 @@ public interface AT extends Entity {
     EList<Role> getRoles();
 
     /**
-     * Returns the value of the '<em><b>Constraints</b></em>' containment reference list. The list
-     * contents are of type {@link org.palladiosimulator.architecturaltemplates.Constraint}. It is
-     * bidirectional and its opposite is
-     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getAT <em>AT</em>}'. <!--
-     * begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear, there
-     * really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Constraints</em>' containment reference list.
-     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getAT_Constraints()
-     * @see org.palladiosimulator.architecturaltemplates.Constraint#getAT
-     * @model opposite="AT" containment="true"
-     * @generated
-     */
-    EList<Constraint> getConstraints();
-
-    /**
      * Returns the value of the '<em><b>Reconfiguration Rule Folder</b></em>' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> A template can provide
      * reconfigurations to be applied during analyses. <!-- end-model-doc -->
@@ -122,5 +104,62 @@ public interface AT extends Entity {
      * @generated
      */
     void setReconfigurationRuleFolder(ReconfigurationFolder value);
+
+    /**
+     * Returns the value of the '<em><b>Documentation</b></em>' attribute. <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Documentation</em>' attribute isn't clear, there really should be
+     * more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Documentation</em>' attribute.
+     * @see #setDocumentation(String)
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getAT_Documentation()
+     * @model
+     * @generated
+     */
+    String getDocumentation();
+
+    /**
+     * Sets the value of the
+     * '{@link org.palladiosimulator.architecturaltemplates.AT#getDocumentation
+     * <em>Documentation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Documentation</em>' attribute.
+     * @see #getDocumentation()
+     * @generated
+     */
+    void setDocumentation(String value);
+
+    /**
+     * Returns the value of the '<em><b>Default Instance URI</b></em>' attribute. <!--
+     * begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Default Instance URI</em>' attribute isn't clear, there really
+     * should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Default Instance URI</em>' attribute.
+     * @see #setDefaultInstanceURI(String)
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getAT_DefaultInstanceURI()
+     * @model
+     * @generated
+     */
+    String getDefaultInstanceURI();
+
+    /**
+     * Sets the value of the
+     * '{@link org.palladiosimulator.architecturaltemplates.AT#getDefaultInstanceURI <em>Default
+     * Instance URI</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Default Instance URI</em>' attribute.
+     * @see #getDefaultInstanceURI()
+     * @generated
+     */
+    void setDefaultInstanceURI(String value);
 
 } // AT

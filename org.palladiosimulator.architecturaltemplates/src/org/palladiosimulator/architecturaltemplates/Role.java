@@ -16,15 +16,13 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getParameters
- * <em>Parameters</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getAT <em>AT</em>}</li>
- * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getConstraints
- * <em>Constraints</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getStereotype
  * <em>Stereotype</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getCompletion
  * <em>Completion</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getConstraints
+ * <em>Constraints</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole()
@@ -32,26 +30,6 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * @generated
  */
 public interface Role extends Entity {
-
-    /**
-     * Returns the value of the '<em><b>Parameters</b></em>' containment reference list. The list
-     * contents are of type {@link org.palladiosimulator.architecturaltemplates.Parameter}. It is
-     * bidirectional and its opposite is
-     * '{@link org.palladiosimulator.architecturaltemplates.Parameter#getRole <em>Role</em>}'. <!--
-     * begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear, there
-     * really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Parameters</em>' containment reference list.
-     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole_Parameters()
-     * @see org.palladiosimulator.architecturaltemplates.Parameter#getRole
-     * @model opposite="role" containment="true"
-     * @generated
-     */
-    EList<Parameter> getParameters();
 
     /**
      * Returns the value of the '<em><b>AT</b></em>' container reference. It is bidirectional and
@@ -84,20 +62,21 @@ public interface Role extends Entity {
     void setAT(AT value);
 
     /**
-     * Returns the value of the '<em><b>Constraints</b></em>' reference list. The list contents are
-     * of type {@link org.palladiosimulator.architecturaltemplates.Constraint}. It is bidirectional
-     * and its opposite is '{@link org.palladiosimulator.architecturaltemplates.Constraint#getRoles
-     * <em>Roles</em>}'. <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Constraints</b></em>' containment reference list. The list
+     * contents are of type {@link org.palladiosimulator.architecturaltemplates.Constraint}. It is
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.architecturaltemplates.Constraint#getRole <em>Role</em>}'. <!--
+     * begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Constraints</em>' reference list isn't clear, there really should
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Constraints</em>' reference list.
+     * @return the value of the '<em>Constraints</em>' containment reference list.
      * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole_Constraints()
-     * @see org.palladiosimulator.architecturaltemplates.Constraint#getRoles
-     * @model opposite="roles"
+     * @see org.palladiosimulator.architecturaltemplates.Constraint#getRole
+     * @model opposite="role" containment="true"
      * @generated
      */
     EList<Constraint> getConstraints();

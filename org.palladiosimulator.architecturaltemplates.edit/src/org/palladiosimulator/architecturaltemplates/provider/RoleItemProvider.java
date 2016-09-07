@@ -46,8 +46,8 @@ public class RoleItemProvider extends EntityItemProvider {
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addConstraintsPropertyDescriptor(object);
             this.addStereotypePropertyDescriptor(object);
+            this.addConstraintsPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
@@ -93,7 +93,6 @@ public class RoleItemProvider extends EntityItemProvider {
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.ROLE__PARAMETERS);
             this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION);
         }
         return this.childrenFeatures;
@@ -147,7 +146,6 @@ public class RoleItemProvider extends EntityItemProvider {
         this.updateChildren(notification);
 
         switch (notification.getFeatureID(Role.class)) {
-        case ArchitecturaltemplatesPackage.ROLE__PARAMETERS:
         case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -164,9 +162,6 @@ public class RoleItemProvider extends EntityItemProvider {
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
-
-        newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.ROLE__PARAMETERS,
-                ArchitecturaltemplatesFactory.eINSTANCE.createParameter()));
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION,
                 ArchitecturaltemplatesFactory.eINSTANCE.createQVTOCompletion()));

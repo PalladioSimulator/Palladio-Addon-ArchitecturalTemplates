@@ -30,15 +30,6 @@ public interface ArchitecturaltemplatesFactory extends EFactory {
     AT createAT();
 
     /**
-     * Returns a new object of class '<em>Parameter</em>'. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @return a new object of class '<em>Parameter</em>'.
-     * @generated
-     */
-    Parameter createParameter();
-
-    /**
      * Returns a new object of class '<em>Catalog</em>'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *

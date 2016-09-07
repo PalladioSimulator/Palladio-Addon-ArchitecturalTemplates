@@ -2,14 +2,9 @@
  */
 package org.palladiosimulator.architecturaltemplates.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.InternalEList;
-import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.Constraint;
 import org.palladiosimulator.architecturaltemplates.Role;
@@ -22,15 +17,25 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ConstraintImpl#getAT
- * <em>AT</em>}</li>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ConstraintImpl#getRoles
- * <em>Roles</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ConstraintImpl#getRole
+ * <em>Role</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ConstraintImpl#getExpression
+ * <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ConstraintImpl extends EntityImpl implements Constraint {
+
+    /**
+     * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getExpression()
+     * @generated
+     * @ordered
+     */
+    protected static final String EXPRESSION_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -57,9 +62,9 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
      * @generated
      */
     @Override
-    public AT getAT() {
-        return (AT) this.eDynamicGet(ArchitecturaltemplatesPackage.CONSTRAINT__AT,
-                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__AT, true, true);
+    public Role getRole() {
+        return (Role) this.eDynamicGet(ArchitecturaltemplatesPackage.CONSTRAINT__ROLE,
+                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__ROLE, true, true);
     }
 
     /**
@@ -67,8 +72,8 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
      *
      * @generated
      */
-    public NotificationChain basicSetAT(final AT newAT, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newAT, ArchitecturaltemplatesPackage.CONSTRAINT__AT, msgs);
+    public NotificationChain basicSetRole(final Role newRole, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRole, ArchitecturaltemplatesPackage.CONSTRAINT__ROLE, msgs);
         return msgs;
     }
 
@@ -78,9 +83,9 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
      * @generated
      */
     @Override
-    public void setAT(final AT newAT) {
-        this.eDynamicSet(ArchitecturaltemplatesPackage.CONSTRAINT__AT,
-                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__AT, newAT);
+    public void setRole(final Role newRole) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.CONSTRAINT__ROLE,
+                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__ROLE, newRole);
     }
 
     /**
@@ -89,10 +94,20 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
      * @generated
      */
     @Override
-    @SuppressWarnings("unchecked")
-    public EList<Role> getRoles() {
-        return (EList<Role>) this.eDynamicGet(ArchitecturaltemplatesPackage.CONSTRAINT__ROLES,
-                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__ROLES, true, true);
+    public String getExpression() {
+        return (String) this.eDynamicGet(ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION,
+                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__EXPRESSION, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setExpression(final String newExpression) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION,
+                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__EXPRESSION, newExpression);
     }
 
     /**
@@ -104,13 +119,11 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
             }
-            return this.basicSetAT((AT) otherEnd, msgs);
-        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLES:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getRoles()).basicAdd(otherEnd, msgs);
+            return this.basicSetRole((Role) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -124,10 +137,8 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
-            return this.basicSetAT(null, msgs);
-        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLES:
-            return ((InternalEList<?>) this.getRoles()).basicRemove(otherEnd, msgs);
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
+            return this.basicSetRole(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -140,9 +151,9 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
         switch (this.eContainerFeatureID()) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
-            return this.eInternalContainer().eInverseRemove(this, ArchitecturaltemplatesPackage.AT__CONSTRAINTS,
-                    AT.class, msgs);
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
+            return this.eInternalContainer().eInverseRemove(this, ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS,
+                    Role.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -155,10 +166,10 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
-            return this.getAT();
-        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLES:
-            return this.getRoles();
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
+            return this.getRole();
+        case ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION:
+            return this.getExpression();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -172,12 +183,11 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
-            this.setAT((AT) newValue);
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
+            this.setRole((Role) newValue);
             return;
-        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLES:
-            this.getRoles().clear();
-            this.getRoles().addAll((Collection<? extends Role>) newValue);
+        case ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION:
+            this.setExpression((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -191,11 +201,11 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
-            this.setAT((AT) null);
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
+            this.setRole((Role) null);
             return;
-        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLES:
-            this.getRoles().clear();
+        case ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION:
+            this.setExpression(EXPRESSION_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -209,10 +219,11 @@ public abstract class ConstraintImpl extends EntityImpl implements Constraint {
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.CONSTRAINT__AT:
-            return this.getAT() != null;
-        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLES:
-            return !this.getRoles().isEmpty();
+        case ArchitecturaltemplatesPackage.CONSTRAINT__ROLE:
+            return this.getRole() != null;
+        case ArchitecturaltemplatesPackage.CONSTRAINT__EXPRESSION:
+            return EXPRESSION_EDEFAULT == null ? this.getExpression() != null
+                    : !EXPRESSION_EDEFAULT.equals(this.getExpression());
         }
         return super.eIsSet(featureID);
     }

@@ -28,7 +28,6 @@ import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParam
 import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.Parameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
@@ -56,13 +55,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     private EClass constraintEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass parameterEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -285,7 +277,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EReference getAT_Constraints() {
+    public EReference getAT_ReconfigurationRuleFolder() {
         return (EReference) this.atEClass.getEStructuralFeatures().get(2);
     }
 
@@ -295,8 +287,18 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EReference getAT_ReconfigurationRuleFolder() {
-        return (EReference) this.atEClass.getEStructuralFeatures().get(3);
+    public EAttribute getAT_Documentation() {
+        return (EAttribute) this.atEClass.getEStructuralFeatures().get(3);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getAT_DefaultInstanceURI() {
+        return (EAttribute) this.atEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -315,7 +317,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EReference getConstraint_AT() {
+    public EReference getConstraint_Role() {
         return (EReference) this.constraintEClass.getEStructuralFeatures().get(0);
     }
 
@@ -325,38 +327,8 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EReference getConstraint_Roles() {
-        return (EReference) this.constraintEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EClass getParameter() {
-        return this.parameterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getParameter_Role() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getParameter_DataType() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(1);
+    public EAttribute getConstraint_Expression() {
+        return (EAttribute) this.constraintEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -395,7 +367,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EReference getRole_Parameters() {
+    public EReference getRole_AT() {
         return (EReference) this.roleEClass.getEStructuralFeatures().get(0);
     }
 
@@ -405,27 +377,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EReference getRole_AT() {
-        return (EReference) this.roleEClass.getEStructuralFeatures().get(1);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EReference getRole_Constraints() {
-        return (EReference) this.roleEClass.getEStructuralFeatures().get(2);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EReference getRole_Stereotype() {
         return (EReference) this.roleEClass.getEStructuralFeatures().get(3);
     }
 
@@ -435,8 +387,18 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
+    public EReference getRole_Stereotype() {
+        return (EReference) this.roleEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EReference getRole_Completion() {
-        return (EReference) this.roleEClass.getEStructuralFeatures().get(4);
+        return (EReference) this.roleEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -447,16 +409,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
     @Override
     public EClass getOCLConstraint() {
         return this.oclConstraintEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getOCLConstraint_Constraint() {
-        return (EAttribute) this.oclConstraintEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -722,29 +674,24 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.atEClass = this.createEClass(AT);
         this.createEReference(this.atEClass, AT__CATALOG);
         this.createEReference(this.atEClass, AT__ROLES);
-        this.createEReference(this.atEClass, AT__CONSTRAINTS);
         this.createEReference(this.atEClass, AT__RECONFIGURATION_RULE_FOLDER);
+        this.createEAttribute(this.atEClass, AT__DOCUMENTATION);
+        this.createEAttribute(this.atEClass, AT__DEFAULT_INSTANCE_URI);
 
         this.constraintEClass = this.createEClass(CONSTRAINT);
-        this.createEReference(this.constraintEClass, CONSTRAINT__AT);
-        this.createEReference(this.constraintEClass, CONSTRAINT__ROLES);
-
-        this.parameterEClass = this.createEClass(PARAMETER);
-        this.createEReference(this.parameterEClass, PARAMETER__ROLE);
-        this.createEReference(this.parameterEClass, PARAMETER__DATA_TYPE);
+        this.createEReference(this.constraintEClass, CONSTRAINT__ROLE);
+        this.createEAttribute(this.constraintEClass, CONSTRAINT__EXPRESSION);
 
         this.catalogEClass = this.createEClass(CATALOG);
         this.createEReference(this.catalogEClass, CATALOG__ATS);
 
         this.roleEClass = this.createEClass(ROLE);
-        this.createEReference(this.roleEClass, ROLE__PARAMETERS);
         this.createEReference(this.roleEClass, ROLE__AT);
-        this.createEReference(this.roleEClass, ROLE__CONSTRAINTS);
         this.createEReference(this.roleEClass, ROLE__STEREOTYPE);
         this.createEReference(this.roleEClass, ROLE__COMPLETION);
+        this.createEReference(this.roleEClass, ROLE__CONSTRAINTS);
 
         this.oclConstraintEClass = this.createEClass(OCL_CONSTRAINT);
-        this.createEAttribute(this.oclConstraintEClass, OCL_CONSTRAINT__CONSTRAINT);
 
         this.qvtoCompletionEClass = this.createEClass(QVTO_COMPLETION);
         this.createEAttribute(this.qvtoCompletionEClass, QVTO_COMPLETION__QVTO_FILE_URI);
@@ -815,10 +762,10 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         // Obtain other dependent packages
         final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI);
-        final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
-                .getEPackage(EcorePackage.eNS_URI);
         final EMFProfilePackage theEMFProfilePackage = (EMFProfilePackage) EPackage.Registry.INSTANCE
                 .getEPackage(EMFProfilePackage.eNS_URI);
+        final EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE
+                .getEPackage(EcorePackage.eNS_URI);
 
         // Create type parameters
 
@@ -827,7 +774,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         // Add supertypes to classes
         this.atEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.constraintEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.parameterEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.catalogEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.oclConstraintEClass.getESuperTypes().add(this.getConstraint());
@@ -854,31 +800,25 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.initEReference(this.getAT_Roles(), this.getRole(), this.getRole_AT(), "roles", null, 0, -1,
                 org.palladiosimulator.architecturaltemplates.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getAT_Constraints(), this.getConstraint(), this.getConstraint_AT(), "constraints",
-                null, 0, -1, org.palladiosimulator.architecturaltemplates.AT.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getAT_ReconfigurationRuleFolder(), this.getReconfigurationFolder(), null,
                 "reconfigurationRuleFolder", null, 0, 1, org.palladiosimulator.architecturaltemplates.AT.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getAT_Documentation(), this.ecorePackage.getEString(), "documentation", null, 0, 1,
+                org.palladiosimulator.architecturaltemplates.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getAT_DefaultInstanceURI(), this.ecorePackage.getEString(), "defaultInstanceURI", null,
+                0, 1, org.palladiosimulator.architecturaltemplates.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.constraintEClass, Constraint.class, "Constraint", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getConstraint_AT(), this.getAT(), this.getAT_Constraints(), "AT", null, 1, 1,
+        this.initEReference(this.getConstraint_Role(), this.getRole(), this.getRole_Constraints(), "role", null, 1, 1,
                 Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getConstraint_Roles(), this.getRole(), this.getRole_Constraints(), "roles", null, 0,
-                -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        this.initEClass(this.parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getParameter_Role(), this.getRole(), this.getRole_Parameters(), "role", null, 1, 1,
-                Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getParameter_DataType(), theEcorePackage.getEDataType(), null, "dataType", null, 1, 1,
-                Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getConstraint_Expression(), this.ecorePackage.getEString(), "expression", null, 1, 1,
+                Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.catalogEClass, Catalog.class, "Catalog", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -887,27 +827,21 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getRole_Parameters(), this.getParameter(), this.getParameter_Role(), "parameters",
-                null, 0, -1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getRole_AT(), this.getAT(), this.getAT_Roles(), "AT", null, 1, 1, Role.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getRole_Constraints(), this.getConstraint(), this.getConstraint_Roles(), "constraints",
-                null, 0, -1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getRole_Stereotype(), theEMFProfilePackage.getStereotype(), null, "stereotype", null,
                 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getRole_Completion(), this.getCompletion(), this.getCompletion_Role(), "completion",
                 null, 0, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getRole_Constraints(), this.getConstraint(), this.getConstraint_Role(), "constraints",
+                null, 0, -1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.oclConstraintEClass, OCLConstraint.class, "OCLConstraint", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getOCLConstraint_Constraint(), theEcorePackage.getEString(), "constraint", null, 1, 1,
-                OCLConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.qvtoCompletionEClass, QVTOCompletion.class, "QVTOCompletion", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);

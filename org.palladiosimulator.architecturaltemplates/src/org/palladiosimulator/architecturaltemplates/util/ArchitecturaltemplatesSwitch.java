@@ -19,7 +19,6 @@ import org.palladiosimulator.architecturaltemplates.OCLConstraint;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.Parameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
@@ -111,23 +110,6 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(constraint);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
-            return result;
-        }
-        case ArchitecturaltemplatesPackage.PARAMETER: {
-            final Parameter parameter = (Parameter) theEObject;
-            T result = this.caseParameter(parameter);
-            if (result == null) {
-                result = this.caseEntity(parameter);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(parameter);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(parameter);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -358,21 +340,6 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseConstraint(final Constraint object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'. <!--
-     * begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseParameter(final Parameter object) {
         return null;
     }
 
