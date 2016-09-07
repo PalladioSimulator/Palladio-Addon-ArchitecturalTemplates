@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.architecturaltemplates.feature"
       label="Architectural Templates"
-      version="1.0.1.qualifier"
+      version="1.0.2.qualifier"
       provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
@@ -24,11 +24,23 @@
       <import plugin="de.uka.ipd.sdq.probfunction" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex" version="2.2.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.mdsd" version="2.1.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.analyzer.workflow" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.codegen.simucontroller" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.simulizar.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.simulizar" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.commons" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.architecturaltemplates" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.edp2.measuringpoint" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.monitorrepository" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.servicelevelobjective" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.simulizar.reconfiguration.storydiagram" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.mdsdprofiles.api" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.architecturaltemplates" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.experimentautomation.application" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.architecturaltemplates.ocl" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.architecturaltemplates.api" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
       <import plugin="org.modelversioning.emfprofile.edit" version="1.0.0" match="greaterOrEqual"/>
@@ -39,33 +51,21 @@
       <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.2.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.units.edit" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.palladiosimulator.architecturaltemplates.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.modelversioning.emfprofile.registry" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.workbench"/>
       <import plugin="org.eclipse.jface"/>
-      <import plugin="org.palladiosimulator.architecturaltemplates.api" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.ocl.pivot" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="de.uka.ipd.sdq.simucomframework" version="2.0.2" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.rcp" version="4.4.0.v20140606-1445"/>
       <import feature="org.eclipse.e4.rcp" version="1.3.100.v20140606-1445"/>
-      <import plugin="de.uka.ipd.sdq.workflow" version="2.1.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.workflow.mdsd" version="2.1.1" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.codegen.simucontroller" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.simulizar.ui" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.common" version="2.10.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.10.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.simulizar" version="2.0.1" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm.edp2.measuringpoint" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.monitorrepository" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.servicelevelobjective" version="0.1.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.simulizar.reconfiguration.storydiagram" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.experimentautomation.application" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.architecturaltemplates.ocl" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.architecturaltemplates" version="1.0.2" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.architecturaltemplates.edit" version="1.0.2" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm" version="4.0.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin
