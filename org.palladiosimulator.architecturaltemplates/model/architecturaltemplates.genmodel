@@ -30,7 +30,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="architecturaltemplates.ecore#//Constraint">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Constraint/role"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//Constraint/expression"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute architecturaltemplates.ecore#//Constraint/expression"/>
     </genClasses>
     <genClasses ecoreClass="architecturaltemplates.ecore#//Catalog" labelFeature="../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm/core/entity/NamedElement/entityName">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference architecturaltemplates.ecore#//Catalog/ATs"/>
