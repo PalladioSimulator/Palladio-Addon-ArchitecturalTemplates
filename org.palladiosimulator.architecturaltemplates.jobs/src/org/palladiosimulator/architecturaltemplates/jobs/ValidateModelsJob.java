@@ -69,7 +69,7 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
                     if (constraint instanceof OCLConstraint) {
                         final OCLConstraint oclConstraint = (OCLConstraint) constraint;
                         try {
-                            invariant = helper.createInvariant(oclConstraint.getConstraint());
+                            invariant = helper.createInvariant(oclConstraint.getExpression());
                             final Query<?, ?, ?> constraintEvaluation = ocl.createQuery(invariant);
                             if (!constraintEvaluation.check(stereotypeApplication)) {
                                 this.logger.error("Constraint: " + oclConstraint.getEntityName() + " failed.");
