@@ -855,7 +855,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
                 this.getCompletionParameter_Completion(), "parameters", null, 1, -1, Completion.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED);
-        this.initEReference(this.getCompletion_Role(), this.getRole(), this.getRole_Completion(), "role", null, 0, 1,
+        this.initEReference(this.getCompletion_Role(), this.getRole(), this.getRole_Completion(), "role", null, 1, 1,
                 Completion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

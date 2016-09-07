@@ -9,6 +9,14 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <!-- begin-user-doc --> A representation of the model object '<em><b>AT</b></em>'. <!--
  * end-user-doc -->
  *
+ * <!-- begin-model-doc --> An AT is a template representing and documenting reusable architectural
+ * knowledge. Software architects can apply ATs for both architectural modeling and architectural
+ * analyses while AT engineers specify ATs. An optional default AT instance provides software
+ * architects with an initial architectural model corresponding to the represented architectural
+ * knowledge, e.g., a reference architecture.
+ *
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

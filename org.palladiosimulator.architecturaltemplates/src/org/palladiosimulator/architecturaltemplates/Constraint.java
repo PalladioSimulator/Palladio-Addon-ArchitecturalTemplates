@@ -8,6 +8,13 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Constraint</b></em>'. <!--
  * end-user-doc -->
  *
+ * <!-- begin-model-doc --> AT constraints specify what software architects are forbidden to change
+ * in a software architecture. Such restrictions prescribe software architects possible design
+ * decisions, which can ensure that architectural design remains sound. AT constraints can, thus,
+ * formalize reusable architectural knowledge applied to an architectural model. These constraints
+ * can then ensure the conformance to the architectural knowledge by prohibiting design decisions
+ * that would violate conformance. <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>

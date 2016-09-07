@@ -63,7 +63,7 @@ public class ConstraintItemProvider extends EntityItemProvider {
                 this.getString("_UI_Constraint_expression_feature"),
                 this.getString("_UI_PropertyDescriptor_description", "_UI_Constraint_expression_feature",
                         "_UI_Constraint_type"),
-                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__EXPRESSION, true, false, false,
+                ArchitecturaltemplatesPackage.Literals.CONSTRAINT__EXPRESSION, true, true, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
