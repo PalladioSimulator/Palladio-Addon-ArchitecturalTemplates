@@ -9,12 +9,14 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesFactory;
@@ -52,8 +54,25 @@ public class CompletionItemProvider extends ItemProviderAdapter implements IEdit
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
+            this.addCompletionFileURIPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
+    }
+
+    /**
+     * This adds a property descriptor for the Completion File URI feature. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addCompletionFileURIPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Completion_completionFileURI_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_Completion_completionFileURI_feature",
+                        "_UI_Completion_type"),
+                ArchitecturaltemplatesPackage.Literals.COMPLETION__COMPLETION_FILE_URI, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -95,7 +114,9 @@ public class CompletionItemProvider extends ItemProviderAdapter implements IEdit
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_Completion_type");
+        final String label = ((Completion) object).getCompletionFileURI();
+        return label == null || label.length() == 0 ? this.getString("_UI_Completion_type")
+                : this.getString("_UI_Completion_type") + " " + label;
     }
 
     /**
@@ -110,6 +131,9 @@ public class CompletionItemProvider extends ItemProviderAdapter implements IEdit
         this.updateChildren(notification);
 
         switch (notification.getFeatureID(Completion.class)) {
+        case ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI:
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            return;
         case ArchitecturaltemplatesPackage.COMPLETION__PARAMETERS:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;

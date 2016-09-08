@@ -399,13 +399,22 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int COMPLETION__ROLE = 1;
 
     /**
+     * The feature id for the '<em><b>Completion File URI</b></em>' attribute. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int COMPLETION__COMPLETION_FILE_URI = 2;
+
+    /**
      * The number of structural features of the '<em>Completion</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int COMPLETION_FEATURE_COUNT = 2;
+    int COMPLETION_FEATURE_COUNT = 3;
 
     /**
      * The meta object id for the
@@ -437,13 +446,13 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int QVTO_COMPLETION__ROLE = COMPLETION__ROLE;
 
     /**
-     * The feature id for the '<em><b>Qvto File URI</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The feature id for the '<em><b>Completion File URI</b></em>' attribute. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int QVTO_COMPLETION__QVTO_FILE_URI = COMPLETION_FEATURE_COUNT + 0;
+    int QVTO_COMPLETION__COMPLETION_FILE_URI = COMPLETION__COMPLETION_FILE_URI;
 
     /**
      * The number of structural features of the '<em>QVTO Completion</em>' class. <!--
@@ -452,7 +461,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int QVTO_COMPLETION_FEATURE_COUNT = COMPLETION_FEATURE_COUNT + 1;
+    int QVTO_COMPLETION_FEATURE_COUNT = COMPLETION_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the
@@ -1022,18 +1031,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EClass getQVTOCompletion();
 
     /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.QVTOCompletion#getQvtoFileURI <em>Qvto
-     * File URI</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Qvto File URI</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.QVTOCompletion#getQvtoFileURI()
-     * @see #getQVTOCompletion()
-     * @generated
-     */
-    EAttribute getQVTOCompletion_QvtoFileURI();
-
-    /**
      * Returns the meta object for class
      * '{@link org.palladiosimulator.architecturaltemplates.Completion <em>Completion</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -1067,6 +1064,18 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      */
     EReference getCompletion_Role();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.architecturaltemplates.Completion#getCompletionFileURI
+     * <em>Completion File URI</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Completion File URI</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.Completion#getCompletionFileURI()
+     * @see #getCompletion()
+     * @generated
+     */
+    EAttribute getCompletion_CompletionFileURI();
 
     /**
      * Returns the meta object for class
@@ -1448,14 +1457,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
         EClass QVTO_COMPLETION = eINSTANCE.getQVTOCompletion();
 
         /**
-         * The meta object literal for the '<em><b>Qvto File URI</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute QVTO_COMPLETION__QVTO_FILE_URI = eINSTANCE.getQVTOCompletion_QvtoFileURI();
-
-        /**
          * The meta object literal for the
          * '{@link org.palladiosimulator.architecturaltemplates.impl.CompletionImpl
          * <em>Completion</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1481,6 +1482,14 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EReference COMPLETION__ROLE = eINSTANCE.getCompletion_Role();
+
+        /**
+         * The meta object literal for the '<em><b>Completion File URI</b></em>' attribute feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute COMPLETION__COMPLETION_FILE_URI = eINSTANCE.getCompletion_CompletionFileURI();
 
         /**
          * The meta object literal for the

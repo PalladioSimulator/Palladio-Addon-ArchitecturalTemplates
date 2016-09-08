@@ -26,11 +26,23 @@ import org.palladiosimulator.architecturaltemplates.Role;
  * <em>Parameters</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.CompletionImpl#getRole
  * <em>Role</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.CompletionImpl#getCompletionFileURI
+ * <em>Completion File URI</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class CompletionImpl extends CDOObjectImpl implements Completion {
+
+    /**
+     * The default value of the '{@link #getCompletionFileURI() <em>Completion File URI</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getCompletionFileURI()
+     * @generated
+     * @ordered
+     */
+    protected static final String COMPLETION_FILE_URI_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -110,6 +122,28 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
      *
      * @generated
      */
+    @Override
+    public String getCompletionFileURI() {
+        return (String) this.eDynamicGet(ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI,
+                ArchitecturaltemplatesPackage.Literals.COMPLETION__COMPLETION_FILE_URI, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setCompletionFileURI(final String newCompletionFileURI) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI,
+                ArchitecturaltemplatesPackage.Literals.COMPLETION__COMPLETION_FILE_URI, newCompletionFileURI);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
@@ -169,6 +203,8 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
             return this.getParameters();
         case ArchitecturaltemplatesPackage.COMPLETION__ROLE:
             return this.getRole();
+        case ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI:
+            return this.getCompletionFileURI();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -189,6 +225,9 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
         case ArchitecturaltemplatesPackage.COMPLETION__ROLE:
             this.setRole((Role) newValue);
             return;
+        case ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI:
+            this.setCompletionFileURI((String) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -207,6 +246,9 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
         case ArchitecturaltemplatesPackage.COMPLETION__ROLE:
             this.setRole((Role) null);
             return;
+        case ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI:
+            this.setCompletionFileURI(COMPLETION_FILE_URI_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
@@ -223,6 +265,9 @@ public abstract class CompletionImpl extends CDOObjectImpl implements Completion
             return !this.getParameters().isEmpty();
         case ArchitecturaltemplatesPackage.COMPLETION__ROLE:
             return this.getRole() != null;
+        case ArchitecturaltemplatesPackage.COMPLETION__COMPLETION_FILE_URI:
+            return COMPLETION_FILE_URI_EDEFAULT == null ? this.getCompletionFileURI() != null
+                    : !COMPLETION_FILE_URI_EDEFAULT.equals(this.getCompletionFileURI());
         }
         return super.eIsSet(featureID);
     }

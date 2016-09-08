@@ -27,6 +27,8 @@ import org.eclipse.emf.common.util.EList;
  * <li>{@link org.palladiosimulator.architecturaltemplates.Completion#getParameters
  * <em>Parameters</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.Completion#getRole <em>Role</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Completion#getCompletionFileURI
+ * <em>Completion File URI</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getCompletion()
@@ -80,5 +82,34 @@ public interface Completion extends CDOObject {
      * @generated
      */
     void setRole(Role value);
+
+    /**
+     * Returns the value of the '<em><b>Completion File URI</b></em>' attribute. <!-- begin-user-doc
+     * -->
+     * <p>
+     * If the meaning of the '<em>Completion File URI</em>' attribute isn't clear, there really
+     * should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Completion File URI</em>' attribute.
+     * @see #setCompletionFileURI(String)
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getCompletion_CompletionFileURI()
+     * @model required="true"
+     * @generated
+     */
+    String getCompletionFileURI();
+
+    /**
+     * Sets the value of the
+     * '{@link org.palladiosimulator.architecturaltemplates.Completion#getCompletionFileURI
+     * <em>Completion File URI</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @param value
+     *            the new value of the '<em>Completion File URI</em>' attribute.
+     * @see #getCompletionFileURI()
+     * @generated
+     */
+    void setCompletionFileURI(String value);
 
 } // Completion

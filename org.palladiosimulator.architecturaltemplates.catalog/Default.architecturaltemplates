@@ -18,7 +18,7 @@
     </roles>
     <roles id="_RtHOICPCEeSVlNuoLyDfdw" entityName="Dynamic Three Layer Three Tier System">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicThreeLayerThreeTier.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicThreeLayerThreeTier.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters>        
@@ -61,7 +61,7 @@
   <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context">
     <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context">
       <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters>   
@@ -82,7 +82,7 @@
   <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System">
       <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="DynamicHorizontalScalingResourceContainer.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingResourceContainer.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters>
@@ -122,7 +122,7 @@
   <ATs id="_i-ghUIHkEeSeK9JYh8VNzw" entityName="Static Assembly Context Loadbalancing">
     <roles id="_rotRUYHkEeSeK9JYh8VNzw" entityName="StaticAssemblyContextLoadbalancingSystem">
       <stereotype href="profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_dgxFkL2VEeS8D6gGtq5evQ"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="Loadbalancing.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="Loadbalancing.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters>
@@ -139,7 +139,7 @@
   <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing">
     <roles id="_OVB8wLuIEeS4YqzUTAgFdA" entityName="StaticResourceContainerLoadbalancingSystem">
       <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_rXqFsL0NEeSXc41T9TupKQ"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="StaticResourceContainerLoadbalancing.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="StaticResourceContainerLoadbalancing.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters>   
@@ -156,7 +156,7 @@
   <ATs id="_pvPiUPpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce">
     <roles id="_07Qu0PpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce System">
       <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_cPD50PphEeSRjMxcTrWsAA"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="HadoopMapReduce.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="HadoopMapReduce.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension"/>
         </parameters>
@@ -215,7 +215,7 @@
   <ATs id="_kWS4cIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier">
     <roles id="_mrLsMIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier System">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="ThreeLayerThreeTier.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="ThreeLayerThreeTier.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension"/>
         </parameters>
@@ -274,7 +274,7 @@
     </roles>
     <roles id="_PzxOoCcsEeawm7le7c2SFg" entityName="Cached Assembly Context">
       <stereotype href="profiles/CachingAssemblyContext.emfprofile_diagram#_1ipxoCczEeaH1oGf1lJdJA"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" qvtoFileURI="CachingAssemblyContext.qvto">
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="CachingAssemblyContext.qvto">
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters> 

@@ -7,11 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 
 /**
@@ -44,25 +40,8 @@ public class QVTOCompletionItemProvider extends CompletionItemProvider {
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addQvtoFileURIPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Qvto File URI feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addQvtoFileURIPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_QVTOCompletion_qvtoFileURI_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_QVTOCompletion_qvtoFileURI_feature",
-                        "_UI_QVTOCompletion_type"),
-                ArchitecturaltemplatesPackage.Literals.QVTO_COMPLETION__QVTO_FILE_URI, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -83,7 +62,7 @@ public class QVTOCompletionItemProvider extends CompletionItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((QVTOCompletion) object).getQvtoFileURI();
+        final String label = ((QVTOCompletion) object).getCompletionFileURI();
         return label == null || label.length() == 0 ? this.getString("_UI_QVTOCompletion_type")
                 : this.getString("_UI_QVTOCompletion_type") + " " + label;
     }
@@ -98,12 +77,6 @@ public class QVTOCompletionItemProvider extends CompletionItemProvider {
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
-
-        switch (notification.getFeatureID(QVTOCompletion.class)) {
-        case ArchitecturaltemplatesPackage.QVTO_COMPLETION__QVTO_FILE_URI:
-            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
-        }
         super.notifyChanged(notification);
     }
 

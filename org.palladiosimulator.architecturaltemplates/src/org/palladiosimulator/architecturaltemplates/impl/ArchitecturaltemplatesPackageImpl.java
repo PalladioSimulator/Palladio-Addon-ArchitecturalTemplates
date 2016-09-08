@@ -427,16 +427,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EAttribute getQVTOCompletion_QvtoFileURI() {
-        return (EAttribute) this.qvtoCompletionEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EClass getCompletion() {
         return this.completionEClass;
     }
@@ -459,6 +449,16 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
     @Override
     public EReference getCompletion_Role() {
         return (EReference) this.completionEClass.getEStructuralFeatures().get(1);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getCompletion_CompletionFileURI() {
+        return (EAttribute) this.completionEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -684,11 +684,11 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.oclConstraintEClass = this.createEClass(OCL_CONSTRAINT);
 
         this.qvtoCompletionEClass = this.createEClass(QVTO_COMPLETION);
-        this.createEAttribute(this.qvtoCompletionEClass, QVTO_COMPLETION__QVTO_FILE_URI);
 
         this.completionEClass = this.createEClass(COMPLETION);
         this.createEReference(this.completionEClass, COMPLETION__PARAMETERS);
         this.createEReference(this.completionEClass, COMPLETION__ROLE);
+        this.createEAttribute(this.completionEClass, COMPLETION__COMPLETION_FILE_URI);
 
         this.completionParameterEClass = this.createEClass(COMPLETION_PARAMETER);
         this.createEReference(this.completionParameterEClass, COMPLETION_PARAMETER__COMPLETION);
@@ -828,9 +828,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
 
         this.initEClass(this.qvtoCompletionEClass, QVTOCompletion.class, "QVTOCompletion", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getQVTOCompletion_QvtoFileURI(), theEcorePackage.getEString(), "qvtoFileURI", null, 1,
-                1, QVTOCompletion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.completionEClass, Completion.class, "Completion", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -841,6 +838,9 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.initEReference(this.getCompletion_Role(), this.getRole(), this.getRole_Completion(), "role", null, 1, 1,
                 Completion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getCompletion_CompletionFileURI(), theEcorePackage.getEString(), "completionFileURI",
+                null, 1, 1, Completion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.completionParameterEClass, CompletionParameter.class, "CompletionParameter", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

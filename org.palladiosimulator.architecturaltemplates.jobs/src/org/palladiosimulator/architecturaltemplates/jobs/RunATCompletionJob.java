@@ -118,8 +118,8 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         final QVTOTransformationJobConfiguration qvtoConfig = new QVTOTransformationJobConfiguration();
         qvtoConfig.setInoutModels(getModelLocations(completion));
         qvtoConfig.setTraceFileURI(URI.createURI(TRACESFOLDER));
-        qvtoConfig.setScriptFileURI(
-                getRootURI(completion).appendSegment(COMPLETIONS_FOLDER).appendSegment(completion.getQvtoFileURI()));
+        qvtoConfig.setScriptFileURI(getRootURI(completion).appendSegment(COMPLETIONS_FOLDER)
+                .appendSegment(completion.getCompletionFileURI()));
         qvtoConfig.setOptions(QVTO_OPTIONS);
         return qvtoConfig;
     }
