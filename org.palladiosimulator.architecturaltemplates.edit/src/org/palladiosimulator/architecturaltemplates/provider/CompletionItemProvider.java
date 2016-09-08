@@ -128,12 +128,6 @@ public class CompletionItemProvider extends ItemProviderAdapter implements IEdit
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
-                ArchitecturaltemplatesFactory.eINSTANCE.createGenericBlackboardCompletionParameter()));
-
-        newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
-                ArchitecturaltemplatesFactory.eINSTANCE.createGenericTemplateCompletionParameter()));
-
-        newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
                 ArchitecturaltemplatesFactory.eINSTANCE.createPCMBlackboardCompletionParameter()));
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
@@ -141,9 +135,6 @@ public class CompletionItemProvider extends ItemProviderAdapter implements IEdit
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
                 ArchitecturaltemplatesFactory.eINSTANCE.createPCMOutputCompletionParameter()));
-
-        newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
-                ArchitecturaltemplatesFactory.eINSTANCE.createGenericOutputCompletionParameter()));
 
         newChildDescriptors.add(this.createChildParameter(ArchitecturaltemplatesPackage.Literals.COMPLETION__PARAMETERS,
                 ArchitecturaltemplatesFactory.eINSTANCE.createIsolatedPCMTemplateCompletionParameter()));

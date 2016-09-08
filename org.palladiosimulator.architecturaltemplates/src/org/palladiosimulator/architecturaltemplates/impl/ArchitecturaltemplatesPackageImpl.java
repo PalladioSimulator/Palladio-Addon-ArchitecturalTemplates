@@ -19,19 +19,19 @@ import org.palladiosimulator.architecturaltemplates.Catalog;
 import org.palladiosimulator.architecturaltemplates.Completion;
 import org.palladiosimulator.architecturaltemplates.CompletionParameter;
 import org.palladiosimulator.architecturaltemplates.Constraint;
-import org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.FileExtension;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 import org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.OCLConstraint;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
-import org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity;
 import org.palladiosimulator.pcm.PcmPackage;
 import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
@@ -103,20 +103,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      *
      * @generated
      */
-    private EClass genericTemplateCompletionParameterEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass genericBlackboardCompletionParameterEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
     private EClass pcmBlackboardCompletionParameterEClass = null;
 
     /**
@@ -131,21 +117,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      *
      * @generated
      */
-    private EClass templateProvidingEntityEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
     private EClass pcmOutputCompletionParameterEClass = null;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    private EClass genericOutputCompletionParameterEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -160,6 +132,34 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     private EClass isolatedPCMTemplateCompletionParameterEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass pcmCompletionParameterEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass fileExtensionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass pcmFileExtensionEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass genericFileExtensionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -487,48 +487,8 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EClass getGenericTemplateCompletionParameter() {
-        return this.genericTemplateCompletionParameterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EClass getGenericBlackboardCompletionParameter() {
-        return this.genericBlackboardCompletionParameterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGenericBlackboardCompletionParameter_FileExtension() {
-        return (EAttribute) this.genericBlackboardCompletionParameterEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public EClass getPCMBlackboardCompletionParameter() {
         return this.pcmBlackboardCompletionParameterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getPCMBlackboardCompletionParameter_FileExtension() {
-        return (EAttribute) this.pcmBlackboardCompletionParameterEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -547,18 +507,8 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
-    public EClass getTemplateProvidingEntity() {
-        return this.templateProvidingEntityEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getTemplateProvidingEntity_TemplateFileURI() {
-        return (EAttribute) this.templateProvidingEntityEClass.getEStructuralFeatures().get(0);
+    public EAttribute getPCMTemplateCompletionParameter_TemplateFileURI() {
+        return (EAttribute) this.pcmTemplateCompletionParameterEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -569,36 +519,6 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
     @Override
     public EClass getPCMOutputCompletionParameter() {
         return this.pcmOutputCompletionParameterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getPCMOutputCompletionParameter_FileExtension() {
-        return (EAttribute) this.pcmOutputCompletionParameterEClass.getEStructuralFeatures().get(0);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EClass getGenericOutputCompletionParameter() {
-        return this.genericOutputCompletionParameterEClass;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EAttribute getGenericOutputCompletionParameter_FileExtension() {
-        return (EAttribute) this.genericOutputCompletionParameterEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -629,6 +549,76 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
     @Override
     public EClass getIsolatedPCMTemplateCompletionParameter() {
         return this.isolatedPCMTemplateCompletionParameterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getPCMCompletionParameter() {
+        return this.pcmCompletionParameterEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getPCMCompletionParameter_FileExtension() {
+        return (EReference) this.pcmCompletionParameterEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getFileExtension() {
+        return this.fileExtensionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getPCMFileExtension() {
+        return this.pcmFileExtensionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getPCMFileExtension_FileExtension() {
+        return (EAttribute) this.pcmFileExtensionEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getGenericFileExtension() {
+        return this.genericFileExtensionEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EAttribute getGenericFileExtension_FileExtension() {
+        return (EAttribute) this.genericFileExtensionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -703,33 +693,30 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.completionParameterEClass = this.createEClass(COMPLETION_PARAMETER);
         this.createEReference(this.completionParameterEClass, COMPLETION_PARAMETER__COMPLETION);
 
-        this.genericTemplateCompletionParameterEClass = this.createEClass(GENERIC_TEMPLATE_COMPLETION_PARAMETER);
-
-        this.genericBlackboardCompletionParameterEClass = this.createEClass(GENERIC_BLACKBOARD_COMPLETION_PARAMETER);
-        this.createEAttribute(this.genericBlackboardCompletionParameterEClass,
-                GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION);
-
         this.pcmBlackboardCompletionParameterEClass = this.createEClass(PCM_BLACKBOARD_COMPLETION_PARAMETER);
-        this.createEAttribute(this.pcmBlackboardCompletionParameterEClass,
-                PCM_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION);
 
         this.pcmTemplateCompletionParameterEClass = this.createEClass(PCM_TEMPLATE_COMPLETION_PARAMETER);
-
-        this.templateProvidingEntityEClass = this.createEClass(TEMPLATE_PROVIDING_ENTITY);
-        this.createEAttribute(this.templateProvidingEntityEClass, TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI);
+        this.createEAttribute(this.pcmTemplateCompletionParameterEClass,
+                PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI);
 
         this.pcmOutputCompletionParameterEClass = this.createEClass(PCM_OUTPUT_COMPLETION_PARAMETER);
-        this.createEAttribute(this.pcmOutputCompletionParameterEClass, PCM_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION);
-
-        this.genericOutputCompletionParameterEClass = this.createEClass(GENERIC_OUTPUT_COMPLETION_PARAMETER);
-        this.createEAttribute(this.genericOutputCompletionParameterEClass,
-                GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION);
 
         this.reconfigurationFolderEClass = this.createEClass(RECONFIGURATION_FOLDER);
         this.createEAttribute(this.reconfigurationFolderEClass, RECONFIGURATION_FOLDER__FOLDER_URI);
 
         this.isolatedPCMTemplateCompletionParameterEClass = this
                 .createEClass(ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER);
+
+        this.pcmCompletionParameterEClass = this.createEClass(PCM_COMPLETION_PARAMETER);
+        this.createEReference(this.pcmCompletionParameterEClass, PCM_COMPLETION_PARAMETER__FILE_EXTENSION);
+
+        this.fileExtensionEClass = this.createEClass(FILE_EXTENSION);
+
+        this.pcmFileExtensionEClass = this.createEClass(PCM_FILE_EXTENSION);
+        this.createEAttribute(this.pcmFileExtensionEClass, PCM_FILE_EXTENSION__FILE_EXTENSION);
+
+        this.genericFileExtensionEClass = this.createEClass(GENERIC_FILE_EXTENSION);
+        this.createEAttribute(this.genericFileExtensionEClass, GENERIC_FILE_EXTENSION__FILE_EXTENSION);
 
         // Create enums
         this.pcmFileExtensionsEEnum = this.createEEnum(PCM_FILE_EXTENSIONS);
@@ -778,18 +765,14 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
         this.oclConstraintEClass.getESuperTypes().add(this.getConstraint());
         this.qvtoCompletionEClass.getESuperTypes().add(this.getCompletion());
-        this.genericTemplateCompletionParameterEClass.getESuperTypes()
-                .add(this.getGenericBlackboardCompletionParameter());
-        this.genericTemplateCompletionParameterEClass.getESuperTypes().add(this.getTemplateProvidingEntity());
-        this.genericBlackboardCompletionParameterEClass.getESuperTypes().add(this.getCompletionParameter());
-        this.pcmBlackboardCompletionParameterEClass.getESuperTypes().add(this.getCompletionParameter());
-        this.pcmTemplateCompletionParameterEClass.getESuperTypes().add(this.getPCMBlackboardCompletionParameter());
-        this.pcmTemplateCompletionParameterEClass.getESuperTypes().add(this.getTemplateProvidingEntity());
-        this.pcmOutputCompletionParameterEClass.getESuperTypes().add(this.getCompletionParameter());
-        this.genericOutputCompletionParameterEClass.getESuperTypes().add(this.getCompletionParameter());
+        this.pcmBlackboardCompletionParameterEClass.getESuperTypes().add(this.getPCMCompletionParameter());
+        this.pcmTemplateCompletionParameterEClass.getESuperTypes().add(this.getPCMCompletionParameter());
+        this.pcmOutputCompletionParameterEClass.getESuperTypes().add(this.getPCMCompletionParameter());
         this.isolatedPCMTemplateCompletionParameterEClass.getESuperTypes()
-                .add(this.getPCMBlackboardCompletionParameter());
-        this.isolatedPCMTemplateCompletionParameterEClass.getESuperTypes().add(this.getTemplateProvidingEntity());
+                .add(this.getPCMTemplateCompletionParameter());
+        this.pcmCompletionParameterEClass.getESuperTypes().add(this.getCompletionParameter());
+        this.pcmFileExtensionEClass.getESuperTypes().add(this.getFileExtension());
+        this.genericFileExtensionEClass.getESuperTypes().add(this.getFileExtension());
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.atEClass, org.palladiosimulator.architecturaltemplates.AT.class, "AT", !IS_ABSTRACT,
@@ -866,41 +849,17 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 IS_ORDERED);
 
-        this.initEClass(this.genericTemplateCompletionParameterEClass, GenericTemplateCompletionParameter.class,
-                "GenericTemplateCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        this.initEClass(this.genericBlackboardCompletionParameterEClass, GenericBlackboardCompletionParameter.class,
-                "GenericBlackboardCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getGenericBlackboardCompletionParameter_FileExtension(), theEcorePackage.getEString(),
-                "fileExtension", null, 1, 1, GenericBlackboardCompletionParameter.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
         this.initEClass(this.pcmBlackboardCompletionParameterEClass, PCMBlackboardCompletionParameter.class,
                 "PCMBlackboardCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getPCMBlackboardCompletionParameter_FileExtension(), this.getPCMFileExtensions(),
-                "fileExtension", null, 1, 1, PCMBlackboardCompletionParameter.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.pcmTemplateCompletionParameterEClass, PCMTemplateCompletionParameter.class,
                 "PCMTemplateCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        this.initEClass(this.templateProvidingEntityEClass, TemplateProvidingEntity.class, "TemplateProvidingEntity",
-                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getTemplateProvidingEntity_TemplateFileURI(), theEcorePackage.getEString(),
-                "templateFileURI", null, 1, 1, TemplateProvidingEntity.class, !IS_TRANSIENT, !IS_VOLATILE,
+        this.initEAttribute(this.getPCMTemplateCompletionParameter_TemplateFileURI(), theEcorePackage.getEString(),
+                "templateFileURI", null, 1, 1, PCMTemplateCompletionParameter.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.pcmOutputCompletionParameterEClass, PCMOutputCompletionParameter.class,
                 "PCMOutputCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getPCMOutputCompletionParameter_FileExtension(), this.getPCMFileExtensions(),
-                "fileExtension", null, 1, 1, PCMOutputCompletionParameter.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        this.initEClass(this.genericOutputCompletionParameterEClass, GenericOutputCompletionParameter.class,
-                "GenericOutputCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getGenericOutputCompletionParameter_FileExtension(), theEcorePackage.getEString(),
-                "fileExtension", null, 1, 1, GenericOutputCompletionParameter.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.reconfigurationFolderEClass, ReconfigurationFolder.class, "ReconfigurationFolder",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -910,6 +869,27 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
 
         this.initEClass(this.isolatedPCMTemplateCompletionParameterEClass, IsolatedPCMTemplateCompletionParameter.class,
                 "IsolatedPCMTemplateCompletionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.pcmCompletionParameterEClass, PCMCompletionParameter.class, "PCMCompletionParameter",
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getPCMCompletionParameter_FileExtension(), this.getFileExtension(), null,
+                "fileExtension", null, 1, 1, PCMCompletionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.fileExtensionEClass, FileExtension.class, "FileExtension", IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.pcmFileExtensionEClass, PCMFileExtension.class, "PCMFileExtension", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getPCMFileExtension_FileExtension(), this.getPCMFileExtensions(), "fileExtension",
+                "system", 1, 1, PCMFileExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.genericFileExtensionEClass, GenericFileExtension.class, "GenericFileExtension",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getGenericFileExtension_FileExtension(), this.ecorePackage.getEString(),
+                "fileExtension", null, 1, 1, GenericFileExtension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Initialize enums and add enum literals
         this.initEEnum(this.pcmFileExtensionsEEnum, PCMFileExtensions.class, "PCMFileExtensions");

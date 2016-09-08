@@ -15,6 +15,5 @@ package org.palladiosimulator.architecturaltemplates;
  * @model
  * @generated
  */
-public interface IsolatedPCMTemplateCompletionParameter
-        extends PCMBlackboardCompletionParameter, TemplateProvidingEntity {
+public interface IsolatedPCMTemplateCompletionParameter extends PCMTemplateCompletionParameter {
 } // IsolatedPCMTemplateCompletionParameter

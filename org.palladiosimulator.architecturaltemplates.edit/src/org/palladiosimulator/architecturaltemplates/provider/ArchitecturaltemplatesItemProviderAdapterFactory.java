@@ -193,58 +193,6 @@ public class ArchitecturaltemplatesItemProviderAdapterFactory extends Architectu
 
     /**
      * This keeps track of the one adapter used for all
-     * {@link org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter}
-     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected GenericTemplateCompletionParameterItemProvider genericTemplateCompletionParameterItemProvider;
-
-    /**
-     * This creates an adapter for a
-     * {@link org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter}. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Adapter createGenericTemplateCompletionParameterAdapter() {
-        if (this.genericTemplateCompletionParameterItemProvider == null) {
-            this.genericTemplateCompletionParameterItemProvider = new GenericTemplateCompletionParameterItemProvider(
-                    this);
-        }
-
-        return this.genericTemplateCompletionParameterItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all
-     * {@link org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter}
-     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected GenericBlackboardCompletionParameterItemProvider genericBlackboardCompletionParameterItemProvider;
-
-    /**
-     * This creates an adapter for a
-     * {@link org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter}.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Adapter createGenericBlackboardCompletionParameterAdapter() {
-        if (this.genericBlackboardCompletionParameterItemProvider == null) {
-            this.genericBlackboardCompletionParameterItemProvider = new GenericBlackboardCompletionParameterItemProvider(
-                    this);
-        }
-
-        return this.genericBlackboardCompletionParameterItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -320,31 +268,6 @@ public class ArchitecturaltemplatesItemProviderAdapterFactory extends Architectu
 
     /**
      * This keeps track of the one adapter used for all
-     * {@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter}
-     * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected GenericOutputCompletionParameterItemProvider genericOutputCompletionParameterItemProvider;
-
-    /**
-     * This creates an adapter for a
-     * {@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter}. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Adapter createGenericOutputCompletionParameterAdapter() {
-        if (this.genericOutputCompletionParameterItemProvider == null) {
-            this.genericOutputCompletionParameterItemProvider = new GenericOutputCompletionParameterItemProvider(this);
-        }
-
-        return this.genericOutputCompletionParameterItemProvider;
-    }
-
-    /**
-     * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.architecturaltemplates.ReconfigurationFolder} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -392,6 +315,56 @@ public class ArchitecturaltemplatesItemProviderAdapterFactory extends Architectu
         }
 
         return this.isolatedPCMTemplateCompletionParameterItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.palladiosimulator.architecturaltemplates.PCMFileExtension} instances. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected PCMFileExtensionItemProvider pcmFileExtensionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.palladiosimulator.architecturaltemplates.PCMFileExtension}. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createPCMFileExtensionAdapter() {
+        if (this.pcmFileExtensionItemProvider == null) {
+            this.pcmFileExtensionItemProvider = new PCMFileExtensionItemProvider(this);
+        }
+
+        return this.pcmFileExtensionItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.palladiosimulator.architecturaltemplates.GenericFileExtension} instances. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected GenericFileExtensionItemProvider genericFileExtensionItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.palladiosimulator.architecturaltemplates.GenericFileExtension}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createGenericFileExtensionAdapter() {
+        if (this.genericFileExtensionItemProvider == null) {
+            this.genericFileExtensionItemProvider = new GenericFileExtensionItemProvider(this);
+        }
+
+        return this.genericFileExtensionItemProvider;
     }
 
     /**

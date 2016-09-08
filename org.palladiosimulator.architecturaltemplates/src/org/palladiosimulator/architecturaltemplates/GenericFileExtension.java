@@ -3,25 +3,22 @@
 package org.palladiosimulator.architecturaltemplates;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Generic Output Completion
- * Parameter</b></em>'. <!-- end-user-doc -->
- *
- * <!-- begin-model-doc --> The output of a completion is an arbitrary model, characterized by the
- * given file extension. A user can freely specify this extension as String. <!-- end-model-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Generic File
+ * Extension</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter#getFileExtension
+ * <li>{@link org.palladiosimulator.architecturaltemplates.GenericFileExtension#getFileExtension
  * <em>File Extension</em>}</li>
  * </ul>
  *
- * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getGenericOutputCompletionParameter()
+ * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getGenericFileExtension()
  * @model
  * @generated
  */
-public interface GenericOutputCompletionParameter extends CompletionParameter {
+public interface GenericFileExtension extends FileExtension {
 
     /**
      * Returns the value of the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
@@ -33,7 +30,7 @@ public interface GenericOutputCompletionParameter extends CompletionParameter {
      *
      * @return the value of the '<em>File Extension</em>' attribute.
      * @see #setFileExtension(String)
-     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getGenericOutputCompletionParameter_FileExtension()
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getGenericFileExtension_FileExtension()
      * @model required="true"
      * @generated
      */
@@ -41,7 +38,7 @@ public interface GenericOutputCompletionParameter extends CompletionParameter {
 
     /**
      * Sets the value of the
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter#getFileExtension
+     * '{@link org.palladiosimulator.architecturaltemplates.GenericFileExtension#getFileExtension
      * <em>File Extension</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -51,4 +48,4 @@ public interface GenericOutputCompletionParameter extends CompletionParameter {
      */
     void setFileExtension(String value);
 
-} // GenericOutputCompletionParameter
+} // GenericFileExtension

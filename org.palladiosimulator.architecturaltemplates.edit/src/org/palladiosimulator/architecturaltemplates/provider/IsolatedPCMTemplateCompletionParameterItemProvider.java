@@ -7,13 +7,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 
 /**
  * This is the item provider adapter for a
@@ -22,7 +17,7 @@ import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
  *
  * @generated
  */
-public class IsolatedPCMTemplateCompletionParameterItemProvider extends PCMBlackboardCompletionParameterItemProvider {
+public class IsolatedPCMTemplateCompletionParameterItemProvider extends PCMTemplateCompletionParameterItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -45,25 +40,8 @@ public class IsolatedPCMTemplateCompletionParameterItemProvider extends PCMBlack
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addTemplateFileURIPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Template File URI feature. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addTemplateFileURIPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_TemplateProvidingEntity_templateFileURI_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_TemplateProvidingEntity_templateFileURI_feature", "_UI_TemplateProvidingEntity_type"),
-                ArchitecturaltemplatesPackage.Literals.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -86,8 +64,7 @@ public class IsolatedPCMTemplateCompletionParameterItemProvider extends PCMBlack
      */
     @Override
     public String getText(final Object object) {
-        final PCMFileExtensions labelValue = ((IsolatedPCMTemplateCompletionParameter) object).getFileExtension();
-        final String label = labelValue == null ? null : labelValue.toString();
+        final String label = ((IsolatedPCMTemplateCompletionParameter) object).getTemplateFileURI();
         return label == null || label.length() == 0 ? this.getString("_UI_IsolatedPCMTemplateCompletionParameter_type")
                 : this.getString("_UI_IsolatedPCMTemplateCompletionParameter_type") + " " + label;
     }
@@ -102,12 +79,6 @@ public class IsolatedPCMTemplateCompletionParameterItemProvider extends PCMBlack
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
-
-        switch (notification.getFeatureID(IsolatedPCMTemplateCompletionParameter.class)) {
-        case ArchitecturaltemplatesPackage.ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI:
-            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
-        }
         super.notifyChanged(notification);
     }
 

@@ -4,23 +4,22 @@ package org.palladiosimulator.architecturaltemplates.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
-import org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Generic Output Completion
- * Parameter</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Generic File
+ * Extension</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.GenericOutputCompletionParameterImpl#getFileExtension
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.GenericFileExtensionImpl#getFileExtension
  * <em>File Extension</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GenericOutputCompletionParameterImpl extends CompletionParameterImpl
-        implements GenericOutputCompletionParameter {
+public class GenericFileExtensionImpl extends FileExtensionImpl implements GenericFileExtension {
 
     /**
      * The default value of the '{@link #getFileExtension() <em>File Extension</em>}' attribute.
@@ -37,7 +36,7 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
      *
      * @generated
      */
-    protected GenericOutputCompletionParameterImpl() {
+    protected GenericFileExtensionImpl() {
         super();
     }
 
@@ -48,7 +47,7 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
      */
     @Override
     protected EClass eStaticClass() {
-        return ArchitecturaltemplatesPackage.Literals.GENERIC_OUTPUT_COMPLETION_PARAMETER;
+        return ArchitecturaltemplatesPackage.Literals.GENERIC_FILE_EXTENSION;
     }
 
     /**
@@ -58,9 +57,8 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
      */
     @Override
     public String getFileExtension() {
-        return (String) this.eDynamicGet(
-                ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION,
-                ArchitecturaltemplatesPackage.Literals.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION, true, true);
+        return (String) this.eDynamicGet(ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION,
+                ArchitecturaltemplatesPackage.Literals.GENERIC_FILE_EXTENSION__FILE_EXTENSION, true, true);
     }
 
     /**
@@ -70,9 +68,8 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
      */
     @Override
     public void setFileExtension(final String newFileExtension) {
-        this.eDynamicSet(ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION,
-                ArchitecturaltemplatesPackage.Literals.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION,
-                newFileExtension);
+        this.eDynamicSet(ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION,
+                ArchitecturaltemplatesPackage.Literals.GENERIC_FILE_EXTENSION__FILE_EXTENSION, newFileExtension);
     }
 
     /**
@@ -83,7 +80,7 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION:
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION:
             return this.getFileExtension();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -97,7 +94,7 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION:
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION:
             this.setFileExtension((String) newValue);
             return;
         }
@@ -112,7 +109,7 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION:
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION:
             this.setFileExtension(FILE_EXTENSION_EDEFAULT);
             return;
         }
@@ -127,11 +124,11 @@ public class GenericOutputCompletionParameterImpl extends CompletionParameterImp
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION:
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION:
             return FILE_EXTENSION_EDEFAULT == null ? this.getFileExtension() != null
                     : !FILE_EXTENSION_EDEFAULT.equals(this.getFileExtension());
         }
         return super.eIsSet(featureID);
     }
 
-} // GenericOutputCompletionParameterImpl
+} // GenericFileExtensionImpl

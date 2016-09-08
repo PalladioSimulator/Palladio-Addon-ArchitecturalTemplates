@@ -4,23 +4,23 @@ package org.palladiosimulator.architecturaltemplates.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
-import org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Generic Blackboard
- * Completion Parameter</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>PCM File
+ * Extension</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.architecturaltemplates.impl.GenericBlackboardCompletionParameterImpl#getFileExtension
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.PCMFileExtensionImpl#getFileExtension
  * <em>File Extension</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GenericBlackboardCompletionParameterImpl extends CompletionParameterImpl
-        implements GenericBlackboardCompletionParameter {
+public class PCMFileExtensionImpl extends FileExtensionImpl implements PCMFileExtension {
 
     /**
      * The default value of the '{@link #getFileExtension() <em>File Extension</em>}' attribute.
@@ -30,14 +30,14 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
      * @generated
      * @ordered
      */
-    protected static final String FILE_EXTENSION_EDEFAULT = null;
+    protected static final PCMFileExtensions FILE_EXTENSION_EDEFAULT = PCMFileExtensions.SYSTEM;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    protected GenericBlackboardCompletionParameterImpl() {
+    protected PCMFileExtensionImpl() {
         super();
     }
 
@@ -48,7 +48,7 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
      */
     @Override
     protected EClass eStaticClass() {
-        return ArchitecturaltemplatesPackage.Literals.GENERIC_BLACKBOARD_COMPLETION_PARAMETER;
+        return ArchitecturaltemplatesPackage.Literals.PCM_FILE_EXTENSION;
     }
 
     /**
@@ -57,11 +57,9 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
      * @generated
      */
     @Override
-    public String getFileExtension() {
-        return (String) this.eDynamicGet(
-                ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION,
-                ArchitecturaltemplatesPackage.Literals.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION, true,
-                true);
+    public PCMFileExtensions getFileExtension() {
+        return (PCMFileExtensions) this.eDynamicGet(ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION,
+                ArchitecturaltemplatesPackage.Literals.PCM_FILE_EXTENSION__FILE_EXTENSION, true, true);
     }
 
     /**
@@ -70,10 +68,9 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
      * @generated
      */
     @Override
-    public void setFileExtension(final String newFileExtension) {
-        this.eDynamicSet(ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION,
-                ArchitecturaltemplatesPackage.Literals.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION,
-                newFileExtension);
+    public void setFileExtension(final PCMFileExtensions newFileExtension) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION,
+                ArchitecturaltemplatesPackage.Literals.PCM_FILE_EXTENSION__FILE_EXTENSION, newFileExtension);
     }
 
     /**
@@ -84,7 +81,7 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION:
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION:
             return this.getFileExtension();
         }
         return super.eGet(featureID, resolve, coreType);
@@ -98,8 +95,8 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION:
-            this.setFileExtension((String) newValue);
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION:
+            this.setFileExtension((PCMFileExtensions) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -113,7 +110,7 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION:
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION:
             this.setFileExtension(FILE_EXTENSION_EDEFAULT);
             return;
         }
@@ -128,11 +125,10 @@ public class GenericBlackboardCompletionParameterImpl extends CompletionParamete
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION:
-            return FILE_EXTENSION_EDEFAULT == null ? this.getFileExtension() != null
-                    : !FILE_EXTENSION_EDEFAULT.equals(this.getFileExtension());
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION:
+            return this.getFileExtension() != FILE_EXTENSION_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
-} // GenericBlackboardCompletionParameterImpl
+} // PCMFileExtensionImpl

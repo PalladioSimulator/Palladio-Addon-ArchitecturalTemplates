@@ -5,7 +5,6 @@ package org.palladiosimulator.architecturaltemplates.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>PCM Template Completion
@@ -20,7 +19,7 @@ import org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity;
  *
  * @generated
  */
-public class PCMTemplateCompletionParameterImpl extends PCMBlackboardCompletionParameterImpl
+public class PCMTemplateCompletionParameterImpl extends PCMCompletionParameterImpl
         implements PCMTemplateCompletionParameter {
 
     /**
@@ -61,7 +60,8 @@ public class PCMTemplateCompletionParameterImpl extends PCMBlackboardCompletionP
     public String getTemplateFileURI() {
         return (String) this.eDynamicGet(
                 ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI,
-                ArchitecturaltemplatesPackage.Literals.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI, true, true);
+                ArchitecturaltemplatesPackage.Literals.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI, true,
+                true);
     }
 
     /**
@@ -72,7 +72,7 @@ public class PCMTemplateCompletionParameterImpl extends PCMBlackboardCompletionP
     @Override
     public void setTemplateFileURI(final String newTemplateFileURI) {
         this.eDynamicSet(ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI,
-                ArchitecturaltemplatesPackage.Literals.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI,
+                ArchitecturaltemplatesPackage.Literals.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI,
                 newTemplateFileURI);
     }
 
@@ -133,42 +133,6 @@ public class PCMTemplateCompletionParameterImpl extends PCMBlackboardCompletionP
                     : !TEMPLATE_FILE_URI_EDEFAULT.equals(this.getTemplateFileURI());
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == TemplateProvidingEntity.class) {
-            switch (derivedFeatureID) {
-            case ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI:
-                return ArchitecturaltemplatesPackage.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI;
-            default:
-                return -1;
-            }
-        }
-        return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == TemplateProvidingEntity.class) {
-            switch (baseFeatureID) {
-            case ArchitecturaltemplatesPackage.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI:
-                return ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI;
-            default:
-                return -1;
-            }
-        }
-        return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
     }
 
 } // PCMTemplateCompletionParameterImpl

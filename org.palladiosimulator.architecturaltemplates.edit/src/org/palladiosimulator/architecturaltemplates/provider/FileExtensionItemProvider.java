@@ -7,16 +7,24 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a
- * {@link org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * {@link org.palladiosimulator.architecturaltemplates.FileExtension} object. <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
  *
  * @generated
  */
-public class PCMBlackboardCompletionParameterItemProvider extends PCMCompletionParameterItemProvider {
+public class FileExtensionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -24,7 +32,7 @@ public class PCMBlackboardCompletionParameterItemProvider extends PCMCompletionP
      *
      * @generated
      */
-    public PCMBlackboardCompletionParameterItemProvider(final AdapterFactory adapterFactory) {
+    public FileExtensionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -44,18 +52,6 @@ public class PCMBlackboardCompletionParameterItemProvider extends PCMCompletionP
     }
 
     /**
-     * This returns PCMBlackboardCompletionParameter.gif. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @generated
-     */
-    @Override
-    public Object getImage(final Object object) {
-        return this.overlayImage(object,
-                this.getResourceLocator().getImage("full/obj16/PCMBlackboardCompletionParameter"));
-    }
-
-    /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
@@ -63,7 +59,7 @@ public class PCMBlackboardCompletionParameterItemProvider extends PCMCompletionP
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_PCMBlackboardCompletionParameter_type");
+        return this.getString("_UI_FileExtension_type");
     }
 
     /**
@@ -88,6 +84,17 @@ public class PCMBlackboardCompletionParameterItemProvider extends PCMCompletionP
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator() {
+        return ArchitecturaltemplatesEditPlugin.INSTANCE;
     }
 
 }

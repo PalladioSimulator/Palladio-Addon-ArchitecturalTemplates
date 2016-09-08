@@ -11,18 +11,18 @@ import org.palladiosimulator.architecturaltemplates.Catalog;
 import org.palladiosimulator.architecturaltemplates.Completion;
 import org.palladiosimulator.architecturaltemplates.CompletionParameter;
 import org.palladiosimulator.architecturaltemplates.Constraint;
-import org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.FileExtension;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 import org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.OCLConstraint;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
-import org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
 
@@ -197,37 +197,12 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
             }
             return result;
         }
-        case ArchitecturaltemplatesPackage.GENERIC_TEMPLATE_COMPLETION_PARAMETER: {
-            final GenericTemplateCompletionParameter genericTemplateCompletionParameter = (GenericTemplateCompletionParameter) theEObject;
-            T result = this.caseGenericTemplateCompletionParameter(genericTemplateCompletionParameter);
-            if (result == null) {
-                result = this.caseGenericBlackboardCompletionParameter(genericTemplateCompletionParameter);
-            }
-            if (result == null) {
-                result = this.caseTemplateProvidingEntity(genericTemplateCompletionParameter);
-            }
-            if (result == null) {
-                result = this.caseCompletionParameter(genericTemplateCompletionParameter);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
-            return result;
-        }
-        case ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER: {
-            final GenericBlackboardCompletionParameter genericBlackboardCompletionParameter = (GenericBlackboardCompletionParameter) theEObject;
-            T result = this.caseGenericBlackboardCompletionParameter(genericBlackboardCompletionParameter);
-            if (result == null) {
-                result = this.caseCompletionParameter(genericBlackboardCompletionParameter);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
-            return result;
-        }
         case ArchitecturaltemplatesPackage.PCM_BLACKBOARD_COMPLETION_PARAMETER: {
             final PCMBlackboardCompletionParameter pcmBlackboardCompletionParameter = (PCMBlackboardCompletionParameter) theEObject;
             T result = this.casePCMBlackboardCompletionParameter(pcmBlackboardCompletionParameter);
+            if (result == null) {
+                result = this.casePCMCompletionParameter(pcmBlackboardCompletionParameter);
+            }
             if (result == null) {
                 result = this.caseCompletionParameter(pcmBlackboardCompletionParameter);
             }
@@ -240,10 +215,7 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
             final PCMTemplateCompletionParameter pcmTemplateCompletionParameter = (PCMTemplateCompletionParameter) theEObject;
             T result = this.casePCMTemplateCompletionParameter(pcmTemplateCompletionParameter);
             if (result == null) {
-                result = this.casePCMBlackboardCompletionParameter(pcmTemplateCompletionParameter);
-            }
-            if (result == null) {
-                result = this.caseTemplateProvidingEntity(pcmTemplateCompletionParameter);
+                result = this.casePCMCompletionParameter(pcmTemplateCompletionParameter);
             }
             if (result == null) {
                 result = this.caseCompletionParameter(pcmTemplateCompletionParameter);
@@ -253,30 +225,14 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
             }
             return result;
         }
-        case ArchitecturaltemplatesPackage.TEMPLATE_PROVIDING_ENTITY: {
-            final TemplateProvidingEntity templateProvidingEntity = (TemplateProvidingEntity) theEObject;
-            T result = this.caseTemplateProvidingEntity(templateProvidingEntity);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
-            return result;
-        }
         case ArchitecturaltemplatesPackage.PCM_OUTPUT_COMPLETION_PARAMETER: {
             final PCMOutputCompletionParameter pcmOutputCompletionParameter = (PCMOutputCompletionParameter) theEObject;
             T result = this.casePCMOutputCompletionParameter(pcmOutputCompletionParameter);
             if (result == null) {
+                result = this.casePCMCompletionParameter(pcmOutputCompletionParameter);
+            }
+            if (result == null) {
                 result = this.caseCompletionParameter(pcmOutputCompletionParameter);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
-            return result;
-        }
-        case ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER: {
-            final GenericOutputCompletionParameter genericOutputCompletionParameter = (GenericOutputCompletionParameter) theEObject;
-            T result = this.caseGenericOutputCompletionParameter(genericOutputCompletionParameter);
-            if (result == null) {
-                result = this.caseCompletionParameter(genericOutputCompletionParameter);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -295,13 +251,54 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
             final IsolatedPCMTemplateCompletionParameter isolatedPCMTemplateCompletionParameter = (IsolatedPCMTemplateCompletionParameter) theEObject;
             T result = this.caseIsolatedPCMTemplateCompletionParameter(isolatedPCMTemplateCompletionParameter);
             if (result == null) {
-                result = this.casePCMBlackboardCompletionParameter(isolatedPCMTemplateCompletionParameter);
+                result = this.casePCMTemplateCompletionParameter(isolatedPCMTemplateCompletionParameter);
             }
             if (result == null) {
-                result = this.caseTemplateProvidingEntity(isolatedPCMTemplateCompletionParameter);
+                result = this.casePCMCompletionParameter(isolatedPCMTemplateCompletionParameter);
             }
             if (result == null) {
                 result = this.caseCompletionParameter(isolatedPCMTemplateCompletionParameter);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case ArchitecturaltemplatesPackage.PCM_COMPLETION_PARAMETER: {
+            final PCMCompletionParameter pcmCompletionParameter = (PCMCompletionParameter) theEObject;
+            T result = this.casePCMCompletionParameter(pcmCompletionParameter);
+            if (result == null) {
+                result = this.caseCompletionParameter(pcmCompletionParameter);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case ArchitecturaltemplatesPackage.FILE_EXTENSION: {
+            final FileExtension fileExtension = (FileExtension) theEObject;
+            T result = this.caseFileExtension(fileExtension);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION: {
+            final PCMFileExtension pcmFileExtension = (PCMFileExtension) theEObject;
+            T result = this.casePCMFileExtension(pcmFileExtension);
+            if (result == null) {
+                result = this.caseFileExtension(pcmFileExtension);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION: {
+            final GenericFileExtension genericFileExtension = (GenericFileExtension) theEObject;
+            T result = this.caseGenericFileExtension(genericFileExtension);
+            if (result == null) {
+                result = this.caseFileExtension(genericFileExtension);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -435,38 +432,6 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Generic Template
-     * Completion Parameter</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Generic Template
-     *         Completion Parameter</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseGenericTemplateCompletionParameter(final GenericTemplateCompletionParameter object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Generic Blackboard
-     * Completion Parameter</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Generic Blackboard
-     *         Completion Parameter</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseGenericBlackboardCompletionParameter(final GenericBlackboardCompletionParameter object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>PCM Blackboard
      * Completion Parameter</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
@@ -499,22 +464,6 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Template Providing
-     * Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
-     * result will terminate the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Template Providing
-     *         Entity</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseTemplateProvidingEntity(final TemplateProvidingEntity object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>PCM Output Completion
      * Parameter</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
@@ -527,22 +476,6 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
      * @generated
      */
     public T casePCMOutputCompletionParameter(final PCMOutputCompletionParameter object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Generic Output
-     * Completion Parameter</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Generic Output
-     *         Completion Parameter</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseGenericOutputCompletionParameter(final GenericOutputCompletionParameter object) {
         return null;
     }
 
@@ -575,6 +508,69 @@ public class ArchitecturaltemplatesSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseIsolatedPCMTemplateCompletionParameter(final IsolatedPCMTemplateCompletionParameter object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>PCM Completion
+     * Parameter</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>PCM Completion
+     *         Parameter</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePCMCompletionParameter(final PCMCompletionParameter object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>File Extension</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>File Extension</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseFileExtension(final FileExtension object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>PCM File
+     * Extension</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>PCM File
+     *         Extension</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T casePCMFileExtension(final PCMFileExtension object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Generic File
+     * Extension</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Generic File
+     *         Extension</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseGenericFileExtension(final GenericFileExtension object) {
         return null;
     }
 

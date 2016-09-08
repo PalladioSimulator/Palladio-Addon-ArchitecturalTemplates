@@ -7,21 +7,21 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesFactory;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
-import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMCompletionParameter;
 
 /**
  * This is the item provider adapter for a
- * {@link org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter} object. <!--
+ * {@link org.palladiosimulator.architecturaltemplates.PCMCompletionParameter} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
-public class PCMTemplateCompletionParameterItemProvider extends PCMCompletionParameterItemProvider {
+public class PCMCompletionParameterItemProvider extends CompletionParameterItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -29,7 +29,7 @@ public class PCMTemplateCompletionParameterItemProvider extends PCMCompletionPar
      *
      * @generated
      */
-    public PCMTemplateCompletionParameterItemProvider(final AdapterFactory adapterFactory) {
+    public PCMCompletionParameterItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -44,38 +44,39 @@ public class PCMTemplateCompletionParameterItemProvider extends PCMCompletionPar
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addTemplateFileURIPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Template File URI feature. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addTemplateFileURIPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_PCMTemplateCompletionParameter_templateFileURI_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_PCMTemplateCompletionParameter_templateFileURI_feature",
-                        "_UI_PCMTemplateCompletionParameter_type"),
-                ArchitecturaltemplatesPackage.Literals.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI, true,
-                false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-    }
-
-    /**
-     * This returns PCMTemplateCompletionParameter.gif. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate
+     * feature for an {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
-    public Object getImage(final Object object) {
-        return this.overlayImage(object,
-                this.getResourceLocator().getImage("full/obj16/PCMTemplateCompletionParameter"));
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
+            super.getChildrenFeatures(object);
+            this.childrenFeatures.add(ArchitecturaltemplatesPackage.Literals.PCM_COMPLETION_PARAMETER__FILE_EXTENSION);
+        }
+        return this.childrenFeatures;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
+        // Check the type of the specified child object and return the proper feature to use for
+        // adding (see {@link AddCommand}) it as a child.
+
+        return super.getChildFeature(object, child);
     }
 
     /**
@@ -86,9 +87,7 @@ public class PCMTemplateCompletionParameterItemProvider extends PCMCompletionPar
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((PCMTemplateCompletionParameter) object).getTemplateFileURI();
-        return label == null || label.length() == 0 ? this.getString("_UI_PCMTemplateCompletionParameter_type")
-                : this.getString("_UI_PCMTemplateCompletionParameter_type") + " " + label;
+        return this.getString("_UI_PCMCompletionParameter_type");
     }
 
     /**
@@ -102,9 +101,9 @@ public class PCMTemplateCompletionParameterItemProvider extends PCMCompletionPar
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(PCMTemplateCompletionParameter.class)) {
-        case ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI:
-            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        switch (notification.getFeatureID(PCMCompletionParameter.class)) {
+        case ArchitecturaltemplatesPackage.PCM_COMPLETION_PARAMETER__FILE_EXTENSION:
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -119,6 +118,14 @@ public class PCMTemplateCompletionParameterItemProvider extends PCMCompletionPar
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+
+        newChildDescriptors.add(this.createChildParameter(
+                ArchitecturaltemplatesPackage.Literals.PCM_COMPLETION_PARAMETER__FILE_EXTENSION,
+                ArchitecturaltemplatesFactory.eINSTANCE.createPCMFileExtension()));
+
+        newChildDescriptors.add(this.createChildParameter(
+                ArchitecturaltemplatesPackage.Literals.PCM_COMPLETION_PARAMETER__FILE_EXTENSION,
+                ArchitecturaltemplatesFactory.eINSTANCE.createGenericFileExtension()));
     }
 
 }

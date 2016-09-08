@@ -12,12 +12,11 @@ import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesFactory;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
 import org.palladiosimulator.architecturaltemplates.Catalog;
-import org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 import org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.OCLConstraint;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
@@ -77,22 +76,20 @@ public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements A
             return this.createOCLConstraint();
         case ArchitecturaltemplatesPackage.QVTO_COMPLETION:
             return this.createQVTOCompletion();
-        case ArchitecturaltemplatesPackage.GENERIC_TEMPLATE_COMPLETION_PARAMETER:
-            return this.createGenericTemplateCompletionParameter();
-        case ArchitecturaltemplatesPackage.GENERIC_BLACKBOARD_COMPLETION_PARAMETER:
-            return this.createGenericBlackboardCompletionParameter();
         case ArchitecturaltemplatesPackage.PCM_BLACKBOARD_COMPLETION_PARAMETER:
             return this.createPCMBlackboardCompletionParameter();
         case ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER:
             return this.createPCMTemplateCompletionParameter();
         case ArchitecturaltemplatesPackage.PCM_OUTPUT_COMPLETION_PARAMETER:
             return this.createPCMOutputCompletionParameter();
-        case ArchitecturaltemplatesPackage.GENERIC_OUTPUT_COMPLETION_PARAMETER:
-            return this.createGenericOutputCompletionParameter();
         case ArchitecturaltemplatesPackage.RECONFIGURATION_FOLDER:
             return this.createReconfigurationFolder();
         case ArchitecturaltemplatesPackage.ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER:
             return this.createIsolatedPCMTemplateCompletionParameter();
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION:
+            return this.createPCMFileExtension();
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION:
+            return this.createGenericFileExtension();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -189,28 +186,6 @@ public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements A
      * @generated
      */
     @Override
-    public GenericTemplateCompletionParameter createGenericTemplateCompletionParameter() {
-        final GenericTemplateCompletionParameterImpl genericTemplateCompletionParameter = new GenericTemplateCompletionParameterImpl();
-        return genericTemplateCompletionParameter;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public GenericBlackboardCompletionParameter createGenericBlackboardCompletionParameter() {
-        final GenericBlackboardCompletionParameterImpl genericBlackboardCompletionParameter = new GenericBlackboardCompletionParameterImpl();
-        return genericBlackboardCompletionParameter;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public PCMBlackboardCompletionParameter createPCMBlackboardCompletionParameter() {
         final PCMBlackboardCompletionParameterImpl pcmBlackboardCompletionParameter = new PCMBlackboardCompletionParameterImpl();
         return pcmBlackboardCompletionParameter;
@@ -244,17 +219,6 @@ public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements A
      * @generated
      */
     @Override
-    public GenericOutputCompletionParameter createGenericOutputCompletionParameter() {
-        final GenericOutputCompletionParameterImpl genericOutputCompletionParameter = new GenericOutputCompletionParameterImpl();
-        return genericOutputCompletionParameter;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
     public ReconfigurationFolder createReconfigurationFolder() {
         final ReconfigurationFolderImpl reconfigurationFolder = new ReconfigurationFolderImpl();
         return reconfigurationFolder;
@@ -269,6 +233,28 @@ public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements A
     public IsolatedPCMTemplateCompletionParameter createIsolatedPCMTemplateCompletionParameter() {
         final IsolatedPCMTemplateCompletionParameterImpl isolatedPCMTemplateCompletionParameter = new IsolatedPCMTemplateCompletionParameterImpl();
         return isolatedPCMTemplateCompletionParameter;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public PCMFileExtension createPCMFileExtension() {
+        final PCMFileExtensionImpl pcmFileExtension = new PCMFileExtensionImpl();
+        return pcmFileExtension;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public GenericFileExtension createGenericFileExtension() {
+        final GenericFileExtensionImpl genericFileExtension = new GenericFileExtensionImpl();
+        return genericFileExtension;
     }
 
     /**

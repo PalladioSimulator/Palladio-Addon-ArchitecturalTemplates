@@ -7,13 +7,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
-import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
-import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 
 /**
  * This is the item provider adapter for a
@@ -22,7 +16,7 @@ import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter
  *
  * @generated
  */
-public class PCMOutputCompletionParameterItemProvider extends CompletionParameterItemProvider {
+public class PCMOutputCompletionParameterItemProvider extends PCMCompletionParameterItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -45,26 +39,8 @@ public class PCMOutputCompletionParameterItemProvider extends CompletionParamete
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addFileExtensionPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the File Extension feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addFileExtensionPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_PCMOutputCompletionParameter_fileExtension_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_PCMOutputCompletionParameter_fileExtension_feature",
-                        "_UI_PCMOutputCompletionParameter_type"),
-                ArchitecturaltemplatesPackage.Literals.PCM_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION, true, false,
-                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -85,10 +61,7 @@ public class PCMOutputCompletionParameterItemProvider extends CompletionParamete
      */
     @Override
     public String getText(final Object object) {
-        final PCMFileExtensions labelValue = ((PCMOutputCompletionParameter) object).getFileExtension();
-        final String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? this.getString("_UI_PCMOutputCompletionParameter_type")
-                : this.getString("_UI_PCMOutputCompletionParameter_type") + " " + label;
+        return this.getString("_UI_PCMOutputCompletionParameter_type");
     }
 
     /**
@@ -101,12 +74,6 @@ public class PCMOutputCompletionParameterItemProvider extends CompletionParamete
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
-
-        switch (notification.getFeatureID(PCMOutputCompletionParameter.class)) {
-        case ArchitecturaltemplatesPackage.PCM_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION:
-            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
-        }
         super.notifyChanged(notification);
     }
 

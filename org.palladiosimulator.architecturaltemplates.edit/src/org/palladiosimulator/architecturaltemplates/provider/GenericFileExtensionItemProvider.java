@@ -12,16 +12,16 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
-import org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 
 /**
  * This is the item provider adapter for a
- * {@link org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter} object.
- * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * {@link org.palladiosimulator.architecturaltemplates.GenericFileExtension} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
  *
  * @generated
  */
-public class GenericTemplateCompletionParameterItemProvider extends GenericBlackboardCompletionParameterItemProvider {
+public class GenericFileExtensionItemProvider extends FileExtensionItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -29,7 +29,7 @@ public class GenericTemplateCompletionParameterItemProvider extends GenericBlack
      *
      * @generated
      */
-    public GenericTemplateCompletionParameterItemProvider(final AdapterFactory adapterFactory) {
+    public GenericFileExtensionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -44,37 +44,35 @@ public class GenericTemplateCompletionParameterItemProvider extends GenericBlack
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addTemplateFileURIPropertyDescriptor(object);
+            this.addFileExtensionPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Template File URI feature. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This adds a property descriptor for the File Extension feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @generated
      */
-    protected void addTemplateFileURIPropertyDescriptor(final Object object) {
+    protected void addFileExtensionPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_TemplateProvidingEntity_templateFileURI_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_TemplateProvidingEntity_templateFileURI_feature", "_UI_TemplateProvidingEntity_type"),
-                ArchitecturaltemplatesPackage.Literals.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI, true, false, false,
+                this.getString("_UI_GenericFileExtension_fileExtension_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_GenericFileExtension_fileExtension_feature",
+                        "_UI_GenericFileExtension_type"),
+                ArchitecturaltemplatesPackage.Literals.GENERIC_FILE_EXTENSION__FILE_EXTENSION, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
-     * This returns GenericTemplateCompletionParameter.gif. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * This returns GenericFileExtension.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     @Override
     public Object getImage(final Object object) {
-        return this.overlayImage(object,
-                this.getResourceLocator().getImage("full/obj16/GenericTemplateCompletionParameter"));
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/GenericFileExtension"));
     }
 
     /**
@@ -85,9 +83,9 @@ public class GenericTemplateCompletionParameterItemProvider extends GenericBlack
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((GenericTemplateCompletionParameter) object).getFileExtension();
-        return label == null || label.length() == 0 ? this.getString("_UI_GenericTemplateCompletionParameter_type")
-                : this.getString("_UI_GenericTemplateCompletionParameter_type") + " " + label;
+        final String label = ((GenericFileExtension) object).getFileExtension();
+        return label == null || label.length() == 0 ? this.getString("_UI_GenericFileExtension_type")
+                : this.getString("_UI_GenericFileExtension_type") + " " + label;
     }
 
     /**
@@ -101,8 +99,8 @@ public class GenericTemplateCompletionParameterItemProvider extends GenericBlack
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(GenericTemplateCompletionParameter.class)) {
-        case ArchitecturaltemplatesPackage.GENERIC_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI:
+        switch (notification.getFeatureID(GenericFileExtension.class)) {
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION__FILE_EXTENSION:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }

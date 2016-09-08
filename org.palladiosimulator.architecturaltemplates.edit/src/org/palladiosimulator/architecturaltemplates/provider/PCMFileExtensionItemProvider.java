@@ -7,29 +7,22 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage;
-import org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtensions;
 
 /**
  * This is the item provider adapter for a
- * {@link org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity} object. <!--
- * begin-user-doc --> <!-- end-user-doc -->
+ * {@link org.palladiosimulator.architecturaltemplates.PCMFileExtension} object. <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
  *
  * @generated
  */
-public class TemplateProvidingEntityItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class PCMFileExtensionItemProvider extends FileExtensionItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -37,7 +30,7 @@ public class TemplateProvidingEntityItemProvider extends ItemProviderAdapter imp
      *
      * @generated
      */
-    public TemplateProvidingEntityItemProvider(final AdapterFactory adapterFactory) {
+    public PCMFileExtensionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -52,25 +45,35 @@ public class TemplateProvidingEntityItemProvider extends ItemProviderAdapter imp
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addTemplateFileURIPropertyDescriptor(object);
+            this.addFileExtensionPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Template File URI feature. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This adds a property descriptor for the File Extension feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @generated
      */
-    protected void addTemplateFileURIPropertyDescriptor(final Object object) {
+    protected void addFileExtensionPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_TemplateProvidingEntity_templateFileURI_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_TemplateProvidingEntity_templateFileURI_feature", "_UI_TemplateProvidingEntity_type"),
-                ArchitecturaltemplatesPackage.Literals.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI, true, false, false,
+                this.getString("_UI_PCMFileExtension_fileExtension_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_PCMFileExtension_fileExtension_feature",
+                        "_UI_PCMFileExtension_type"),
+                ArchitecturaltemplatesPackage.Literals.PCM_FILE_EXTENSION__FILE_EXTENSION, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+    }
+
+    /**
+     * This returns PCMFileExtension.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/PCMFileExtension"));
     }
 
     /**
@@ -81,9 +84,10 @@ public class TemplateProvidingEntityItemProvider extends ItemProviderAdapter imp
      */
     @Override
     public String getText(final Object object) {
-        final String label = ((TemplateProvidingEntity) object).getTemplateFileURI();
-        return label == null || label.length() == 0 ? this.getString("_UI_TemplateProvidingEntity_type")
-                : this.getString("_UI_TemplateProvidingEntity_type") + " " + label;
+        final PCMFileExtensions labelValue = ((PCMFileExtension) object).getFileExtension();
+        final String label = labelValue == null ? null : labelValue.toString();
+        return label == null || label.length() == 0 ? this.getString("_UI_PCMFileExtension_type")
+                : this.getString("_UI_PCMFileExtension_type") + " " + label;
     }
 
     /**
@@ -97,8 +101,8 @@ public class TemplateProvidingEntityItemProvider extends ItemProviderAdapter imp
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(TemplateProvidingEntity.class)) {
-        case ArchitecturaltemplatesPackage.TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI:
+        switch (notification.getFeatureID(PCMFileExtension.class)) {
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION__FILE_EXTENSION:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
@@ -114,17 +118,6 @@ public class TemplateProvidingEntityItemProvider extends ItemProviderAdapter imp
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return ArchitecturaltemplatesEditPlugin.INSTANCE;
     }
 
 }

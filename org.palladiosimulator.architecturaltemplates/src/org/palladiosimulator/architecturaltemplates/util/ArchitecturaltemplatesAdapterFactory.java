@@ -12,18 +12,18 @@ import org.palladiosimulator.architecturaltemplates.Catalog;
 import org.palladiosimulator.architecturaltemplates.Completion;
 import org.palladiosimulator.architecturaltemplates.CompletionParameter;
 import org.palladiosimulator.architecturaltemplates.Constraint;
-import org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter;
-import org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.FileExtension;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 import org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.OCLConstraint;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.ReconfigurationFolder;
 import org.palladiosimulator.architecturaltemplates.Role;
-import org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
 
@@ -124,16 +124,6 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseGenericTemplateCompletionParameter(final GenericTemplateCompletionParameter object) {
-            return ArchitecturaltemplatesAdapterFactory.this.createGenericTemplateCompletionParameterAdapter();
-        }
-
-        @Override
-        public Adapter caseGenericBlackboardCompletionParameter(final GenericBlackboardCompletionParameter object) {
-            return ArchitecturaltemplatesAdapterFactory.this.createGenericBlackboardCompletionParameterAdapter();
-        }
-
-        @Override
         public Adapter casePCMBlackboardCompletionParameter(final PCMBlackboardCompletionParameter object) {
             return ArchitecturaltemplatesAdapterFactory.this.createPCMBlackboardCompletionParameterAdapter();
         }
@@ -144,18 +134,8 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseTemplateProvidingEntity(final TemplateProvidingEntity object) {
-            return ArchitecturaltemplatesAdapterFactory.this.createTemplateProvidingEntityAdapter();
-        }
-
-        @Override
         public Adapter casePCMOutputCompletionParameter(final PCMOutputCompletionParameter object) {
             return ArchitecturaltemplatesAdapterFactory.this.createPCMOutputCompletionParameterAdapter();
-        }
-
-        @Override
-        public Adapter caseGenericOutputCompletionParameter(final GenericOutputCompletionParameter object) {
-            return ArchitecturaltemplatesAdapterFactory.this.createGenericOutputCompletionParameterAdapter();
         }
 
         @Override
@@ -166,6 +146,26 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseIsolatedPCMTemplateCompletionParameter(final IsolatedPCMTemplateCompletionParameter object) {
             return ArchitecturaltemplatesAdapterFactory.this.createIsolatedPCMTemplateCompletionParameterAdapter();
+        }
+
+        @Override
+        public Adapter casePCMCompletionParameter(final PCMCompletionParameter object) {
+            return ArchitecturaltemplatesAdapterFactory.this.createPCMCompletionParameterAdapter();
+        }
+
+        @Override
+        public Adapter caseFileExtension(final FileExtension object) {
+            return ArchitecturaltemplatesAdapterFactory.this.createFileExtensionAdapter();
+        }
+
+        @Override
+        public Adapter casePCMFileExtension(final PCMFileExtension object) {
+            return ArchitecturaltemplatesAdapterFactory.this.createPCMFileExtensionAdapter();
+        }
+
+        @Override
+        public Adapter caseGenericFileExtension(final GenericFileExtension object) {
+            return ArchitecturaltemplatesAdapterFactory.this.createGenericFileExtensionAdapter();
         }
 
         @Override
@@ -323,36 +323,6 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter
-     * <em>Generic Template Completion Parameter</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
-     * @see org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter
-     * @generated
-     */
-    public Adapter createGenericTemplateCompletionParameterAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter
-     * <em>Generic Blackboard Completion Parameter</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
-     * @see org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter
-     * @generated
-     */
-    public Adapter createGenericBlackboardCompletionParameterAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class
      * '{@link org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter <em>PCM
      * Blackboard Completion Parameter</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
@@ -383,21 +353,6 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class
-     * '{@link org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity <em>Template
-     * Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
-     * @see org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity
-     * @generated
-     */
-    public Adapter createTemplateProvidingEntityAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class
      * '{@link org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter <em>PCM
      * Output Completion Parameter</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
@@ -408,21 +363,6 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createPCMOutputCompletionParameterAdapter() {
-        return null;
-    }
-
-    /**
-     * Creates a new adapter for an object of class
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter
-     * <em>Generic Output Completion Parameter</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
-     * @see org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter
-     * @generated
-     */
-    public Adapter createGenericOutputCompletionParameterAdapter() {
         return null;
     }
 
@@ -453,6 +393,66 @@ public class ArchitecturaltemplatesAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createIsolatedPCMTemplateCompletionParameterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMCompletionParameter <em>PCM
+     * Completion Parameter</em>}'. <!-- begin-user-doc --> This default implementation returns null
+     * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
+     * all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.architecturaltemplates.PCMCompletionParameter
+     * @generated
+     */
+    public Adapter createPCMCompletionParameterAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.architecturaltemplates.FileExtension <em>File Extension</em>}'.
+     * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.architecturaltemplates.FileExtension
+     * @generated
+     */
+    public Adapter createFileExtensionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMFileExtension <em>PCM File
+     * Extension</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.architecturaltemplates.PCMFileExtension
+     * @generated
+     */
+    public Adapter createPCMFileExtensionAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.architecturaltemplates.GenericFileExtension <em>Generic File
+     * Extension</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.architecturaltemplates.GenericFileExtension
+     * @generated
+     */
+    public Adapter createGenericFileExtensionAdapter() {
         return null;
     }
 

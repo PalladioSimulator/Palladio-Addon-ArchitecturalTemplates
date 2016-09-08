@@ -485,15 +485,14 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
 
     /**
      * The meta object id for the
-     * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericBlackboardCompletionParameterImpl
-     * <em>Generic Blackboard Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * '{@link org.palladiosimulator.architecturaltemplates.impl.PCMCompletionParameterImpl <em>PCM
+     * Completion Parameter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @see org.palladiosimulator.architecturaltemplates.impl.GenericBlackboardCompletionParameterImpl
-     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericBlackboardCompletionParameter()
+     * @see org.palladiosimulator.architecturaltemplates.impl.PCMCompletionParameterImpl
+     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMCompletionParameter()
      * @generated
      */
-    int GENERIC_BLACKBOARD_COMPLETION_PARAMETER = 9;
+    int PCM_COMPLETION_PARAMETER = 13;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -502,74 +501,25 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int GENERIC_BLACKBOARD_COMPLETION_PARAMETER__COMPLETION = COMPLETION_PARAMETER__COMPLETION;
+    int PCM_COMPLETION_PARAMETER__COMPLETION = COMPLETION_PARAMETER__COMPLETION;
 
     /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The feature id for the '<em><b>File Extension</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION = COMPLETION_PARAMETER_FEATURE_COUNT + 0;
+    int PCM_COMPLETION_PARAMETER__FILE_EXTENSION = COMPLETION_PARAMETER_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Generic Blackboard Completion Parameter</em>'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The number of structural features of the '<em>PCM Completion Parameter</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int GENERIC_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT = COMPLETION_PARAMETER_FEATURE_COUNT + 1;
-
-    /**
-     * The meta object id for the
-     * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericTemplateCompletionParameterImpl
-     * <em>Generic Template Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see org.palladiosimulator.architecturaltemplates.impl.GenericTemplateCompletionParameterImpl
-     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericTemplateCompletionParameter()
-     * @generated
-     */
-    int GENERIC_TEMPLATE_COMPLETION_PARAMETER = 8;
-
-    /**
-     * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_TEMPLATE_COMPLETION_PARAMETER__COMPLETION = GENERIC_BLACKBOARD_COMPLETION_PARAMETER__COMPLETION;
-
-    /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_TEMPLATE_COMPLETION_PARAMETER__FILE_EXTENSION = GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION;
-
-    /**
-     * The feature id for the '<em><b>Template File URI</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI = GENERIC_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT
-            + 0;
-
-    /**
-     * The number of structural features of the '<em>Generic Template Completion Parameter</em>'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_TEMPLATE_COMPLETION_PARAMETER_FEATURE_COUNT = GENERIC_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT + 1;
+    int PCM_COMPLETION_PARAMETER_FEATURE_COUNT = COMPLETION_PARAMETER_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the
@@ -581,7 +531,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMBlackboardCompletionParameter()
      * @generated
      */
-    int PCM_BLACKBOARD_COMPLETION_PARAMETER = 10;
+    int PCM_BLACKBOARD_COMPLETION_PARAMETER = 8;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -590,16 +540,16 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_BLACKBOARD_COMPLETION_PARAMETER__COMPLETION = COMPLETION_PARAMETER__COMPLETION;
+    int PCM_BLACKBOARD_COMPLETION_PARAMETER__COMPLETION = PCM_COMPLETION_PARAMETER__COMPLETION;
 
     /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The feature id for the '<em><b>File Extension</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PCM_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION = COMPLETION_PARAMETER_FEATURE_COUNT + 0;
+    int PCM_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION = PCM_COMPLETION_PARAMETER__FILE_EXTENSION;
 
     /**
      * The number of structural features of the '<em>PCM Blackboard Completion Parameter</em>'
@@ -608,7 +558,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT = COMPLETION_PARAMETER_FEATURE_COUNT + 1;
+    int PCM_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT = PCM_COMPLETION_PARAMETER_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the
@@ -620,7 +570,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMTemplateCompletionParameter()
      * @generated
      */
-    int PCM_TEMPLATE_COMPLETION_PARAMETER = 11;
+    int PCM_TEMPLATE_COMPLETION_PARAMETER = 9;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -629,16 +579,16 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_TEMPLATE_COMPLETION_PARAMETER__COMPLETION = PCM_BLACKBOARD_COMPLETION_PARAMETER__COMPLETION;
+    int PCM_TEMPLATE_COMPLETION_PARAMETER__COMPLETION = PCM_COMPLETION_PARAMETER__COMPLETION;
 
     /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The feature id for the '<em><b>File Extension</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PCM_TEMPLATE_COMPLETION_PARAMETER__FILE_EXTENSION = PCM_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION;
+    int PCM_TEMPLATE_COMPLETION_PARAMETER__FILE_EXTENSION = PCM_COMPLETION_PARAMETER__FILE_EXTENSION;
 
     /**
      * The feature id for the '<em><b>Template File URI</b></em>' attribute. <!-- begin-user-doc -->
@@ -647,7 +597,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI = PCM_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT + 0;
+    int PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI = PCM_COMPLETION_PARAMETER_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>PCM Template Completion Parameter</em>' class.
@@ -656,36 +606,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_TEMPLATE_COMPLETION_PARAMETER_FEATURE_COUNT = PCM_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT + 1;
-
-    /**
-     * The meta object id for the
-     * '{@link org.palladiosimulator.architecturaltemplates.impl.TemplateProvidingEntityImpl
-     * <em>Template Providing Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see org.palladiosimulator.architecturaltemplates.impl.TemplateProvidingEntityImpl
-     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getTemplateProvidingEntity()
-     * @generated
-     */
-    int TEMPLATE_PROVIDING_ENTITY = 12;
-
-    /**
-     * The feature id for the '<em><b>Template File URI</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI = 0;
-
-    /**
-     * The number of structural features of the '<em>Template Providing Entity</em>' class. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int TEMPLATE_PROVIDING_ENTITY_FEATURE_COUNT = 1;
+    int PCM_TEMPLATE_COMPLETION_PARAMETER_FEATURE_COUNT = PCM_COMPLETION_PARAMETER_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the
@@ -697,7 +618,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMOutputCompletionParameter()
      * @generated
      */
-    int PCM_OUTPUT_COMPLETION_PARAMETER = 13;
+    int PCM_OUTPUT_COMPLETION_PARAMETER = 10;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -706,16 +627,16 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_OUTPUT_COMPLETION_PARAMETER__COMPLETION = COMPLETION_PARAMETER__COMPLETION;
+    int PCM_OUTPUT_COMPLETION_PARAMETER__COMPLETION = PCM_COMPLETION_PARAMETER__COMPLETION;
 
     /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The feature id for the '<em><b>File Extension</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PCM_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION = COMPLETION_PARAMETER_FEATURE_COUNT + 0;
+    int PCM_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION = PCM_COMPLETION_PARAMETER__FILE_EXTENSION;
 
     /**
      * The number of structural features of the '<em>PCM Output Completion Parameter</em>' class.
@@ -724,46 +645,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_OUTPUT_COMPLETION_PARAMETER_FEATURE_COUNT = COMPLETION_PARAMETER_FEATURE_COUNT + 1;
-
-    /**
-     * The meta object id for the
-     * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericOutputCompletionParameterImpl
-     * <em>Generic Output Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see org.palladiosimulator.architecturaltemplates.impl.GenericOutputCompletionParameterImpl
-     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericOutputCompletionParameter()
-     * @generated
-     */
-    int GENERIC_OUTPUT_COMPLETION_PARAMETER = 14;
-
-    /**
-     * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_OUTPUT_COMPLETION_PARAMETER__COMPLETION = COMPLETION_PARAMETER__COMPLETION;
-
-    /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION = COMPLETION_PARAMETER_FEATURE_COUNT + 0;
-
-    /**
-     * The number of structural features of the '<em>Generic Output Completion Parameter</em>'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int GENERIC_OUTPUT_COMPLETION_PARAMETER_FEATURE_COUNT = COMPLETION_PARAMETER_FEATURE_COUNT + 1;
+    int PCM_OUTPUT_COMPLETION_PARAMETER_FEATURE_COUNT = PCM_COMPLETION_PARAMETER_FEATURE_COUNT + 0;
 
     /**
      * The meta object id for the
@@ -774,7 +656,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getReconfigurationFolder()
      * @generated
      */
-    int RECONFIGURATION_FOLDER = 15;
+    int RECONFIGURATION_FOLDER = 11;
 
     /**
      * The feature id for the '<em><b>Folder URI</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -804,7 +686,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getIsolatedPCMTemplateCompletionParameter()
      * @generated
      */
-    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER = 16;
+    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER = 12;
 
     /**
      * The feature id for the '<em><b>Completion</b></em>' container reference. <!-- begin-user-doc
@@ -813,16 +695,16 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__COMPLETION = PCM_BLACKBOARD_COMPLETION_PARAMETER__COMPLETION;
+    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__COMPLETION = PCM_TEMPLATE_COMPLETION_PARAMETER__COMPLETION;
 
     /**
-     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The feature id for the '<em><b>File Extension</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__FILE_EXTENSION = PCM_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION;
+    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__FILE_EXTENSION = PCM_TEMPLATE_COMPLETION_PARAMETER__FILE_EXTENSION;
 
     /**
      * The feature id for the '<em><b>Template File URI</b></em>' attribute. <!-- begin-user-doc -->
@@ -831,8 +713,7 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI = PCM_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT
-            + 0;
+    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI = PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI;
 
     /**
      * The number of structural features of the '<em>Isolated PCM Template Completion
@@ -841,8 +722,85 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER_FEATURE_COUNT = PCM_BLACKBOARD_COMPLETION_PARAMETER_FEATURE_COUNT
-            + 1;
+    int ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER_FEATURE_COUNT = PCM_TEMPLATE_COMPLETION_PARAMETER_FEATURE_COUNT + 0;
+
+    /**
+     * The meta object id for the
+     * '{@link org.palladiosimulator.architecturaltemplates.impl.FileExtensionImpl <em>File
+     * Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.palladiosimulator.architecturaltemplates.impl.FileExtensionImpl
+     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getFileExtension()
+     * @generated
+     */
+    int FILE_EXTENSION = 14;
+
+    /**
+     * The number of structural features of the '<em>File Extension</em>' class. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int FILE_EXTENSION_FEATURE_COUNT = 0;
+
+    /**
+     * The meta object id for the
+     * '{@link org.palladiosimulator.architecturaltemplates.impl.PCMFileExtensionImpl <em>PCM File
+     * Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.palladiosimulator.architecturaltemplates.impl.PCMFileExtensionImpl
+     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMFileExtension()
+     * @generated
+     */
+    int PCM_FILE_EXTENSION = 15;
+
+    /**
+     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int PCM_FILE_EXTENSION__FILE_EXTENSION = FILE_EXTENSION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>PCM File Extension</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int PCM_FILE_EXTENSION_FEATURE_COUNT = FILE_EXTENSION_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the
+     * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericFileExtensionImpl
+     * <em>Generic File Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.palladiosimulator.architecturaltemplates.impl.GenericFileExtensionImpl
+     * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericFileExtension()
+     * @generated
+     */
+    int GENERIC_FILE_EXTENSION = 16;
+
+    /**
+     * The feature id for the '<em><b>File Extension</b></em>' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int GENERIC_FILE_EXTENSION__FILE_EXTENSION = FILE_EXTENSION_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Generic File Extension</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int GENERIC_FILE_EXTENSION_FEATURE_COUNT = FILE_EXTENSION_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the
@@ -1135,42 +1093,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
 
     /**
      * Returns the meta object for class
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter
-     * <em>Generic Template Completion Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @return the meta object for class '<em>Generic Template Completion Parameter</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.GenericTemplateCompletionParameter
-     * @generated
-     */
-    EClass getGenericTemplateCompletionParameter();
-
-    /**
-     * Returns the meta object for class
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter
-     * <em>Generic Blackboard Completion Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @return the meta object for class '<em>Generic Blackboard Completion Parameter</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter
-     * @generated
-     */
-    EClass getGenericBlackboardCompletionParameter();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter#getFileExtension
-     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>File Extension</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.GenericBlackboardCompletionParameter#getFileExtension()
-     * @see #getGenericBlackboardCompletionParameter()
-     * @generated
-     */
-    EAttribute getGenericBlackboardCompletionParameter_FileExtension();
-
-    /**
-     * Returns the meta object for class
      * '{@link org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter <em>PCM
      * Blackboard Completion Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1179,18 +1101,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      */
     EClass getPCMBlackboardCompletionParameter();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter#getFileExtension
-     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>File Extension</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter#getFileExtension()
-     * @see #getPCMBlackboardCompletionParameter()
-     * @generated
-     */
-    EAttribute getPCMBlackboardCompletionParameter_FileExtension();
 
     /**
      * Returns the meta object for class
@@ -1204,27 +1114,16 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EClass getPCMTemplateCompletionParameter();
 
     /**
-     * Returns the meta object for class
-     * '{@link org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity <em>Template
-     * Providing Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for class '<em>Template Providing Entity</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity
-     * @generated
-     */
-    EClass getTemplateProvidingEntity();
-
-    /**
      * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity#getTemplateFileURI
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter#getTemplateFileURI
      * <em>Template File URI</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Template File URI</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.TemplateProvidingEntity#getTemplateFileURI()
-     * @see #getTemplateProvidingEntity()
+     * @see org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter#getTemplateFileURI()
+     * @see #getPCMTemplateCompletionParameter()
      * @generated
      */
-    EAttribute getTemplateProvidingEntity_TemplateFileURI();
+    EAttribute getPCMTemplateCompletionParameter_TemplateFileURI();
 
     /**
      * Returns the meta object for class
@@ -1236,41 +1135,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      */
     EClass getPCMOutputCompletionParameter();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter#getFileExtension
-     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>File Extension</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter#getFileExtension()
-     * @see #getPCMOutputCompletionParameter()
-     * @generated
-     */
-    EAttribute getPCMOutputCompletionParameter_FileExtension();
-
-    /**
-     * Returns the meta object for class
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter
-     * <em>Generic Output Completion Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for class '<em>Generic Output Completion Parameter</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter
-     * @generated
-     */
-    EClass getGenericOutputCompletionParameter();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter#getFileExtension
-     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>File Extension</em>'.
-     * @see org.palladiosimulator.architecturaltemplates.GenericOutputCompletionParameter#getFileExtension()
-     * @see #getGenericOutputCompletionParameter()
-     * @generated
-     */
-    EAttribute getGenericOutputCompletionParameter_FileExtension();
 
     /**
      * Returns the meta object for class
@@ -1306,6 +1170,86 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
      * @generated
      */
     EClass getIsolatedPCMTemplateCompletionParameter();
+
+    /**
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMCompletionParameter <em>PCM
+     * Completion Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>PCM Completion Parameter</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.PCMCompletionParameter
+     * @generated
+     */
+    EClass getPCMCompletionParameter();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMCompletionParameter#getFileExtension
+     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>File Extension</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.PCMCompletionParameter#getFileExtension()
+     * @see #getPCMCompletionParameter()
+     * @generated
+     */
+    EReference getPCMCompletionParameter_FileExtension();
+
+    /**
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.architecturaltemplates.FileExtension <em>File Extension</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>File Extension</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.FileExtension
+     * @generated
+     */
+    EClass getFileExtension();
+
+    /**
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMFileExtension <em>PCM File
+     * Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>PCM File Extension</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.PCMFileExtension
+     * @generated
+     */
+    EClass getPCMFileExtension();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.architecturaltemplates.PCMFileExtension#getFileExtension
+     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>File Extension</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.PCMFileExtension#getFileExtension()
+     * @see #getPCMFileExtension()
+     * @generated
+     */
+    EAttribute getPCMFileExtension_FileExtension();
+
+    /**
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.architecturaltemplates.GenericFileExtension <em>Generic File
+     * Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Generic File Extension</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.GenericFileExtension
+     * @generated
+     */
+    EClass getGenericFileExtension();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.architecturaltemplates.GenericFileExtension#getFileExtension
+     * <em>File Extension</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>File Extension</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.GenericFileExtension#getFileExtension()
+     * @see #getGenericFileExtension()
+     * @generated
+     */
+    EAttribute getGenericFileExtension_FileExtension();
 
     /**
      * Returns the meta object for enum
@@ -1559,39 +1503,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
 
         /**
          * The meta object literal for the
-         * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericTemplateCompletionParameterImpl
-         * <em>Generic Template Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @see org.palladiosimulator.architecturaltemplates.impl.GenericTemplateCompletionParameterImpl
-         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericTemplateCompletionParameter()
-         * @generated
-         */
-        EClass GENERIC_TEMPLATE_COMPLETION_PARAMETER = eINSTANCE.getGenericTemplateCompletionParameter();
-
-        /**
-         * The meta object literal for the
-         * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericBlackboardCompletionParameterImpl
-         * <em>Generic Blackboard Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @see org.palladiosimulator.architecturaltemplates.impl.GenericBlackboardCompletionParameterImpl
-         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericBlackboardCompletionParameter()
-         * @generated
-         */
-        EClass GENERIC_BLACKBOARD_COMPLETION_PARAMETER = eINSTANCE.getGenericBlackboardCompletionParameter();
-
-        /**
-         * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute GENERIC_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION = eINSTANCE
-                .getGenericBlackboardCompletionParameter_FileExtension();
-
-        /**
-         * The meta object literal for the
          * '{@link org.palladiosimulator.architecturaltemplates.impl.PCMBlackboardCompletionParameterImpl
          * <em>PCM Blackboard Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
@@ -1601,15 +1512,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EClass PCM_BLACKBOARD_COMPLETION_PARAMETER = eINSTANCE.getPCMBlackboardCompletionParameter();
-
-        /**
-         * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute PCM_BLACKBOARD_COMPLETION_PARAMETER__FILE_EXTENSION = eINSTANCE
-                .getPCMBlackboardCompletionParameter_FileExtension();
 
         /**
          * The meta object literal for the
@@ -1624,24 +1526,13 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
         EClass PCM_TEMPLATE_COMPLETION_PARAMETER = eINSTANCE.getPCMTemplateCompletionParameter();
 
         /**
-         * The meta object literal for the
-         * '{@link org.palladiosimulator.architecturaltemplates.impl.TemplateProvidingEntityImpl
-         * <em>Template Providing Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @see org.palladiosimulator.architecturaltemplates.impl.TemplateProvidingEntityImpl
-         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getTemplateProvidingEntity()
-         * @generated
-         */
-        EClass TEMPLATE_PROVIDING_ENTITY = eINSTANCE.getTemplateProvidingEntity();
-
-        /**
          * The meta object literal for the '<em><b>Template File URI</b></em>' attribute feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
-        EAttribute TEMPLATE_PROVIDING_ENTITY__TEMPLATE_FILE_URI = eINSTANCE
-                .getTemplateProvidingEntity_TemplateFileURI();
+        EAttribute PCM_TEMPLATE_COMPLETION_PARAMETER__TEMPLATE_FILE_URI = eINSTANCE
+                .getPCMTemplateCompletionParameter_TemplateFileURI();
 
         /**
          * The meta object literal for the
@@ -1654,36 +1545,6 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EClass PCM_OUTPUT_COMPLETION_PARAMETER = eINSTANCE.getPCMOutputCompletionParameter();
-
-        /**
-         * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute PCM_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION = eINSTANCE
-                .getPCMOutputCompletionParameter_FileExtension();
-
-        /**
-         * The meta object literal for the
-         * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericOutputCompletionParameterImpl
-         * <em>Generic Output Completion Parameter</em>}' class. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @see org.palladiosimulator.architecturaltemplates.impl.GenericOutputCompletionParameterImpl
-         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericOutputCompletionParameter()
-         * @generated
-         */
-        EClass GENERIC_OUTPUT_COMPLETION_PARAMETER = eINSTANCE.getGenericOutputCompletionParameter();
-
-        /**
-         * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute GENERIC_OUTPUT_COMPLETION_PARAMETER__FILE_EXTENSION = eINSTANCE
-                .getGenericOutputCompletionParameter_FileExtension();
 
         /**
          * The meta object literal for the
@@ -1715,6 +1576,74 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EClass ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER = eINSTANCE.getIsolatedPCMTemplateCompletionParameter();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.architecturaltemplates.impl.PCMCompletionParameterImpl
+         * <em>PCM Completion Parameter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.palladiosimulator.architecturaltemplates.impl.PCMCompletionParameterImpl
+         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMCompletionParameter()
+         * @generated
+         */
+        EClass PCM_COMPLETION_PARAMETER = eINSTANCE.getPCMCompletionParameter();
+
+        /**
+         * The meta object literal for the '<em><b>File Extension</b></em>' containment reference
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference PCM_COMPLETION_PARAMETER__FILE_EXTENSION = eINSTANCE.getPCMCompletionParameter_FileExtension();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.architecturaltemplates.impl.FileExtensionImpl <em>File
+         * Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.palladiosimulator.architecturaltemplates.impl.FileExtensionImpl
+         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getFileExtension()
+         * @generated
+         */
+        EClass FILE_EXTENSION = eINSTANCE.getFileExtension();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.architecturaltemplates.impl.PCMFileExtensionImpl <em>PCM
+         * File Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.palladiosimulator.architecturaltemplates.impl.PCMFileExtensionImpl
+         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getPCMFileExtension()
+         * @generated
+         */
+        EClass PCM_FILE_EXTENSION = eINSTANCE.getPCMFileExtension();
+
+        /**
+         * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute PCM_FILE_EXTENSION__FILE_EXTENSION = eINSTANCE.getPCMFileExtension_FileExtension();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.architecturaltemplates.impl.GenericFileExtensionImpl
+         * <em>Generic File Extension</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @see org.palladiosimulator.architecturaltemplates.impl.GenericFileExtensionImpl
+         * @see org.palladiosimulator.architecturaltemplates.impl.ArchitecturaltemplatesPackageImpl#getGenericFileExtension()
+         * @generated
+         */
+        EClass GENERIC_FILE_EXTENSION = eINSTANCE.getGenericFileExtension();
+
+        /**
+         * The meta object literal for the '<em><b>File Extension</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute GENERIC_FILE_EXTENSION__FILE_EXTENSION = eINSTANCE.getGenericFileExtension_FileExtension();
 
         /**
          * The meta object literal for the

@@ -65,24 +65,6 @@ public interface ArchitecturaltemplatesFactory extends EFactory {
     QVTOCompletion createQVTOCompletion();
 
     /**
-     * Returns a new object of class '<em>Generic Template Completion Parameter</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return a new object of class '<em>Generic Template Completion Parameter</em>'.
-     * @generated
-     */
-    GenericTemplateCompletionParameter createGenericTemplateCompletionParameter();
-
-    /**
-     * Returns a new object of class '<em>Generic Blackboard Completion Parameter</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return a new object of class '<em>Generic Blackboard Completion Parameter</em>'.
-     * @generated
-     */
-    GenericBlackboardCompletionParameter createGenericBlackboardCompletionParameter();
-
-    /**
      * Returns a new object of class '<em>PCM Blackboard Completion Parameter</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -110,15 +92,6 @@ public interface ArchitecturaltemplatesFactory extends EFactory {
     PCMOutputCompletionParameter createPCMOutputCompletionParameter();
 
     /**
-     * Returns a new object of class '<em>Generic Output Completion Parameter</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return a new object of class '<em>Generic Output Completion Parameter</em>'.
-     * @generated
-     */
-    GenericOutputCompletionParameter createGenericOutputCompletionParameter();
-
-    /**
      * Returns a new object of class '<em>Reconfiguration Folder</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -135,6 +108,24 @@ public interface ArchitecturaltemplatesFactory extends EFactory {
      * @generated
      */
     IsolatedPCMTemplateCompletionParameter createIsolatedPCMTemplateCompletionParameter();
+
+    /**
+     * Returns a new object of class '<em>PCM File Extension</em>'. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @return a new object of class '<em>PCM File Extension</em>'.
+     * @generated
+     */
+    PCMFileExtension createPCMFileExtension();
+
+    /**
+     * Returns a new object of class '<em>Generic File Extension</em>'. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @return a new object of class '<em>Generic File Extension</em>'.
+     * @generated
+     */
+    GenericFileExtension createGenericFileExtension();
 
     /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
