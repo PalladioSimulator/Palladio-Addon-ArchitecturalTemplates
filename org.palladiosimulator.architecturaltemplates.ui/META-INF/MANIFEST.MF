@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.modelversioning.emfprofile.registry;bundle-version="1.0.0",
  org.eclipse.emf.edit.ui,
  org.palladiosimulator.architecturaltemplates.edit;bundle-version="1.0.2",
- org.palladiosimulator.commons
+ org.palladiosimulator.commons;bundle-version="1.0.0"
 Export-Package: org.palladiosimulator.architecturaltemplates.ui.dialogs
