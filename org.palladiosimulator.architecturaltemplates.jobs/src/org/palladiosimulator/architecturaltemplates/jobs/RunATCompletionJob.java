@@ -19,7 +19,10 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartition;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.CompletionParameter;
+import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMCompletionParameter;
+import org.palladiosimulator.architecturaltemplates.PCMFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter;
 import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
 import org.palladiosimulator.architecturaltemplates.Role;
@@ -175,9 +178,9 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
              */
             @Override
             public ModelLocation casePCMTemplateCompletionParameter(
-                    final org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter object) {
+                    final org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter completionParameter) {
 
-                final String[] segments = URI.createURI(object.getTemplateFileURI()).segments();
+                final String[] segments = URI.createURI(completionParameter.getTemplateFileURI()).segments();
                 final URI templateURI = templateFolderURI.appendSegments(segments);
                 final String lastSegment = templateURI.lastSegment();
 
@@ -197,8 +200,8 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
             @Override
             public ModelLocation caseIsolatedPCMTemplateCompletionParameter(
-                    final org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter object) {
-                final String[] segments = URI.createURI(object.getTemplateFileURI()).segments();
+                    final org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletionParameter completionParameter) {
+                final String[] segments = URI.createURI(completionParameter.getTemplateFileURI()).segments();
                 final URI templateURI = templateFolderURI.appendSegments(segments);
                 final String lastSegment = templateURI.lastSegment();
 
@@ -221,9 +224,8 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
              * Find the models in blackboard
              */
             @Override
-            public ModelLocation casePCMBlackboardCompletionParameter(final PCMBlackboardCompletionParameter object) {
-                final String parameterFileExtension = object.getFileExtension().getLiteral();
-
+            public ModelLocation casePCMBlackboardCompletionParameter(
+                    final PCMBlackboardCompletionParameter completionParameter) {
                 final ResourceSetPartition resourceSetPartition = getBlackboard()
                         .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
@@ -231,7 +233,8 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
                     final URI modelURI = r.getURI();
                     final String fileExtension = modelURI.fileExtension();
 
-                    if (fileExtension.equals(parameterFileExtension) && !modelURI.toString().startsWith("pathmap://")
+                    if (fileExtension.equals(getFileExtension(completionParameter))
+                            && !modelURI.toString().startsWith("pathmap://")
                             && !modelURI.toString().contains("PrimitiveTypes.repository")) {
                         return new ModelLocation(ATPartitionConstants.Partition.PCM.getPartitionId(), modelURI);
                     }
@@ -244,8 +247,9 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
              * Create new output model from QVTo transformation
              */
             @Override
-            public ModelLocation casePCMOutputCompletionParameter(final PCMOutputCompletionParameter object) {
-                final String parameterFileExtension = object.getFileExtension().getLiteral();
+            public ModelLocation casePCMOutputCompletionParameter(
+                    final PCMOutputCompletionParameter completionParameter) {
+                final String parameterFileExtension = getFileExtension(completionParameter);
                 final PCMResourceSetPartition pcmRepositoryPartition = (PCMResourceSetPartition) pcmPartition;
                 final ResourceSet resourceSet = new ResourceSetImpl();
                 final Resource outResource = resourceSet.createResource(URI.createURI(systemModelFolderURI
@@ -293,6 +297,22 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
             };
 
         }.doSwitch(parameter);
+    }
+
+    private String getFileExtension(final PCMCompletionParameter completionParameter) {
+        return new ArchitecturaltemplatesSwitch<String>() {
+
+            @Override
+            public String casePCMFileExtension(final PCMFileExtension pcmFileExtension) {
+                return pcmFileExtension.getFileExtension().getLiteral();
+            }
+
+            @Override
+            public String caseGenericFileExtension(final GenericFileExtension genericFileExtension) {
+                return genericFileExtension.getFileExtension();
+            }
+
+        }.doSwitch(completionParameter.getFileExtension());
     }
 
     /**
