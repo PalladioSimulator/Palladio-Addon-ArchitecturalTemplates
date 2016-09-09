@@ -5,7 +5,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.modelversioning.emfprofile.Profile;
@@ -24,18 +26,23 @@ import org.palladiosimulator.pcm.system.System;
 /**
  * An API class providing methods to interact with Architectural Templates
  * 
- * @author Max Schettler
+ * @author Max Schettler, Sebastian Lehrig
  *
  */
 public final class ArchitecturalTemplateAPI {
 
     /**
-     * The key for the tagged value with which a {@link Stereotype}s` {@link Role} can be loaded.
+     * Used as source attribute of EAnnotations to mark profiles as Architectural Templates.
      */
-    private static final String ROLE_URI = "roleURI";
+    private static final String ARCHITECTURALTEMPLATE_ANNOTATION = "org.palladiosimulator.architecturaltemplate";
 
     /**
-     * The name-suffix that identifies a {@link Role} or its corresponding {@link Stereotype} as an
+     * Used as key of EAnnotations details to link to an URI of Architectural Templates.
+     */
+    private static final String ARCHITECTURALTEMPLATE_ANNOTATION_AT_URI = "AT";
+
+    /**
+     * The name-suffix that identifies a {@link Role} or its corresponding {@link Stereotype} as a
      * system-role.
      */
     private static final String SYSTEM_ROLE_NAME_SUFFIX = "System";
@@ -44,6 +51,34 @@ public final class ArchitecturalTemplateAPI {
      * Hidden constructor.
      */
     private ArchitecturalTemplateAPI() {
+    }
+
+    public static AT getArchitecturalTemplate(final Stereotype stereotype) {
+        if (!isRole(stereotype)) {
+            throw new RuntimeException("Stereotype \"" + stereotype + "\" is no role");
+        }
+        return getATFromURI(getArchitecturalTemplateURI(stereotype));
+    }
+
+    private static String getArchitecturalTemplateURI(final Stereotype stereotype) {
+        final String architecturalTemplateURI = getArchitecturalTemplateAnnotation(stereotype).getDetails()
+                .get(ARCHITECTURALTEMPLATE_ANNOTATION_AT_URI);
+
+        if (architecturalTemplateURI == null) {
+            throw new RuntimeException(
+                    "The stereotype \"" + stereotype.getName() + "\" has an AT annotation but does not link an AT!");
+        }
+
+        return architecturalTemplateURI;
+    }
+
+    private static AT getATFromURI(final String architecturalTemplateURI) {
+        final EObject architecturalTemplate = EMFLoadHelper.loadAndResolveEObject(architecturalTemplateURI);
+        if (!(architecturalTemplate instanceof AT)) {
+            throw new RuntimeException(
+                    "ArchitecturalTemplateURI \"" + architecturalTemplateURI + "\" does not refer to an AT!");
+        }
+        return (AT) architecturalTemplate;
     }
 
     /**
@@ -56,15 +91,16 @@ public final class ArchitecturalTemplateAPI {
      *             if the given stereotype does not conform the role-convention.
      */
     public static Role getRole(final Stereotype stereotype) {
-        if (!isRole(stereotype)) {
-            throw new RuntimeException("Stereotype \"" + stereotype + "\" is no role");
+        final AT at = getArchitecturalTemplate(stereotype);
+
+        final Optional<Role> role = at.getRoles().stream()
+                .filter(r -> r.getEntityName().replaceAll("\\s", "").equals(stereotype.getName())).findAny();
+
+        if (!role.isPresent()) {
+            throw new RuntimeException("Did not find AT role for stereotype \"" + stereotype + "\"!");
         }
-        final EObject roleURIEObject = EMFLoadHelper
-                .loadAndResolveEObject(stereotype.getTaggedValue(ROLE_URI).getDefaultValueLiteral());
-        if (!(roleURIEObject instanceof Role)) {
-            throw new RuntimeException("RoleURI Stereotype \"" + stereotype + "\" does not refer to a role");
-        }
-        return (Role) roleURIEObject;
+
+        return role.get();
     }
 
     /**
@@ -89,7 +125,11 @@ public final class ArchitecturalTemplateAPI {
      * {@link #ROLE_URI} exists). {@see #isRole}
      */
     public static boolean isRole(final Stereotype stereotype) {
-        return stereotype.getTaggedValue(ROLE_URI) != null;
+        return getArchitecturalTemplateAnnotation(stereotype) != null;
+    }
+
+    private static EAnnotation getArchitecturalTemplateAnnotation(final Stereotype stereotype) {
+        return stereotype.getProfile().getEAnnotation(ARCHITECTURALTEMPLATE_ANNOTATION);
     }
 
     /**
@@ -100,7 +140,7 @@ public final class ArchitecturalTemplateAPI {
     }
 
     /**
-     * Tests whether a {@link Profile} is an Architecural-Template. {@see #isArchitecturalTemplate}
+     * Tests whether a {@link Profile} is an Architectural-Template. {@see #isArchitecturalTemplate}
      */
     public static boolean isArchitecturalTemplate(final Profile profile) {
 
@@ -407,7 +447,7 @@ public final class ArchitecturalTemplateAPI {
      *         such template can be found.
      */
     public static Collection<AT> getATsFromSystem(final System system) {
-        final List<AT> ATs = new LinkedList<AT>();
+        final List<AT> ATs = new LinkedList<>();
 
         if (system != null) {
             for (final Stereotype stereotype : StereotypeAPI.getAppliedStereotypes(system)) {
