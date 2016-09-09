@@ -317,9 +317,9 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /**
      * Receives the architectural templates attached to a system. Such an attachment is realized via
-     * a stereotype with "roleURI" as a tagged value. The tagged value references the concrete AT
-     * role the system acts. If no such tagged value can be found, an empty <code>List</code> is
-     * returned.
+     * an annotation to an profile with an AT annotation. The annotation references the AT the role;
+     * the role is identified by matching the stereotype name to the roles of the AT. If no such
+     * role can be found, an empty <code>List</code> is returned.
      * 
      * @return the architectural template applied to this system; an empty <code>List</code> if no
      *         such template can be found.
