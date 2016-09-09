@@ -48,21 +48,18 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
     public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
         super.execute(monitor);
         this.logger.info("Validating AT Constraints.");
-        final List<ProfileApplication> profileApplications = this.getProfileApplications();
-        for (final ProfileApplication profileApplication : profileApplications) {
-            final EList<StereotypeApplication> stereotypeApplications = profileApplication.getStereotypeApplications();
+
+        for (final ProfileApplication profileApplication : this.getProfileApplications()) {
             final OCL ocl = OCL.newInstance(new StereotypeEnvironmentFactory(this.myBlackboard));
             // create an OCL helper object
             final OCLHelper<EClassifier, EOperation, EStructuralFeature, Constraint> helper = ocl.createOCLHelper();
 
-            for (final StereotypeApplication stereotypeApplication : stereotypeApplications) {
+            for (final StereotypeApplication stereotypeApplication : profileApplication.getStereotypeApplications()) {
                 // set the OCL context classifier
                 helper.setInstanceContext(stereotypeApplication);
-                final EList<org.palladiosimulator.architecturaltemplates.Constraint> constraints = this
-                        .getConstraintsFromStereotypeApplication(stereotypeApplication);
-
                 Constraint invariant = null;
-                for (final org.palladiosimulator.architecturaltemplates.Constraint constraint : constraints) {
+                for (final org.palladiosimulator.architecturaltemplates.Constraint constraint : this
+                        .getConstraintsFromStereotypeApplication(stereotypeApplication)) {
                     if (constraint instanceof OCLConstraint) {
                         final OCLConstraint oclConstraint = (OCLConstraint) constraint;
                         try {
@@ -109,8 +106,8 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
             final StereotypeApplication stereotypeApplication) {
         if (ArchitecturalTemplateAPI.isRole(stereotypeApplication.getStereotype())) {
             return ArchitecturalTemplateAPI.getRole(stereotypeApplication.getStereotype()).getConstraints();
+        } else {
+            return new BasicEList<org.palladiosimulator.architecturaltemplates.Constraint>();
         }
-
-        return new BasicEList<org.palladiosimulator.architecturaltemplates.Constraint>();
     }
 }
