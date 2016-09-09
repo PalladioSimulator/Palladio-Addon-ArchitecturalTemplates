@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -18,15 +17,13 @@ import org.eclipse.ocl.Query;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 import org.eclipse.ocl.helper.OCLHelper;
-import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.architecturaltemplates.OCLConstraint;
-import org.palladiosimulator.architecturaltemplates.Role;
+import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
 import org.palladiosimulator.architecturaltemplates.ocl.StereotypeEnvironmentFactory;
-import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 import org.palladiosimulator.pcm.system.SystemPackage;
@@ -110,15 +107,10 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
 
     private EList<org.palladiosimulator.architecturaltemplates.Constraint> getConstraintsFromStereotypeApplication(
             final StereotypeApplication stereotypeApplication) {
-        final Stereotype stereotype = stereotypeApplication.getStereotype();
-        EList<org.palladiosimulator.architecturaltemplates.Constraint> constraints = new BasicEList<org.palladiosimulator.architecturaltemplates.Constraint>();
-        final EStructuralFeature roleURI = stereotype.getTaggedValue("roleURI");
-        if (roleURI != null) {
-            final EObject eObject = EMFLoadHelper.loadAndResolveEObject(roleURI.getDefaultValueLiteral());
-            final Role stereotypeRole = (Role) eObject;
-            constraints = stereotypeRole.getConstraints();
-            return stereotypeRole.getConstraints();
+        if (ArchitecturalTemplateAPI.isRole(stereotypeApplication.getStereotype())) {
+            return ArchitecturalTemplateAPI.getRole(stereotypeApplication.getStereotype()).getConstraints();
         }
-        return constraints;
+
+        return new BasicEList<org.palladiosimulator.architecturaltemplates.Constraint>();
     }
 }
