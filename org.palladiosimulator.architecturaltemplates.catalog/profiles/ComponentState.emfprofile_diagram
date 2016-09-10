@@ -17,7 +17,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_YzoSQUTzEeW7_O9y-2s0SA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_YzoSQkTzEeW7_O9y-2s0SA" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YzoSQ0TzEeW7_O9y-2s0SA" x="296" y="332"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YzoSQ0TzEeW7_O9y-2s0SA" x="72" y="124"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_5OlYMEaUEeWQL8VXv1nD6Q" type="2002">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_5OmmV0aUEeWQL8VXv1nD6Q" source="Shortcut">
@@ -35,7 +35,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_5OlYMUaUEeWQL8VXv1nD6Q"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_5OlYMkaUEeWQL8VXv1nD6Q" fontName="Segoe UI"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//repository/ImplementationComponentType"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OlYM0aUEeWQL8VXv1nD6Q" x="260" y="240" width="191"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OlYM0aUEeWQL8VXv1nD6Q" x="36" y="32" width="191"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_EXiBgUTzEeW7_O9y-2s0SA"/>
     <edges xmi:type="notation:Edge" xmi:id="_6MrYIEaUEeWQL8VXv1nD6Q" type="4005" element="_6MmfoEaUEeWQL8VXv1nD6Q" source="_YzoSQETzEeW7_O9y-2s0SA" target="_5OlYMEaUEeWQL8VXv1nD6Q">

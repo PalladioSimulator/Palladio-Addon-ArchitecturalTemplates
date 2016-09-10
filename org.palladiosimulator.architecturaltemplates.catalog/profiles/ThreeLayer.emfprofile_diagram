@@ -46,7 +46,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_5jrlkYuMEeWE_r1tdbkyww"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_5jrlkouMEeWE_r1tdbkyww" fontName="Segoe UI"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5jrlk4uMEeWE_r1tdbkyww" x="248" y="120" width="115"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5jrlk4uMEeWE_r1tdbkyww" x="272" y="40" width="115"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_5-ocMIuMEeWE_r1tdbkyww" type="2006" element="_5-mnAIuMEeWE_r1tdbkyww">
       <children xmi:type="notation:DecorationNode" xmi:id="_5-ocNIuMEeWE_r1tdbkyww" type="5008"/>
@@ -56,7 +56,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_5-ocMYuMEeWE_r1tdbkyww"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_5-ocMouMEeWE_r1tdbkyww" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5-ocM4uMEeWE_r1tdbkyww" x="140" y="212" width="151"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5-ocM4uMEeWE_r1tdbkyww" x="164" y="132" width="151"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_74HtYIuMEeWE_r1tdbkyww" type="2006" element="_74HGUIuMEeWE_r1tdbkyww">
       <children xmi:type="notation:DecorationNode" xmi:id="_74HtZIuMEeWE_r1tdbkyww" type="5008"/>
@@ -66,7 +66,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_74HtYYuMEeWE_r1tdbkyww"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_74HtYouMEeWE_r1tdbkyww" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_74HtY4uMEeWE_r1tdbkyww" x="248" y="272" width="131"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_74HtY4uMEeWE_r1tdbkyww" x="272" y="192" width="131"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_9iBDYIuMEeWE_r1tdbkyww" type="2006" element="_9h_1QIuMEeWE_r1tdbkyww">
       <children xmi:type="notation:DecorationNode" xmi:id="_9iBDZIuMEeWE_r1tdbkyww" type="5008"/>
@@ -76,7 +76,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_9iBDYYuMEeWE_r1tdbkyww"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_9iBDYouMEeWE_r1tdbkyww" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9iBDY4uMEeWE_r1tdbkyww" x="312" y="212" width="127"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9iBDY4uMEeWE_r1tdbkyww" x="336" y="132" width="127"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_TtDiMIuNEeWE_r1tdbkyww" type="2002">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TtEwV4uNEeWE_r1tdbkyww" source="Shortcut">
@@ -94,7 +94,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_TtDiMYuNEeWE_r1tdbkyww"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_TtDiMouNEeWE_r1tdbkyww" fontName="Segoe UI"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TtDiM4uNEeWE_r1tdbkyww" x="12" y="120"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TtDiM4uNEeWE_r1tdbkyww" x="36" y="40"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_VS_lQIuNEeWE_r1tdbkyww" type="2006" element="_VS-XIIuNEeWE_r1tdbkyww">
       <children xmi:type="notation:DecorationNode" xmi:id="_VS_lRIuNEeWE_r1tdbkyww" type="5008"/>
@@ -104,7 +104,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_VS_lQYuNEeWE_r1tdbkyww"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_VS_lQouNEeWE_r1tdbkyww" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VS_lQ4uNEeWE_r1tdbkyww" y="212" width="127"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VS_lQ4uNEeWE_r1tdbkyww" x="24" y="132" width="127"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_d5snQYuLEeWE_r1tdbkyww"/>
     <edges xmi:type="notation:Edge" xmi:id="__ILv8IuMEeWE_r1tdbkyww" type="4005" element="__IEbMIuMEeWE_r1tdbkyww" source="_5-ocMIuMEeWE_r1tdbkyww" target="_5jrlkIuMEeWE_r1tdbkyww">

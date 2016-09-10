@@ -46,7 +46,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_CWFCoZQkEeSq-7Z_6FnzsQ"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_CWFCopQkEeSq-7Z_6FnzsQ" fontName="Segoe UI"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CWFCo5QkEeSq-7Z_6FnzsQ" x="144" y="116" width="118" height="43"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CWFCo5QkEeSq-7Z_6FnzsQ" x="96" y="40" width="118" height="43"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_DFBzUZQkEeSq-7Z_6FnzsQ" type="2006" element="_DFBzUJQkEeSq-7Z_6FnzsQ">
       <children xmi:type="notation:DecorationNode" xmi:id="_DFBzVZQkEeSq-7Z_6FnzsQ" type="5008"/>
@@ -56,7 +56,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_DFBzUpQkEeSq-7Z_6FnzsQ"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_DFBzU5QkEeSq-7Z_6FnzsQ" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DFBzVJQkEeSq-7Z_6FnzsQ" x="72" y="212" width="263"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DFBzVJQkEeSq-7Z_6FnzsQ" x="24" y="136" width="263"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_TJQr8JQkEeSq-7Z_6FnzsQ" type="2002">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_TJShI5QkEeSq-7Z_6FnzsQ" source="Shortcut">
@@ -74,7 +74,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_TJQr8ZQkEeSq-7Z_6FnzsQ"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_TJQr8pQkEeSq-7Z_6FnzsQ" fontName="Segoe UI"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TJQr85QkEeSq-7Z_6FnzsQ" x="368" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TJQr85QkEeSq-7Z_6FnzsQ" x="320" y="40"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_T5YhUJQkEeSq-7Z_6FnzsQ" type="2006" element="_T5PXYJQkEeSq-7Z_6FnzsQ">
       <children xmi:type="notation:DecorationNode" xmi:id="_T5YhVJQkEeSq-7Z_6FnzsQ" type="5008"/>
@@ -96,7 +96,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_T5YhUZQkEeSq-7Z_6FnzsQ"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_T5YhUpQkEeSq-7Z_6FnzsQ" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T5YhU5QkEeSq-7Z_6FnzsQ" x="344" y="212"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T5YhU5QkEeSq-7Z_6FnzsQ" x="296" y="136"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_0rVw8ZQjEeSq-7Z_6FnzsQ"/>
     <edges xmi:type="notation:Edge" xmi:id="_F_I0AJQkEeSq-7Z_6FnzsQ" type="4005" element="_F-_DAJQkEeSq-7Z_6FnzsQ" source="_DFBzUZQkEeSq-7Z_6FnzsQ" target="_CWFCoJQkEeSq-7Z_6FnzsQ">

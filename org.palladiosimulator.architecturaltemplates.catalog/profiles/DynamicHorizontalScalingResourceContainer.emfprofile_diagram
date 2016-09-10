@@ -38,7 +38,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_pbgdcSO_EeSbfv_s0ToTIw"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_pbgdciO_EeSbfv_s0ToTIw" fontName="Segoe UI"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pbgdcyO_EeSbfv_s0ToTIw" x="68" y="204"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pbgdcyO_EeSbfv_s0ToTIw" x="32" y="140"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_WMXdICPBEeSbfv_s0ToTIw" type="2002">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_WMZSViPBEeSbfv_s0ToTIw" source="Shortcut">
@@ -56,7 +56,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_WMXdISPBEeSbfv_s0ToTIw"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_WMXdIiPBEeSbfv_s0ToTIw" fontName="Segoe UI"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WMXdIyPBEeSbfv_s0ToTIw" x="84" y="96" width="203" height="43"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WMXdIyPBEeSbfv_s0ToTIw" x="48" y="32" width="203" height="43"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_x7dakH47EeSqFvs4kqVd7Q" type="2002">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_x7eBp347EeSqFvs4kqVd7Q" source="Shortcut">
@@ -74,7 +74,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_x7dakX47EeSqFvs4kqVd7Q"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_x7dakn47EeSqFvs4kqVd7Q" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x7dak347EeSqFvs4kqVd7Q" x="388" y="96"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_x7dak347EeSqFvs4kqVd7Q" x="352" y="32"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_2NAvUH47EeSqFvs4kqVd7Q" type="2006" element="_2M_hMH47EeSqFvs4kqVd7Q">
       <children xmi:type="notation:DecorationNode" xmi:id="_2NBWYH47EeSqFvs4kqVd7Q" type="5008"/>
@@ -96,7 +96,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_2NAvUX47EeSqFvs4kqVd7Q"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_2NAvUn47EeSqFvs4kqVd7Q" fontName=".Helvetica Neue DeskInterface"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2NAvU347EeSqFvs4kqVd7Q" x="360" y="204"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2NAvU347EeSqFvs4kqVd7Q" x="324" y="140"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_W1LyoSOrEeSubfGVEKswQQ"/>
     <edges xmi:type="notation:Edge" xmi:id="_XsAD4CPBEeSbfv_s0ToTIw" type="4005" element="_Xr9AkCPBEeSbfv_s0ToTIw" source="_pbgdcCO_EeSbfv_s0ToTIw" target="_WMXdICPBEeSbfv_s0ToTIw">

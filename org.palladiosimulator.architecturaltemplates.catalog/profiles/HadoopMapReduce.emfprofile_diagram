@@ -40,7 +40,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_14fAgfpgEeSRjMxcTrWsAA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_14fAgvpgEeSRjMxcTrWsAA" fontName=".Helvetica Neue DeskInterface"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_14fAg_pgEeSRjMxcTrWsAA" x="96" y="88"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_14fAg_pgEeSRjMxcTrWsAA" x="48" y="32"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_cPGWEPphEeSRjMxcTrWsAA" type="2006" element="_cPD50PphEeSRjMxcTrWsAA">
       <children xmi:type="notation:DecorationNode" xmi:id="_cPG9IPphEeSRjMxcTrWsAA" type="5008"/>
@@ -50,7 +50,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_cPGWEfphEeSRjMxcTrWsAA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_cPGWEvphEeSRjMxcTrWsAA" fontName=".Helvetica Neue DeskInterface"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cPGWE_phEeSRjMxcTrWsAA" x="72" y="208" width="143"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cPGWE_phEeSRjMxcTrWsAA" x="24" y="152" width="143"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_d-JR0PphEeSRjMxcTrWsAA" type="2006" element="_d-IqwPphEeSRjMxcTrWsAA">
       <children xmi:type="notation:DecorationNode" xmi:id="_d-JR1PphEeSRjMxcTrWsAA" type="5008"/>
@@ -60,7 +60,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_d-JR0fphEeSRjMxcTrWsAA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_d-JR0vphEeSRjMxcTrWsAA" fontName=".Helvetica Neue DeskInterface"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d-JR0_phEeSRjMxcTrWsAA" x="240" y="208" width="123"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d-JR0_phEeSRjMxcTrWsAA" x="192" y="152" width="123"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_g4wo0PphEeSRjMxcTrWsAA" type="2006" element="_g4wBwPphEeSRjMxcTrWsAA">
       <children xmi:type="notation:DecorationNode" xmi:id="_g4wo1PphEeSRjMxcTrWsAA" type="5008"/>
@@ -70,7 +70,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_g4wo0fphEeSRjMxcTrWsAA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_g4wo0vphEeSRjMxcTrWsAA" fontName=".Helvetica Neue DeskInterface"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g4wo0_phEeSRjMxcTrWsAA" x="384" y="208" width="139"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g4wo0_phEeSRjMxcTrWsAA" x="336" y="152" width="139"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_yeU5cJ6FEeWiy9Rfn8ggZg" type="2002">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_yeX8wJ6FEeWiy9Rfn8ggZg" source="Shortcut">
@@ -88,7 +88,7 @@
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_yeU5cZ6FEeWiy9Rfn8ggZg"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_yeU5cp6FEeWiy9Rfn8ggZg" fontName=".SF NS Text"/>
       <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yeU5c56FEeWiy9Rfn8ggZg" x="304" y="88" width="115"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yeU5c56FEeWiy9Rfn8ggZg" x="256" y="32" width="115"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_Foz7IfpgEeSRjMxcTrWsAA"/>
     <edges xmi:type="notation:Edge" xmi:id="_jW2b4PphEeSRjMxcTrWsAA" type="4005" element="_jW0msPphEeSRjMxcTrWsAA" source="_cPGWEPphEeSRjMxcTrWsAA" target="_14fAgPpgEeSRjMxcTrWsAA">
