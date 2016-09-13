@@ -94,7 +94,7 @@ public final class ArchitecturalTemplateAPI {
         final AT at = getArchitecturalTemplate(stereotype);
 
         final Optional<Role> role = at.getRoles().stream()
-                .filter(r -> r.getEntityName().replaceAll("\\s", "").equals(stereotype.getName())).findAny();
+                .filter(r -> r.getStereotype().getName().equals(stereotype.getName())).findAny();
 
         if (!role.isPresent()) {
             throw new RuntimeException("Did not find AT role for stereotype \"" + stereotype + "\"!");
