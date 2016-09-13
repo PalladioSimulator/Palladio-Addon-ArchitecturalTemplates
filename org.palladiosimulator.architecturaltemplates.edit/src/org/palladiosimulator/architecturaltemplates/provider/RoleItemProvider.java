@@ -48,6 +48,9 @@ public class RoleItemProvider extends EntityItemProvider {
 
             this.addStereotypePropertyDescriptor(object);
             this.addSuperRolesPropertyDescriptor(object);
+            this.addRoleIncludingInheritedPropertyDescriptor(object);
+            this.addConstraintsIncludingInheritedPropertyDescriptor(object);
+            this.addCompletionIncludingInheritedPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
@@ -78,6 +81,54 @@ public class RoleItemProvider extends EntityItemProvider {
                 this.getString("_UI_Role_superRoles_feature"),
                 this.getString("_UI_PropertyDescriptor_description", "_UI_Role_superRoles_feature", "_UI_Role_type"),
                 ArchitecturaltemplatesPackage.Literals.ROLE__SUPER_ROLES, true, false, true, null, null, null));
+    }
+
+    /**
+     * This adds a property descriptor for the Role Including Inherited feature. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addRoleIncludingInheritedPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Role_roleIncludingInherited_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_Role_roleIncludingInherited_feature",
+                        "_UI_Role_type"),
+                ArchitecturaltemplatesPackage.Literals.ROLE__ROLE_INCLUDING_INHERITED, false, false, false, null, null,
+                null));
+    }
+
+    /**
+     * This adds a property descriptor for the Constraints Including Inherited feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addConstraintsIncludingInheritedPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Role_constraintsIncludingInherited_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_Role_constraintsIncludingInherited_feature",
+                        "_UI_Role_type"),
+                ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS_INCLUDING_INHERITED, false, false, false, null,
+                null, null));
+    }
+
+    /**
+     * This adds a property descriptor for the Completion Including Inherited feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addCompletionIncludingInheritedPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Role_completionIncludingInherited_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_Role_completionIncludingInherited_feature",
+                        "_UI_Role_type"),
+                ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION_INCLUDING_INHERITED, false, false, false, null,
+                null, null));
     }
 
     /**

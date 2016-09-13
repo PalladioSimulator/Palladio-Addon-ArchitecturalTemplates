@@ -3,8 +3,11 @@
 package org.palladiosimulator.architecturaltemplates.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -15,6 +18,7 @@ import org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackag
 import org.palladiosimulator.architecturaltemplates.Completion;
 import org.palladiosimulator.architecturaltemplates.Constraint;
 import org.palladiosimulator.architecturaltemplates.Role;
+import org.palladiosimulator.architecturaltemplates.util.C3RoleLinearization;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 
 /**
@@ -33,6 +37,12 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * <em>Constraints</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getSuperRoles <em>Super
  * Roles</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getRoleIncludingInherited
+ * <em>Role Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraintsIncludingInherited
+ * <em>Constraints Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getCompletionIncludingInherited
+ * <em>Completion Including Inherited</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +122,60 @@ public class RoleImpl extends EntityImpl implements Role {
     public EList<Role> getSuperRoles() {
         return (EList<Role>) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES,
                 ArchitecturaltemplatesPackage.Literals.ROLE__SUPER_ROLES, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public EList<Role> getRoleIncludingInherited() {
+        return new BasicEList<>(C3RoleLinearization.linearize(this));
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public EList<Constraint> getConstraintsIncludingInherited() {
+        // TODO: cache linearization
+        final Map<String, org.palladiosimulator.architecturaltemplates.Constraint> constraints = new HashMap<>();
+
+        for (final Role role : C3RoleLinearization.linearize(this)) {
+            for (final Constraint constraint : role.getConstraints()) {
+                // add only if subrole does not override the superrole constraint with a constraint
+                // that has the same name
+                final String constraintName = constraint.getEntityName();
+                if (!constraints.containsKey(constraintName)) {
+                    constraints.put(constraintName, constraint);
+                }
+            }
+        }
+
+        return new BasicEList<>(constraints.values());
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public EList<Completion> getCompletionIncludingInherited() {
+        // TODO: cache linearization
+        // completions are executed from the furthest to the nearest ancestor
+        final EList<Completion> completions = new BasicEList<>();
+        for (final Role role : C3RoleLinearization.linearizeReversed(this)) {
+            final Completion completion = role.getCompletion();
+            if (completion != null) {
+                completions.add(completion);
+            }
+        }
+
+        return completions;
     }
 
     /**
@@ -261,6 +325,12 @@ public class RoleImpl extends EntityImpl implements Role {
             return this.getConstraints();
         case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
             return this.getSuperRoles();
+        case ArchitecturaltemplatesPackage.ROLE__ROLE_INCLUDING_INHERITED:
+            return this.getRoleIncludingInherited();
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS_INCLUDING_INHERITED:
+            return this.getConstraintsIncludingInherited();
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION_INCLUDING_INHERITED:
+            return this.getCompletionIncludingInherited();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -340,6 +410,12 @@ public class RoleImpl extends EntityImpl implements Role {
             return !this.getConstraints().isEmpty();
         case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
             return !this.getSuperRoles().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__ROLE_INCLUDING_INHERITED:
+            return !this.getRoleIncludingInherited().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS_INCLUDING_INHERITED:
+            return !this.getConstraintsIncludingInherited().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION_INCLUDING_INHERITED:
+            return !this.getCompletionIncludingInherited().isEmpty();
         }
         return super.eIsSet(featureID);
     }

@@ -7,11 +7,11 @@ Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.ui.workbench,
  org.eclipse.jface,
- org.palladiosimulator.architecturaltemplates;bundle-version="1.0.2",
+ org.palladiosimulator.architecturaltemplates;bundle-version="1.0.3",
  org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.0",
- org.palladiosimulator.architecturaltemplates.api;bundle-version="1.0.0",
+ org.palladiosimulator.architecturaltemplates.api;bundle-version="1.0.3",
  org.modelversioning.emfprofile.registry;bundle-version="1.0.0",
  org.eclipse.emf.edit.ui,
- org.palladiosimulator.architecturaltemplates.edit;bundle-version="1.0.2",
+ org.palladiosimulator.architecturaltemplates.edit;bundle-version="1.0.3",
  org.palladiosimulator.commons;bundle-version="1.0.0"
 Export-Package: org.palladiosimulator.architecturaltemplates.ui.dialogs

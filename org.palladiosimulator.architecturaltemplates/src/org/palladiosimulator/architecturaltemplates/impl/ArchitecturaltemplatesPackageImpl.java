@@ -397,6 +397,36 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
+    public EReference getRole_RoleIncludingInherited() {
+        return (EReference) this.roleEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getRole_ConstraintsIncludingInherited() {
+        return (EReference) this.roleEClass.getEStructuralFeatures().get(6);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getRole_CompletionIncludingInherited() {
+        return (EReference) this.roleEClass.getEStructuralFeatures().get(7);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EReference getRole_Stereotype() {
         return (EReference) this.roleEClass.getEStructuralFeatures().get(1);
     }
@@ -691,6 +721,9 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.createEReference(this.roleEClass, ROLE__COMPLETION);
         this.createEReference(this.roleEClass, ROLE__CONSTRAINTS);
         this.createEReference(this.roleEClass, ROLE__SUPER_ROLES);
+        this.createEReference(this.roleEClass, ROLE__ROLE_INCLUDING_INHERITED);
+        this.createEReference(this.roleEClass, ROLE__CONSTRAINTS_INCLUDING_INHERITED);
+        this.createEReference(this.roleEClass, ROLE__COMPLETION_INCLUDING_INHERITED);
 
         this.oclConstraintEClass = this.createEClass(OCL_CONSTRAINT);
 
@@ -836,6 +869,15 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.initEReference(this.getRole_SuperRoles(), this.getRole(), null, "superRoles", null, 0, -1, Role.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getRole_RoleIncludingInherited(), this.getRole(), null, "roleIncludingInherited", null,
+                1, -1, Role.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getRole_ConstraintsIncludingInherited(), this.getConstraint(), null,
+                "constraintsIncludingInherited", null, 0, -1, Role.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getRole_CompletionIncludingInherited(), this.getCompletion(), null,
+                "completionIncludingInherited", null, 0, -1, Role.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.oclConstraintEClass, OCLConstraint.class, "OCLConstraint", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);

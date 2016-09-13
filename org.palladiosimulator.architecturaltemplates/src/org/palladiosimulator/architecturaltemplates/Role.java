@@ -25,6 +25,12 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <em>Constraints</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getSuperRoles <em>Super
  * Roles</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getRoleIncludingInherited <em>Role
+ * Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getConstraintsIncludingInherited
+ * <em>Constraints Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getCompletionIncludingInherited
+ * <em>Completion Including Inherited</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole()
@@ -98,6 +104,57 @@ public interface Role extends Entity {
      * @generated
      */
     EList<Role> getSuperRoles();
+
+    /**
+     * Returns the value of the '<em><b>Role Including Inherited</b></em>' reference list. The list
+     * contents are of type {@link org.palladiosimulator.architecturaltemplates.Role}. <!--
+     * begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Role Including Inherited</em>' reference list isn't clear, there
+     * really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Role Including Inherited</em>' reference list.
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole_RoleIncludingInherited()
+     * @model required="true" transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    EList<Role> getRoleIncludingInherited();
+
+    /**
+     * Returns the value of the '<em><b>Constraints Including Inherited</b></em>' reference list.
+     * The list contents are of type
+     * {@link org.palladiosimulator.architecturaltemplates.Constraint}. <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Constraints Including Inherited</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Constraints Including Inherited</em>' reference list.
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole_ConstraintsIncludingInherited()
+     * @model transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    EList<Constraint> getConstraintsIncludingInherited();
+
+    /**
+     * Returns the value of the '<em><b>Completion Including Inherited</b></em>' reference list. The
+     * list contents are of type {@link org.palladiosimulator.architecturaltemplates.Completion}.
+     * <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Completion Including Inherited</em>' reference list isn't clear,
+     * there really should be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Completion Including Inherited</em>' reference list.
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole_CompletionIncludingInherited()
+     * @model transient="true" changeable="false" volatile="true" derived="true"
+     * @generated
+     */
+    EList<Completion> getCompletionIncludingInherited();
 
     /**
      * Returns the value of the '<em><b>Stereotype</b></em>' reference. <!-- begin-user-doc -->

@@ -105,7 +105,8 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
     private EList<org.palladiosimulator.architecturaltemplates.Constraint> getConstraintsFromStereotypeApplication(
             final StereotypeApplication stereotypeApplication) {
         if (ArchitecturalTemplateAPI.isRole(stereotypeApplication.getStereotype())) {
-            return ArchitecturalTemplateAPI.getRole(stereotypeApplication.getStereotype()).getConstraints();
+            return ArchitecturalTemplateAPI.getRole(stereotypeApplication.getStereotype())
+                    .getConstraintsIncludingInherited();
         } else {
             return new BasicEList<org.palladiosimulator.architecturaltemplates.Constraint>();
         }

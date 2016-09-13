@@ -314,13 +314,40 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int ROLE__SUPER_ROLES = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Role Including Inherited</b></em>' reference list. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ROLE__ROLE_INCLUDING_INHERITED = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+
+    /**
+     * The feature id for the '<em><b>Constraints Including Inherited</b></em>' reference list. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ROLE__CONSTRAINTS_INCLUDING_INHERITED = EntityPackage.ENTITY_FEATURE_COUNT + 6;
+
+    /**
+     * The feature id for the '<em><b>Completion Including Inherited</b></em>' reference list. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ROLE__COMPLETION_INCLUDING_INHERITED = EntityPackage.ENTITY_FEATURE_COUNT + 7;
+
+    /**
      * The number of structural features of the '<em>Role</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 8;
 
     /**
      * The meta object id for the
@@ -1006,6 +1033,42 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EReference getRole_SuperRoles();
 
     /**
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.architecturaltemplates.Role#getRoleIncludingInherited <em>Role
+     * Including Inherited</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference list '<em>Role Including Inherited</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.Role#getRoleIncludingInherited()
+     * @see #getRole()
+     * @generated
+     */
+    EReference getRole_RoleIncludingInherited();
+
+    /**
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.architecturaltemplates.Role#getConstraintsIncludingInherited
+     * <em>Constraints Including Inherited</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference list '<em>Constraints Including Inherited</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.Role#getConstraintsIncludingInherited()
+     * @see #getRole()
+     * @generated
+     */
+    EReference getRole_ConstraintsIncludingInherited();
+
+    /**
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.architecturaltemplates.Role#getCompletionIncludingInherited
+     * <em>Completion Including Inherited</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference list '<em>Completion Including Inherited</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.Role#getCompletionIncludingInherited()
+     * @see #getRole()
+     * @generated
+     */
+    EReference getRole_CompletionIncludingInherited();
+
+    /**
      * Returns the meta object for the reference
      * '{@link org.palladiosimulator.architecturaltemplates.Role#getStereotype
      * <em>Stereotype</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1446,6 +1509,30 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EReference ROLE__SUPER_ROLES = eINSTANCE.getRole_SuperRoles();
+
+        /**
+         * The meta object literal for the '<em><b>Role Including Inherited</b></em>' reference list
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference ROLE__ROLE_INCLUDING_INHERITED = eINSTANCE.getRole_RoleIncludingInherited();
+
+        /**
+         * The meta object literal for the '<em><b>Constraints Including Inherited</b></em>'
+         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference ROLE__CONSTRAINTS_INCLUDING_INHERITED = eINSTANCE.getRole_ConstraintsIncludingInherited();
+
+        /**
+         * The meta object literal for the '<em><b>Completion Including Inherited</b></em>'
+         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference ROLE__COMPLETION_INCLUDING_INHERITED = eINSTANCE.getRole_CompletionIncludingInherited();
 
         /**
          * The meta object literal for the '<em><b>Stereotype</b></em>' reference feature. <!--

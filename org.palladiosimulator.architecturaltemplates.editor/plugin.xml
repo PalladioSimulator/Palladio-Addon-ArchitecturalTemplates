@@ -5,20 +5,6 @@
 -->
 
 <plugin>
-
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
-null
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated architecturaltemplates -->
       <category

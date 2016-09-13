@@ -50,6 +50,15 @@
         eType="#//Constraint" containment="true" eOpposite="#//Constraint/role"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superRoles" upperBound="-1"
         eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roleIncludingInherited"
+        lowerBound="1" upperBound="-1" eType="#//Role" changeable="false" volatile="true"
+        transient="true" derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraintsIncludingInherited"
+        upperBound="-1" eType="#//Constraint" changeable="false" volatile="true" transient="true"
+        derived="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="completionIncludingInherited"
+        upperBound="-1" eType="#//Completion" changeable="false" volatile="true" transient="true"
+        derived="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OCLConstraint" eSuperTypes="#//Constraint"/>
   <eClassifiers xsi:type="ecore:EClass" name="QVTOCompletion" eSuperTypes="#//Completion">

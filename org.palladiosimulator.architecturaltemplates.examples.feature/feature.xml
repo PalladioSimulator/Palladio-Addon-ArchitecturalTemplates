@@ -20,12 +20,12 @@
       <import plugin="org.modelversioning.emfprofile.registry" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier" version="2.1.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.analyzer.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.mdsdprofiles" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.mdsdprofiles.api"/>
-      <import plugin="de.uka.ipd.sdq.simucomframework" version="2.0.2" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm" version="4.0.1" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.mdsdprofiles.api" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework" version="2.0.1" match="greaterOrEqual"/>
    </requires>
 
    <plugin
