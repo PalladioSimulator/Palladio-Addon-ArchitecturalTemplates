@@ -1,4 +1,4 @@
-import org.scaledl.architecturaltemplates.repositories.cloudscale.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
 
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
 modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
