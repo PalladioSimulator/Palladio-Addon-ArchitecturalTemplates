@@ -31,6 +31,8 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * <em>Completion</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraints
  * <em>Constraints</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getSuperRoles <em>Super
+ * Roles</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,6 +100,18 @@ public class RoleImpl extends EntityImpl implements Role {
     public EList<Constraint> getConstraints() {
         return (EList<Constraint>) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS,
                 ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<Role> getSuperRoles() {
+        return (EList<Role>) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES,
+                ArchitecturaltemplatesPackage.Literals.ROLE__SUPER_ROLES, true, true);
     }
 
     /**
@@ -245,6 +259,8 @@ public class RoleImpl extends EntityImpl implements Role {
             return this.getCompletion();
         case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
             return this.getConstraints();
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            return this.getSuperRoles();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -271,6 +287,10 @@ public class RoleImpl extends EntityImpl implements Role {
             this.getConstraints().clear();
             this.getConstraints().addAll((Collection<? extends Constraint>) newValue);
             return;
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            this.getSuperRoles().clear();
+            this.getSuperRoles().addAll((Collection<? extends Role>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
@@ -295,6 +315,9 @@ public class RoleImpl extends EntityImpl implements Role {
         case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
             this.getConstraints().clear();
             return;
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            this.getSuperRoles().clear();
+            return;
         }
         super.eUnset(featureID);
     }
@@ -315,6 +338,8 @@ public class RoleImpl extends EntityImpl implements Role {
             return this.getCompletion() != null;
         case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
             return !this.getConstraints().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            return !this.getSuperRoles().isEmpty();
         }
         return super.eIsSet(featureID);
     }

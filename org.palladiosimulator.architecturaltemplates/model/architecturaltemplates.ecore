@@ -48,6 +48,8 @@
         containment="true" eOpposite="#//Completion/role"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//Constraint" containment="true" eOpposite="#//Constraint/role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superRoles" upperBound="-1"
+        eType="#//Role"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OCLConstraint" eSuperTypes="#//Constraint"/>
   <eClassifiers xsi:type="ecore:EClass" name="QVTOCompletion" eSuperTypes="#//Completion">

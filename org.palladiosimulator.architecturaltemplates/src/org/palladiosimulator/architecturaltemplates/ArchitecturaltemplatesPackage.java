@@ -305,13 +305,22 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int ROLE__CONSTRAINTS = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
+     * The feature id for the '<em><b>Super Roles</b></em>' reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ROLE__SUPER_ROLES = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+
+    /**
      * The number of structural features of the '<em>Role</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
+    int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
     /**
      * The meta object id for the
@@ -985,6 +994,18 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EReference getRole_Constraints();
 
     /**
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.architecturaltemplates.Role#getSuperRoles <em>Super
+     * Roles</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference list '<em>Super Roles</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.Role#getSuperRoles()
+     * @see #getRole()
+     * @generated
+     */
+    EReference getRole_SuperRoles();
+
+    /**
      * Returns the meta object for the reference
      * '{@link org.palladiosimulator.architecturaltemplates.Role#getStereotype
      * <em>Stereotype</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1417,6 +1438,14 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EReference ROLE__CONSTRAINTS = eINSTANCE.getRole_Constraints();
+
+        /**
+         * The meta object literal for the '<em><b>Super Roles</b></em>' reference list feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference ROLE__SUPER_ROLES = eINSTANCE.getRole_SuperRoles();
 
         /**
          * The meta object literal for the '<em><b>Stereotype</b></em>' reference feature. <!--

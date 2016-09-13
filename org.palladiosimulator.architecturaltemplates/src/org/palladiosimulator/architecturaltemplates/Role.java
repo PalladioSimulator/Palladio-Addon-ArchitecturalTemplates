@@ -23,6 +23,8 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <em>Completion</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getConstraints
  * <em>Constraints</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.Role#getSuperRoles <em>Super
+ * Roles</em>}</li>
  * </ul>
  *
  * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole()
@@ -80,6 +82,22 @@ public interface Role extends Entity {
      * @generated
      */
     EList<Constraint> getConstraints();
+
+    /**
+     * Returns the value of the '<em><b>Super Roles</b></em>' reference list. The list contents are
+     * of type {@link org.palladiosimulator.architecturaltemplates.Role}. <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Super Roles</em>' reference list isn't clear, there really should
+     * be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Super Roles</em>' reference list.
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getRole_SuperRoles()
+     * @model
+     * @generated
+     */
+    EList<Role> getSuperRoles();
 
     /**
      * Returns the value of the '<em><b>Stereotype</b></em>' reference. <!-- begin-user-doc -->

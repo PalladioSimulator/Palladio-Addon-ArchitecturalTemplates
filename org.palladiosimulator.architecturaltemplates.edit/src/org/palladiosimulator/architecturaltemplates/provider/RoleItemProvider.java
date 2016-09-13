@@ -47,6 +47,7 @@ public class RoleItemProvider extends EntityItemProvider {
             super.getPropertyDescriptors(object);
 
             this.addStereotypePropertyDescriptor(object);
+            this.addSuperRolesPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
@@ -63,6 +64,20 @@ public class RoleItemProvider extends EntityItemProvider {
                 this.getString("_UI_Role_stereotype_feature"),
                 this.getString("_UI_PropertyDescriptor_description", "_UI_Role_stereotype_feature", "_UI_Role_type"),
                 ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, true, false, true, null, null, null));
+    }
+
+    /**
+     * This adds a property descriptor for the Super Roles feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addSuperRolesPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Role_superRoles_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_Role_superRoles_feature", "_UI_Role_type"),
+                ArchitecturaltemplatesPackage.Literals.ROLE__SUPER_ROLES, true, false, true, null, null, null));
     }
 
     /**
