@@ -3,7 +3,9 @@
   <monitors id="_keTi8NcREeSNV4TmK_35qw" entityName="Response Times - Usage Scenario">
     <measurementSpecifications id="_rJvAENeIEeSA0bC90sbXyw">
       <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
-      <processingType xsi:type="monitorrepository:TimeDrivenAggregation" id="_52VUwn5QEeacvP-ElDHJuQ"/>
+      <processingType xsi:type="monitorrepository:TimeDrivenAggregation" id="_52VUwn5QEeacvP-ElDHJuQ">
+        <statisticalCharacterization xsi:type="monitorrepository:ArithmeticMean"/>
+      </processingType>
     </measurementSpecifications>
     <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="simpleExample.measuringpoint#//@measuringPoints.0"/>
   </monitors>
