@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <org.palladiosimulator.architecturaltemplates:Catalog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.architecturaltemplates="http://palladiosimulator.org/ArchitecturalTemplates/1.0" id="_2eRmoCOzEeSLXszsY50NUA" entityName="Default AT Catalog">
-  <ATs id="_64sjgCOzEeSLXszsY50NUA" entityName="Dynamic Three Layer Three Tier">
+  <ATs id="_64sjgCOzEeSLXszsY50NUA" entityName="Dynamic Three Layer Three Tier" documentation="See: http://wiki.cloudscale-project.eu/index.php/Simplified_SPOSAD_CAT">
     <roles id="_BIH6MCO0EeSLXszsY50NUA" entityName="Presentation Layer Assembly">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_ud6-gCOrEeSubfGVEKswQQ"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_UCl3wY0WEeWSbrz1kUpHng" entityName="Presentation Layer Assemblies are allocated to Presentation Tier Resource Container" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).getAllocation().allocationContexts_Allocation->select(ac|ac.assemblyContext_AllocationContext.id = self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).id)->forAll(assemblyAC|assemblyAC.resourceContainer_AllocationContext.hasAppliedStereotype('PresentationTier'))"/>
@@ -58,7 +58,7 @@
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
-  <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context">
+  <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Assembly_Context" defaultInstanceURI="">
     <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context">
       <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
@@ -79,7 +79,7 @@
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
   </ATs>
-  <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container">
+  <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Resource_Container">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System">
       <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingResourceContainer.qvto">
@@ -100,7 +100,7 @@
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
-  <ATs id="_nt1zAH4aEeS81uv5CnTOEw" entityName="Dynamic Vertical Scaling Resource Container">
+  <ATs id="_nt1zAH4aEeS81uv5CnTOEw" entityName="Dynamic Vertical Scaling Resource Container" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Vertical_Scaling_CAT#AT_Implementation">
     <roles id="_fhIWgH-qEeSOTOomnDiZOg" entityName="Dynamic Vertical Scaling Resource Container System">
       <stereotype href="profiles/DynamicVerticalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_lWA9IUTlEeWX9I6sz1f4mQ" entityName="System is Dynamic Vertical Scaling Resource Container System" expression="self.oclIsTypeOf(DynamicVerticalScalingResourceContainerSystem)"/>
@@ -119,7 +119,7 @@
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicVerticalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
-  <ATs id="_i-ghUIHkEeSeK9JYh8VNzw" entityName="Static Assembly Context Loadbalancing">
+  <ATs id="_i-ghUIHkEeSeK9JYh8VNzw" entityName="Static Assembly Context Loadbalancing" documentation="See: http://wiki.cloudscale-project.eu/index.php/Loadbalancing_CAT#Static_Assembly_Context_Loadbalancing" defaultInstanceURI="">
     <roles id="_rotRUYHkEeSeK9JYh8VNzw" entityName="StaticAssemblyContextLoadbalancingSystem">
       <stereotype href="profiles/StaticAssemblyContextLoadbalancing.emfprofile_diagram#_dgxFkL2VEeS8D6gGtq5evQ"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="Loadbalancing.qvto">
@@ -136,7 +136,7 @@
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_U6dEcbLUEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
     </roles>
   </ATs>
-  <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing">
+  <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing" documentation="See: http://wiki.cloudscale-project.eu/index.php/Loadbalancing_CAT#Static_Resource_Container_Loadbalancing">
     <roles id="_OVB8wLuIEeS4YqzUTAgFdA" entityName="StaticResourceContainerLoadbalancingSystem">
       <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_rXqFsL0NEeSXc41T9TupKQ"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="StaticResourceContainerLoadbalancing.qvto">
@@ -153,7 +153,7 @@
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_YhgqsbLUEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
     </roles>
   </ATs>
-  <ATs id="_pvPiUPpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce">
+  <ATs id="_pvPiUPpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce" documentation="See: http://wiki.cloudscale-project.eu/index.php/MapReduce_CAT" defaultInstanceURI="HadoopMapReduce/">
     <roles id="_07Qu0PpWEeSRjMxcTrWsAA" entityName="Hadoop MapReduce System">
       <stereotype href="profiles/HadoopMapReduce.emfprofile_diagram#_cPD50PphEeSRjMxcTrWsAA"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="HadoopMapReduce.qvto">

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_5-eacKQSEeWAQvtAPq2LOQ" entityName="Default MapReduce Monitors">
+  <monitors id="_9PZ_sKQSEeWAQvtAPq2LOQ" entityName="Response Times - Usage Scenario">
+    <measurementSpecifications id="_e_YhUKQTEeWAQvtAPq2LOQ" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_hnC-FH6DEeapSKV9QSz4Iw"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="mapreduce.measuringpoint#//@measuringPoints.0"/>
+  </monitors>
+  <monitors id="_Aj2zAKQTEeWAQvtAPq2LOQ" entityName="Response Times - Map">
+    <measurementSpecifications id="_fbzXkKQTEeWAQvtAPq2LOQ" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_jQwt5H6DEeapSKV9QSz4Iw"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="mapreduce.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+  <monitors id="_W8nkwKQTEeWAQvtAPq2LOQ" entityName="Response Times - Reduce">
+    <measurementSpecifications id="_f3rbQKQTEeWAQvtAPq2LOQ" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_jwZ3RH6DEeapSKV9QSz4Iw"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="mapreduce.measuringpoint#//@measuringPoints.2"/>
+  </monitors>
+</monitorrepository:MonitorRepository>
