@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - UI
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.ui.workbench,
@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.ui.workbench,
  org.modelversioning.emfprofile.registry;bundle-version="1.0.0",
  org.eclipse.emf.edit.ui,
  org.palladiosimulator.architecturaltemplates.edit;bundle-version="1.0.3",
- org.palladiosimulator.commons;bundle-version="1.0.0"
+ org.palladiosimulator.commons;bundle-version="1.0.1"
 Export-Package: org.palladiosimulator.architecturaltemplates.ui.dialogs
