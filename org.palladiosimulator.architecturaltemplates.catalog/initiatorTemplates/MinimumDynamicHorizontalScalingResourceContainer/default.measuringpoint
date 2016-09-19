@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.palladiosimulator.edp2.models:MeasuringPointRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.edp2.models="http://palladiosimulator.org/EDP2/MeasuringPoint/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_sxqHoNOMEeSjW_w7tGZZCA">
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: defaultUsageScenario" resourceURIRepresentation="platform:/resource/org.palladiosimulator.architecturaltemplates.examples.dynscalingcontainer/default.usagemodel#_bdhZcH4xEeSqFvs4kqVd7Q">
+    <usageScenario href="default.usagemodel#_bdhZcH4xEeSqFvs4kqVd7Q"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" stringRepresentation="Resource Environment: NormalAndReplicableResources" resourceURIRepresentation="platform:/resource/org.palladiosimulator.architecturaltemplates.examples.dynscalingcontainer/default.resourceenvironment#/0">
+    <resourceEnvironment href="default.resourceenvironment#/0"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ResourceContainerMeasuringPoint" stringRepresentation="Resource Container Replicable Resource Container [_vHW8QH4wEeSqFvs4kqVd7Q]" resourceURIRepresentation="platform:/resource/org.palladiosimulator.architecturaltemplates.examples.dynscalingcontainer/default.resourceenvironment#_vHW8QH4wEeSqFvs4kqVd7Q">
+    <resourceContainer href="default.resourceenvironment#_vHW8QH4wEeSqFvs4kqVd7Q"/>
+  </measuringPoints>
+</org.palladiosimulator.edp2.models:MeasuringPointRepository>

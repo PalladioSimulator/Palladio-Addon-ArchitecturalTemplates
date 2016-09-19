@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_ZBVJUNcREeSNV4TmK_35qw" entityName="Default Monitor Set">
+  <monitors id="_Gr1xsdONEeSjW_w7tGZZCA" entityName="Response Times - Usage Scenario">
+    <measurementSpecifications id="_JwvGENONEeSjW_w7tGZZCA">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:TimeDrivenAggregation" id="_Ml6konUiEearx-0nePGyiQ">
+        <statisticalCharacterization xsi:type="monitorrepository:ArithmeticMean"/>
+      </processingType>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="default.measuringpoint#//@measuringPoints.0"/>
+  </monitors>
+  <monitors id="_ROQAgdONEeSjW_w7tGZZCA" entityName="Number of Resource Container - Resource Environment">
+    <measurementSpecifications id="_Uv47QNONEeSjW_w7tGZZCA">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_e7x3gq-eEeSgL6DrxYuwZg"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_tNmBdHUiEearx-0nePGyiQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="default.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+  <monitors id="_-terAFo2EeWsV9LtPY1D6Q" entityName="Operation Cost - Resource Environment">
+    <measurementSpecifications id="_DxPf0Fo3EeWsV9LtPY1D6Q">
+      <metricDescription xsi:type="metricspec:MetricSetDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_IiHVQdgLEeSCcbn_evnMvQ"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_vCbcJHUiEearx-0nePGyiQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="default.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+</monitorrepository:MonitorRepository>

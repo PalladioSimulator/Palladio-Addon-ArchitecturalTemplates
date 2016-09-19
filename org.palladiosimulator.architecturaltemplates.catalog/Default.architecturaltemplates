@@ -79,7 +79,7 @@
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
   </ATs>
-  <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Resource_Container">
+  <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Resource_Container" defaultInstanceURI="MinimumDynamicHorizontalScalingResourceContainer/">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System">
       <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingResourceContainer.qvto">
@@ -136,7 +136,7 @@
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_U6dEcbLUEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
     </roles>
   </ATs>
-  <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing" documentation="See: http://wiki.cloudscale-project.eu/index.php/Loadbalancing_CAT#Static_Resource_Container_Loadbalancing">
+  <ATs id="_LjXtcLuIEeS4YqzUTAgFdA" entityName="Static Resource Container Loadbalancing" documentation="See: http://wiki.cloudscale-project.eu/index.php/Loadbalancing_CAT#Static_Resource_Container_Loadbalancing" defaultInstanceURI="MinimumStaticResourceContainerLoadbalancing/">
     <roles id="_OVB8wLuIEeS4YqzUTAgFdA" entityName="StaticResourceContainerLoadbalancingSystem">
       <stereotype href="profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_rXqFsL0NEeSXc41T9TupKQ"/>
       <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="StaticResourceContainerLoadbalancing.qvto">
