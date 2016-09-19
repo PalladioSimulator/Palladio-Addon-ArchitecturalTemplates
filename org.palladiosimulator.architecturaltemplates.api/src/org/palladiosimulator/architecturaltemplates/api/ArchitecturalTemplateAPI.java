@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
@@ -16,7 +18,9 @@ import org.modelversioning.emfprofile.registry.IProfileRegistry;
 import org.modelversioning.emfprofileapplication.ProfileImport;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.architecturaltemplates.AT;
+import org.palladiosimulator.architecturaltemplates.Catalog;
 import org.palladiosimulator.architecturaltemplates.Role;
+import org.palladiosimulator.commons.eclipseutils.ExtensionHelper;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
@@ -129,7 +133,11 @@ public final class ArchitecturalTemplateAPI {
     }
 
     private static EAnnotation getArchitecturalTemplateAnnotation(final Stereotype stereotype) {
-        return stereotype.getProfile().getEAnnotation(ARCHITECTURALTEMPLATE_ANNOTATION);
+        return getArchitecturalTemplateAnnotation(stereotype.getProfile());
+    }
+
+    private static EAnnotation getArchitecturalTemplateAnnotation(final Profile profile) {
+        return profile.getEAnnotation(ARCHITECTURALTEMPLATE_ANNOTATION);
     }
 
     /**
@@ -143,17 +151,7 @@ public final class ArchitecturalTemplateAPI {
      * Tests whether a {@link Profile} is an Architectural-Template. {@see #isArchitecturalTemplate}
      */
     public static boolean isArchitecturalTemplate(final Profile profile) {
-
-        int count = 0;
-
-        for (final Stereotype s : profile.getStereotypes()) {
-            if (!isRole(s))
-                return false;
-            if (isSystemRole(s))
-                count++;
-        }
-
-        return count == 1;
+        return getArchitecturalTemplateAnnotation(profile) != null;
     }
 
     /**
@@ -567,6 +565,20 @@ public final class ArchitecturalTemplateAPI {
      */
     public static boolean hasRoles(final EObject eObject) {
         return !getAppliedRoles(eObject).isEmpty();
+    }
+
+    public static Set<AT> getInitiatorATs() {
+        return ArchitecturalTemplateAPI.getRegisteredATCatlogs().stream().flatMap(catalog -> catalog.getATs().stream())
+                .filter(at -> (at.getDefaultInstanceURI() != null) && (!at.getDefaultInstanceURI().isEmpty()))
+                .collect(Collectors.toSet());
+    }
+
+    public static Set<Catalog> getRegisteredATCatlogs() {
+        final List<String> catalogURIs = ExtensionHelper
+                .getAttributes("org.palladiosimulator.architecturaltemplates.catalogs", "ATCatalog", "catalogURI");
+
+        return catalogURIs.stream().map(EMFLoadHelper::loadAndResolveEObject).map(eObject -> (Catalog) eObject)
+                .collect(Collectors.toSet());
     }
 
 }
