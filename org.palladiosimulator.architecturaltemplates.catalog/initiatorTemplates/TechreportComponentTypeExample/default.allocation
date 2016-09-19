@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_hxQ50Oe2EeKIBagHmWZp3Q" entityName="defaultAllocation">
+  <targetResourceEnvironment_Allocation href="default.resourceenvironment#/"/>
+  <system_Allocation href="default.system#_SEpGYOeqEeKIBagHmWZp3Q"/>
+  <allocationContexts_Allocation id="_i_xUUOe2EeKIBagHmWZp3Q" entityName="Allocation_Assembly_X &lt;X> &lt;X>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_AEOtkOetEeKIBagHmWZp3Q"/>
+    <assemblyContext_AllocationContext href="default.system#_5O6tgOeqEeKIBagHmWZp3Q"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_lGlP0Oe2EeKIBagHmWZp3Q" entityName="Allocation_Assembly_ProvideC &lt;ProvideC> &lt;ProvideC>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_AEOtkOetEeKIBagHmWZp3Q"/>
+    <assemblyContext_AllocationContext href="default.system#_-4UmAOeqEeKIBagHmWZp3Q"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_lxw60Oe2EeKIBagHmWZp3Q" entityName="Allocation_Assembly_ProvideAB &lt;ProvideAB> &lt;ProvideAB>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_AEOtkOetEeKIBagHmWZp3Q"/>
+    <assemblyContext_AllocationContext href="default.system#_Um4uwOesEeKIBagHmWZp3Q"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

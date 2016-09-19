@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_Gzo5EMuwEeOrXJYSTPO-kw" entityName="PcmStandardRepository" repositoryDescription="This projects holds a repository with a set of standard reusable software components and interfaces. These components and interfaces can be used across multiple projects to ease starting modeling.">
+  <components__Repository xsi:type="repository:BasicComponent" id="_li9tIMuwEeOrXJYSTPO-kw" entityName="Cache">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_n1kB4MuwEeOrXJYSTPO-kw" entityName="Provided_IRequest_Cache" providedInterface__OperationProvidedRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_oWqj0MuwEeOrXJYSTPO-kw" entityName="Required_IRequest_Cache" requiredInterface__OperationRequiredRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_n1qIgMuwEeOrXJYSTPO-kw" describedService__SEFF="_JcqJwMuwEeOrXJYSTPO-kw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_n1qIgcuwEeOrXJYSTPO-kw" entityName="start" successor_AbstractAction="_IyWWkMuyEeOrXJYSTPO-kw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_n1qIgsuwEeOrXJYSTPO-kw" entityName="stop" predecessor_AbstractAction="__PBwwMuyEeOrXJYSTPO-kw"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_IyWWkMuyEeOrXJYSTPO-kw" entityName="CacheLookup" predecessor_AbstractAction="_n1qIgcuwEeOrXJYSTPO-kw" successor_AbstractAction="_Sz5UAMuyEeOrXJYSTPO-kw">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="1"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:BranchAction" id="_Sz5UAMuyEeOrXJYSTPO-kw" entityName="CacheHitMiss" predecessor_AbstractAction="_IyWWkMuyEeOrXJYSTPO-kw" successor_AbstractAction="__PBwwMuyEeOrXJYSTPO-kw">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_WyeCYMuyEeOrXJYSTPO-kw" entityName="CacheHit" branchProbability="0.8">
+          <branchBehaviour_BranchTransition id="_WyeCYcuyEeOrXJYSTPO-kw">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_WykJAMuyEeOrXJYSTPO-kw" successor_AbstractAction="_WykJAcuyEeOrXJYSTPO-kw"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_WykJAcuyEeOrXJYSTPO-kw" predecessor_AbstractAction="_WykJAMuyEeOrXJYSTPO-kw"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_ZbkyoMuyEeOrXJYSTPO-kw" entityName="CacheMiss" branchProbability="0.2">
+          <branchBehaviour_BranchTransition id="_ZbkyocuyEeOrXJYSTPO-kw">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_ZbkyosuyEeOrXJYSTPO-kw" successor_AbstractAction="_ovu5MMuyEeOrXJYSTPO-kw"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_Zbkyo8uyEeOrXJYSTPO-kw" predecessor_AbstractAction="_ovu5MMuyEeOrXJYSTPO-kw"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_ovu5MMuyEeOrXJYSTPO-kw" predecessor_AbstractAction="_ZbkyosuyEeOrXJYSTPO-kw" successor_AbstractAction="_Zbkyo8uyEeOrXJYSTPO-kw" calledService_ExternalService="_JcqJwMuwEeOrXJYSTPO-kw" role_ExternalService="_oWqj0MuwEeOrXJYSTPO-kw">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestType.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="requestType"/>
+              </inputVariableUsages__CallAction>
+              <returnVariableUsage__CallReturnAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="RETURN.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="externalCallResponse"/>
+              </returnVariableUsage__CallReturnAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="__PBwwMuyEeOrXJYSTPO-kw" entityName="setReturnValue" predecessor_AbstractAction="_Sz5UAMuyEeOrXJYSTPO-kw" successor_AbstractAction="_n1qIgsuwEeOrXJYSTPO-kw">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="externalCallResponse.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_KpCn4MuxEeOrXJYSTPO-kw" entityName="StandardForwardingComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Ljy_8MuxEeOrXJYSTPO-kw" entityName="Provided_IRequest_Forwarder" providedInterface__OperationProvidedRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_MD1x8MuxEeOrXJYSTPO-kw" entityName="Required_IRequest_Forwarder" requiredInterface__OperationRequiredRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_Ljy_8cuxEeOrXJYSTPO-kw" describedService__SEFF="_JcqJwMuwEeOrXJYSTPO-kw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_Ljy_8suxEeOrXJYSTPO-kw" entityName="start" successor_AbstractAction="_d2mo8MuxEeOrXJYSTPO-kw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_Ljy_88uxEeOrXJYSTPO-kw" entityName="stop" predecessor_AbstractAction="_lJaIMMuxEeOrXJYSTPO-kw"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_Mps4EMuxEeOrXJYSTPO-kw" predecessor_AbstractAction="_d2mo8MuxEeOrXJYSTPO-kw" successor_AbstractAction="_lJaIMMuxEeOrXJYSTPO-kw" calledService_ExternalService="_JcqJwMuwEeOrXJYSTPO-kw" role_ExternalService="_MD1x8MuxEeOrXJYSTPO-kw">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="requestType.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="requestType"/>
+        </inputVariableUsages__CallAction>
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="RETURN.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="externalCallResponse"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_d2mo8MuxEeOrXJYSTPO-kw" entityName="ComponentRessourceUsage" predecessor_AbstractAction="_Ljy_8suxEeOrXJYSTPO-kw" successor_AbstractAction="_Mps4EMuxEeOrXJYSTPO-kw">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="0"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_lJaIMMuxEeOrXJYSTPO-kw" entityName="setReturnValue" predecessor_AbstractAction="_Mps4EMuxEeOrXJYSTPO-kw" successor_AbstractAction="_Ljy_88uxEeOrXJYSTPO-kw">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="externalCallResponse.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_SQwdkMxpEeOx-JIRUcYdjg" entityName="LoadBalancer2x">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_V0b_sMxpEeOx-JIRUcYdjg" entityName="Provided_IRequest_LoadBalancer2x" providedInterface__OperationProvidedRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_USYXEMxpEeOx-JIRUcYdjg" entityName="Required_IRequest_LoadBalancer2x_Port01" requiredInterface__OperationRequiredRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_Ux2hUMxpEeOx-JIRUcYdjg" entityName="Required_IRequest_LoadBalancer2x_Port02" requiredInterface__OperationRequiredRole="_H-m3YMuwEeOrXJYSTPO-kw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_V0iGUMxpEeOx-JIRUcYdjg" describedService__SEFF="_JcqJwMuwEeOrXJYSTPO-kw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_V0iGUcxpEeOx-JIRUcYdjg" entityName="start" successor_AbstractAction="_YLD40MxpEeOx-JIRUcYdjg"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_V0iGUsxpEeOx-JIRUcYdjg" entityName="stop" predecessor_AbstractAction="_YLD40MxpEeOx-JIRUcYdjg"/>
+      <steps_Behaviour xsi:type="seff:BranchAction" id="_YLD40MxpEeOx-JIRUcYdjg" entityName="RandomlyChoseRequiredPorts" predecessor_AbstractAction="_V0iGUcxpEeOx-JIRUcYdjg" successor_AbstractAction="_V0iGUsxpEeOx-JIRUcYdjg">
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_de5xAMxpEeOx-JIRUcYdjg" entityName="CallPort01" branchProbability="0.5">
+          <branchBehaviour_BranchTransition id="_de5xAcxpEeOx-JIRUcYdjg">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_de_3oMxpEeOx-JIRUcYdjg" successor_AbstractAction="_ei6LsMxpEeOx-JIRUcYdjg"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_de_3ocxpEeOx-JIRUcYdjg" predecessor_AbstractAction="_ei6LsMxpEeOx-JIRUcYdjg"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_ei6LsMxpEeOx-JIRUcYdjg" predecessor_AbstractAction="_de_3oMxpEeOx-JIRUcYdjg" successor_AbstractAction="_de_3ocxpEeOx-JIRUcYdjg" calledService_ExternalService="_JcqJwMuwEeOrXJYSTPO-kw" role_ExternalService="_USYXEMxpEeOx-JIRUcYdjg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestType.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="requestType"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_lVrgAMxpEeOx-JIRUcYdjg" entityName="CallPort02" branchProbability="0.5">
+          <branchBehaviour_BranchTransition id="_lVrgAcxpEeOx-JIRUcYdjg">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_lVrgAsxpEeOx-JIRUcYdjg" successor_AbstractAction="_miRO8MxpEeOx-JIRUcYdjg"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_lVrgA8xpEeOx-JIRUcYdjg" predecessor_AbstractAction="_miRO8MxpEeOx-JIRUcYdjg"/>
+            <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_miRO8MxpEeOx-JIRUcYdjg" predecessor_AbstractAction="_lVrgAsxpEeOx-JIRUcYdjg" successor_AbstractAction="_lVrgA8xpEeOx-JIRUcYdjg" calledService_ExternalService="_JcqJwMuwEeOrXJYSTPO-kw" role_ExternalService="_Ux2hUMxpEeOx-JIRUcYdjg">
+              <inputVariableUsages__CallAction>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="requestType.VALUE"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="requestType"/>
+              </inputVariableUsages__CallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_H-m3YMuwEeOrXJYSTPO-kw" entityName="IRequest">
+    <signatures__OperationInterface id="_JcqJwMuwEeOrXJYSTPO-kw" entityName="processRequest">
+      <parameters__OperationSignature parameterName="requestType">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+</repository:Repository>

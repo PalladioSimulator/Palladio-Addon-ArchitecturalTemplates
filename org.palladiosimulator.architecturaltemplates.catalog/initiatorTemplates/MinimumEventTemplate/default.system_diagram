@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_EoOTICgAEeKaD4ZarTBgtw" type="CompositeModel" measurementUnit="Pixel">
+  <children xsi:type="notation:Shape" xmi:id="_Et8goCgAEeKaD4ZarTBgtw" type="2002" fontName="Lucida Grande">
+    <children xsi:type="notation:DecorationNode" xmi:id="_Et8goigAEeKaD4ZarTBgtw" type="5012"/>
+    <children xsi:type="notation:DecorationNode" xmi:id="_Et8goygAEeKaD4ZarTBgtw" type="7002">
+      <children xsi:type="notation:Shape" xmi:id="_Et_j8CgAEeKaD4ZarTBgtw" type="3006" fontName="Lucida Grande">
+        <children xsi:type="notation:DecorationNode" xmi:id="_Et_j8igAEeKaD4ZarTBgtw" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="23" y="-17"/>
+          </children>
+          <element href="default.repository#_81XIQNynEeGwrZa-N3RJDQ"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3013" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5015">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="default.repository#_HEQlMNyoEeGwrZa-N3RJDQ"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="49" y="79"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3013" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5015">
+            <layoutConstraint xsi:type="notation:Location" x="-60" y="-48"/>
+          </children>
+          <element href="default.repository#_x6XF0Cf_EeKaD4ZarTBgtw"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="79" y="1"/>
+        </children>
+        <element href="default.system#_UYSAANyoEeGwrZa-N3RJDQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Et_j8SgAEeKaD4ZarTBgtw" x="172" y="204" width="149"/>
+      </children>
+      <children xsi:type="notation:Shape" xmi:id="_EuALACgAEeKaD4ZarTBgtw" type="3006" fontName="Lucida Grande">
+        <children xsi:type="notation:DecorationNode" xmi:id="_EuALAigAEeKaD4ZarTBgtw" type="5009"/>
+        <children xsi:type="notation:Shape" type="3014" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5016">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="default.repository#_GbNBINyoEeGwrZa-N3RJDQ"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="default.system#_WMxccNyoEeGwrZa-N3RJDQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" xmi:id="_EuALASgAEeKaD4ZarTBgtw" x="516" y="336"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Lucida Grande">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3014" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5016">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="default.repository#_SVvzECgAEeKaD4ZarTBgtw"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="default.system#_Y3BuwCgAEeKaD4ZarTBgtw"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="560" y="20"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Lucida Grande">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3014" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5016">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="default.repository#_SVvzECgAEeKaD4ZarTBgtw"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="default.system#_Zs9RMCgAEeKaD4ZarTBgtw"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="580" y="200"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3017" fontName="Lucida Grande">
+        <children xsi:type="notation:DecorationNode" type="5019"/>
+        <element href="default.system#_dopqsCgAEeKaD4ZarTBgtw"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="340" y="136"/>
+      </children>
+    </children>
+    <children xsi:type="notation:Shape" xmi:id="_Et9uwCgAEeKaD4ZarTBgtw" type="3011" fontName="Lucida Grande">
+      <children xsi:type="notation:DecorationNode" xmi:id="_Et-V0CgAEeKaD4ZarTBgtw" type="5013">
+        <layoutConstraint xsi:type="notation:Location" xmi:id="_Et-V0SgAEeKaD4ZarTBgtw" x="146" y="72"/>
+      </children>
+      <element href="default.system#_XAGW0NyoEeGwrZa-N3RJDQ"/>
+      <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Et9uwSgAEeKaD4ZarTBgtw"/>
+    </children>
+    <element href="default.system#_TqnBsNyoEeGwrZa-N3RJDQ"/>
+    <layoutConstraint xsi:type="notation:Bounds" xmi:id="_Et8goSgAEeKaD4ZarTBgtw" x="115" y="30" width="761" height="533"/>
+  </children>
+  <styles xsi:type="notation:DiagramStyle" xmi:id="_EoOTISgAEeKaD4ZarTBgtw"/>
+  <element href="default.system#_TqnBsNyoEeGwrZa-N3RJDQ"/>
+  <edges xsi:type="notation:Connector" type="4007" source="//@children.0/@children.1/@children.0/@children.2" target="//@children.0/@children.1/@children.1/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Lucida Grande"/>
+    <element href="default.system#_ZCuV4NyoEeGwrZa-N3RJDQ"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[8, 0, 8, 0]$[0, 0, 0, 0]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4006" source="_Et9uwCgAEeKaD4ZarTBgtw" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Lucida Grande"/>
+    <element href="default.system#_YRfGMNyoEeGwrZa-N3RJDQ"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, 45, 15]$[-17, -12, -2, 3]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4010" source="//@children.0/@children.1/@children.2/@children.1" target="//@children.0/@children.1/@children.4">
+    <styles xsi:type="notation:FontStyle" fontName="Lucida Grande"/>
+    <element href="default.system#_fvNukCgAEeKaD4ZarTBgtw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 101, -75]$[-103, 94, -2, 19]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4010" source="//@children.0/@children.1/@children.3/@children.1" target="//@children.0/@children.1/@children.4">
+    <styles xsi:type="notation:FontStyle" fontName="Lucida Grande"/>
+    <element href="default.system#_gPwP0CgAEeKaD4ZarTBgtw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 0, 109, 53]$[-127, -65, -18, -12]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4009" source="//@children.0/@children.1/@children.0/@children.3" target="//@children.0/@children.1/@children.4">
+    <styles xsi:type="notation:FontStyle" fontName="Lucida Grande"/>
+    <element href="default.system#_jfmP8CgAEeKaD4ZarTBgtw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[8, 0, -35, 107]$[38, -90, -5, 17]"/>
+  </edges>
+</notation:Diagram>

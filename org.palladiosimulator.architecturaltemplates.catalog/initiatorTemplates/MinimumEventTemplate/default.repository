@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_4ZMe8NynEeGwrZa-N3RJDQ" entityName="defaultRepository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_47jlINynEeGwrZa-N3RJDQ" entityName="MyComponentSender">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_81XIQNynEeGwrZa-N3RJDQ" entityName="Provided_MyInterface_MyComponent" providedInterface__OperationProvidedRole="_6RjuwNynEeGwrZa-N3RJDQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:SourceRole" id="_HEQlMNyoEeGwrZa-N3RJDQ" entityName="Source_EventGroup_MyComponentSender" eventGroup__SourceRole="_-wjCkNynEeGwrZa-N3RJDQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:SourceRole" id="_x6XF0Cf_EeKaD4ZarTBgtw" entityName="Source_EventGroupChannel_MyComponentSender" eventGroup__SourceRole="_td6IoCf_EeKaD4ZarTBgtw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_81XIQdynEeGwrZa-N3RJDQ" describedService__SEFF="_7csFINynEeGwrZa-N3RJDQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_81XIQtynEeGwrZa-N3RJDQ" successor_AbstractAction="_y0C-4NyoEeGwrZa-N3RJDQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_81XIQ9ynEeGwrZa-N3RJDQ" predecessor_AbstractAction="_EL3OoCf9EeKaD4ZarTBgtw"/>
+      <steps_Behaviour xsi:type="seff:EmitEventAction" id="_IbJfoNyoEeGwrZa-N3RJDQ" entityName="myEmitEvent" predecessor_AbstractAction="_y0C-4NyoEeGwrZa-N3RJDQ" successor_AbstractAction="_EL3OoCf9EeKaD4ZarTBgtw" eventType__EmitEventAction="__oCEMNynEeGwrZa-N3RJDQ" sourceRole__EmitEventAction="_HEQlMNyoEeGwrZa-N3RJDQ">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="true"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="event"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_y0C-4NyoEeGwrZa-N3RJDQ" entityName="doSth" predecessor_AbstractAction="_81XIQtynEeGwrZa-N3RJDQ" successor_AbstractAction="_IbJfoNyoEeGwrZa-N3RJDQ">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="1"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:EmitEventAction" id="_EL3OoCf9EeKaD4ZarTBgtw" predecessor_AbstractAction="_IbJfoNyoEeGwrZa-N3RJDQ" successor_AbstractAction="_81XIQ9ynEeGwrZa-N3RJDQ" eventType__EmitEventAction="_uyANwCf_EeKaD4ZarTBgtw" sourceRole__EmitEventAction="_x6XF0Cf_EeKaD4ZarTBgtw">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="BoolPMF[(true;0.5)(false;0.5)]"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="event"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_ESoLENyoEeGwrZa-N3RJDQ" entityName="MyComponentReceiver">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:SinkRole" id="_GbNBINyoEeGwrZa-N3RJDQ" entityName="Sink_EventGroup_MyComponentReceiver" eventGroup__SinkRole="_-wjCkNynEeGwrZa-N3RJDQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_GbNBIdyoEeGwrZa-N3RJDQ" describedService__SEFF="__oCEMNynEeGwrZa-N3RJDQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_GbNBItyoEeGwrZa-N3RJDQ" successor_AbstractAction="_P5JiQNyoEeGwrZa-N3RJDQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_GbNBI9yoEeGwrZa-N3RJDQ" predecessor_AbstractAction="_P5JiQNyoEeGwrZa-N3RJDQ"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_P5JiQNyoEeGwrZa-N3RJDQ" entityName="myProcessEvent" predecessor_AbstractAction="_GbNBItyoEeGwrZa-N3RJDQ" successor_AbstractAction="_GbNBI9yoEeGwrZa-N3RJDQ">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="event.VALUE ? 2 : 10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_Qr_nACgAEeKaD4ZarTBgtw" entityName="ChannelReceiver">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:SinkRole" id="_SVvzECgAEeKaD4ZarTBgtw" entityName="Sink_EventGroupChannel_ChannelReceiver" eventGroup__SinkRole="_td6IoCf_EeKaD4ZarTBgtw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_SVxoQCgAEeKaD4ZarTBgtw" describedService__SEFF="_uyANwCf_EeKaD4ZarTBgtw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_SVxoQSgAEeKaD4ZarTBgtw" entityName="start" successor_AbstractAction="_TL_ekCgAEeKaD4ZarTBgtw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_SVyPUCgAEeKaD4ZarTBgtw" entityName="stop" predecessor_AbstractAction="_TL_ekCgAEeKaD4ZarTBgtw"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_TL_ekCgAEeKaD4ZarTBgtw" predecessor_AbstractAction="_SVxoQSgAEeKaD4ZarTBgtw" successor_AbstractAction="_SVyPUCgAEeKaD4ZarTBgtw">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="1"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_6RjuwNynEeGwrZa-N3RJDQ" entityName="MyInterface">
+    <signatures__OperationInterface id="_7csFINynEeGwrZa-N3RJDQ" entityName="doSth"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_-wjCkNynEeGwrZa-N3RJDQ" entityName="EventGroup">
+    <eventTypes__EventGroup id="__oCEMNynEeGwrZa-N3RJDQ" entityName="myEventType">
+      <parameter__EventType parameterName="event">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </parameter__EventType>
+    </eventTypes__EventGroup>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_td6IoCf_EeKaD4ZarTBgtw" entityName="EventGroupChannel">
+    <eventTypes__EventGroup id="_uyANwCf_EeKaD4ZarTBgtw" entityName="myEventType2">
+      <parameter__EventType parameterName="event">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </parameter__EventType>
+    </eventTypes__EventGroup>
+  </interfaces__Repository>
+</repository:Repository>

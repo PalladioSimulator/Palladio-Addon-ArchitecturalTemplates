@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1" id="_TqnBsNyoEeGwrZa-N3RJDQ" entityName="defaultSystem">
+  <assemblyContexts__ComposedStructure id="_UYSAANyoEeGwrZa-N3RJDQ" entityName="Assembly_MyComponentSender &lt;MyComponentSender>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_47jlINynEeGwrZa-N3RJDQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_WMxccNyoEeGwrZa-N3RJDQ" entityName="Assembly_MyComponentReceiver &lt;MyComponentReceiver>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_ESoLENyoEeGwrZa-N3RJDQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_Y3BuwCgAEeKaD4ZarTBgtw" entityName="Assembly_ChannelReceiver1 &lt;ChannelReceiver>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_Qr_nACgAEeKaD4ZarTBgtw"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_Zs9RMCgAEeKaD4ZarTBgtw" entityName="Assembly_ChannelReceiver2 &lt;ChannelReceiver>">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_Qr_nACgAEeKaD4ZarTBgtw"/>
+  </assemblyContexts__ComposedStructure>
+  <eventChannel__ComposedStructure id="_dopqsCgAEeKaD4ZarTBgtw" entityName="EventGroupChannel" eventChannelSourceConnector__EventChannel="_jfmP8CgAEeKaD4ZarTBgtw" eventChannelSinkConnector__EventChannel="_fvNukCgAEeKaD4ZarTBgtw _gPwP0CgAEeKaD4ZarTBgtw">
+    <eventGroup__EventChannel href="default.repository#_td6IoCf_EeKaD4ZarTBgtw"/>
+  </eventChannel__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_YRfGMNyoEeGwrZa-N3RJDQ" entityName="ProvDelegation Provided_MyInterface -> Provided_MyInterface_MyComponent" outerProvidedRole_ProvidedDelegationConnector="_XAGW0NyoEeGwrZa-N3RJDQ" assemblyContext_ProvidedDelegationConnector="_UYSAANyoEeGwrZa-N3RJDQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_81XIQNynEeGwrZa-N3RJDQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyEventConnector" id="_ZCuV4NyoEeGwrZa-N3RJDQ" entityName="EventConnector Assembly_MyComponentSender &lt;MyComponentSender> -> Assembly_MyComponentReceiver &lt;MyComponentReceiver>" sinkAssemblyContext__AssemblyEventConnector="_WMxccNyoEeGwrZa-N3RJDQ" sourceAssemblyContext__AssemblyEventConnector="_UYSAANyoEeGwrZa-N3RJDQ">
+    <sinkRole__AssemblyEventConnector href="default.repository#_GbNBINyoEeGwrZa-N3RJDQ"/>
+    <sourceRole__AssemblyEventConnector href="default.repository#_HEQlMNyoEeGwrZa-N3RJDQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:EventChannelSinkConnector" id="_fvNukCgAEeKaD4ZarTBgtw" assemblyContext__EventChannelSinkConnector="_Y3BuwCgAEeKaD4ZarTBgtw" eventChannel__EventChannelSinkConnector="_dopqsCgAEeKaD4ZarTBgtw">
+    <sinkRole__EventChannelSinkConnector href="default.repository#_SVvzECgAEeKaD4ZarTBgtw"/>
+    <filterCondition__EventChannelSinkConnector specification="event.VALUE == false"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:EventChannelSinkConnector" id="_gPwP0CgAEeKaD4ZarTBgtw" assemblyContext__EventChannelSinkConnector="_Zs9RMCgAEeKaD4ZarTBgtw" eventChannel__EventChannelSinkConnector="_dopqsCgAEeKaD4ZarTBgtw">
+    <sinkRole__EventChannelSinkConnector href="default.repository#_SVvzECgAEeKaD4ZarTBgtw"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:EventChannelSourceConnector" id="_jfmP8CgAEeKaD4ZarTBgtw" assemblyContext__EventChannelSourceConnector="_UYSAANyoEeGwrZa-N3RJDQ" eventChannel__EventChannelSourceConnector="_dopqsCgAEeKaD4ZarTBgtw">
+    <sourceRole__EventChannelSourceRole href="default.repository#_x6XF0Cf_EeKaD4ZarTBgtw"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_XAGW0NyoEeGwrZa-N3RJDQ" entityName="Provided_MyInterface">
+    <providedInterface__OperationProvidedRole href="default.repository#_6RjuwNynEeGwrZa-N3RJDQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

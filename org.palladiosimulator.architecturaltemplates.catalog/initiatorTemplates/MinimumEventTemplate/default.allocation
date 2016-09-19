@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_nT58gNyoEeGwrZa-N3RJDQ" entityName="defaultAllocation">
+  <targetResourceEnvironment_Allocation href="default.resourceenvironment#/"/>
+  <system_Allocation href="default.system#_TqnBsNyoEeGwrZa-N3RJDQ"/>
+  <allocationContexts_Allocation id="_oNCj8NyoEeGwrZa-N3RJDQ" entityName="Allocation_Assembly_MyComponentSender &lt;MyComponentSender> &lt;MyComponentSender>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_dtxIsNyoEeGwrZa-N3RJDQ"/>
+    <assemblyContext_AllocationContext href="default.system#_UYSAANyoEeGwrZa-N3RJDQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_lp158CgAEeKaD4ZarTBgtw" entityName="Allocation_Assembly_MyComponentReceiver &lt;MyComponentReceiver> &lt;MyComponentReceiver>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_dtxIsNyoEeGwrZa-N3RJDQ"/>
+    <assemblyContext_AllocationContext href="default.system#_WMxccNyoEeGwrZa-N3RJDQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_mkgycCgAEeKaD4ZarTBgtw" entityName="Allocation_Assembly_ChannelReceiver1 &lt;ChannelReceiver> &lt;ChannelReceiver>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_dtxIsNyoEeGwrZa-N3RJDQ"/>
+    <assemblyContext_AllocationContext href="default.system#_Y3BuwCgAEeKaD4ZarTBgtw"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_nIhecCgAEeKaD4ZarTBgtw" entityName="Allocation_Assembly_ChannelReceiver2 &lt;ChannelReceiver> &lt;ChannelReceiver>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_dtxIsNyoEeGwrZa-N3RJDQ"/>
+    <assemblyContext_AllocationContext href="default.system#_Zs9RMCgAEeKaD4ZarTBgtw"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_oIhi4CgAEeKaD4ZarTBgtw" entityName="Allocation_EventGroupChannel">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_X20WUCf9EeKaD4ZarTBgtw"/>
+    <eventChannel__AllocationContext href="default.system#_dopqsCgAEeKaD4ZarTBgtw"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>
