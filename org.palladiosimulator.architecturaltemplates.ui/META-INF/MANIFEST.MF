@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - UI
-Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.ui
+Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
