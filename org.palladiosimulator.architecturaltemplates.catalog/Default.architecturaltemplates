@@ -281,4 +281,8 @@
       </completion>
     </roles>
   </ATs>
+  <ATs id="_bz7kMH5oEeapSKV9QSz4Iw" entityName="Minimum Example Template" documentation="Creates a Palladio project containing a minimum example project." defaultInstanceURI="MinimumExampleTemplate/"/>
+  <ATs id="_1wJ1oH5oEeapSKV9QSz4Iw" entityName="Minimum Event Template" documentation="Creates a Palladio project containing a minimum example project using an event-based communication." defaultInstanceURI="MinimumEventTemplate/"/>
+  <ATs id="_DH89MH5pEeapSKV9QSz4Iw" entityName="Techreport Component Type Example" documentation="Creates a Palladio project that models the component type example of the Palladio Techreport (Section &quot;Type Hierarchy&quot;)." defaultInstanceURI="TechreportComponentTypeExample/"/>
+  <ATs id="_DaNx4H5pEeapSKV9QSz4Iw" entityName="PCM Standard Components and Interfaces Repository" documentation="Creates a Palladio project containing standard reusable components and interfaces (e.g. Cache, Loadbalancer, Connection Pool, Delegating Component)." defaultInstanceURI="PCMStandardComponents/"/>
 </org.palladiosimulator.architecturaltemplates:Catalog>

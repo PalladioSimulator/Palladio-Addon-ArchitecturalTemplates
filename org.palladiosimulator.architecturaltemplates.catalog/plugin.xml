@@ -80,4 +80,10 @@
            </library>
         </unit>
    </extension>
+   <extension
+         point="org.palladiosimulator.architecturaltemplates.catalogs">
+      <ATCatalog
+            catalogURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/Default.architecturaltemplates#_2eRmoCOzEeSLXszsY50NUA">
+      </ATCatalog>
+   </extension>
 </plugin>
