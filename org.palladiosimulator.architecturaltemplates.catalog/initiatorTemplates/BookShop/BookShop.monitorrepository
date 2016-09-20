@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_P3l4sH9SEeaHNuq2j06i3A" entityName="Book Shop Monitors">
+  <monitors id="_RTAGwH9SEeaHNuq2j06i3A" entityName="Usage">
+    <measurementSpecifications id="_GuGIIH9TEeaHNuq2j06i3A">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:TimeDrivenAggregation" id="_RXuZQn9TEeaHNuq2j06i3A">
+        <statisticalCharacterization xsi:type="monitorrepository:ArithmeticMean"/>
+      </processingType>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="BookShop.measuringpoint#//@measuringPoints.0"/>
+  </monitors>
+  <monitors id="_b7csIH9SEeaHNuq2j06i3A" entityName="Resource Environment">
+    <measurementSpecifications id="_HLfOwH9TEeaHNuq2j06i3A" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_e7x3gq-eEeSgL6DrxYuwZg"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_Ibp2JH9TEeaHNuq2j06i3A"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="BookShop.measuringpoint#//@measuringPoints.1"/>
+  </monitors>
+  <monitors id="_fzFsEH9SEeaHNuq2j06i3A" entityName="Web &amp; Application Server CPU">
+    <measurementSpecifications id="_I7MR0H9TEeaHNuq2j06i3A" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_JP5WhH9TEeaHNuq2j06i3A"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="BookShop.measuringpoint#//@measuringPoints.3"/>
+  </monitors>
+  <monitors id="_lylwYH9SEeaHNuq2j06i3A" entityName="Database Server CPU">
+    <measurementSpecifications id="_J7qQUH9TEeaHNuq2j06i3A" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_KSW5FH9TEeaHNuq2j06i3A"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="BookShop.measuringpoint#//@measuringPoints.4"/>
+  </monitors>
+  <monitors id="_nLljoH9SEeaHNuq2j06i3A" entityName="Image Server CPU">
+    <measurementSpecifications id="_K6epAH9TEeaHNuq2j06i3A" triggersSelfAdaptations="false">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_LSTTJH9TEeaHNuq2j06i3A"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="BookShop.measuringpoint#//@measuringPoints.2"/>
+  </monitors>
+</monitorrepository:MonitorRepository>

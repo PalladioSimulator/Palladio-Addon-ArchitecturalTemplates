@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" id="_nzahAH9EEeaHNuq2j06i3A" entityName="Book Shop Repository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_NdX6AH9HEeaHNuq2j06i3A" entityName="Book Shop Web Pages">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_SUHmgH9HEeaHNuq2j06i3A" entityName="IBrowseBooks" providedInterface__OperationProvidedRole="_xjEdMH9EEeaHNuq2j06i3A"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_cMTzoH9HEeaHNuq2j06i3A" entityName="IOrderBooks" providedInterface__OperationProvidedRole="_-wAYkH9EEeaHNuq2j06i3A"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_QEtvsH9HEeaHNuq2j06i3A" entityName="IBusiness" requiredInterface__OperationRequiredRole="_fFIFwH9FEeaHNuq2j06i3A"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_SUSloH9HEeaHNuq2j06i3A" describedService__SEFF="_21HloH9EEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_SUSloX9HEeaHNuq2j06i3A" successor_AbstractAction="_qgVOsH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_SUSlon9HEeaHNuq2j06i3A" predecessor_AbstractAction="_qgVOsH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_qgVOsH9OEeaHNuq2j06i3A" predecessor_AbstractAction="_SUSloX9HEeaHNuq2j06i3A" successor_AbstractAction="_SUSlon9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_SUXeIH9HEeaHNuq2j06i3A" describedService__SEFF="_5_czoH9EEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_SUXeIX9HEeaHNuq2j06i3A" successor_AbstractAction="_zImFAH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_SUXeIn9HEeaHNuq2j06i3A" predecessor_AbstractAction="_zImFAH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_zImFAH9OEeaHNuq2j06i3A" predecessor_AbstractAction="_SUXeIX9HEeaHNuq2j06i3A" successor_AbstractAction="_SUXeIn9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="20"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_SUYFMH9HEeaHNuq2j06i3A" describedService__SEFF="_7wnPQH9EEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_SUYFMX9HEeaHNuq2j06i3A" successor_AbstractAction="_7AXSgH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_SUYFMn9HEeaHNuq2j06i3A" predecessor_AbstractAction="_7AXSgH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_7AXSgH9OEeaHNuq2j06i3A" predecessor_AbstractAction="_SUYFMX9HEeaHNuq2j06i3A" successor_AbstractAction="_SUYFMn9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="20"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_cMUasH9HEeaHNuq2j06i3A" describedService__SEFF="_BFLgMH9FEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_cMUasX9HEeaHNuq2j06i3A" successor_AbstractAction="_-3CCEH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_cMUasn9HEeaHNuq2j06i3A" predecessor_AbstractAction="_-3CCEH9OEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_-3CCEH9OEeaHNuq2j06i3A" predecessor_AbstractAction="_cMUasX9HEeaHNuq2j06i3A" successor_AbstractAction="_cMUasn9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="30"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_cMYFEH9HEeaHNuq2j06i3A" describedService__SEFF="_CGd-EH9FEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_cMYFEX9HEeaHNuq2j06i3A" successor_AbstractAction="_CYldQH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_cMYFEn9HEeaHNuq2j06i3A" predecessor_AbstractAction="_IFG7MH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_CYldQH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_cMYFEX9HEeaHNuq2j06i3A" successor_AbstractAction="_J9OTYH9PEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_IFG7MH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_J9OTYH9PEeaHNuq2j06i3A" successor_AbstractAction="_cMYFEn9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_J9OTYH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_CYldQH9PEeaHNuq2j06i3A" successor_AbstractAction="_IFG7MH9PEeaHNuq2j06i3A" calledService_ExternalService="_gGIPwH9FEeaHNuq2j06i3A" role_ExternalService="_QEtvsH9HEeaHNuq2j06i3A"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_fmYGwH9HEeaHNuq2j06i3A" entityName="Book Shop Business Rules">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_naQ50H9HEeaHNuq2j06i3A" entityName="IBusiness" providedInterface__OperationProvidedRole="_fFIFwH9FEeaHNuq2j06i3A"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_mM2EcH9HEeaHNuq2j06i3A" entityName="IBook" requiredInterface__OperationRequiredRole="_lrmDcH9FEeaHNuq2j06i3A"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_0Kww0H9HEeaHNuq2j06i3A" entityName="ICustomer" requiredInterface__OperationRequiredRole="_JDKN8H9GEeaHNuq2j06i3A"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_naRg4H9HEeaHNuq2j06i3A" describedService__SEFF="_gGIPwH9FEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_naRg4X9HEeaHNuq2j06i3A" successor_AbstractAction="_OCyakH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_naRg4n9HEeaHNuq2j06i3A" predecessor_AbstractAction="_Tps_wH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_OCyakH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_naRg4X9HEeaHNuq2j06i3A" successor_AbstractAction="_QfMLkH9PEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_QfMLkH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_OCyakH9PEeaHNuq2j06i3A" successor_AbstractAction="_RzoO8H9PEeaHNuq2j06i3A" calledService_ExternalService="_oLqzgH9FEeaHNuq2j06i3A" role_ExternalService="_mM2EcH9HEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_RzoO8H9PEeaHNuq2j06i3A" predecessor_AbstractAction="_QfMLkH9PEeaHNuq2j06i3A" successor_AbstractAction="_Tps_wH9PEeaHNuq2j06i3A" calledService_ExternalService="_J4su0H9GEeaHNuq2j06i3A" role_ExternalService="_0Kww0H9HEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_Tps_wH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_RzoO8H9PEeaHNuq2j06i3A" successor_AbstractAction="_naRg4n9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_3EW0IH9HEeaHNuq2j06i3A" entityName="Book Image Provider">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_5F_UsH9HEeaHNuq2j06i3A" entityName="IImages" providedInterface__OperationProvidedRole="_Z8TKwH9FEeaHNuq2j06i3A"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_5F_7wH9HEeaHNuq2j06i3A" describedService__SEFF="_awHNUH9FEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_5F_7wX9HEeaHNuq2j06i3A" successor_AbstractAction="_50dOIH9QEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_5F_7wn9HEeaHNuq2j06i3A" predecessor_AbstractAction="_50dOIH9QEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_50dOIH9QEeaHNuq2j06i3A" predecessor_AbstractAction="_5F_7wX9HEeaHNuq2j06i3A" successor_AbstractAction="_5F_7wn9HEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="20"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_mnCQoH9IEeaHNuq2j06i3A" entityName="Book &amp; Customer Data Provider">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_QEtBQH9KEeaHNuq2j06i3A" entityName="IBook" providedInterface__OperationProvidedRole="_lrmDcH9FEeaHNuq2j06i3A"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_RJe4AH9KEeaHNuq2j06i3A" entityName="ICustomer" providedInterface__OperationProvidedRole="_JDKN8H9GEeaHNuq2j06i3A"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_QEtBQX9KEeaHNuq2j06i3A" describedService__SEFF="_oLqzgH9FEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_QEtBQn9KEeaHNuq2j06i3A" successor_AbstractAction="_axdFkH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_QEtoUH9KEeaHNuq2j06i3A" predecessor_AbstractAction="_axdFkH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_axdFkH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_QEtBQn9KEeaHNuq2j06i3A" successor_AbstractAction="_QEtoUH9KEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_QEtoUX9KEeaHNuq2j06i3A" describedService__SEFF="_ppO9sH9FEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_QEtoUn9KEeaHNuq2j06i3A" successor_AbstractAction="_QEtoU39KEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_QEtoU39KEeaHNuq2j06i3A" predecessor_AbstractAction="_QEtoUn9KEeaHNuq2j06i3A"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_RJe4AX9KEeaHNuq2j06i3A" describedService__SEFF="_J4su0H9GEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_RJffEH9KEeaHNuq2j06i3A" successor_AbstractAction="_fhOnYH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_RJffEX9KEeaHNuq2j06i3A" predecessor_AbstractAction="_fhOnYH9PEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_fhOnYH9PEeaHNuq2j06i3A" predecessor_AbstractAction="_RJffEH9KEeaHNuq2j06i3A" successor_AbstractAction="_RJffEX9KEeaHNuq2j06i3A">
+        <resourceDemand_Action>
+          <specification_ParametericResourceDemand specification="10"/>
+          <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_RJffEn9KEeaHNuq2j06i3A" describedService__SEFF="_Ky5GMH9GEeaHNuq2j06i3A">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_RJffE39KEeaHNuq2j06i3A" successor_AbstractAction="_RJffFH9KEeaHNuq2j06i3A"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_RJffFH9KEeaHNuq2j06i3A" predecessor_AbstractAction="_RJffE39KEeaHNuq2j06i3A"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_xjEdMH9EEeaHNuq2j06i3A" entityName="IBrowseBooks">
+    <signatures__OperationInterface id="_21HloH9EEeaHNuq2j06i3A" entityName="home"/>
+    <signatures__OperationInterface id="_5_czoH9EEeaHNuq2j06i3A" entityName="bestSellers"/>
+    <signatures__OperationInterface id="_7wnPQH9EEeaHNuq2j06i3A" entityName="newProducts"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_-wAYkH9EEeaHNuq2j06i3A" entityName="IOrderBooks">
+    <signatures__OperationInterface id="_BFLgMH9FEeaHNuq2j06i3A" entityName="shoppingCart"/>
+    <signatures__OperationInterface id="_CGd-EH9FEeaHNuq2j06i3A" entityName="buyRequest">
+      <parameters__OperationSignature parameterName="customerID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="bookID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_Z8TKwH9FEeaHNuq2j06i3A" entityName="IImages">
+    <signatures__OperationInterface id="_awHNUH9FEeaHNuq2j06i3A" entityName="getImage">
+      <parameters__OperationSignature parameterName="imageID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_fFIFwH9FEeaHNuq2j06i3A" entityName="IBusiness">
+    <signatures__OperationInterface id="_gGIPwH9FEeaHNuq2j06i3A" entityName="handleBuy">
+      <parameters__OperationSignature parameterName="customerID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="bookID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_lrmDcH9FEeaHNuq2j06i3A" entityName="IBook">
+    <signatures__OperationInterface id="_oLqzgH9FEeaHNuq2j06i3A" entityName="getBookDetails" returnType__OperationSignature="_4JpTIH9FEeaHNuq2j06i3A">
+      <parameters__OperationSignature parameterName="bookID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_ppO9sH9FEeaHNuq2j06i3A" entityName="addBook">
+      <parameters__OperationSignature dataType__Parameter="_4JpTIH9FEeaHNuq2j06i3A" parameterName="book"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_JDKN8H9GEeaHNuq2j06i3A" entityName="ICustomer">
+    <signatures__OperationInterface id="_J4su0H9GEeaHNuq2j06i3A" entityName="getCustomerDetails" returnType__OperationSignature="_Rth9EH9GEeaHNuq2j06i3A">
+      <parameters__OperationSignature parameterName="customerID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_Ky5GMH9GEeaHNuq2j06i3A" entityName="addCustomer">
+      <parameters__OperationSignature dataType__Parameter="_Rth9EH9GEeaHNuq2j06i3A" parameterName="customer"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_9nUcwH9FEeaHNuq2j06i3A" entityName="Authors">
+    <innerType_CollectionDataType xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_4JpTIH9FEeaHNuq2j06i3A" entityName="Book">
+    <innerDeclaration_CompositeDataType entityName="title">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="authors" datatype_InnerDeclaration="_9nUcwH9FEeaHNuq2j06i3A"/>
+    <innerDeclaration_CompositeDataType entityName="year">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="ID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_Rth9EH9GEeaHNuq2j06i3A" entityName="Customer">
+    <innerDeclaration_CompositeDataType entityName="forename">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="surname">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="address">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="ID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+</repository:Repository>

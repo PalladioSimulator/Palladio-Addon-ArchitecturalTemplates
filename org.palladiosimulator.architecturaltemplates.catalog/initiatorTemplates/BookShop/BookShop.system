@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.threelayer" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles_1="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticresourcecontainerloadbalancing" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
+  <system:System id="_obod8H9MEeaHNuq2j06i3A" entityName="Book Shop System">
+    <assemblyContexts__ComposedStructure id="_x5MkkH9MEeaHNuq2j06i3A" entityName="Assembly_Book Shop Web Pages &lt;Book Shop Web Pages>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="BookShop.repository#_NdX6AH9HEeaHNuq2j06i3A"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_8yiFoH9MEeaHNuq2j06i3A" entityName="Assembly_Book Image Provider &lt;Book Image Provider>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="BookShop.repository#_3EW0IH9HEeaHNuq2j06i3A"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_DKoQIH9NEeaHNuq2j06i3A" entityName="Assembly_Book Shop Business Rules &lt;Book Shop Business Rules>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="BookShop.repository#_fmYGwH9HEeaHNuq2j06i3A"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_UFP-MH9NEeaHNuq2j06i3A" entityName="Assembly_Book &amp; Customer Data Provider &lt;Book &amp; Customer Data Provider>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="BookShop.repository#_mnCQoH9IEeaHNuq2j06i3A"/>
+    </assemblyContexts__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_vk0RsH9NEeaHNuq2j06i3A" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_gtkJkH9NEeaHNuq2j06i3A" assemblyContext_ProvidedDelegationConnector="_x5MkkH9MEeaHNuq2j06i3A">
+      <innerProvidedRole_ProvidedDelegationConnector href="BookShop.repository#_SUHmgH9HEeaHNuq2j06i3A"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_wOjLMH9NEeaHNuq2j06i3A" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_huuEkH9NEeaHNuq2j06i3A" assemblyContext_ProvidedDelegationConnector="_x5MkkH9MEeaHNuq2j06i3A">
+      <innerProvidedRole_ProvidedDelegationConnector href="BookShop.repository#_cMTzoH9HEeaHNuq2j06i3A"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_w4W9MH9NEeaHNuq2j06i3A" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_kXMisH9NEeaHNuq2j06i3A" assemblyContext_ProvidedDelegationConnector="_8yiFoH9MEeaHNuq2j06i3A">
+      <innerProvidedRole_ProvidedDelegationConnector href="BookShop.repository#_5F_UsH9HEeaHNuq2j06i3A"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_2y-hgH9NEeaHNuq2j06i3A" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_x5MkkH9MEeaHNuq2j06i3A" providingAssemblyContext_AssemblyConnector="_DKoQIH9NEeaHNuq2j06i3A">
+      <providedRole_AssemblyConnector href="BookShop.repository#_naQ50H9HEeaHNuq2j06i3A"/>
+      <requiredRole_AssemblyConnector href="BookShop.repository#_QEtvsH9HEeaHNuq2j06i3A"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_4GSjgH9NEeaHNuq2j06i3A" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_DKoQIH9NEeaHNuq2j06i3A" providingAssemblyContext_AssemblyConnector="_UFP-MH9NEeaHNuq2j06i3A">
+      <providedRole_AssemblyConnector href="BookShop.repository#_QEtBQH9KEeaHNuq2j06i3A"/>
+      <requiredRole_AssemblyConnector href="BookShop.repository#_mM2EcH9HEeaHNuq2j06i3A"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_5GCJQH9NEeaHNuq2j06i3A" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_DKoQIH9NEeaHNuq2j06i3A" providingAssemblyContext_AssemblyConnector="_UFP-MH9NEeaHNuq2j06i3A">
+      <providedRole_AssemblyConnector href="BookShop.repository#_RJe4AH9KEeaHNuq2j06i3A"/>
+      <requiredRole_AssemblyConnector href="BookShop.repository#_0Kww0H9HEeaHNuq2j06i3A"/>
+    </connectors__ComposedStructure>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_gtkJkH9NEeaHNuq2j06i3A" entityName="IBrowseBooks">
+      <providedInterface__OperationProvidedRole href="BookShop.repository#_xjEdMH9EEeaHNuq2j06i3A"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_huuEkH9NEeaHNuq2j06i3A" entityName="IOrderBooks">
+      <providedInterface__OperationProvidedRole href="BookShop.repository#_-wAYkH9EEeaHNuq2j06i3A"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_kXMisH9NEeaHNuq2j06i3A" entityName="IImages">
+      <providedInterface__OperationProvidedRole href="BookShop.repository#_Z8TKwH9FEeaHNuq2j06i3A"/>
+    </providedRoles_InterfaceProvidingEntity>
+  </system:System>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:ThreeLayerSystem" appliedTo="_obod8H9MEeaHNuq2j06i3A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayer.emfprofile_diagram#_Xl5cAIuNEeWE_r1tdbkyww"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles_1:StaticResourceContainerLoadbalancingSystem" appliedTo="_obod8H9MEeaHNuq2j06i3A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram#_tveRoL0NEeSXc41T9TupKQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:PresentationLayerAssembly" appliedTo="_x5MkkH9MEeaHNuq2j06i3A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayer.emfprofile_diagram#__IEbMIuMEeWE_r1tdbkyww"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:PresentationLayerAssembly" appliedTo="_8yiFoH9MEeaHNuq2j06i3A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayer.emfprofile_diagram#__IEbMIuMEeWE_r1tdbkyww"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:MiddleLayerAssembly" appliedTo="_DKoQIH9NEeaHNuq2j06i3A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayer.emfprofile_diagram#_Aa1DkIuNEeWE_r1tdbkyww"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:DataLayerAssembly" appliedTo="_UFP-MH9NEeaHNuq2j06i3A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayer.emfprofile_diagram#_DeRmcIuNEeWE_r1tdbkyww"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.threelayer" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayer.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.staticresourcecontainerloadbalancing" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/StaticResourceContainerLoadbalancing.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

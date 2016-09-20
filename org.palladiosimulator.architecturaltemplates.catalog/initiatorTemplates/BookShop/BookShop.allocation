@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_e65VQH9REeaHNuq2j06i3A" entityName="Book Shop Allocation">
+  <targetResourceEnvironment_Allocation href="BookShop.resourceenvironment#/0"/>
+  <system_Allocation href="BookShop.system#_obod8H9MEeaHNuq2j06i3A"/>
+  <allocationContexts_Allocation id="_imCKQH9REeaHNuq2j06i3A" entityName="Allocation_Assembly_Book Shop Web Pages &lt;Book Shop Web Pages> &lt;Book Shop Web Pages>">
+    <resourceContainer_AllocationContext href="BookShop.resourceenvironment#_j4BMAH9QEeaHNuq2j06i3A"/>
+    <assemblyContext_AllocationContext href="BookShop.system#_x5MkkH9MEeaHNuq2j06i3A"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_kU7VAH9REeaHNuq2j06i3A" entityName="Allocation_Assembly_Book Shop Business Rules &lt;Book Shop Business Rules> &lt;Book Shop Business Rules>">
+    <resourceContainer_AllocationContext href="BookShop.resourceenvironment#_j4BMAH9QEeaHNuq2j06i3A"/>
+    <assemblyContext_AllocationContext href="BookShop.system#_DKoQIH9NEeaHNuq2j06i3A"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_mhzcQH9REeaHNuq2j06i3A" entityName="Allocation_Assembly_Book &amp; Customer Data Provider &lt;Book &amp; Customer Data Provider> &lt;Book &amp; Customer Data Provider>">
+    <resourceContainer_AllocationContext href="BookShop.resourceenvironment#_ln1j0H9QEeaHNuq2j06i3A"/>
+    <assemblyContext_AllocationContext href="BookShop.system#_UFP-MH9NEeaHNuq2j06i3A"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_njdtkH9REeaHNuq2j06i3A" entityName="Allocation_Assembly_Book Image Provider &lt;Book Image Provider> &lt;Book Image Provider>">
+    <resourceContainer_AllocationContext href="BookShop.resourceenvironment#_mtXBcH9QEeaHNuq2j06i3A"/>
+    <assemblyContext_AllocationContext href="BookShop.system#_8yiFoH9MEeaHNuq2j06i3A"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

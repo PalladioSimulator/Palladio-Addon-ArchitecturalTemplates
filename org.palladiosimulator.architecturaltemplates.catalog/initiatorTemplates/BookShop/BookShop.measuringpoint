@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.palladiosimulator.edp2.models:MeasuringPointRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.edp2.models="http://palladiosimulator.org/EDP2/MeasuringPoint/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_zs1TIH9REeaHNuq2j06i3A">
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: Browsing Mix" resourceURIRepresentation="platform:/resource/BookShop/BookShop.usagemodel#_eSLXIH9LEeaHNuq2j06i3A">
+    <usageScenario href="BookShop.usagemodel#_eSLXIH9LEeaHNuq2j06i3A"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" stringRepresentation="Resource Environment: Book Shop Resource Environment" resourceURIRepresentation="platform:/resource/BookShop/BookShop.resourceenvironment#/0">
+    <resourceEnvironment href="BookShop.resourceenvironment#/0"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in Image Server" resourceURIRepresentation="platform:/resource/BookShop/BookShop.resourceenvironment#_1sqSUH9QEeaHNuq2j06i3A">
+    <activeResource href="BookShop.resourceenvironment#_1sqSUH9QEeaHNuq2j06i3A"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in Web &amp; Application Server" resourceURIRepresentation="platform:/resource/BookShop/BookShop.resourceenvironment#_obFHgH9QEeaHNuq2j06i3A">
+    <activeResource href="BookShop.resourceenvironment#_obFHgH9QEeaHNuq2j06i3A"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in Database Server" resourceURIRepresentation="platform:/resource/BookShop/BookShop.resourceenvironment#_vH_rcH9QEeaHNuq2j06i3A">
+    <activeResource href="BookShop.resourceenvironment#_vH_rcH9QEeaHNuq2j06i3A"/>
+  </measuringPoints>
+</org.palladiosimulator.edp2.models:MeasuringPointRepository>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slo:ServiceLevelObjectiveRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:slo="http://palladiosimulator.org/ServiceLevelObjective/1.0">
+  <servicelevelobjectives id="_PsXOMH9UEeaHNuq2j06i3A" name="Performance" description="90% of CloudStore’s responses for browsing and ordering books shall have&#xD;a maximum response time of 1 second.">
+    <lowerThreshold xsi:type="slo:HardThreshold" id="_hX2YgH9UEeaHNuq2j06i3A" thresholdLimit="1 s"/>
+    <measurementSpecification href="BookShop.monitorrepository#_GuGIIH9TEeaHNuq2j06i3A"/>
+  </servicelevelobjectives>
+</slo:ServiceLevelObjectiveRepository>
