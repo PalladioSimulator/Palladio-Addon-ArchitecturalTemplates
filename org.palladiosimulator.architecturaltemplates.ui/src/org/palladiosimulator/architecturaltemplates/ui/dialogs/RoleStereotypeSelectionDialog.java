@@ -12,8 +12,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ISelectionStatusValidator;
 import org.modelversioning.emfprofile.Stereotype;
-import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.Role;
+import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.commons.eclipseutils.FileHelper;
 
 /**
@@ -31,9 +31,9 @@ import org.palladiosimulator.commons.eclipseutils.FileHelper;
  */
 public class RoleStereotypeSelectionDialog extends ElementListSelectionDialog {
 
-    private static final String EMPTY_LIST_MESSAGE = "No Role-Stereotypes can be selected";
-    private static final String TITLE = "Select Role-Stereotype";
-    private static final String EMPTY_SELECTION_MESSAGE = "You need to select a Role-Stereotype to continue";
+    private static final String EMPTY_LIST_MESSAGE = "No AT role can be selected";
+    private static final String TITLE = "Select AT role";
+    private static final String EMPTY_SELECTION_MESSAGE = "You need to select an AT role to continue";
 
     public RoleStereotypeSelectionDialog(final Shell parent) {
         super(parent, new LabelProvider() {
