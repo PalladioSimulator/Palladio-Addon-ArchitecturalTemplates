@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.palladiosimulator.experimentautomation.application.launchConfigurationType">
+<stringAttribute key="Experiment Automation" value="platform:/resource/CloudStore-Analyser/Experiments/BrowsingMixElasticity.experiments"/>
+<intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
+<stringAttribute key="org.palladiosimulator.architecturaltemplates.jobs.config.modelStorageLocation" value="org.palladiosimulator.architecturaltemplates.temporary"/>
+<booleanAttribute key="org.palladiosimulator.architecturaltemplates.jobs.config.storeCompletedModels" value="true"/>
+<stringAttribute key="outpath" value="org.palladiosimulator.temporary"/>
+<booleanAttribute key="reliability.simulateFailures" value="true"/>
+</launchConfiguration>

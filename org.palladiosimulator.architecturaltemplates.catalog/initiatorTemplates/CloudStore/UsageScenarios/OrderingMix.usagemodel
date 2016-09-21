@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1">
+  <usageScenario_UsageModel id="_ieXlgKDrEeKjDcfkNgs1Gg" entityName="OrderingMix">
+    <scenarioBehaviour_UsageScenario id="_ieZasKDrEeKjDcfkNgs1Gg" entityName="defaultUsageScenarioBehaviour">
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_ieb28KDrEeKjDcfkNgs1Gg" successor="_yHymwMIvEeKhg7MYPigv7g"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_ieceAKDrEeKjDcfkNgs1Gg" predecessor="_yHymwMIvEeKhg7MYPigv7g"/>
+      <actions_ScenarioBehaviour xsi:type="usagemodel:Branch" id="_yHymwMIvEeKhg7MYPigv7g" successor="_ieceAKDrEeKjDcfkNgs1Gg" predecessor="_ieb28KDrEeKjDcfkNgs1Gg">
+        <branchTransitions_Branch branchProbability="0.5">
+          <branchedBehaviour_BranchTransition id="_zUviEMIvEeKhg7MYPigv7g">
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_zUwJIMIvEeKhg7MYPigv7g" successor="_Kb6R8MIwEeKhg7MYPigv7g"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_zUwwMMIvEeKhg7MYPigv7g" predecessor="_Kb6R8MIwEeKhg7MYPigv7g"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Branch" id="_Kb6R8MIwEeKhg7MYPigv7g" successor="_zUwwMMIvEeKhg7MYPigv7g" predecessor="_zUwJIMIvEeKhg7MYPigv7g">
+              <branchTransitions_Branch branchProbability="0.1824">
+                <branchedBehaviour_BranchTransition id="_NLhS0MIwEeKhg7MYPigv7g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_NLhS0cIwEeKhg7MYPigv7g" successor="_dXOFYMIwEeKhg7MYPigv7g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_NLhS0sIwEeKhg7MYPigv7g" predecessor="_dXOFYMIwEeKhg7MYPigv7g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_dXOFYMIwEeKhg7MYPigv7g" successor="_NLhS0sIwEeKhg7MYPigv7g" predecessor="_NLhS0cIwEeKhg7MYPigv7g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_UDLXAKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_XUIKcKAWEeKjDcfkNgs1Gg"/>
+                    <inputParameterUsages_EntryLevelSystemCall>
+                      <variableCharacterisation_VariableUsage type="VALUE">
+                        <specification_VariableCharacterisation specification="0"/>
+                      </variableCharacterisation_VariableUsage>
+                      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="C_ID"/>
+                    </inputParameterUsages_EntryLevelSystemCall>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.0092">
+                <branchedBehaviour_BranchTransition id="_58D3EMKtEeKerJWf991ueQ">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_58D3EcKtEeKerJWf991ueQ" successor="_ae7P4MKvEeKerJWf991ueQ"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_58D3EsKtEeKerJWf991ueQ" predecessor="_ae7P4MKvEeKerJWf991ueQ"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_ae7P4MKvEeKerJWf991ueQ" successor="_58D3EsKtEeKerJWf991ueQ" predecessor="_58D3EcKtEeKerJWf991ueQ">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_vAVzAKAUEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.0092">
+                <branchedBehaviour_BranchTransition id="_LM8MYMLXEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_LM8MYcLXEeKPqZp-2Ly_4g" successor="_OMUuoMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_LM8MYsLXEeKPqZp-2Ly_4g" predecessor="_OMUuoMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_OMUuoMLXEeKPqZp-2Ly_4g" successor="_LM8MYsLXEeKPqZp-2Ly_4g" predecessor="_LM8MYcLXEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_CoeQMKAVEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.247">
+                <branchedBehaviour_BranchTransition id="_dNp_0MLXEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_dNp_0cLXEeKPqZp-2Ly_4g" successor="_gTfvYMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_dNp_0sLXEeKPqZp-2Ly_4g" predecessor="_gTfvYMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_gTfvYMLXEeKPqZp-2Ly_4g" successor="_dNp_0sLXEeKPqZp-2Ly_4g" predecessor="_dNp_0cLXEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_ZB9mQKALEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.2906">
+                <branchedBehaviour_BranchTransition id="_ked7AMLXEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_ked7AcLXEeKPqZp-2Ly_4g" successor="_meVhAMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_ked7AsLXEeKPqZp-2Ly_4g" predecessor="_meVhAMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_meVhAMLXEeKPqZp-2Ly_4g" successor="_ked7AsLXEeKPqZp-2Ly_4g" predecessor="_ked7AcLXEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_Q8Fj8KAOEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.2616">
+                <branchedBehaviour_BranchTransition id="_o_yKEMLXEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_o_yKEcLXEeKPqZp-2Ly_4g" successor="_qoGywMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_o_yKEsLXEeKPqZp-2Ly_4g" predecessor="_qoGywMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_qoGywMLXEeKPqZp-2Ly_4g" successor="_o_yKEsLXEeKPqZp-2Ly_4g" predecessor="_o_yKEcLXEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_EjR0MKAOEeKjDcfkNgs1Gg"/>
+                    <inputParameterUsages_EntryLevelSystemCall>
+                      <variableCharacterisation_VariableUsage type="VALUE">
+                        <specification_VariableCharacterisation specification="0"/>
+                      </variableCharacterisation_VariableUsage>
+                      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="search_type"/>
+                    </inputParameterUsages_EntryLevelSystemCall>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+        <branchTransitions_Branch branchProbability="0.5">
+          <branchedBehaviour_BranchTransition id="_Aaug4MIwEeKhg7MYPigv7g">
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_Aaug4cIwEeKhg7MYPigv7g" successor="_FKjd4MKwEeKerJWf991ueQ"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_Aaug4sIwEeKhg7MYPigv7g" predecessor="_FKjd4MKwEeKerJWf991ueQ"/>
+            <actions_ScenarioBehaviour xsi:type="usagemodel:Branch" id="_FKjd4MKwEeKerJWf991ueQ" successor="_Aaug4sIwEeKhg7MYPigv7g" predecessor="_Aaug4cIwEeKhg7MYPigv7g">
+              <branchTransitions_Branch branchProbability="0.2706">
+                <branchedBehaviour_BranchTransition id="_1d_XMMLXEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_1d_XMcLXEeKPqZp-2Ly_4g" successor="_3v5vcMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_1d_XMsLXEeKPqZp-2Ly_4g" predecessor="_3v5vcMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_3v5vcMLXEeKPqZp-2Ly_4g" successor="_1d_XMsLXEeKPqZp-2Ly_4g" predecessor="_1d_XMcLXEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_QZAisKAnEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.2572">
+                <branchedBehaviour_BranchTransition id="_7nHRkMLXEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_7nHRkcLXEeKPqZp-2Ly_4g" successor="_99kyoMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_7nHRksLXEeKPqZp-2Ly_4g" predecessor="_99kyoMLXEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_99kyoMLXEeKPqZp-2Ly_4g" successor="_7nHRksLXEeKPqZp-2Ly_4g" predecessor="_7nHRkcLXEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_nTuyAKAnEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.2546">
+                <branchedBehaviour_BranchTransition id="_BgGeMMLYEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_BgGeMcLYEeKPqZp-2Ly_4g" successor="_EU9LcMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_BgGeMsLYEeKPqZp-2Ly_4g" predecessor="_EU9LcMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_EU9LcMLYEeKPqZp-2Ly_4g" successor="_BgGeMsLYEeKPqZp-2Ly_4g" predecessor="_BgGeMcLYEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_h3vVUKAlEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.2036">
+                <branchedBehaviour_BranchTransition id="_HQUwYMLYEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_HQUwYcLYEeKPqZp-2Ly_4g" successor="_KUEOMMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_HQV-gMLYEeKPqZp-2Ly_4g" predecessor="_KUEOMMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_KUEOMMLYEeKPqZp-2Ly_4g" successor="_HQV-gMLYEeKPqZp-2Ly_4g" predecessor="_HQUwYcLYEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_kXsXUKAqEeKjDcfkNgs1Gg"/>
+                    <inputParameterUsages_EntryLevelSystemCall>
+                      <variableCharacterisation_VariableUsage type="VALUE">
+                        <specification_VariableCharacterisation specification="EnumPMF[ (&quot; &quot;;0.2) (&quot;MyStreetName&quot;;0.8) ]"/>
+                      </variableCharacterisation_VariableUsage>
+                      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="STREET_1"/>
+                    </inputParameterUsages_EntryLevelSystemCall>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.005">
+                <branchedBehaviour_BranchTransition id="_WrNKAMLYEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_WrNKAcLYEeKPqZp-2Ly_4g" successor="_Y2kOUMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_WrO_MMLYEeKPqZp-2Ly_4g" predecessor="_Y2kOUMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_Y2kOUMLYEeKPqZp-2Ly_4g" successor="_WrO_MMLYEeKPqZp-2Ly_4g" predecessor="_WrNKAcLYEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_YKJzcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_p8L0QKAiEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.0044">
+                <branchedBehaviour_BranchTransition id="_cuwn4MLYEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_cuwn4cLYEeKPqZp-2Ly_4g" successor="_fHh2EMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_cuwn4sLYEeKPqZp-2Ly_4g" predecessor="_fHh2EMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_fHh2EMLYEeKPqZp-2Ly_4g" successor="_cuwn4sLYEeKPqZp-2Ly_4g" predecessor="_cuwn4cLYEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_YKJzcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_JHbvUKAjEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.0024">
+                <branchedBehaviour_BranchTransition id="_jg5qEMLYEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_jg5qEcLYEeKPqZp-2Ly_4g" successor="_lS5zMMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_jg5qEsLYEeKPqZp-2Ly_4g" predecessor="_lS5zMMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_lS5zMMLYEeKPqZp-2Ly_4g" successor="_jg5qEsLYEeKPqZp-2Ly_4g" predecessor="_jg5qEcLYEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_fVW28KALEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+              <branchTransitions_Branch branchProbability="0.0022">
+                <branchedBehaviour_BranchTransition id="_njOQAMLYEeKPqZp-2Ly_4g">
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_njOQAcLYEeKPqZp-2Ly_4g" successor="_pJAiEMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_njOQAsLYEeKPqZp-2Ly_4g" predecessor="_pJAiEMLYEeKPqZp-2Ly_4g"/>
+                  <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_pJAiEMLYEeKPqZp-2Ly_4g" successor="_njOQAsLYEeKPqZp-2Ly_4g" predecessor="_njOQAcLYEeKPqZp-2Ly_4g">
+                    <providedRole_EntryLevelSystemCall href="../CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+                    <operationSignature__EntryLevelSystemCall href="../CloudStore.repository#_k8uIEKALEeKjDcfkNgs1Gg"/>
+                  </actions_ScenarioBehaviour>
+                </branchedBehaviour_BranchTransition>
+              </branchTransitions_Branch>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+    <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="DoublePDF[ (7.0; 0.00000000) (8.0; 1.00000000) ]"/>
+    </workload_UsageScenario>
+  </usageScenario_UsageModel>
+</usagemodel:UsageModel>

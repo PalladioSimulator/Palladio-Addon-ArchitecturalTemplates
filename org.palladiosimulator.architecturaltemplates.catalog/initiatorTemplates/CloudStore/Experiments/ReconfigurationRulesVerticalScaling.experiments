@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExperimentAutomation.Experiments:ReconfigurationRulesFolder xmlns:ExperimentAutomation.Experiments="http://palladiosimulator.org/ExperimentAutomation/Experiments/1.0" folderUri="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicVerticalScalingResourceContainer/ReconfigurationRules"/>

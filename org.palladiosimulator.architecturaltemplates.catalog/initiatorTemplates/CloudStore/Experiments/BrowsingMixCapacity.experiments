@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExperimentAutomation.Experiments:ExperimentRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ExperimentAutomation.Experiments="http://palladiosimulator.org/ExperimentAutomation/Experiments/1.0" xmlns:ExperimentAutomation.Experiments.AbstractSimulation="http://palladiosimulator.org/ExperimentAutomation/AbstractSimulation/1.0" xmlns:ExperimentAutomation.Variation="http://palladiosimulator.org/ExperimentAutomation/Variation/1.0" xmlns:simulizartooladapter="http://palladiosimulator.org/ExperimentAutomation/ToolAdapter/SimuLizar/1.0">
+  <experiments id="CloudStoreBrowsingMix:Capacity" name="CloudStore BrowsingMix: Capacity" description="Measures capacity metrics CloudStore (for a non-elastic setup)" repetitions="1">
+    <variations minValue="1.0" maxValue="1000.0" maxVariations="10" variedObjectId="_ieXlgKDrEeKjDcfkNgs1Gg" name="User Capacity">
+      <type xsi:type="ExperimentAutomation.Variation:ValueVariation" href="pcm.variation#_zUZqID5zEeCEPJs72ZSOBg"/>
+      <valueProvider xsi:type="ExperimentAutomation.Experiments:NestedIntervalsLongValueProvider" minValue="1" maxValue="1000"/>
+    </variations>
+    <toolConfiguration xsi:type="simulizartooladapter:SimuLizarConfiguration" name="EDP2 SimuLizar Configuration">
+      <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MeasurementCountStopCondition" measurementCount="-1"/>
+      <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SimTimeStopCondition" simulationTime="10"/>
+      <datasource xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:FileDatasource" location="/Users/lehrig/data"/>
+    </toolConfiguration>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MeasurementCountStopCondition" measurementCount="-1"/>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SimTimeStopCondition" simulationTime="10"/>
+    <experimentDesign xsi:type="ExperimentAutomation.Experiments:FullFactorialDesign"/>
+    <responseMeasurement xsi:type="ExperimentAutomation.Experiments:SimulationDurationMeasurement"/>
+    <initialModel>
+      <usageModel href="../UsageScenarios/BrowsingMix.usagemodel#/"/>
+      <allocation href="../Allocations/On-Premises.allocation#_ZOoU8KDqEeKjDcfkNgs1Gg"/>
+      <middlewareRepository href="pathmap://PCM_MODELS/Glassfish.repository#_yQk9oIX1EdyWta7nHuXiHQ"/>
+      <eventMiddleWareRepository href="pathmap://PCM_MODELS/default_event_middleware.repository#_Onc7cMALEd-LKvNtxXAQbQ"/>
+      <monitorRepository href="../UsageScenarios/BrowsingMix.monitorrepository#_cQTG8NYlEeSLYeOEPZiDBw"/>
+      <serviceLevelObjectives href="../UsageScenarios/BrowsingMix.slo#/"/>
+    </initialModel>
+  </experiments>
+</ExperimentAutomation.Experiments:ExperimentRepository>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.palladiosimulator.experimentautomation.application.launchConfigurationType">
+<stringAttribute key="Experiment Automation" value="platform:/resource/CloudStore-Analyser/Experiments/BrowsingMixCapacity.experiments"/>
+<intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
+<stringAttribute key="outpath" value="org.palladiosimulator.temporary"/>
+</launchConfiguration>

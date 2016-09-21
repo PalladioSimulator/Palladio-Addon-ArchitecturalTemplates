@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.palladiosimulator.edp2.models:MeasuringPointRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.edp2.models="http://palladiosimulator.org/EDP2/MeasuringPoint/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" id="_brmT4NYkEeSLYeOEPZiDBw">
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: BrowsingMix" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/UsageScenarios/BrowsingMix.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg">
+    <usageScenario href="UsageScenarios/BrowsingMix.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: HomeInteraction" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/UsageScenarios/HomeInteraction.usagemodel#_urp1sMRhEeKhtIcOUnTHaw">
+    <usageScenario href="UsageScenarios/HomeInteraction.usagemodel#_urp1sMRhEeKhtIcOUnTHaw"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: OrderingMix" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/UsageScenarios/OrderingMix.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg">
+    <usageScenario href="UsageScenarios/OrderingMix.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" stringRepresentation="Usage Scenario: ShoppingMix" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/UsageScenarios/ShoppingMix.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg">
+    <usageScenario href="UsageScenarios/ShoppingMix.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IHomePage.getHome" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_XUIKcKAWEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_UDLXAKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_XUIKcKAWEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.getDetails" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_ZB9mQKALEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_ZB9mQKALEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.getUpdatePage" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_fVW28KALEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_fVW28KALEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.update" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_k8uIEKALEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_k8uIEKALEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.search" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_EjR0MKAOEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_EjR0MKAOEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.getSearchPage" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_Q8Fj8KAOEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_Q8Fj8KAOEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.getNewProducts" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_vAVzAKAUEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_vAVzAKAUEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IBookPages.getBestSellers" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_CoeQMKAVEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_CoeQMKAVEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IShoppingCartPages.getShoppingCartAddItem" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_h3vVUKAlEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_h3vVUKAlEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IShoppingCartPages.checkout" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_U_NHMKAmEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_U_NHMKAmEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IShoppingCartPages.checkoutReturningUser" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_VAJF4KAnEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_VAJF4KAnEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IShoppingCartPages.checkoutNewUser" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_nTuyAKAnEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_nTuyAKAnEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IShoppingCartPages.buyConfirmation" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_kXsXUKAqEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_kXsXUKAqEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IShoppingCartPages.getShoppingCart" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_QZAisKAnEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_QZAisKAnEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IOrderPages.getOrderLoginPage" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_p8L0QKAiEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_YKJzcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_p8L0QKAiEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" stringRepresentation="CloudStore System.Provided_IOrderPages.getOrder" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_JHbvUKAjEeKjDcfkNgs1Gg">
+    <role xsi:type="repository:OperationProvidedRole" href="CloudStore.system#_YKJzcKDaEeKjDcfkNgs1Gg"/>
+    <operationSignature href="CloudStore.repository#_JHbvUKAjEeKjDcfkNgs1Gg"/>
+    <system href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from ShoppingCartPages to Required_IDBShoppingCart_ShoppingCart->createEmptyCart [_VtnEgH6BEeOMPbPw2aYEHg]" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_VtnEgH6BEeOMPbPw2aYEHg">
+    <externalCall href="CloudStore.repository#_VtnEgH6BEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from ShoppingCartPages to Required_IDBShoppingCart_ShoppingCart->doCart [_aRHE4H6BEeOMPbPw2aYEHg]" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_aRHE4H6BEeOMPbPw2aYEHg">
+    <externalCall href="CloudStore.repository#_aRHE4H6BEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from ShoppingCartPages to Required_IPromotionalProcessing_ShoppingCart->displayPromotions [_RW5i8H6BEeOMPbPw2aYEHg]" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_RW5i8H6BEeOMPbPw2aYEHg">
+    <externalCall href="CloudStore.repository#_RW5i8H6BEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from ShoppingCartPages to Required_IPromotionalProcessing_ShoppingCart->loadPromotionalImages [_Oyj98H6BEeOMPbPw2aYEHg]" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_Oyj98H6BEeOMPbPw2aYEHg">
+    <externalCall href="CloudStore.repository#_Oyj98H6BEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from Database_Access to Required_IDBCustomer_Database_Access->getShoppingCartCount [_4X0dIH6qEeOMPbPw2aYEHg]" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_4X0dIH6qEeOMPbPw2aYEHg">
+    <externalCall href="CloudStore.repository#_4X0dIH6qEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" stringRepresentation="ExternalCall aName from Database_Access to Required_IDBShoppingCart_Database_Access->createEmptyCart [_ELHsEH6rEeOMPbPw2aYEHg]" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_ELHsEH6rEeOMPbPw2aYEHg">
+    <externalCall href="CloudStore.repository#_ELHsEH6rEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" stringRepresentation="Passive Resource: Assembly_Database_Access &lt;Database_Access>.synchronizedCart" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_ZD3O0H6mEeOMPbPw2aYEHg">
+    <assembly href="CloudStore.system#_-c7K0KDaEeKjDcfkNgs1Gg"/>
+    <passiveResource href="CloudStore.repository#_ZD3O0H6mEeOMPbPw2aYEHg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" stringRepresentation="Passive Resource: Assembly_MySQL_Connector_Java_v5_1_24 &lt;MySQL_Connector_Java_v5_1_24>.ConnPool" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/CloudStore.repository#_kTYRsKBvEeKjDcfkNgs1Gg">
+    <assembly href="CloudStore.system#_YyTA4GPPEeOoburSBwQF3A"/>
+    <passiveResource href="CloudStore.repository#_kTYRsKBvEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in Application Server" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/ResourceEnvironments/On-Premises.resourceenvironment#_CSl3AKDqEeKjDcfkNgs1Gg">
+    <activeResource href="ResourceEnvironments/On-Premises.resourceenvironment#_CSl3AKDqEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [1] in Application Server" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/ResourceEnvironments/On-Premises.resourceenvironment#_CSl3AKDqEeKjDcfkNgs1Gg" replicaID="1">
+    <activeResource href="ResourceEnvironments/On-Premises.resourceenvironment#_CSl3AKDqEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in Database Server" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/ResourceEnvironments/On-Premises.resourceenvironment#_-OfvcKDpEeKjDcfkNgs1Gg">
+    <activeResource href="ResourceEnvironments/On-Premises.resourceenvironment#_-OfvcKDpEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [1] in Database Server" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/ResourceEnvironments/On-Premises.resourceenvironment#_-OfvcKDpEeKjDcfkNgs1Gg" replicaID="1">
+    <activeResource href="ResourceEnvironments/On-Premises.resourceenvironment#_-OfvcKDpEeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [0] in Image Server" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/ResourceEnvironments/On-Premises.resourceenvironment#_rieCQKD2EeKjDcfkNgs1Gg">
+    <activeResource href="ResourceEnvironments/On-Premises.resourceenvironment#_rieCQKD2EeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+  <measuringPoints xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" stringRepresentation="CPU [1] in Image Server" resourceURIRepresentation="platform:/resource/CloudStore-Analyser/ResourceEnvironments/On-Premises.resourceenvironment#_rieCQKD2EeKjDcfkNgs1Gg" replicaID="1">
+    <activeResource href="ResourceEnvironments/On-Premises.resourceenvironment#_rieCQKD2EeKjDcfkNgs1Gg"/>
+  </measuringPoints>
+</org.palladiosimulator.edp2.models:MeasuringPointRepository>

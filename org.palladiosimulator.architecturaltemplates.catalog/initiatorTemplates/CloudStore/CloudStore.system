@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
+  <system:System id="_JxtuQKDaEeKjDcfkNgs1Gg" entityName="CloudStore System">
+    <assemblyContexts__ComposedStructure id="_cVaS8KDaEeKjDcfkNgs1Gg" entityName="Assembly_HomePage &lt;HomePage>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_cEOcYKAWEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_eqpE8KDaEeKjDcfkNgs1Gg" entityName="Assembly_BookPages &lt;BookPages>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_8FPrYKAiEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_iVKO4KDaEeKjDcfkNgs1Gg" entityName="Assembly_ShoppingCartPages &lt;ShoppingCartPages>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_e1sR4KArEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_lECP8KDaEeKjDcfkNgs1Gg" entityName="Assembly_OrderPages &lt;OrderPages>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_PHjesKAjEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_1e9xUKDaEeKjDcfkNgs1Gg" entityName="Assembly_Hello &lt;Hello>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_Ab7G0KAaEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_4EN8UKDaEeKjDcfkNgs1Gg" entityName="Assembly_PromotionalProcessing &lt;PromotionalProcessing>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_c172cJ4DEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_-c7K0KDaEeKjDcfkNgs1Gg" entityName="Assembly_Database_Access &lt;Database_Access>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_OkrlsKAkEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_CMIngKDbEeKjDcfkNgs1Gg" entityName="Assembly_Util &lt;Util>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_DFzQIKA7EeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_D3BcAKDbEeKjDcfkNgs1Gg" entityName="Assembly_NTFSImageLoading &lt;ImageLoading>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_TkXjQKBaEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_Kkg_ULCgEeKIWOrWDhimvQ" entityName="Assembly_Tomcat_v7_0_30 &lt;Tomcat_v7_0_30>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_MbRV8KjnEeKwx82kckLl3w"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_iPaTQMRoEeK-fsVVlYXCDQ" entityName="Assembly_Tomcat_v7_0_30_Img &lt;Tomcat_v7_0_30>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_MbRV8KjnEeKwx82kckLl3w"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_pr3DcGC4EeOyBvpwll1J2w" entityName="Assembly_MySQL_v5_5_27 &lt;MySQL_v5_5_27>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_MkWMoGC2EeOyBvpwll1J2w"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_YyTA4GPPEeOoburSBwQF3A" entityName="Assembly_MySQL_Connector_Java_v5_1_24 &lt;MySQL_Connector_Java_v5_1_24>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_IWcswKBvEeKjDcfkNgs1Gg"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_am8QAHvHEeWOqY570KuQYg" entityName="Assembly_PaymentGateway &lt;PaymentGateway>">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="CloudStore.repository#_FTof4HvGEeWOqY570KuQYg"/>
+    </assemblyContexts__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_pp9SMKDaEeKjDcfkNgs1Gg" entityName="ProvDelegation Provided_IHomePage -> Provided_IHomePage_Home" outerProvidedRole_ProvidedDelegationConnector="_UDLXAKDaEeKjDcfkNgs1Gg" assemblyContext_ProvidedDelegationConnector="_cVaS8KDaEeKjDcfkNgs1Gg">
+      <innerProvidedRole_ProvidedDelegationConnector href="CloudStore.repository#_qKRKAKAWEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_p-nTkKDaEeKjDcfkNgs1Gg" entityName="ProvDelegation Provided_IBookPages -> Provided_IBookPage_Book" outerProvidedRole_ProvidedDelegationConnector="_VVLxcKDaEeKjDcfkNgs1Gg" assemblyContext_ProvidedDelegationConnector="_eqpE8KDaEeKjDcfkNgs1Gg">
+      <innerProvidedRole_ProvidedDelegationConnector href="CloudStore.repository#_Ar-l8KAjEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_qWlHoKDaEeKjDcfkNgs1Gg" entityName="ProvDelegation Provided_IShoppingCartPages -> Provided_IShoppingCartPage_ShoppingCart" outerProvidedRole_ProvidedDelegationConnector="_WV95AKDaEeKjDcfkNgs1Gg" assemblyContext_ProvidedDelegationConnector="_iVKO4KDaEeKjDcfkNgs1Gg">
+      <innerProvidedRole_ProvidedDelegationConnector href="CloudStore.repository#_hH3v4KArEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_qoZQYKDaEeKjDcfkNgs1Gg" entityName="ProvDelegation Provided_IOrderPages -> Provided_IOrderPage_Order" outerProvidedRole_ProvidedDelegationConnector="_YKJzcKDaEeKjDcfkNgs1Gg" assemblyContext_ProvidedDelegationConnector="_lECP8KDaEeKjDcfkNgs1Gg">
+      <innerProvidedRole_ProvidedDelegationConnector href="CloudStore.repository#_TomoAKAjEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_G2PJsKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_HomePage &lt;HomePage> -> Assembly_PromotionalProcessing &lt;PromotionalProcessing>" requiringAssemblyContext_AssemblyConnector="_cVaS8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_4EN8UKDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_mrUnMJ4DEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_pHLVUKAWEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_HiyGoKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_BookPages &lt;BookPages> -> Assembly_PromotionalProcessing &lt;PromotionalProcessing>" requiringAssemblyContext_AssemblyConnector="_eqpE8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_4EN8UKDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_mrUnMJ4DEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_9WtTQKAiEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_ILV7cKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_ShoppingCartPages &lt;ShoppingCartPages> -> Assembly_PromotionalProcessing &lt;PromotionalProcessing>" requiringAssemblyContext_AssemblyConnector="_iVKO4KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_4EN8UKDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_mrUnMJ4DEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_151i8KArEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Si5lIKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_HomePage &lt;HomePage> -> Assembly_Hello &lt;Hello>" requiringAssemblyContext_AssemblyConnector="_cVaS8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_1e9xUKDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_C0IUUKAaEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_EkmzcKAaEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_nns0oKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_Hello &lt;Hello> -> Assembly_Database_Access &lt;Database_Access>" requiringAssemblyContext_AssemblyConnector="_1e9xUKDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_Sm3owKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_mR_eoKAbEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_pWcOYKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_BookPages &lt;BookPages> -> Assembly_Database_Access &lt;Database_Access>" requiringAssemblyContext_AssemblyConnector="_eqpE8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_SS8AIKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_87IxkKAiEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_qpTkcKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_ShoppingCartPages &lt;ShoppingCartPages> -> Assembly_Database_Access &lt;Database_Access>" requiringAssemblyContext_AssemblyConnector="_iVKO4KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_S8SfIKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_kOAaYKArEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_rYeXkKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_ShoppingCartPages &lt;ShoppingCartPages> -> Assembly_Database_Access &lt;Database_Access>" requiringAssemblyContext_AssemblyConnector="_iVKO4KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_Sm3owKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_j6KRUKArEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_sJryEKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_OrderPages &lt;OrderPages> -> Assembly_Database_Access &lt;Database_Access>" requiringAssemblyContext_AssemblyConnector="_lECP8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_TiNPoKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_S9hDoKAjEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_0RiqAKDcEeKjDcfkNgs1Gg" entityName="Connector Assembly_PromotionalProcessing &lt;PromotionalProcessing> -> Assembly_Database_Access &lt;Database_Access>" requiringAssemblyContext_AssemblyConnector="_4EN8UKDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_SS8AIKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_ecKZkKAVEeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_tdWYaqDnEeKjDcfkNgs1Gg" entityName="InfrastructureConnector Assembly_Database_Access &lt;Database_Access> -> Assembly_Util &lt;Util>" providingAssemblyContext__AssemblyInfrastructureConnector="_CMIngKDbEeKjDcfkNgs1Gg" requiringAssemblyContext__AssemblyInfrastructureConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Ea0iUKA7EeKjDcfkNgs1Gg"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_wZ-DIKA6EeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_1KPLmqDnEeKjDcfkNgs1Gg" entityName="InfrastructureConnector Assembly_Database_Access &lt;Database_Access> -> Assembly_Util &lt;Util>" providingAssemblyContext__AssemblyInfrastructureConnector="_CMIngKDbEeKjDcfkNgs1Gg" requiringAssemblyContext__AssemblyInfrastructureConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_EMtN0KA7EeKjDcfkNgs1Gg"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_xIkOgKA6EeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_mr-YwKWpEeK8p9cFG9fFxA" entityName="Connector Assembly_OrderPages &lt;OrderPages> -> Assembly_Database &lt;Database>" requiringAssemblyContext_AssemblyConnector="_lECP8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_Sm3owKAkEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_fv1GAKWpEeK8p9cFG9fFxA"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_ib4k-r4FEeKApo_Aso_Onw" entityName="BookPages -> Tomcat" providingAssemblyContext__AssemblyInfrastructureConnector="_Kkg_ULCgEeKIWOrWDhimvQ" requiringAssemblyContext__AssemblyInfrastructureConnector="_eqpE8KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_tOzoAKjoEeKwx82kckLl3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_Azdx-L4HEeKApo_Aso_Onw" entityName="HomePage -> Tomcat" providingAssemblyContext__AssemblyInfrastructureConnector="_Kkg_ULCgEeKIWOrWDhimvQ" requiringAssemblyContext__AssemblyInfrastructureConnector="_cVaS8KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_uM5A4KjoEeKwx82kckLl3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_KnMV2r4HEeKApo_Aso_Onw" entityName="ShoppingCartPages -> Tomcat" providingAssemblyContext__AssemblyInfrastructureConnector="_Kkg_ULCgEeKIWOrWDhimvQ" requiringAssemblyContext__AssemblyInfrastructureConnector="_iVKO4KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_rxn4UKjoEeKwx82kckLl3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_Odeq6r4HEeKApo_Aso_Onw" entityName="OrderPages -> Tomcat" providingAssemblyContext__AssemblyInfrastructureConnector="_Kkg_ULCgEeKIWOrWDhimvQ" requiringAssemblyContext__AssemblyInfrastructureConnector="_lECP8KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_KC568KjoEeKwx82kckLl3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_rF6Z4MRoEeK-fsVVlYXCDQ" entityName="InfrastructureConnector Assembly_NTFSImageLoading &lt;ImageLoading> -> Assembly_Tomcat_v7_0_30 &lt;Tomcat_v7_0_30>" providingAssemblyContext__AssemblyInfrastructureConnector="_iPaTQMRoEeK-fsVVlYXCDQ" requiringAssemblyContext__AssemblyInfrastructureConnector="_D3BcAKDbEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_TNZiQMIbEeKhg7MYPigv7g"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_gCLeUMR2EeK-fsVVlYXCDQ" entityName="Connector Assembly_BookPages &lt;BookPages> -> Assembly_NTFSImageLoading &lt;ImageLoading>" requiringAssemblyContext_AssemblyConnector="_eqpE8KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_D3BcAKDbEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_Vf9tQKBaEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_WuW1cMRpEeK-fsVVlYXCDQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_gweHsMR2EeK-fsVVlYXCDQ" entityName="Connector Assembly_PromotionalProcessing &lt;PromotionalProcessing> -> Assembly_NTFSImageLoading &lt;ImageLoading>" requiringAssemblyContext_AssemblyConnector="_4EN8UKDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_D3BcAKDbEeKjDcfkNgs1Gg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_Vf9tQKBaEeKjDcfkNgs1Gg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_Kr7eAMRsEeK-fsVVlYXCDQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_RiASEGC5EeOyBvpwll1J2w" entityName="Connector Assembly_Database_Access &lt;Database_Access> -> Assembly_MySQL_v5_5_27 &lt;MySQL_v5_5_27>" requiringAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_pr3DcGC4EeOyBvpwll1J2w">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_USbSoGC2EeOyBvpwll1J2w"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_XueiwGC2EeOyBvpwll1J2w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Sw_NsGC5EeOyBvpwll1J2w" entityName="Connector Assembly_Database_Access &lt;Database_Access> -> Assembly_MySQL_v5_5_27 &lt;MySQL_v5_5_27>" requiringAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_pr3DcGC4EeOyBvpwll1J2w">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_TyjfwGC2EeOyBvpwll1J2w"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_XH0LYGC2EeOyBvpwll1J2w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_THkhsGC5EeOyBvpwll1J2w" entityName="Connector Assembly_Database_Access &lt;Database_Access> -> Assembly_MySQL_v5_5_27 &lt;MySQL_v5_5_27>" requiringAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_pr3DcGC4EeOyBvpwll1J2w">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_TZvXIGC2EeOyBvpwll1J2w"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_WmF-YGC2EeOyBvpwll1J2w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_TZHksGC5EeOyBvpwll1J2w" entityName="Connector Assembly_Database_Access &lt;Database_Access> -> Assembly_MySQL_v5_5_27 &lt;MySQL_v5_5_27>" requiringAssemblyContext_AssemblyConnector="_-c7K0KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_pr3DcGC4EeOyBvpwll1J2w">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_TAphsGC2EeOyBvpwll1J2w"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_WRvfAGC2EeOyBvpwll1J2w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_vGOk8GC5EeOyBvpwll1J2w" entityName="InfrastructureConnector Assembly_PromotionalProcessing &lt;PromotionalProcessing> -> Assembly_Util &lt;Util>" providingAssemblyContext__AssemblyInfrastructureConnector="_CMIngKDbEeKjDcfkNgs1Gg" requiringAssemblyContext__AssemblyInfrastructureConnector="_4EN8UKDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_Ea0iUKA7EeKjDcfkNgs1Gg"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_zizcUKA6EeKjDcfkNgs1Gg"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyInfrastructureConnector" id="_e_bRgGPPEeOoburSBwQF3A" entityName="InfrastructureConnector Assembly_Database_Access &lt;Database_Access> -> Assembly_MySQL_Connector_Java_v5_1_24 &lt;MySQL_Connector_Java_v5_1_24>" providingAssemblyContext__AssemblyInfrastructureConnector="_YyTA4GPPEeOoburSBwQF3A" requiringAssemblyContext__AssemblyInfrastructureConnector="_-c7K0KDaEeKjDcfkNgs1Gg">
+      <providedRole__AssemblyInfrastructureConnector href="CloudStore.repository#_O0d5EKBvEeKjDcfkNgs1Gg"/>
+      <requiredRole__AssemblyInfrastructureConnector href="CloudStore.repository#_MfcMkGC4EeOyBvpwll1J2w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_dlUssHvHEeWOqY570KuQYg" entityName="Connector Assembly_ShoppingCartPages &lt;ShoppingCartPages> -> Assembly_PaymentGateway &lt;PaymentGateway>" requiringAssemblyContext_AssemblyConnector="_iVKO4KDaEeKjDcfkNgs1Gg" providingAssemblyContext_AssemblyConnector="_am8QAHvHEeWOqY570KuQYg">
+      <providedRole_AssemblyConnector href="CloudStore.repository#_i6GOcHvGEeWOqY570KuQYg"/>
+      <requiredRole_AssemblyConnector href="CloudStore.repository#_C-VccHvGEeWOqY570KuQYg"/>
+    </connectors__ComposedStructure>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_UDLXAKDaEeKjDcfkNgs1Gg" entityName="Provided_IHomePage">
+      <providedInterface__OperationProvidedRole href="CloudStore.repository#_SdDGwKAWEeKjDcfkNgs1Gg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_VVLxcKDaEeKjDcfkNgs1Gg" entityName="Provided_IBookPages">
+      <providedInterface__OperationProvidedRole href="CloudStore.repository#_V3wUEKALEeKjDcfkNgs1Gg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_WV95AKDaEeKjDcfkNgs1Gg" entityName="Provided_IShoppingCartPages">
+      <providedInterface__OperationProvidedRole href="CloudStore.repository#_8OKlkKAcEeKjDcfkNgs1Gg"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_YKJzcKDaEeKjDcfkNgs1Gg" entityName="Provided_IOrderPages">
+      <providedInterface__OperationProvidedRole href="CloudStore.repository#_k6Y9EKAcEeKjDcfkNgs1Gg"/>
+    </providedRoles_InterfaceProvidingEntity>
+  </system:System>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:DynamicHorizontalScalingResourceContainerSystem" appliedTo="_JxtuQKDaEeKjDcfkNgs1Gg">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_Xr9AkCPBEeSbfv_s0ToTIw"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

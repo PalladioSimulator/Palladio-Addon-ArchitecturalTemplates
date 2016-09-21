@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" type="CompositeModel" name="CloudStore.system_diagram" measurementUnit="Pixel">
+  <children xsi:type="notation:Shape" type="2002" fontName="Segoe UI">
+    <children xsi:type="notation:DecorationNode" type="5012"/>
+    <children xsi:type="notation:DecorationNode" type="7002">
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_qKRKAKAWEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="4"/>
+          </children>
+          <element href="CloudStore.repository#_pHLVUKAWEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="1" y="-29"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="-142" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_EkmzcKAaEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="360" y="20"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_uM5A4KjoEeKwx82kckLl3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="16" y="79"/>
+        </children>
+        <element href="CloudStore.system#_cVaS8KDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="485" y="485" width="361"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="15"/>
+          </children>
+          <element href="CloudStore.repository#_Ar-l8KAjEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="50"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="-149" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_87IxkKAiEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="355" y="100"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="4"/>
+          </children>
+          <element href="CloudStore.repository#_9WtTQKAiEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="1" y="-29"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_tOzoAKjoEeKwx82kckLl3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="26" y="110"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_WuW1cMRpEeK-fsVVlYXCDQ"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="CloudStore.system#_eqpE8KDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="485" y="255" width="356" height="136"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="10"/>
+          </children>
+          <element href="CloudStore.repository#_hH3v4KArEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="50"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="-221" y="10"/>
+          </children>
+          <element href="CloudStore.repository#_j6KRUKArEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="350" y="20"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="-242" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_kOAaYKArEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="350" y="90"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="4"/>
+          </children>
+          <element href="CloudStore.repository#_151i8KArEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="1" y="-29"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_rxn4UKjoEeKwx82kckLl3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="11" y="130"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName=".Helvetica Neue DeskInterface">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_C-VccHvGEeWOqY570KuQYg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="CloudStore.system#_iVKO4KDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="485" y="695" width="351" height="131"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="40" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_TomoAKAjEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="40" y="25"/>
+          </children>
+          <element href="CloudStore.repository#_S9hDoKAjEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="355" y="40"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="40" y="-20"/>
+          </children>
+          <element href="CloudStore.repository#_fv1GAKWpEeK8p9cFG9fFxA"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="355" y="10"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" x="-198" y="1"/>
+          </children>
+          <element href="CloudStore.repository#_KC568KjoEeKwx82kckLl3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="1" y="79"/>
+        </children>
+        <element href="CloudStore.system#_lECP8KDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="480" y="940" width="356"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_C0IUUKAaEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="20"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" x="-176" y="15"/>
+          </children>
+          <element href="CloudStore.repository#_mR_eoKAbEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="280" y="40"/>
+        </children>
+        <element href="CloudStore.system#_1e9xUKDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="900" y="525" width="281"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="50" y="11"/>
+          </children>
+          <element href="CloudStore.repository#_mrUnMJ4DEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="100" y="79"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_ecKZkKAVEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="280" y="40"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" x="-249" y="6"/>
+          </children>
+          <element href="CloudStore.repository#_zizcUKA6EeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="232" y="79"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_Kr7eAMRsEeK-fsVVlYXCDQ"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="CloudStore.system#_4EN8UKDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="305" y="15" width="281"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_SS8AIKAkEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="10"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_Sm3owKAkEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="220"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_S8SfIKAkEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="440"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="40" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_TiNPoKAkEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-19" y="625"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" x="117" y="22"/>
+          </children>
+          <element href="CloudStore.repository#_wZ-DIKA6EeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="230" y="705"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" x="6" y="-18"/>
+          </children>
+          <element href="CloudStore.repository#_xIkOgKA6EeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="155" y="705"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_WRvfAGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="270" y="210"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_WmF-YGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="270" y="260"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_XH0LYGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="270" y="340"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_XueiwGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="270" y="415"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" x="-87" y="17"/>
+          </children>
+          <element href="CloudStore.repository#_MfcMkGC4EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="45" y="705"/>
+        </children>
+        <element href="CloudStore.system#_-c7K0KDaEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="1295" y="350" width="271" height="706"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3015" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5017">
+            <layoutConstraint xsi:type="notation:Location" x="90" y="18"/>
+          </children>
+          <element href="CloudStore.repository#_EMtN0KA7EeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="5" y="-29"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3015" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5017">
+            <layoutConstraint xsi:type="notation:Location" x="101" y="18"/>
+          </children>
+          <element href="CloudStore.repository#_Ea0iUKA7EeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="235" y="-29"/>
+        </children>
+        <element href="CloudStore.system#_CMIngKDbEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="1375" y="1145" width="271"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="-126" y="7"/>
+          </children>
+          <element href="CloudStore.repository#_Vf9tQKBaEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3016" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5018">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_TNZiQMIbEeKhg7MYPigv7g"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="130" y="79"/>
+        </children>
+        <element href="CloudStore.system#_D3BcAKDbEeKjDcfkNgs1Gg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="1289" y="80" width="316"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3015" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5017">
+            <layoutConstraint xsi:type="notation:Location" x="40" y="1"/>
+          </children>
+          <element href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="9" y="-29"/>
+        </children>
+        <element href="CloudStore.system#_Kkg_ULCgEeKIWOrWDhimvQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="235" y="1163" width="340" height="129"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3015" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5017">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_Je2LoKjoEeKwx82kckLl3w"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="CloudStore.system#_iPaTQMRoEeK-fsVVlYXCDQ"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="1289" y="245" width="276"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_TAphsGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="215"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_TZvXIGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="285"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_TyjfwGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="360"/>
+        </children>
+        <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="CloudStore.repository#_USbSoGC2EeOyBvpwll1J2w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="435"/>
+        </children>
+        <element href="CloudStore.system#_pr3DcGC4EeOyBvpwll1J2w"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="2200" y="340" height="704"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3015" fontName="Segoe UI">
+          <children xsi:type="notation:DecorationNode" type="5017">
+            <layoutConstraint xsi:type="notation:Location" x="-144" y="6"/>
+          </children>
+          <element href="CloudStore.repository#_O0d5EKBvEeKjDcfkNgs1Gg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="CloudStore.system#_YyTA4GPPEeOoburSBwQF3A"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="1040" y="1145" width="306"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName=".Helvetica Neue DeskInterface">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName=".Helvetica Neue DeskInterface">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" x="-84" y="-19"/>
+          </children>
+          <element href="CloudStore.repository#_i6GOcHvGEeWOqY570KuQYg"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
+        <element href="CloudStore.system#_am8QAHvHEeWOqY570KuQYg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="1057" y="635"/>
+      </children>
+    </children>
+    <children xsi:type="notation:Shape" type="3011" fontName="Segoe UI">
+      <children xsi:type="notation:DecorationNode" type="5013">
+        <layoutConstraint xsi:type="notation:Location" x="80" y="35"/>
+      </children>
+      <element href="CloudStore.system#_UDLXAKDaEeKjDcfkNgs1Gg"/>
+      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="460"/>
+    </children>
+    <children xsi:type="notation:Shape" type="3011" fontName="Segoe UI">
+      <children xsi:type="notation:DecorationNode" type="5013">
+        <layoutConstraint xsi:type="notation:Location" x="80" y="35"/>
+      </children>
+      <element href="CloudStore.system#_VVLxcKDaEeKjDcfkNgs1Gg"/>
+      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="330"/>
+    </children>
+    <children xsi:type="notation:Shape" type="3011" fontName="Segoe UI">
+      <children xsi:type="notation:DecorationNode" type="5013">
+        <layoutConstraint xsi:type="notation:Location" x="80" y="40"/>
+      </children>
+      <element href="CloudStore.system#_WV95AKDaEeKjDcfkNgs1Gg"/>
+      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="610"/>
+    </children>
+    <children xsi:type="notation:Shape" type="3011" fontName="Segoe UI">
+      <children xsi:type="notation:DecorationNode" type="5013">
+        <layoutConstraint xsi:type="notation:Location" x="80" y="35"/>
+      </children>
+      <element href="CloudStore.system#_YKJzcKDaEeKjDcfkNgs1Gg"/>
+      <layoutConstraint xsi:type="notation:Bounds" x="-59" y="775"/>
+    </children>
+    <element href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="110" width="2476" height="1501"/>
+  </children>
+  <styles xsi:type="notation:DiagramStyle"/>
+  <element href="CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
+  <edges xsi:type="notation:Connector" type="4006" source="//@children.0/@children.2" target="//@children.0/@children.1/@children.0/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_pp9SMKDaEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -237, -14]$[260, 15, -7, 1]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.18333333333333332,0.5166666666666667)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.23333333333333334,0.5666666666666667)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4006" source="//@children.0/@children.3" target="//@children.0/@children.1/@children.1/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_p-nTkKDaEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -278, -107]$[302, 105, -6, -2]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.2,0.43333333333333335)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4006" source="//@children.0/@children.4" target="//@children.0/@children.1/@children.2/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_qWlHoKDaEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -270, 95]$[296, -95, -4, 0]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.13333333333333333,0.5)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4006" source="//@children.0/@children.5" target="//@children.0/@children.1/@children.3/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_qoZQYKDaEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -270, -9]$[299, 10, -1, 1]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.0/@children.2" target="//@children.0/@children.1/@children.5/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_G2PJsKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, -8, 76, 264]$[-26, -25, 50, 247]$[-40, -221, 36, 51]$[-71, -259, 5, 13]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.1/@children.3" target="//@children.0/@children.1/@children.5/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_HiyGoKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, -8, 76, 119]$[-30, -76, 46, 51]$[-71, -115, 5, 12]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.2/@children.4" target="//@children.0/@children.1/@children.5/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_ILV7cKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, -8, 81, 349]$[-56, -6, 25, 351]$[-56, -326, 25, 31]$[-76, -345, 5, 12]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.0/@children.3" target="//@children.0/@children.1/@children.4/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_Si5lIKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -179, -10]$[185, 8, -1, -2]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.4/@children.2" target="//@children.0/@children.1/@children.6/@children.2">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_nns0oKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -469, -200]$[475, 196, -1, -4]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.1/@children.2" target="//@children.0/@children.1/@children.6/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_pWcOYKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -839, 105]$[846, -106, 0, -1]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.2/@children.3" target="//@children.0/@children.1/@children.6/@children.3">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_qpTkcKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -844, 70]$[850, -69, -1, 1]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.2/@children.2" target="//@children.0/@children.1/@children.6/@children.2">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_rYeXkKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[8, 0, -424, 154]$[370, 0, -62, 154]$[370, -133, -62, 21]$[417, -153, -15, 1]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.3/@children.2" target="//@children.0/@children.1/@children.6/@children.4">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_sJryEKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -839, 165]$[845, -167, -1, -2]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.5/@children.2" target="//@children.0/@children.1/@children.6/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_0RiqAKDcEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -675, -306]$[590, 6, -92, -300]$[672, 296, -10, -10]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.6/@children.5" target="//@children.0/@children.1/@children.7/@children.2">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_tdWYaqDnEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-6, 3, -5, 3]$[7, 0, 8, 0]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.6/@children.6" target="//@children.0/@children.1/@children.7/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_1KPLmqDnEeKjDcfkNgs1Gg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-6, 3, -5, 3]$[7, 0, 8, 0]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.3/@children.3" target="//@children.0/@children.1/@children.6/@children.2">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_mr-YwKWpEeK8p9cFG9fFxA"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[10, 0, -431, 380]$[390, 0, -51, 380]$[400, -344, -41, 36]$[431, -372, -10, 8]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.1/@children.4" target="//@children.0/@children.1/@children.9/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_ib4k-r4FEeKApo_Aso_Onw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-10, 0, 257, -754]$[-276, 0, -9, -754]$[-276, 744, -9, -10]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.0/@children.4" target="//@children.0/@children.1/@children.9/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_Azdx-L4HEeKApo_Aso_Onw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-10, 0, 247, -580]$[-257, 11, 0, -569]$[-257, 570, 0, -10]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.2/@children.5" target="//@children.0/@children.1/@children.9/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_KnMV2r4HEeKApo_Aso_Onw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-10, 0, 242, -319]$[-246, 10, 6, -309]$[-246, 309, 6, -10]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.3/@children.4" target="//@children.0/@children.1/@children.9/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_Odeq6r4HEeKApo_Aso_Onw"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-10, 5, 227, -120]$[-166, 86, 71, -39]$[-227, 119, 10, -6]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.8/@children.2" target="//@children.0/@children.1/@children.10/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_rF6Z4MRoEeK-fsVVlYXCDQ"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[1, 6, -7, -38]$[10, 52, 2, 8]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.1/@children.5" target="//@children.0/@children.1/@children.8/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_gCLeUMR2EeK-fsVVlYXCDQ"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -404, 201]$[405, -200, -6, 1]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.2,0.5666666666666667)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.5/@children.4" target="//@children.0/@children.1/@children.8/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_gweHsMR2EeK-fsVVlYXCDQ"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -668, -103]$[619, 0, -56, -103]$[664, 95, -11, -8]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.6/@children.10" target="//@children.0/@children.1/@children.11/@children.4">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_RiASEGC5EeOyBvpwll1J2w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -599, -10]$[603, 14, -3, 4]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(1.0,1.0)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.6/@children.9" target="//@children.0/@children.1/@children.11/@children.3">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_Sw_NsGC5EeOyBvpwll1J2w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -588, -8]$[591, 7, -4, -1]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.13333333333333333,0.43333333333333335)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.6/@children.8" target="//@children.0/@children.1/@children.11/@children.2">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_THkhsGC5EeOyBvpwll1J2w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -599, -15]$[605, 16, -1, 1]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.6/@children.7" target="//@children.0/@children.1/@children.11/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_TZHksGC5EeOyBvpwll1J2w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -591, 4]$[591, -4, -7, 0]"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.23333333333333334,0.5333333333333333)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.5/@children.3" target="//@children.0/@children.1/@children.7/@children.2">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_vGOk8GC5EeOyBvpwll1J2w"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[0, 6, -988, -1001]$[0, 81, -988, -926]$[1323, 81, 335, -926]$[1323, 1007, 335, 0]$[996, 1007, 8, 0]"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4008" source="//@children.0/@children.1/@children.6/@children.11" target="//@children.0/@children.1/@children.12/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Segoe UI"/>
+    <element href="CloudStore.system#_e_bRgGPPEeOoburSBwQF3A"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[-12, 3, 138, -42]$[-152, 41, -2, -4]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(1.0,1.0)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.4,0.13333333333333333)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.2/@children.6" target="//@children.0/@children.1/@children.13/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName=".Helvetica Neue DeskInterface"/>
+    <element href="CloudStore.system#_dlUssHvHEeWOqY570KuQYg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -174, 73]$[178, -74, -3, -1]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.8,0.5)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.1,0.4666666666666667)"/>
+  </edges>
+</notation:Diagram>

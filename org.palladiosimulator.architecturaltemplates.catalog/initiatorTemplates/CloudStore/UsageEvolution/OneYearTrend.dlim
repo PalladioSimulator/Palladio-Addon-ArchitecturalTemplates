@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tools.descartes.dlim:Sequence xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tools.descartes.dlim="http://descartes.tools/dlim/0.1" name="OneYearTrend" terminateAfterLoops="1" firstIterationEnd="189.0" loopDuration="189.0" finalDuration="189.0">
+  <combine>
+    <function xsi:type="tools.descartes.dlim:LinearTrend" functionOutputAtEnd="130.0"/>
+  </combine>
+  <sequenceFunctionContainers name="constantSeasonal" duration="189.0" firstIterationEnd="189.0">
+    <function xsi:type="tools.descartes.dlim:Constant" constant="1.0"/>
+  </sequenceFunctionContainers>
+</tools.descartes.dlim:Sequence>

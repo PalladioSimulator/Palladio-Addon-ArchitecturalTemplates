@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1">
+  <resourceenvironment:ResourceEnvironment entityName="On-Premises ResourceEnvironment">
+    <linkingResources__ResourceEnvironment id="_4VFFAKDpEeKjDcfkNgs1Gg" entityName="Internet" connectedResourceContainers_LinkingResource="_1guuEKDpEeKjDcfkNgs1Gg _yv9PkKDpEeKjDcfkNgs1Gg _oFWbIKD2EeKjDcfkNgs1Gg _299I4HvHEeWOqY570KuQYg">
+      <communicationLinkResourceSpecifications_LinkingResource id="_4Vq64KDpEeKjDcfkNgs1Gg">
+        <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+        <latency_CommunicationLinkResourceSpecification specification="0"/>
+        <throughput_CommunicationLinkResourceSpecification specification="999999999"/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_yv9PkKDpEeKjDcfkNgs1Gg" entityName="Application Server">
+      <activeResourceSpecifications_ResourceContainer id="_CSl3AKDqEeKjDcfkNgs1Gg" numberOfReplicas="2">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        <processingRate_ProcessingResourceSpecification specification="2*2.67E+10"/>
+      </activeResourceSpecifications_ResourceContainer>
+      <activeResourceSpecifications_ResourceContainer id="_EaA2gKDqEeKjDcfkNgs1Gg">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#FCFS"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        <processingRate_ProcessingResourceSpecification specification="100"/>
+      </activeResourceSpecifications_ResourceContainer>
+    </resourceContainer_ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_1guuEKDpEeKjDcfkNgs1Gg" entityName="Database Server">
+      <activeResourceSpecifications_ResourceContainer id="_-OfvcKDpEeKjDcfkNgs1Gg" numberOfReplicas="2">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        <processingRate_ProcessingResourceSpecification specification="2*2.67E+10"/>
+      </activeResourceSpecifications_ResourceContainer>
+      <activeResourceSpecifications_ResourceContainer id="_AkCDcKDqEeKjDcfkNgs1Gg">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#FCFS"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        <processingRate_ProcessingResourceSpecification specification="100"/>
+      </activeResourceSpecifications_ResourceContainer>
+    </resourceContainer_ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_oFWbIKD2EeKjDcfkNgs1Gg" entityName="Image Server">
+      <activeResourceSpecifications_ResourceContainer id="_rieCQKD2EeKjDcfkNgs1Gg" numberOfReplicas="2">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
+        <processingRate_ProcessingResourceSpecification specification="2*2.67E+10"/>
+      </activeResourceSpecifications_ResourceContainer>
+      <activeResourceSpecifications_ResourceContainer id="_tMn28KD2EeKjDcfkNgs1Gg">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#FCFS"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        <processingRate_ProcessingResourceSpecification specification="100"/>
+      </activeResourceSpecifications_ResourceContainer>
+    </resourceContainer_ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_299I4HvHEeWOqY570KuQYg" entityName="Payment Gateway Server">
+      <activeResourceSpecifications_ResourceContainer id="_31_kIHvHEeWOqY570KuQYg">
+        <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#Delay"/>
+        <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_nvHX4KkREdyEA_b89s7q9w"/>
+        <processingRate_ProcessingResourceSpecification specification="1000"/>
+      </activeResourceSpecifications_ResourceContainer>
+    </resourceContainer_ResourceEnvironment>
+  </resourceenvironment:ResourceEnvironment>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:ReplicableResourceContainer" appliedTo="_yv9PkKDpEeKjDcfkNgs1Gg" scaleInThreshold="0.6" scaleOutThreshold="0.8" measurementSpecificationID="_Ic6DwNfMEeSoWbWDy3AT2Q">
+      <extension href="../../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_7MhWQH47EeSqFvs4kqVd7Q"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

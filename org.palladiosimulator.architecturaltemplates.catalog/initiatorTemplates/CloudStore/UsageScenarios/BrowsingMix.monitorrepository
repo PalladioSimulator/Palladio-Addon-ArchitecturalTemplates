@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_cQTG8NYlEeSLYeOEPZiDBw" entityName="Default Monitor Set">
+  <monitors id="_fNiUINYlEeSLYeOEPZiDBw" entityName="Response Times - Browsing Mix">
+    <measurementSpecifications id="_jh_y8NYlEeSLYeOEPZiDBw">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_vc-01H_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.0"/>
+  </monitors>
+  <monitors id="_CPelINbwEeSvZ9ZEVo_F_Q" entityName="Response Times - HomePage">
+    <measurementSpecifications id="_IlY-UNbwEeSvZ9ZEVo_F_Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_2_u0lH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.4"/>
+  </monitors>
+  <monitors id="_7m4YUNciEeSCar5v21JTeg" entityName="Response Times - Books: getBestSellers">
+    <measurementSpecifications id="_l1SCUNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_3bHJBH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.11"/>
+  </monitors>
+  <monitors id="_8IX70NciEeSCar5v21JTeg" entityName="Response Times - Books: getDetails">
+    <measurementSpecifications id="_mVUNQNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_HQ59BH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.5"/>
+  </monitors>
+  <monitors id="_8aEIwNciEeSCar5v21JTeg" entityName="Response Times - Books: getNewProducts">
+    <measurementSpecifications id="_mvC74NckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_G2eq1H_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.10"/>
+  </monitors>
+  <monitors id="_82atkNciEeSCar5v21JTeg" entityName="Response Times - Books: getSearchPage">
+    <measurementSpecifications id="_roR7sNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_GTEbxH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.9"/>
+  </monitors>
+  <monitors id="_9IqUINciEeSCar5v21JTeg" entityName="Response Times - Books: getUpdatePage">
+    <measurementSpecifications id="_rMxrcNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_F9sBpH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.6"/>
+  </monitors>
+  <monitors id="_9muwMNciEeSCar5v21JTeg" entityName="Response Times - Books: search">
+    <measurementSpecifications id="_q2q4kNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_Fh3oVH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.8"/>
+  </monitors>
+  <monitors id="_-SaxgNciEeSCar5v21JTeg" entityName="Response Times - Books: update">
+    <measurementSpecifications id="_qc8J8NckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_Ev1HZH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.7"/>
+  </monitors>
+  <monitors id="__bpqcNciEeSCar5v21JTeg" entityName="Response Times - Orders: getOrder">
+    <measurementSpecifications id="_qC4rMNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_ENhEhH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.19"/>
+  </monitors>
+  <monitors id="__wyM8NciEeSCar5v21JTeg" entityName="Response Times - Orders: getOrderLoginPage">
+    <measurementSpecifications id="_pkdCwNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_DyWyhH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.18"/>
+  </monitors>
+  <monitors id="_AGZQkNcjEeSCar5v21JTeg" entityName="Response Times - ShoppingCard: buyConfirmation">
+    <measurementSpecifications id="_pLRtwNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_DQmwVH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.16"/>
+  </monitors>
+  <monitors id="_AlPvwNcjEeSCar5v21JTeg" entityName="Response Times - ShoppingCard: checkout">
+    <measurementSpecifications id="_ozxzwNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_C0_LVH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.13"/>
+  </monitors>
+  <monitors id="_BaptwNcjEeSCar5v21JTeg" entityName="Response Times - ShoppingCard: checkoutNewUser">
+    <measurementSpecifications id="_odQKINckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_CXaehH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.15"/>
+  </monitors>
+  <monitors id="_BuyKsNcjEeSCar5v21JTeg" entityName="Response Times - ShoppingCard: checkoutReturningUser">
+    <measurementSpecifications id="_oBCvQNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_B9j0FH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.14"/>
+  </monitors>
+  <monitors id="_CL0E8NcjEeSCar5v21JTeg" entityName="Response Times - ShoppingCard: getShoppingCard">
+    <measurementSpecifications id="_nr-eMNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_BY0vVH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.17"/>
+  </monitors>
+  <monitors id="_ChpLANcjEeSCar5v21JTeg" entityName="Response Times - ShoppingCard: getShoppingCardAddItem">
+    <measurementSpecifications id="_nU-6gNckEeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_A4DklH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:SystemOperationMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.12"/>
+  </monitors>
+  <monitors id="_aA76ANeyEeSCar5v21JTeg" entityName="Response Times - Call: getShoppingCard -> createEmptyCard">
+    <measurementSpecifications id="_sDyeoNe2EeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_AjV41H_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.20"/>
+  </monitors>
+  <monitors id="_cLY_YNeyEeSCar5v21JTeg" entityName="Response Times - Call: getShoppingCard -> doCart">
+    <measurementSpecifications id="_sx6v8Ne2EeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_AEn8hH_REea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.21"/>
+  </monitors>
+  <monitors id="_clWXgNeyEeSCar5v21JTeg" entityName="Response Times - Call: getShoppingCard -> displayPromotions">
+    <measurementSpecifications id="_tJuzANe2EeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="__nX_1H_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.22"/>
+  </monitors>
+  <monitors id="_c_vNcNeyEeSCar5v21JTeg" entityName="Response Times - Call: getShoppingCard -> loadPromotionalImages">
+    <measurementSpecifications id="_t3G2YNe2EeSCar5v21JTeg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_-xQQJH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.23"/>
+  </monitors>
+  <monitors id="_qlohwNe6EeSEDLDj04qQUg" entityName="Response Times - Call: createEmptyCard -> getShoppingCartCount">
+    <measurementSpecifications id="_8BtXENe6EeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_-PIahH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.24"/>
+  </monitors>
+  <monitors id="_rFj_ANe6EeSEDLDj04qQUg" entityName="Response Times - Call: createEmptyCard -> createEmptyCard">
+    <measurementSpecifications id="_9YrKANe6EeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_9suRBH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ExternalCallActionMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.25"/>
+  </monitors>
+  <monitors id="_63yykNfDEeSEDLDj04qQUg" entityName="State - Database Access Passive Resource: synchronizedCard">
+    <measurementSpecifications id="_CI6PwNfEEeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_x0-pks7rEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_9LUNFH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.26"/>
+  </monitors>
+  <monitors id="_7vMUoNfDEeSEDLDj04qQUg" entityName="Waiting Time - Database Access Passive Resource: synchronizedCard">
+    <measurementSpecifications id="_DlZb4NfEEeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_QWjAYs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_8kqcxH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.26"/>
+  </monitors>
+  <monitors id="_PWj80NfEEeSEDLDj04qQUg" entityName="Holding Time - Database Access Passive Resource: synchronizedCard">
+    <measurementSpecifications id="_Q1v3oNfEEeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_zETOUs7pEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_8KwvBH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.26"/>
+  </monitors>
+  <monitors id="_8Q6hoNfDEeSEDLDj04qQUg" entityName="State - DB Connector Passive Resource: ConnPool">
+    <measurementSpecifications id="_DQ39YNfEEeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_x0-pks7rEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_7yRWhH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.27"/>
+  </monitors>
+  <monitors id="_801HANfDEeSEDLDj04qQUg" entityName="Waiting Time - DB Connector Passive Resource: ConnPool">
+    <measurementSpecifications id="_C3UN4NfEEeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_QWjAYs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_7eUfxH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.27"/>
+  </monitors>
+  <monitors id="_P4dwANfEEeSEDLDj04qQUg" entityName="Holding Time - DB Connector Passive Resource: ConnPool">
+    <measurementSpecifications id="_voYzgNfGEeSEDLDj04qQUg">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_zETOUs7pEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_7CjJxH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:AssemblyPassiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.27"/>
+  </monitors>
+  <monitors id="_DNVAgNfMEeSoWbWDy3AT2Q" entityName="State - Application Server: CPU[0]">
+    <measurementSpecifications id="_Ic6DwNfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:TimeDrivenAggregation" id="_hYuP4n_QEea2b6QgVhBODQ" windowLength="60.0" windowIncrement="60.0">
+        <statisticalCharacterization xsi:type="monitorrepository:ArithmeticMean"/>
+      </processingType>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.28"/>
+  </monitors>
+  <monitors id="_EhZ3gNfMEeSoWbWDy3AT2Q" entityName="Waiting Time - Application Server: CPU[0]">
+    <measurementSpecifications id="_RPWw0NfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_QWjAYs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_6hPzhH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.28"/>
+  </monitors>
+  <monitors id="_QSPoUNfMEeSoWbWDy3AT2Q" entityName="Holding Time - Application Server: CPU[0]">
+    <measurementSpecifications id="_RqmiYNfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_zETOUs7pEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_6MUFVH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.28"/>
+  </monitors>
+  <monitors id="_je2AENfMEeSoWbWDy3AT2Q" entityName="State - Database Server: CPU[0]">
+    <measurementSpecifications id="_0yyNENfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_50EkdH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.30"/>
+  </monitors>
+  <monitors id="_kWgn4NfMEeSoWbWDy3AT2Q" entityName="Waiting Time - Database Server: CPU[0]">
+    <measurementSpecifications id="_1PVmMNfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_QWjAYs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_5fmwVH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.30"/>
+  </monitors>
+  <monitors id="_lEOCcNfMEeSoWbWDy3AT2Q" entityName="Holding Time - Database Server: CPU[0]">
+    <measurementSpecifications id="_1wZr4NfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_zETOUs7pEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_5LI8NH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.30"/>
+  </monitors>
+  <monitors id="_ln-PwNfMEeSoWbWDy3AT2Q" entityName="State - Image Server: CPU[0]">
+    <measurementSpecifications id="_2YXq0NfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_4wIbNH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.32"/>
+  </monitors>
+  <monitors id="_ma-aANfMEeSoWbWDy3AT2Q" entityName="Waiting Time - Image Server: CPU[0]">
+    <measurementSpecifications id="_3qcWsNfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_QWjAYs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_4V8ZlH_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.32"/>
+  </monitors>
+  <monitors id="_m5Kx4NfMEeSoWbWDy3AT2Q" entityName="Holding Time - Image Server: CPU[0]">
+    <measurementSpecifications id="_3GjmgNfMEeSoWbWDy3AT2Q">
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_zETOUs7pEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_38WN1H_QEea2b6QgVhBODQ"/>
+    </measurementSpecifications>
+    <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="../CloudStore.measuringpoint#//@measuringPoints.32"/>
+  </monitors>
+</monitorrepository:MonitorRepository>
