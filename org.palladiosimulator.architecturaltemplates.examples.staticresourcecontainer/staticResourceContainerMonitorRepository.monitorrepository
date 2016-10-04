@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_ZBVJUNcREeSNV4TmK_35qw" entityName="Default Monitor Set">
   <monitors id="_IpeToONSEeSKB94gKG4tKg" entityName="Response Times - Usage Scenario">
-    <measurementSpecifications id="_NewAgONSEeSKB94gKG4tKg" statisticalCharacterization="ArithmeticMean">
-      <temporalRestriction xsi:type="monitorrepository:Intervall" id="_UO1NMONSEeSKB94gKG4tKg" intervall="10.0"/>
+    <measurementSpecifications id="_NewAgONSEeSKB94gKG4tKg">
       <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:TimeDrivenAggregation" id="_vazJ0opgEeal-JUxXu_X4w">
+        <statisticalCharacterization xsi:type="monitorrepository:ArithmeticMean"/>
+      </processingType>
     </measurementSpecifications>
     <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="staticResourceContainerMeasuringPoint.measuringpoint#//@measuringPoints.0"/>
   </monitors>
   <monitors id="_VhM0AeNSEeSKB94gKG4tKg" entityName="Number of Resource Containers - Resource Environment">
     <measurementSpecifications id="_-w1oX-NWEeSKB94gKG4tKg">
       <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_e7x3gq-eEeSgL6DrxYuwZg"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_k9Z94YpgEeal-JUxXu_X4w"/>
     </measurementSpecifications>
     <measuringPoint xsi:type="pcmmeasuringpoint:ResourceEnvironmentMeasuringPoint" href="staticResourceContainerMeasuringPoint.measuringpoint#//@measuringPoints.1"/>
   </monitors>
