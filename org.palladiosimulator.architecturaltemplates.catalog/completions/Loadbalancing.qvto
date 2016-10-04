@@ -44,17 +44,16 @@ main() {
 	var system : System := allocation.system_Allocation;
 	var appliedStereotype : String;
 	
-	if(isProfileApplied(system.oclAsType(EObject), dynamicHorizontalScalingAssemblyContextProfile) and
-		hasAppliedStereotype(system, dynamicHorizontalScalingAssemblyContextSystemStereotype) and
+	if(hasAppliedStereotype(system, dynamicHorizontalScalingAssemblyContextSystemStereotype) and
 		hasAppliedStereotype(assemblyContexts,replicableAssemblyContextStereotype)){
 			appliedStereotype := replicableAssemblyContextStereotype;	
 	}
 	else{				
-		assert fatal(isProfileApplied(system.oclAsType(EObject), staticAssemblyContextLoadbalancingProfile))
-			with log ("The system has no " + staticAssemblyContextLoadbalancingProfile + " applied!");	
+//		assert fatal(isProfileApplied(system.oclAsType(EObject), staticAssemblyContextLoadbalancingProfile))
+//			with log ("The system has no " + staticAssemblyContextLoadbalancingProfile + " applied!");	
 		
-		assert fatal(hasAppliedStereotype(system,staticAssemblyContextLoadbalancingSystemStereotype))
-			with log("The System is not a" + staticAssemblyContextLoadbalancingSystemStereotype + "!");
+		assert fatal(hasAppliedStereotype(system, staticAssemblyContextLoadbalancingSystemStereotype))
+			with log("The System is not a " + staticAssemblyContextLoadbalancingSystemStereotype + "!");
 			
 		if(hasAppliedStereotype(assemblyContexts,staticLoadbalancedAssemblyContextStereotype)){
 				appliedStereotype := staticLoadbalancedAssemblyContextStereotype;

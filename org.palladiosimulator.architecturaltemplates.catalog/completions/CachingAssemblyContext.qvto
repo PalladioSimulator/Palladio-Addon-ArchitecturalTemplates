@@ -28,8 +28,8 @@ property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEn
 main() {
 	var assemblyContexts : Set(AssemblyContext) := system.assemblyContexts__ComposedStructure;
 	
-	assert fatal(isProfileApplied(system.oclAsType(EObject), CACHING_ASSEMBLY_CONTEXT_PROFILE))
-		with log ("The system has no profile" + CACHING_ASSEMBLY_CONTEXT_PROFILE + " applied!");	
+//	assert fatal(isProfileApplied(system.oclAsType(EObject), CACHING_ASSEMBLY_CONTEXT_PROFILE))
+//		with log ("The system has no profile" + CACHING_ASSEMBLY_CONTEXT_PROFILE + " applied!");	
 
 	assert fatal(hasAppliedStereotype(system, CACHED_ASSEMBLY_CONTEXT_SYSTEM_STEREOTYPE))
 		with log ("The system has no stereotype" + CACHED_ASSEMBLY_CONTEXT_SYSTEM_STEREOTYPE + " applied!");

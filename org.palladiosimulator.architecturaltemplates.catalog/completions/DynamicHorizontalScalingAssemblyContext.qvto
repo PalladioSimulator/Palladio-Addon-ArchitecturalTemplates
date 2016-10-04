@@ -38,8 +38,8 @@ main() {
 	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
 	var system : System := allocation.system_Allocation;
 	
-	assert fatal(isProfileApplied(system.oclAsType(EObject), dynamicHorizontalScalingAssemblyContextProfile))
-		with log ("The system has no " + dynamicHorizontalScalingAssemblyContextProfile + " applied.");
+//	assert fatal(isProfileApplied(system.oclAsType(EObject), dynamicHorizontalScalingAssemblyContextProfile))
+//		with log ("The system has no " + dynamicHorizontalScalingAssemblyContextProfile + " applied.");
 		
 	assert fatal(hasAppliedStereotype(system, dynamicHorizontalScalingAssemblyContextSystemStereotype))
 		with log ("The system is not a " + dynamicHorizontalScalingAssemblyContextSystemStereotype + "!");
