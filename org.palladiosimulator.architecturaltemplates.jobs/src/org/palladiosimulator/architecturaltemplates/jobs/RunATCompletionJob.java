@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartition;
 import org.palladiosimulator.architecturaltemplates.AT;
+import org.palladiosimulator.architecturaltemplates.Completion;
 import org.palladiosimulator.architecturaltemplates.CompletionParameter;
 import org.palladiosimulator.architecturaltemplates.GenericFileExtension;
 import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParameter;
@@ -153,12 +154,15 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         final List<QVTOCompletion> completions = new LinkedList<QVTOCompletion>();
 
         for (final Role role : architecturalTemplate.getRoles()) {
-            if (role.getCompletion() != null) {
-                if (!(role.getCompletion() instanceof QVTOCompletion)) {
-                    throw new RuntimeException("This jobs assumes a QVTOCompletion");
-                }
-                completions.add((QVTOCompletion) role.getCompletion());
-            }
+        	final List<Completion> completionsIncludingInherited = role.getCompletionIncludingInherited();
+        	for (Completion completion : completionsIncludingInherited) {
+	            if (completion != null) {
+	                if (!(completion instanceof QVTOCompletion)) {
+	                    throw new RuntimeException("This jobs assumes a QVTOCompletion");
+	                }
+	                completions.add((QVTOCompletion) completion);
+	            }
+        	}
         }
 
         return Collections.unmodifiableList(completions);
