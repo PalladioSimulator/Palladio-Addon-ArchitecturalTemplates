@@ -82,7 +82,7 @@
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="__r-PAcKVEeSWFuHcXeRvDQ" x="315" y="385"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_1wmyEcKVEeSWFuHcXeRvDQ"/>
-  <element xmi:type="resourceenvironment:ResourceEnvironment" href="staticResourceContainerResourceEnvironment.resourceenvironment#/"/>
+  <element xmi:type="resourceenvironment:ResourceEnvironment" href="staticResourceContainerResourceEnvironment.resourceenvironment#/0"/>
   <edges xmi:type="notation:Connector" xmi:id="_CSZesMKWEeSWFuHcXeRvDQ" type="4003" source="_3h4icMKVEeSWFuHcXeRvDQ" target="_7chzEcKVEeSWFuHcXeRvDQ">
     <styles xmi:type="notation:FontStyle" xmi:id="_CSZescKWEeSWFuHcXeRvDQ" fontName="Segoe UI"/>
     <element xsi:nil="true"/>

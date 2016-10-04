@@ -50,6 +50,12 @@
       </profile>
    </extension>
    <extension
+         point="org.modelversioning.emfprofile.profile">
+      <profile
+            profile_resource="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram">
+      </profile>
+   </extension>
+   <extension
          point="org.eclipse.m2m.qvt.oml.javaBlackboxUnits">
         <unit
             name="ProfilesLibrary"
