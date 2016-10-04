@@ -39,7 +39,7 @@ public final class C3RoleLinearization {
 
         linearization.add(roleToLinearize);
 
-        final List<Role> superroles = roleToLinearize.getSuperRoles();
+        final List<Role> superroles = new ArrayList<>(roleToLinearize.getSuperRoles());
         for (final Role superrole : superroles) { // L[K1],...,L[KN]
             ancestorLists.add(linearizeInternal(superrole));
         }
