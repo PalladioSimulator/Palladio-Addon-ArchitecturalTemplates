@@ -4,3 +4,12 @@ DynamicThreeLayerThreeTierPostconditions finished.
 ------------Second Iteration------------
 DynamicThreeLayerThreeTierPostconditions started.
 DynamicThreeLayerThreeTierPostconditions finished.
+DynamicThreeLayerThreeTierPostconditions started.
+ASSERT [error] failed at (DynamicThreeLayerThreeTierPostconditions.qvto:69) : The System has no Presentation Layer Assembly.
+ASSERT [error] failed at (DynamicThreeLayerThreeTierPostconditions.qvto:75) : The System has no Middle Layer Assembly.
+ASSERT [error] failed at (DynamicThreeLayerThreeTierPostconditions.qvto:81) : The System has no Data Layer Assembly.
+Terminating execution...
+org.eclipse.m2m.internal.qvt.oml.evaluator.QvtRuntimeException: Java method invocation error 'public static int org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary.getIntTaggedValue(org.palladiosimulator.pcm.core.entity.Entity,java.lang.String,java.lang.String)'
+Caused by: java.lang.NullPointerException
+	at DynamicThreeLayerThreeTierPostconditions::testOriginalAndDuplicateResourceContainerEqualsNumberOfReplicas(DynamicThreeLayerThreeTierPostconditions.qvto:227)
+	at DynamicThreeLayerThreeTierPostconditions::main(DynamicThreeLayerThreeTierPostconditions.qvto:48)

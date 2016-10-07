@@ -4,3 +4,9 @@ ThreeLayerPostconditions Test finished
 ------------Second Iteration------------
 ThreeLayerPostconditions Test started
 ThreeLayerPostconditions Test finished
+ThreeLayerPostconditions Test started
+ASSERT [error] failed at (ThreeLayerPostconditions.qvto:56) : The System has at least one Assembly Context that is not stereotyped.
+ASSERT [error] failed at (ThreeLayerPostconditions.qvto:62) : The System has no Presentation Layer Assembly.
+ASSERT [error] failed at (ThreeLayerPostconditions.qvto:68) : The System has no Middle Layer Assembly.
+ASSERT [error] failed at (ThreeLayerPostconditions.qvto:74) : The System has no Data Layer Assembly.
+ThreeLayerPostconditions Test finished

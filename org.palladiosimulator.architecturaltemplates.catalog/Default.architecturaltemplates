@@ -202,14 +202,17 @@
     <roles id="_wvU8kIujEeWE_r1tdbkyww" entityName="Presentation Layer Assembly">
       <stereotype href="profiles/ThreeLayer.emfprofile_diagram#_5-mnAIuMEeWE_r1tdbkyww"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_tegCAbLUEeWONf-2GJUY0g" entityName="Presentation Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_LwRxoIzSEea9itAmmgA4Xw" entityName="Presentation Layer Assembly is deployed on Presentation Tier" expression="1 = 2"/>
     </roles>
     <roles id="_ySAQQIujEeWE_r1tdbkyww" entityName="Middle Layer Assembly">
       <stereotype href="profiles/ThreeLayer.emfprofile_diagram#_74HGUIuMEeWE_r1tdbkyww"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_yNjLEbLUEeWONf-2GJUY0g" entityName="Middle Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_lCvCcIzUEeaetYcpTomeIQ" entityName="Middle Layer Assembly is deployed on Middle Tier" expression="1 = 2"/>
     </roles>
     <roles id="_zhHuwIujEeWE_r1tdbkyww" entityName="Data Layer Assembly">
       <stereotype href="profiles/ThreeLayer.emfprofile_diagram#_9h_1QIuMEeWE_r1tdbkyww"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_zwVMcbLUEeWONf-2GJUY0g" entityName="Data Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_nalqoIzUEeaetYcpTomeIQ" entityName="Data Layer Assembly is deployed on Data Tier" expression="1 = 2"/>
     </roles>
   </ATs>
   <ATs id="_nv9YcIjIEeanVvnvVIHoJA" entityName="Three Tier">
@@ -233,36 +236,25 @@
     </roles>
   </ATs>
   <ATs id="_kWS4cIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier">
-    <roles id="_mrLsMIulEeWE_r1tdbkyww" entityName="AThree Layer Three Tier System" superRoles="_slWr8IuiEeWE_r1tdbkyww _Cb1vwIjKEeanVvnvVIHoJA">
+    <roles id="_mrLsMIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier System" superRoles="_slWr8IuiEeWE_r1tdbkyww _Cb1vwIjKEeanVvnvVIHoJA">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="ThreeLayerThreeTier.qvto">
-        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
-          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension"/>
-        </parameters>
-        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMOutputCompletionParameter">
-          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
-        </parameters>
-        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
-          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="resourceenvironment"/>
-        </parameters>
-      </completion>
     </roles>
-    <roles id="_r-QIUIulEeWE_r1tdbkyww" entityName="APresentation Layer Assembly" superRoles="_wvU8kIujEeWE_r1tdbkyww">
+    <roles id="_r-QIUIulEeWE_r1tdbkyww" entityName="Presentation Layer Assembly" superRoles="_wvU8kIujEeWE_r1tdbkyww">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_viBogIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_4xP5sIulEeWE_r1tdbkyww" entityName="AMiddle Layer Assembly" superRoles="_ySAQQIujEeWE_r1tdbkyww">
+    <roles id="_4xP5sIulEeWE_r1tdbkyww" entityName="Middle Layer Assembly" superRoles="_ySAQQIujEeWE_r1tdbkyww">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_ydbpsIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_8IF5sIulEeWE_r1tdbkyww" entityName="AData Layer Assembly" superRoles="_zhHuwIujEeWE_r1tdbkyww">
+    <roles id="_8IF5sIulEeWE_r1tdbkyww" entityName="Data Layer Assembly" superRoles="_zhHuwIujEeWE_r1tdbkyww">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_0qRUsIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_wQ_zEIupEeWE_r1tdbkyww" entityName="APresentation Tier" superRoles="_rIKDUIjIEeanVvnvVIHoJA">
+    <roles id="_wQ_zEIupEeWE_r1tdbkyww" entityName="Presentation Tier" superRoles="_rIKDUIjIEeanVvnvVIHoJA">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_yT42sIuPEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_1nUXgIupEeWE_r1tdbkyww" entityName="AMiddle Tier" superRoles="_OnUqoIjJEeanVvnvVIHoJA">
+    <roles id="_1nUXgIupEeWE_r1tdbkyww" entityName="Middle Tier" superRoles="_OnUqoIjJEeanVvnvVIHoJA">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_BpZBEIuQEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_6P-ksIupEeWE_r1tdbkyww" entityName="AData Tier" superRoles="_SmVd4IjJEeanVvnvVIHoJA">
+    <roles id="_6P-ksIupEeWE_r1tdbkyww" entityName="Data Tier" superRoles="_SmVd4IjJEeanVvnvVIHoJA">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_EU-dkIuQEeWE_r1tdbkyww"/>
     </roles>
   </ATs>

@@ -1,0 +1,284 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_CORE uses 'http://palladiosimulator.org/PalladioComponentModel/Core/5.1';
+
+transformation ThreeLayerPostconditions(in allocationBeforeCompletion : PCM_ALLOC, in allocationAfterCompletion : PCM_ALLOC, 
+in systemAfterCompletion : PCM_SYS);
+
+main() {
+
+log('ThreeLayerPostconditions Test started');
+
+	var oldAllocation : Allocation := allocationBeforeCompletion.rootObjects()![Allocation];
+	var newAllocation : Allocation := allocationAfterCompletion.rootObjects()![Allocation];
+	
+	var oldSystem : System := oldAllocation.system_Allocation;
+	var newSystem : System := systemAfterCompletion.rootObjects()![System];
+	
+	var newAssemblyContexts : Set(AssemblyContext) := newSystem.assemblyContexts__ComposedStructure;
+	
+	testSystemHasAtLeastThreeAssemblies(newAssemblyContexts);
+	testAllAssembliesAreThreeLayerStereotyped(newAssemblyContexts);
+	testSystemHasAtLeastOnePresentationLayerAssembly(newAssemblyContexts);
+	testSystemHasAtLeastOneMiddleLayerAssembly(newAssemblyContexts);
+	testSystemHasAtLeastOneDataLayerAssembly(newAssemblyContexts);
+	testMiddleLayerAssembliesNotRequirePresentationLayerAssembly(newSystem);
+	testDataLayerAssembliesNotRequirePresentationLayerAssembly(newSystem);
+	testPresentationLayerAssembliesNotRequireDataLayerAssembly(newSystem);
+	testDataLayerAssembliesNotRequireMiddleLayerAssembly(newSystem);
+	testNoProvidedDelegationConnectorToMiddleLayerAssemblies(newSystem);
+	testNoProvidedDelegationConnectorToDataLayerAssemblies(newSystem);
+	testNoRequiredDelegationConnectorFromPresentationLayerAssemblies(newSystem);
+	testNoRequiredDelegationConnectorFromMiddleLayerAssemblies(newSystem);
+	testNewRepositoryEqualsOldRepository(newSystem, oldSystem);
+	testNewSystemEqualsOldSystem(newSystem, oldSystem);
+	testNewResEnvEqualsOldResEnv(newAllocation.targetResourceEnvironment_Allocation, oldAllocation.targetResourceEnvironment_Allocation);
+	testNewAllocationEqualsOldAllocation(newAllocation, oldAllocation);
+	testAssembliesAllocatedToCorrectTiers(newAllocation);
+	
+log('ThreeLayerPostconditions Test finished');
+
+}
+
+query testSystemHasAtLeastThreeAssemblies(assemblyContexts : Set(AssemblyContext)){
+	assert error(assemblyContexts->size() >= 3)
+		with log('The System has <= 2 Assembly Contexts. At least 3 are needed.');
+}
+
+query testAllAssembliesAreThreeLayerStereotyped(assemblyContexts : Set(AssemblyContext)){
+	var allStereotyped: Boolean := assemblyContexts->forAll(assembly : AssemblyContext|
+	hasAppliedStereotype(assembly,"PresentationLayerAssembly") 
+	or hasAppliedStereotype(assembly,"MiddleLayerAssembly") 
+	or hasAppliedStereotype(assembly,"DataLayerAssembly"));
+	assert error(allStereotyped) 
+		with log('The System has at least one Assembly Context that is not stereotyped.');
+}
+
+query testSystemHasAtLeastOnePresentationLayerAssembly(assemblyContexts : Set(AssemblyContext)){
+	var presentationLayerAssemblies : Set(AssemblyContext) := assemblyContexts->select(assembly : AssemblyContext| hasAppliedStereotype(assembly,"PresentationLayerAssembly"));
+	assert error(presentationLayerAssemblies->size() >= 1) 
+		with log('The System has no Presentation Layer Assembly.');
+}
+
+query testSystemHasAtLeastOneMiddleLayerAssembly(assemblyContexts : Set(AssemblyContext)){
+	var middleLayerAssemblies : Set(AssemblyContext) := assemblyContexts->select(assembly : AssemblyContext| hasAppliedStereotype(assembly,"MiddleLayerAssembly"));
+	assert error(middleLayerAssemblies->size() >= 1) 
+		with log('The System has no Middle Layer Assembly.');
+}
+
+query testSystemHasAtLeastOneDataLayerAssembly(assemblyContexts : Set(AssemblyContext)){
+	var dataLayerAssemblies : Set(AssemblyContext) := assemblyContexts->select(assembly : AssemblyContext| hasAppliedStereotype(assembly,"DataLayerAssembly"));
+	assert error(dataLayerAssemblies->size() >= 1) 
+		with log('The System has no Data Layer Assembly.');
+}
+
+query testMiddleLayerAssembliesNotRequirePresentationLayerAssembly(system : System){
+	var assemblyConnectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector);
+	var middleNotRequirePresentation : Boolean := assemblyConnectors->forAll(ac : AssemblyConnector
+		|not(hasAppliedStereotype(ac.providingAssemblyContext_AssemblyConnector,'PresentationLayerAssembly') 
+		and ((hasAppliedStereotype(ac.requiringAssemblyContext_AssemblyConnector,'MiddleLayerAssembly')))));
+	assert error(middleNotRequirePresentation) 
+		with log('Middle Layer Assembly requires Presentation Layer Assembly.(AssemblyConntector)');	
+	var assemblyInfrastructureConnectors : Set(AssemblyInfrastructureConnector) := system.connectors__ComposedStructure->selectByType(AssemblyInfrastructureConnector);
+	 middleNotRequirePresentation := assemblyInfrastructureConnectors->forAll(ac : AssemblyInfrastructureConnector
+		|not(hasAppliedStereotype(ac.providingAssemblyContext__AssemblyInfrastructureConnector,'PresentationLayerAssembly') 
+		and ((hasAppliedStereotype(ac.requiringAssemblyContext__AssemblyInfrastructureConnector,'MiddleLayerAssembly')))));
+	assert error(middleNotRequirePresentation) 
+		with log('Middle Layer Assembly requires Presentation Layer Assembly.(AssemblyInfrastructureConntector)');	
+}
+
+query testDataLayerAssembliesNotRequirePresentationLayerAssembly(system : System){
+	var assemblyConnectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector);
+	var dataNotRequirePresentation : Boolean := assemblyConnectors->forAll(ac|not(hasAppliedStereotype(ac.providingAssemblyContext_AssemblyConnector,'PresentationLayerAssembly') 
+	and (hasAppliedStereotype(ac.requiringAssemblyContext_AssemblyConnector,'DataLayerAssembly'))));
+	assert error(dataNotRequirePresentation) 
+		with log('Data Layer Assembly requires Presentation Layer Assembly.(AssemblyConntector)');
+	var assemblyInfrastructureConnectors : Set(AssemblyInfrastructureConnector) := system.connectors__ComposedStructure->selectByType(AssemblyInfrastructureConnector);
+	dataNotRequirePresentation := assemblyInfrastructureConnectors->forAll(ac|not(hasAppliedStereotype(ac.providingAssemblyContext__AssemblyInfrastructureConnector,'PresentationLayerAssembly') 
+	and (hasAppliedStereotype(ac.requiringAssemblyContext__AssemblyInfrastructureConnector,'DataLayerAssembly'))));
+	assert error(dataNotRequirePresentation) 
+		with log('Data Layer Assembly requires Presentation Layer Assembly.(AssemblyInfrastructureConntector)');
+}
+
+query testPresentationLayerAssembliesNotRequireDataLayerAssembly(system : System){
+	var assemblyConnectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector);
+	var presentationNotRequireData : Boolean := assemblyConnectors->forAll(ac|
+	not(hasAppliedStereotype(ac.requiringAssemblyContext_AssemblyConnector,'PresentationLayerAssembly') 
+	and hasAppliedStereotype(ac.providingAssemblyContext_AssemblyConnector,'DataLayerAssembly')));
+	assert error(presentationNotRequireData) 
+		with log('Presentation Layer Assembly requires Data Layer Assembly.(AssemblyConntector)');
+	var assemblyInfrastructureConnectors : Set(AssemblyInfrastructureConnector) := system.connectors__ComposedStructure->selectByType(AssemblyInfrastructureConnector);
+	presentationNotRequireData := assemblyInfrastructureConnectors->forAll(ac|
+	not(hasAppliedStereotype(ac.requiringAssemblyContext__AssemblyInfrastructureConnector,'PresentationLayerAssembly') 
+	and hasAppliedStereotype(ac.providingAssemblyContext__AssemblyInfrastructureConnector,'DataLayerAssembly')));
+	assert error(presentationNotRequireData) 
+		with log('Presentation Layer Assembly requires Data Layer Assembly.(AssemblyInfrastructureConntector)');
+}
+
+query testDataLayerAssembliesNotRequireMiddleLayerAssembly(system : System){
+	var assemblyConnectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector);
+	var dataNotRequireMiddle : Boolean := assemblyConnectors->forAll(ac|
+	not(hasAppliedStereotype(ac.requiringAssemblyContext_AssemblyConnector,'DataLayerAssembly') 
+	and hasAppliedStereotype(ac.providingAssemblyContext_AssemblyConnector,'MiddleLayerAssembly')));
+	assert error(dataNotRequireMiddle) 
+		with log('Data Layer Assembly requires Middle Layer Assembly.(AssemblyConntector)');
+	var assemblyInfrastructureConnectors : Set(AssemblyInfrastructureConnector) := system.connectors__ComposedStructure->selectByType(AssemblyInfrastructureConnector);
+ 	dataNotRequireMiddle := assemblyInfrastructureConnectors->forAll(ac|
+	not(hasAppliedStereotype(ac.requiringAssemblyContext__AssemblyInfrastructureConnector,'DataLayerAssembly') 
+	and hasAppliedStereotype(ac.providingAssemblyContext__AssemblyInfrastructureConnector,'MiddleLayerAssembly')));
+	assert error(dataNotRequireMiddle) 
+		with log('Data Layer Assembly requires Middle Layer Assembly.(AssemblyInfrastructureConntector)');
+}
+
+
+query testNoProvidedDelegationConnectorToMiddleLayerAssemblies(system : System){
+	var providedDelegationConnectors : Set(ProvidedDelegationConnector) := system.connectors__ComposedStructure->selectByType(ProvidedDelegationConnector);
+    var noProvidedDelegationToMiddle : Boolean := providedDelegationConnectors->forAll(pdc|
+    not(hasAppliedStereotype(pdc.assemblyContext_ProvidedDelegationConnector,'MiddleLayerAssembly')));
+	assert error(noProvidedDelegationToMiddle) 
+		with log('Provided Delegation Connector to Middle Layer Assembly.(OperationProvidedDelegationConnector)');
+	var providedInfrastructureDelegationConnectors : Set(ProvidedInfrastructureDelegationConnector) := system.connectors__ComposedStructure->selectByType(ProvidedInfrastructureDelegationConnector);
+   	noProvidedDelegationToMiddle := providedInfrastructureDelegationConnectors->forAll(pdc|
+    not(hasAppliedStereotype(pdc.assemblyContext__ProvidedInfrastructureDelegationConnector,'MiddleLayerAssembly')));
+	assert error(noProvidedDelegationToMiddle) 
+		with log('Provided Delegation Connector to Middle Layer Assembly.(ProvidedInfrastructureDelegationConnector)');
+}
+
+query testNoProvidedDelegationConnectorToDataLayerAssemblies(system : System){
+	var providedDelegationConnectors : Set(ProvidedDelegationConnector) := system.connectors__ComposedStructure->selectByType(ProvidedDelegationConnector);
+    var noProvidedDelegationToData : Boolean := providedDelegationConnectors->forAll(pdc|
+    not(hasAppliedStereotype(pdc.assemblyContext_ProvidedDelegationConnector,'DataLayerAssembly')));
+	assert error(noProvidedDelegationToData) 
+		with log('Provided Delegation Connector to Middle Layer Assembly.(OperationProvidedDelegationConnector)');
+	var providedInfrastructureDelegationConnectors : Set(ProvidedInfrastructureDelegationConnector) := system.connectors__ComposedStructure->selectByType(ProvidedInfrastructureDelegationConnector);
+    noProvidedDelegationToData := providedInfrastructureDelegationConnectors->forAll(pdc|
+    not(hasAppliedStereotype(pdc.assemblyContext__ProvidedInfrastructureDelegationConnector,'DataLayerAssembly')));
+	assert error(noProvidedDelegationToData) 
+		with log('Provided Delegation Connector to Middle Layer Assembly.(ProvidedInfrastructureDelegationConnector)');
+}
+
+query testNoRequiredDelegationConnectorFromPresentationLayerAssemblies(system : System){
+	var requiredDelegationConnectors : Set(RequiredDelegationConnector) := system.connectors__ComposedStructure->selectByType(RequiredDelegationConnector);
+    var noRequiredDelegationFromPresentation : Boolean := requiredDelegationConnectors->forAll(rdc|
+    not(hasAppliedStereotype(rdc.assemblyContext_RequiredDelegationConnector,'PresentationLayerAssembly')));
+	assert error(noRequiredDelegationFromPresentation) 
+		with log('Required Delegation Connector From Presentation Layer Assembly.');
+}
+
+query testNoRequiredDelegationConnectorFromMiddleLayerAssemblies(system : System){
+	var requiredDelegationConnectors : Set(RequiredDelegationConnector) := system.connectors__ComposedStructure->selectByType(RequiredDelegationConnector);
+    var noRequiredDelegationFromMiddle : Boolean := requiredDelegationConnectors->forAll(rdc|
+    not(hasAppliedStereotype(rdc.assemblyContext_RequiredDelegationConnector,'MiddleLayerAssembly')));
+	assert error(noRequiredDelegationFromMiddle) 
+		with log('Required Delegation Connector From Middle Layer Assembly.');
+}
+
+query testNewRepositoryEqualsOldRepository(newSystem : System, oldSystem : System){
+	var newRepository : Repository := newSystem.assemblyContexts__ComposedStructure->selectOne(true).encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+	var oldRepository : Repository := oldSystem.assemblyContexts__ComposedStructure->selectOne(true).encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+	
+	assert error(newRepository.id = oldRepository.id) 
+		with log('The new Repository ID is another than the old Repository ID.');
+		
+	assert error(newRepository.entityName = oldRepository.entityName) 
+		with log('The new Repository Entity Name is different from the old Repository Entity Name.');
+		
+	assert error(newRepository.repositoryDescription = oldRepository.repositoryDescription) 
+		with log('The new Repository Description is different from the old Repository Description.');
+		
+	assert error(areEqualStringSets(newRepository.components__Repository.id, oldRepository.components__Repository.id)) 
+		with log('The new Repository Components are different from the old Repository Components.');	
+		
+	assert error(areEqualStringSets(newRepository.interfaces__Repository.id,oldRepository.interfaces__Repository.id)) 
+		with log('The new Repository Interfaces are different from the old Repository Interfaces.');	
+		
+	assert error(areEqualStringSets(newRepository.failureTypes__Repository.id, oldRepository.failureTypes__Repository.id)) 
+		with log('The new Repository Failure Types are different from the old Repository Failure Types.');	
+}
+
+query testNewSystemEqualsOldSystem(newSystem : System, oldSystem : System){
+	assert error(newSystem.id = oldSystem.id) 
+		with log('The new System ID is another than the old System ID.');
+		
+	assert error(newSystem.entityName = oldSystem.entityName) 
+		with log('The new System Entity Name is another than the old System Entity Name.');
+	
+	assert error(areEqualStringSets(newSystem.assemblyContexts__ComposedStructure.id,oldSystem.assemblyContexts__ComposedStructure.id)) 
+		with log('The new Assembly Contexts are different from the old Assembly Contexts.');	
+		
+	assert error(areEqualStringSets(newSystem.resourceRequiredDelegationConnectors_ComposedStructure.innerResourceRequiredRole_ResourceRequiredDelegationConnector.id,oldSystem.resourceRequiredDelegationConnectors_ComposedStructure.innerResourceRequiredRole_ResourceRequiredDelegationConnector.id)) 
+		with log('The new innerResourceRequiredRole_ResourceRequiredDelegationConnector are different from the old innerResourceRequiredRole_ResourceRequiredDelegationConnector.');	
+	
+	assert error(areEqualStringSets(newSystem.resourceRequiredDelegationConnectors_ComposedStructure.outerResourceRequiredRole_ResourceRequiredDelegationConnector.id,oldSystem.resourceRequiredDelegationConnectors_ComposedStructure.outerResourceRequiredRole_ResourceRequiredDelegationConnector.id)) 
+		with log('The new outerResourceRequiredRole_ResourceRequiredDelegationConnector are different from the old outerResourceRequiredRole_ResourceRequiredDelegationConnector.');	
+		
+	assert error(areEqualStringSets(newSystem.eventChannel__ComposedStructure.id,oldSystem.eventChannel__ComposedStructure.id)) 
+		with log('The new eventChannel__ComposedStructure are different from the old eventChannel__ComposedStructure.');
+		
+	assert error(areEqualStringSets(newSystem.connectors__ComposedStructure.id,oldSystem.connectors__ComposedStructure.id)) 
+		with log('The new connectors__ComposedStructure are different from the old connectors__ComposedStructure.');
+	
+	assert error(areEqualStringSets(newSystem.providedRoles_InterfaceProvidingEntity.id,oldSystem.providedRoles_InterfaceProvidingEntity.id)) 
+		with log('The new providedRoles_InterfaceProvidingEntity are different from the old providedRoles_InterfaceProvidingEntity.');	
+	
+	assert error(areEqualStringSets(newSystem.resourceRequiredRoles__ResourceInterfaceRequiringEntity.id,oldSystem.resourceRequiredRoles__ResourceInterfaceRequiringEntity.id)) 
+		with log('The new resourceRequiredRoles__ResourceInterfaceRequiringEntity are different from the old resourceRequiredRoles__ResourceInterfaceRequiringEntity.');		
+		
+	assert error(areEqualStringSets(newSystem.requiredRoles_InterfaceRequiringEntity.id,oldSystem.requiredRoles_InterfaceRequiringEntity.id)) 
+		with log('The new requiredRoles_InterfaceRequiringEntity are different from the old requiredRoles_InterfaceRequiringEntity.');		
+	
+	assert error(areEqualStringSets(newSystem.qosAnnotations_System.id,oldSystem.qosAnnotations_System.id)) 
+		with log('The new qosAnnotations_System are different from the old qosAnnotations_System.');		
+}
+
+
+query testNewResEnvEqualsOldResEnv(newResEnv : ResourceEnvironment, oldResEnv : ResourceEnvironment){	
+	assert error(newResEnv.entityName = oldResEnv.entityName) 
+		with log('The new ResourceEnvironment Entity Name is another than the old ResourceEnvironment Entity Name.');
+	
+	assert error(areEqualStringSets(newResEnv.linkingResources__ResourceEnvironment.id,oldResEnv.linkingResources__ResourceEnvironment.id)) 
+		with log('The new linkingResources__ResourceEnvironment are different from the old linkingResources__ResourceEnvironment.');
+		
+	assert error(areEqualStringSets(newResEnv.resourceContainer_ResourceEnvironment.id,oldResEnv.resourceContainer_ResourceEnvironment.id)) 
+		with log('The new resourceContainer_ResourceEnvironment are different from the old resourceContainer_ResourceEnvironment.');
+}
+
+query testNewAllocationEqualsOldAllocation(newAllocation : Allocation, oldAllocation : Allocation){
+	assert error(newAllocation.id = oldAllocation.id) 
+		with log('The new Allocation ID is another than the old Allocation ID.');
+		
+	assert error(newAllocation.entityName = oldAllocation.entityName) 
+		with log('The new Allocation Entity Name is another than the old Allocation Entity Name.');
+		
+	assert error(areEqualStringSets(newAllocation.allocationContexts_Allocation.id, oldAllocation.allocationContexts_Allocation.id)) 
+		with log('The new allocationContexts_Allocation are different from the old allocationContexts_Allocation.');
+}
+
+query testAssembliesAllocatedToCorrectTiers(newAllocation : Allocation) {
+	var wrongAllocations : Set(AllocationContext) := newAllocation.allocationContexts_Allocation->select(ac : AllocationContext |
+		hasAppliedStereotype(ac.assemblyContext_AllocationContext, 'PresentationLayerAssembly') 
+		and not hasAppliedStereotype(ac.resourceContainer_AllocationContext, 'PresentationTier')
+		or 
+		hasAppliedStereotype(ac.assemblyContext_AllocationContext, 'MiddleLayerAssembly') 
+		and not hasAppliedStereotype(ac.resourceContainer_AllocationContext, 'MiddleTier')
+		or
+		hasAppliedStereotype(ac.assemblyContext_AllocationContext, 'DataLayerAssembly') 
+		and not hasAppliedStereotype(ac.resourceContainer_AllocationContext, 'DataTier')
+		);
+		var wrongAllocationsCount : Integer = wrongAllocations->size();
+		
+	assert error(wrongAllocationsCount = 0) 
+		with log('The System has at least one Assembly Context that is wrongly allocated.');
+}
+
+query areEqualStringSets(stringSet1 : Bag(String), stringSet2 : Bag(String)):Boolean{
+	var set1InSet2 : Boolean := stringSet2->includesAll(stringSet1);
+	var set2InSet1 : Boolean := stringSet1->includesAll(stringSet2);
+	var areEqual : Boolean := set1InSet2 and set2InSet1;
+	return areEqual;
+}
