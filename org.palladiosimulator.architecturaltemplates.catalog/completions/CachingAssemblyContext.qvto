@@ -25,6 +25,11 @@ property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
 property system : System = allocation.system_Allocation;
 property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
 
+//String constants of the Cached Profile	
+property cachedProfile : String = "CachedProfile";
+property cachedAssemblyContextStereotype : String = "CachedAssemblyContext";
+property cacheAssemblyContextStereotype : String = "CacheAssemblyContext";
+
 main() {
 	var assemblyContexts : Set(AssemblyContext) := system.assemblyContexts__ComposedStructure;
 	
@@ -46,6 +51,7 @@ main() {
 	
 	cachedAssemblyContexts->forEach(cachedAssemblyContext) {
 		createCache(cachedAssemblyContext);
+		applyStereotype(cachedAssemblyContext, cachedAssemblyContextStereotype);
 	}
 }
 
@@ -107,6 +113,12 @@ mapping inout AssemblyConnector::createCacheForAssemblyConnector(originalAssembl
 		cacheAssemblyContext
 		.encapsulatedComponent__AssemblyContext
 		.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
+	
+		//apply Stereotype OriginalAssemblyContext from the Loadbalanced Profile. Needed when the system should be scaled in				
+	if (not isProfileApplied(system.oclAsType(EObject), cachedProfile)) {
+		applyProfile(system.oclAsType(EObject), cachedProfile);
+	};
+	applyStereotype(cacheAssemblyContext, cacheAssemblyContextStereotype);
 }
 
 mapping inout ProvidedDelegationConnector::createCacheForProvidedDelegationConnector(originalAssemblyContext : AssemblyContext) : AssemblyConnector
