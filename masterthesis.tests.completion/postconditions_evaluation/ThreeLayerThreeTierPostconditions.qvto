@@ -41,7 +41,7 @@ log('ThreeLayerThreeTierPostconditions Test started');
 	testNewSystemEqualsOldSystem(newSystem, oldSystem);
 	testNewResEnvEqualsOldResEnv(newAllocation.targetResourceEnvironment_Allocation, oldAllocation.targetResourceEnvironment_Allocation);
 	testNewAllocationEqualsOldAllocation(newAllocation, oldAllocation);
-	testAssembliesAllocatedToCorrectTiers(newAllocation);
+	testAssembliesAllocatedToCorrectTiers(newAllocation); // added
 	
 log('ThreeLayerThreeTierPostconditions Test finished');
 

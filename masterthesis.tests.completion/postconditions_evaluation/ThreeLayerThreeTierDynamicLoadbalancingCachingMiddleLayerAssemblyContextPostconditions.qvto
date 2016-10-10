@@ -1,5 +1,4 @@
 import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
-import ThreeLayerThreeTierPostconditions;
 import DynamicLoadbalancingCachingAssemblyContextPostconditions;
 
 modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
@@ -23,7 +22,7 @@ log('ThreeLayerThreeTierDynamicLoadbalancingCachingAssemblyContextPostconditions
 	
 	var newAssemblyContexts : Set(AssemblyContext) := newSystem.assemblyContexts__ComposedStructure;
 	
-	// created based on ThreeLayerThreeTierPostconditions.qvto and DynamicLoadbalancingCachingAssemblyContextPostconditions.qvto
+	// created based on DynamicThreeLayerThreeTierPostconditions.qvto and DynamicLoadbalancingCachingAssemblyContextPostconditions.qvto
 	// removed the tests that verified that the architectural configuration has not changed (because there should be no completion to chenge anything in a pure architectural style AT)
 	// testNewRepositoryEqualsOldRepository, testNewSystemEqualsOldSystem, testNewResEnvEqualsOldResEnv, testNewAllocationEqualsOldAllocation
 	testSystemHasAtLeastThreeAssemblies(newAssemblyContexts);
@@ -39,11 +38,13 @@ log('ThreeLayerThreeTierDynamicLoadbalancingCachingAssemblyContextPostconditions
 	testNoProvidedDelegationConnectorToDataLayerAssemblies(newSystem);
 	testNoRequiredDelegationConnectorFromPresentationLayerAssemblies(newSystem);
 	testNoRequiredDelegationConnectorFromMiddleLayerAssemblies(newSystem);
-//	testNewRepositoryEqualsOldRepository(newSystem, oldSystem);
-//	testNewSystemEqualsOldSystem(newSystem, oldSystem);
-//	testNewResEnvEqualsOldResEnv(newAllocation.targetResourceEnvironment_Allocation, oldAllocation.targetResourceEnvironment_Allocation);
-//	testNewAllocationEqualsOldAllocation(newAllocation, oldAllocation);
-	testAssembliesAllocatedToCorrectTiers(newAllocation);
+//	testNewRepositoryEqualsOldRepository(newSystem, oldSystem); // removed
+//	testNewSystemEqualsOldSystem(newSystem, oldSystem); // removed
+//	testNewResEnvEqualsOldResEnv(newAllocation.targetResourceEnvironment_Allocation, oldAllocation.targetResourceEnvironment_Allocation); // removed
+//	testNewAllocationEqualsOldAllocation(newAllocation, oldAllocation); // removed
+	testPresentationLayerAssembliesAllocatedToPresentationTier(oldAllocation, newAssemblyContexts);
+	testMiddleLayerAssembliesAllocatedToMiddleTier(oldAllocation, newAssemblyContexts);
+	testDataLayerAssembliesAllocatedToDataTier(oldAllocation, newAssemblyContexts);
 	
 	new DynamicLoadbalancingCachingAssemblyContextPostconditions(allocationBeforeCompletion, allocationAfterCompletion)->transform();
 	
@@ -184,84 +185,31 @@ query testNoRequiredDelegationConnectorFromMiddleLayerAssemblies(system : System
 		with log('Required Delegation Connector From Middle Layer Assembly.');
 }
 
-query testNewRepositoryEqualsOldRepository(newSystem : System, oldSystem : System){
-	var newRepository : Repository := newSystem.assemblyContexts__ComposedStructure->selectOne(true).encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
-	var oldRepository : Repository := oldSystem.assemblyContexts__ComposedStructure->selectOne(true).encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+query testPresentationLayerAssembliesAllocatedToPresentationTier(allocation : Allocation, assemblies : Set(AssemblyContext)){
+	var presentationLayerAssemblies := assemblies->select(a|hasAppliedStereotype(a, 'PresentationLayerAssembly'))->asBag();
+	var presentationLayerAllocations := allocation.allocationContexts_Allocation->select(ac|(presentationLayerAssemblies->includes(ac.assemblyContext_AllocationContext)));
+	var allPresentationTier : Boolean := presentationLayerAllocations->forAll(ac|hasAppliedStereotype(ac.resourceContainer_AllocationContext,'PresentationTier'));
 	
-	assert error(newRepository.id = oldRepository.id) 
-		with log('The new Repository ID is another than the old Repository ID.');
-		
-	assert error(newRepository.entityName = oldRepository.entityName) 
-		with log('The new Repository Entity Name is different from the old Repository Entity Name.');
-		
-	assert error(newRepository.repositoryDescription = oldRepository.repositoryDescription) 
-		with log('The new Repository Description is different from the old Repository Description.');
-				
-	assert error(areEqualStringSets(newRepository.interfaces__Repository.id,oldRepository.interfaces__Repository.id)) 
-		with log('The new Repository Interfaces are different from the old Repository Interfaces.');	
-		
-	assert error(areEqualStringSets(newRepository.failureTypes__Repository.id, oldRepository.failureTypes__Repository.id)) 
-		with log('The new Repository Failure Types are different from the old Repository Failure Types.');	
+	assert error(allPresentationTier) 
+		with log('Not all Presentaton Layer Assemblies are allocated to a Presentation Tier.');
 }
 
-query testNewSystemEqualsOldSystem(newSystem : System, oldSystem : System){
-	assert error(newSystem.id = oldSystem.id) 
-		with log('The new System ID is another than the old System ID.');
-		
-	assert error(newSystem.entityName = oldSystem.entityName) 
-		with log('The new System Entity Name is another than the old System Entity Name.');	
-		
-	assert error(areEqualStringSets(newSystem.resourceRequiredDelegationConnectors_ComposedStructure.innerResourceRequiredRole_ResourceRequiredDelegationConnector.id,oldSystem.resourceRequiredDelegationConnectors_ComposedStructure.innerResourceRequiredRole_ResourceRequiredDelegationConnector.id)) 
-		with log('The new innerResourceRequiredRole_ResourceRequiredDelegationConnector are different from the old innerResourceRequiredRole_ResourceRequiredDelegationConnector.');	
+query testMiddleLayerAssembliesAllocatedToMiddleTier(allocation : Allocation, assemblies : Set(AssemblyContext)){
+	var middleLayerAssemblies := assemblies->select(a|hasAppliedStereotype(a, 'MiddleLayerAssembly'))->asBag();
+	var middleLayerAllocations := allocation.allocationContexts_Allocation->select(ac|(middleLayerAssemblies->includes(ac.assemblyContext_AllocationContext)));
+	var allMiddleTier : Boolean := middleLayerAllocations->forAll(ac|hasAppliedStereotype(ac.resourceContainer_AllocationContext,'OriginalResourceContainer'));
 	
-	assert error(areEqualStringSets(newSystem.resourceRequiredDelegationConnectors_ComposedStructure.outerResourceRequiredRole_ResourceRequiredDelegationConnector.id,oldSystem.resourceRequiredDelegationConnectors_ComposedStructure.outerResourceRequiredRole_ResourceRequiredDelegationConnector.id)) 
-		with log('The new outerResourceRequiredRole_ResourceRequiredDelegationConnector are different from the old outerResourceRequiredRole_ResourceRequiredDelegationConnector.');	
-		
-	assert error(areEqualStringSets(newSystem.eventChannel__ComposedStructure.id,oldSystem.eventChannel__ComposedStructure.id)) 
-		with log('The new eventChannel__ComposedStructure are different from the old eventChannel__ComposedStructure.');
-			
-	assert error(areEqualStringSets(newSystem.providedRoles_InterfaceProvidingEntity.id,oldSystem.providedRoles_InterfaceProvidingEntity.id)) 
-		with log('The new providedRoles_InterfaceProvidingEntity are different from the old providedRoles_InterfaceProvidingEntity.');	
-		
-	assert error(areEqualStringSets(newSystem.requiredRoles_InterfaceRequiringEntity.id,oldSystem.requiredRoles_InterfaceRequiringEntity.id)) 
-		with log('The new requiredRoles_InterfaceRequiringEntity are different from the old requiredRoles_InterfaceRequiringEntity.');		
-	
-	assert error(areEqualStringSets(newSystem.qosAnnotations_System.id,oldSystem.qosAnnotations_System.id)) 
-		with log('The new qosAnnotations_System are different from the old qosAnnotations_System.');		
+	assert error(allMiddleTier) 
+		with log('Not all Middle Layer Assemblies are allocated to the Replicable Middle Tier.');
 }
 
-
-query testNewResEnvEqualsOldResEnv(newResEnv : ResourceEnvironment, oldResEnv : ResourceEnvironment){	
-	assert error(newResEnv.entityName = oldResEnv.entityName) 
-		with log('The new ResourceEnvironment Entity Name is another than the old ResourceEnvironment Entity Name.');
+query testDataLayerAssembliesAllocatedToDataTier(allocation : Allocation, assemblies : Set(AssemblyContext)){
+	var dataLayerAssemblies := assemblies->select(a|hasAppliedStereotype(a, 'DataLayerAssembly'))->asBag();
+	var dataLayerAllocations := allocation.allocationContexts_Allocation->select(ac|(dataLayerAssemblies->includes(ac.assemblyContext_AllocationContext)));
+	var allDataTier : Boolean := dataLayerAllocations->forAll(ac|hasAppliedStereotype(ac.resourceContainer_AllocationContext,'DataTier'));
 	
-	assert error(areEqualStringSets(newResEnv.linkingResources__ResourceEnvironment.id,oldResEnv.linkingResources__ResourceEnvironment.id)) 
-		with log('The new linkingResources__ResourceEnvironment are different from the old linkingResources__ResourceEnvironment.');
-}
-
-query testNewAllocationEqualsOldAllocation(newAllocation : Allocation, oldAllocation : Allocation){
-	assert error(newAllocation.id = oldAllocation.id) 
-		with log('The new Allocation ID is another than the old Allocation ID.');
-		
-	assert error(newAllocation.entityName = oldAllocation.entityName) 
-		with log('The new Allocation Entity Name is another than the old Allocation Entity Name.');
-}
-
-query testAssembliesAllocatedToCorrectTiers(newAllocation : Allocation) {
-	var wrongAllocations : Set(AllocationContext) := newAllocation.allocationContexts_Allocation->select(ac : AllocationContext |
-		hasAppliedStereotype(ac.assemblyContext_AllocationContext, 'PresentationLayerAssembly') 
-		and not hasAppliedStereotype(ac.resourceContainer_AllocationContext, 'PresentationTier')
-		or 
-		hasAppliedStereotype(ac.assemblyContext_AllocationContext, 'MiddleLayerAssembly') 
-		and not hasAppliedStereotype(ac.resourceContainer_AllocationContext, 'MiddleTier')
-		or
-		hasAppliedStereotype(ac.assemblyContext_AllocationContext, 'DataLayerAssembly') 
-		and not hasAppliedStereotype(ac.resourceContainer_AllocationContext, 'DataTier')
-		);
-		var wrongAllocationsCount : Integer = wrongAllocations->size();
-		
-	assert error(wrongAllocationsCount = 0) 
-		with log('The System has at least one Assembly Context that is wrongly allocated.');
+	assert error(allDataTier) 
+		with log('Not all Data Layer Assemblies are allocated to a Data Tier.');
 }
 
 query areEqualStringSets(stringSet1 : Bag(String), stringSet2 : Bag(String)):Boolean{
