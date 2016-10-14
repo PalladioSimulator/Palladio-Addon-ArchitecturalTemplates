@@ -110,4 +110,22 @@
             catalogURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/Default.architecturaltemplates#_2eRmoCOzEeSLXszsY50NUA">
       </ATCatalog>
    </extension>
+   <extension
+         point="org.modelversioning.emfprofile.profile">
+      <profile
+            profile_resource="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram">
+      </profile>
+   </extension>
+   <extension
+         point="org.modelversioning.emfprofile.profile">
+      <profile
+            profile_resource="profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram">
+      </profile>
+   </extension>
+   <extension
+         point="org.modelversioning.emfprofile.profile">
+      <profile
+            profile_resource="profiles/DynamicLoadbalancingCachingAssemblyContextWithInheritance.emfprofile_diagram">
+      </profile>
+   </extension>
 </plugin>

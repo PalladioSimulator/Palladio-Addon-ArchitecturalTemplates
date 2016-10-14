@@ -30,11 +30,12 @@ public class RoleInheritanceTest extends TestCase {
 		atRoleConstraintNames.put("Three Layer Three Tier", threeLayerThreeTierRoleConstraintNames);
 
 		threeLayerThreeTierRoleConstraintNames.put("Three Layer Three Tier System",
-				Arrays.asList("System is Three Layer System", "Three Layer System has at least 3 Assemblies",
+				Arrays.asList("System is Three Layer Three Tier System", 
+						"Three Layer Three Tier System has at least 3 Assemblies",
 						"All Assemblies are stereotyped as Presentation Layer Assembly, Middle Layer Assembly, or Data Layer Assembly",
-						"Three Layer System has at least one Presentation Layer Assembly",
-						"Three Layer System has at least one Middle Layer Assembly",
-						"Three Layer System has at least one Data Layer Assembly",
+						"Three Layer Three Tier System has at least one Presentation Layer Assembly",
+						"Three Layer Three Tier System has at least one Middle Layer Assembly",
+						"Three Layer Three Tier System has at least one Data Layer Assembly",
 						"Middle Layer Assemblies do not require functionality from Presentation Layer Assemblies",
 						"Data Layer Assemblies do not require functionality from Presentation Layer Assemblies",
 						"Presentation Layer Assemblies do not require functionality from Data Layer Assemblies",
@@ -43,11 +44,11 @@ public class RoleInheritanceTest extends TestCase {
 						"No Provided Delegation Connectors to Data Layer Assemblies",
 						"No Provided Infrastructure Delegation Connectors to Middle Layer Assemblies",
 						"No Provided Infrastructure Delegation Connectors to Data Layer Assemblies",
-						"System is Three Tier System", "Resource Environment has exactly three Resource Container",
+						"Resource Environment has exactly three Resource Container",
 						"All Resource Container are stereotyped as Presentation Tier, Middle Tier or Data Tier",
-						"Three Tier System has exactly one Presentation Tier",
-						"Three Tier System has exactly one Middle Tier",
-						"Three Tier System has exactly one Data Tier"));
+						"Three Layer Three Tier System has exactly one Presentation Tier",
+						"Three Layer Three Tier System has exactly one Middle Tier",
+						"Three Layer Three Tier System has exactly one Data Tier"));
 
 		threeLayerThreeTierRoleConstraintNames.put("Presentation Layer Assembly",
 				Arrays.asList("Presentation Layer Assembly is not another Layer Assembly",
@@ -70,51 +71,51 @@ public class RoleInheritanceTest extends TestCase {
 		threeLayerThreeTierRoleConstraintNames.put("Data Tier", 
 				Arrays.asList());
 
-		final Map<String, List<String>> dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames = new HashMap<>();
-		atRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext", dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames);
-
-		dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext System",
-				Arrays.asList("System is Dynamic Horizontal Scaling System",
-						"System has exactly one Replicable Assembly Context"));
-
-		dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.put("Dynamically Loadbalanced Cached AssemblyContext",
-				Arrays.asList("Scale Out Threshold greater than Scale In Threshold",
-						"Assembly Context is Replicable Assembly Context", "Number of Replicas greater 0",
-						"Scale In Threshold greater 0", "Scale Out Threshold greater 0"));
-
-		final Map<String, List<String>> threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames = new HashMap<>();
-		atRoleConstraintNames.put("Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext",
-				threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames);
-		
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext System",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Three Layer Three Tier System"),
-						dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.get("Dynamic Loadbalancing Caching AssemblyContext System")));
-		
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Presentation Layer Assembly",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Presentation Layer Assembly")));
-				
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Dynamically Loadbalanced Cached Middle Layer Assembly",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Middle Layer Assembly"),
-						dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.get("Dynamically Loadbalanced Cached AssemblyContext")));
-		
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Data Layer Assembly",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Data Layer Assembly")));
-		
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Presentation Tier",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Presentation Tier")));
-		
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Middle Tier",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Middle Tier")));
-			
-		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Data Tier",
-				addAll(new ArrayList<>(),
-						threeLayerThreeTierRoleConstraintNames.get("Data Tier")));
+//		final Map<String, List<String>> dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames = new HashMap<>();
+//		atRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext", dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames);
+//
+//		dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext System",
+//				Arrays.asList("System is Dynamic Horizontal Scaling System",
+//						"System has exactly one Replicable Assembly Context"));
+//
+//		dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.put("Dynamically Loadbalanced Cached AssemblyContext",
+//				Arrays.asList("Scale Out Threshold greater than Scale In Threshold",
+//						"Assembly Context is Replicable Assembly Context", "Number of Replicas greater 0",
+//						"Scale In Threshold greater 0", "Scale Out Threshold greater 0"));
+//
+//		final Map<String, List<String>> threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames = new HashMap<>();
+//		atRoleConstraintNames.put("Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext",
+//				threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames);
+//		
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext System",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Three Layer Three Tier System"),
+//						dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.get("Dynamic Loadbalancing Caching AssemblyContext System")));
+//		
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Presentation Layer Assembly",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Presentation Layer Assembly")));
+//				
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Dynamically Loadbalanced Cached Middle Layer Assembly",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Middle Layer Assembly"),
+//						dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.get("Dynamically Loadbalanced Cached AssemblyContext")));
+//		
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Data Layer Assembly",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Data Layer Assembly")));
+//		
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Presentation Tier",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Presentation Tier")));
+//		
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Middle Tier",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Middle Tier")));
+//			
+//		threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames.put("Data Tier",
+//				addAll(new ArrayList<>(),
+//						threeLayerThreeTierRoleConstraintNames.get("Data Tier")));
 	}
 
 	@Test
