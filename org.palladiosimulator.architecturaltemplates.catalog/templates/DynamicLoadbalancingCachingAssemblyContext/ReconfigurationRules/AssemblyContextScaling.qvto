@@ -1,0 +1,79 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import ReverseLoadbalancing;
+import Loadbalancing;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+	
+transformation AssemblyContextScaling(in prm : PRM, inout pcmAllocation : PCM_ALLOC) 
+access transformation Loadbalancing, ReverseLoadbalancing;
+
+property numberOfReplicas : Integer;
+property scaleInThreshold : Real;
+property scaleOutThreshold : Real;
+property measurementSpecificationID : String;
+
+main() {
+	assert fatal(prm.rootObjects()[RuntimeMeasurement]->size() > 0)
+		with log ("No Measurements found!");
+			
+	assert fatal(pcmAllocation.rootObjects()[Allocation]->size() > 0)
+		with log ("Allocation Model is empty!");
+		
+	var allocation : Allocation := pcmAllocation.rootObjects()![Allocation];
+	var allocationContexts : Set(AllocationContext) := allocation.allocationContexts_Allocation;
+	var assemblyContexts : Set(AssemblyContext);
+	allocationContexts -> forEach(allocationContext){
+		assemblyContexts += allocationContext.assemblyContext_AllocationContext;
+	};
+	
+	//get the stereotyped AssemblyContext
+	var loadBalancedAssemblyContext : AssemblyContext := assemblyContexts -> selectOne(assemblyContext : AssemblyContext |
+						hasAppliedStereotype(assemblyContext,"DynamicallyLoadbalancedCachedAssemblyContext"));
+						
+	assert fatal(loadBalancedAssemblyContext != null)
+		with log ("There is no Replicable Assembly Context Stereotype Application!");
+
+	numberOfReplicas := getIntTaggedValue(loadBalancedAssemblyContext, "numberOfReplicas", "DynamicallyLoadbalancedCachedAssemblyContext");
+	scaleInThreshold := getDoubleTaggedValue(loadBalancedAssemblyContext, "scaleInThreshold", "DynamicallyLoadbalancedCachedAssemblyContext");
+	scaleOutThreshold := getDoubleTaggedValue(loadBalancedAssemblyContext, "scaleOutThreshold", "DynamicallyLoadbalancedCachedAssemblyContext");
+	measurementSpecificationID := getStringTaggedValue(loadBalancedAssemblyContext, "measurementSpecificationID", "DynamicallyLoadbalancedCachedAssemblyContext");
+	
+	var runtimeMeasurement := prm.rootObjects()[RuntimeMeasurement];
+	assert fatal(runtimeMeasurement->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID))
+		with log ("measurementSpecificationID not found in runtime measurements!");
+		
+	var reverseLoadbalancingTransformation : ReverseLoadbalancing := new ReverseLoadbalancing(prm,pcmAllocation);
+	var loadbalancingTransformation : Loadbalancing := new Loadbalancing(prm,pcmAllocation);
+	//The setting of the configuration properties to false could be unnecessary
+	if(runtimeMeasurement->checkScaleInCondition() and numberOfReplicas > 1){
+		reverseLoadbalancingTransformation.loadbalanced := true;
+		reverseLoadbalancingTransformation->transform();
+		reverseLoadbalancingTransformation.loadbalanced := false;
+		numberOfReplicas:= numberOfReplicas -1;
+		setTaggedValue(loadBalancedAssemblyContext, numberOfReplicas, "DynamicallyLoadbalancedCachedAssemblyContext", "numberOfReplicas");
+		loadbalancingTransformation.reverseLoadbalanced := true;
+		loadbalancingTransformation->transform();
+		loadbalancingTransformation.reverseLoadbalanced := false;
+	}
+	else if(runtimeMeasurement->checkScaleOutCondition()){
+		reverseLoadbalancingTransformation.loadbalanced := true;
+		reverseLoadbalancingTransformation->transform();
+		reverseLoadbalancingTransformation.loadbalanced := false;
+		numberOfReplicas:= numberOfReplicas +1;
+		setTaggedValue(loadBalancedAssemblyContext, numberOfReplicas, "DynamicallyLoadbalancedCachedAssemblyContext", "numberOfReplicas");
+		loadbalancingTransformation.reverseLoadbalanced := true;
+		loadbalancingTransformation->transform();
+		loadbalancingTransformation.reverseLoadbalanced := false;
+	};
+}
+
+query Set(RuntimeMeasurement) :: checkScaleOutCondition() : Boolean {
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue > scaleOutThreshold)
+}
+	
+query Set(RuntimeMeasurement) :: checkScaleInCondition() : Boolean {
+	return self->exists(measurement | measurement.measurementSpecification.id = measurementSpecificationID and measurement.measuringValue < scaleInThreshold)
+}
+	

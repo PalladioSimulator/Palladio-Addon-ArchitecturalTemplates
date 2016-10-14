@@ -58,27 +58,6 @@
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
-  <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Assembly_Context" defaultInstanceURI="">
-    <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context">
-      <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
-      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
-        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
-          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
-        </parameters>
-      </completion>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_t4FXoZSAEeW2itUQpRx7kw" entityName="Scale Out Threshold greater than Scale In Threshold" expression="self.scaleOutThreshold>self.scaleInThreshold"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_2e4YAkTkEeWX9I6sz1f4mQ" entityName="Assembly Context is Replicable Assembly Context" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('ReplicableAssemblyContext')"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_VgEIYbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_Z6-NcbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" expression="self.scaleInThreshold>0"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_d8jzkbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" expression="self.scaleOutThreshold>0"/>
-    </roles>
-    <roles id="_tly_sJQlEeSq-7Z_6FnzsQ" entityName="Dynamic Horizontal Scaling Assembly Context System">
-      <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_DFBzUJQkEeSq-7Z_6FnzsQ"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_2CfB0ETiEeWX9I6sz1f4mQ" entityName="System is Dynamic Horizontal Scaling System" expression="self.appliedTo.oclAsType(pcm::system::System).hasAppliedStereotype('DynamicHorizontalScalingAssemblyContextSystem')"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_VXHSoUT0EeWX9I6sz1f4mQ" entityName="System has exactly one Replicable Assembly Context" expression="self.appliedTo.oclAsType(pcm::system::System).assemblyContexts__ComposedStructure->select(a|a.hasAppliedStereotype('ReplicableAssemblyContext'))->size()=1&#xD;&#xA;"/>
-    </roles>
-    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
-  </ATs>
   <ATs id="_QgydkH4aEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Resource Container" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Resource_Container" defaultInstanceURI="MinimumDynamicHorizontalScalingResourceContainer/">
     <roles id="_c9Rl4H46EeSqFvs4kqVd7Q" entityName="Dynamic Horizontal Scaling Resource Container System">
       <stereotype href="profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_paph0CO_EeSbfv_s0ToTIw"/>
@@ -232,31 +211,49 @@
       <stereotype href="profiles/ThreeTier.emfprofile_diagram#_EU-dkIuQEeWE_r1tdbkyww"/>
     </roles>
   </ATs>
-  <ATs id="_kWS4cIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier">
-    <roles id="_mrLsMIulEeWE_r1tdbkyww" entityName="Three Layer Three Tier System" superRoles="_slWr8IuiEeWE_r1tdbkyww _Cb1vwIjKEeanVvnvVIHoJA">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
+  <ATs id="_zCotcJFWEea5zIllXFZCIw" entityName="Three Layer Three Tier">
+    <roles id="_0r2uAJFWEea5zIllXFZCIw" entityName="Three Layer Three Tier System" superRoles="_slWr8IuiEeWE_r1tdbkyww _Cb1vwIjKEeanVvnvVIHoJA">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_gGCrIJFXEea5zIllXFZCIw"/>
     </roles>
-    <roles id="_r-QIUIulEeWE_r1tdbkyww" entityName="Presentation Layer Assembly" superRoles="_wvU8kIujEeWE_r1tdbkyww">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_viBogIuOEeWE_r1tdbkyww"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_LwRxoIzSEea9itAmmgA4Xw" entityName="Presentation Layer Assembly is deployed on Presentation Tier" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).getAllocation().allocationContexts_Allocation->select(ac|ac.assemblyContext_AllocationContext.id = self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).id)->forAll(assemblyAC|assemblyAC.resourceContainer_AllocationContext.hasAppliedStereotype('PresentationTier'))"/>
+    <roles id="_3IP38JFWEea5zIllXFZCIw" entityName="Presentation Layer Assembly" superRoles="_wvU8kIujEeWE_r1tdbkyww">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_jIHVAJFXEea5zIllXFZCIw"/>
     </roles>
-    <roles id="_4xP5sIulEeWE_r1tdbkyww" entityName="Middle Layer Assembly" superRoles="_ySAQQIujEeWE_r1tdbkyww">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_ydbpsIuOEeWE_r1tdbkyww"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_lCvCcIzUEeaetYcpTomeIQ" entityName="Middle Layer Assembly is deployed on Middle Tier" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).getAllocation().allocationContexts_Allocation->select(ac|ac.assemblyContext_AllocationContext.id = self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).id)->forAll(assemblyAC|assemblyAC.resourceContainer_AllocationContext.hasAppliedStereotype('MiddleTier'))"/>
+    <roles id="_4PZtQJFWEea5zIllXFZCIw" entityName="Middle Layer Assembly" superRoles="_ySAQQIujEeWE_r1tdbkyww">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_lcGJ0JFXEea5zIllXFZCIw"/>
     </roles>
-    <roles id="_8IF5sIulEeWE_r1tdbkyww" entityName="Data Layer Assembly" superRoles="_zhHuwIujEeWE_r1tdbkyww">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_0qRUsIuOEeWE_r1tdbkyww"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_nalqoIzUEeaetYcpTomeIQ" entityName="Data Layer Assembly is deployed on Data Tier" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).getAllocation().allocationContexts_Allocation->select(ac|ac.assemblyContext_AllocationContext.id = self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).id)->forAll(assemblyAC|assemblyAC.resourceContainer_AllocationContext.hasAppliedStereotype('DataTier'))"/>
+    <roles id="_5SYNMJFWEea5zIllXFZCIw" entityName="Data Layer Assembly" superRoles="_zhHuwIujEeWE_r1tdbkyww">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_nWLQ4JFXEea5zIllXFZCIw"/>
     </roles>
-    <roles id="_wQ_zEIupEeWE_r1tdbkyww" entityName="Presentation Tier" superRoles="_rIKDUIjIEeanVvnvVIHoJA">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_yT42sIuPEeWE_r1tdbkyww"/>
+    <roles id="_6HTqEJFWEea5zIllXFZCIw" entityName="Presentation Tier" superRoles="_rIKDUIjIEeanVvnvVIHoJA">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_qR4NAJFXEea5zIllXFZCIw"/>
     </roles>
-    <roles id="_1nUXgIupEeWE_r1tdbkyww" entityName="Middle Tier" superRoles="_OnUqoIjJEeanVvnvVIHoJA">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_BpZBEIuQEeWE_r1tdbkyww"/>
+    <roles id="_7QuwQJFWEea5zIllXFZCIw" entityName="Middle Tier" superRoles="_OnUqoIjJEeanVvnvVIHoJA">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_rtblAJFXEea5zIllXFZCIw"/>
     </roles>
-    <roles id="_6P-ksIupEeWE_r1tdbkyww" entityName="Data Tier" superRoles="_SmVd4IjJEeanVvnvVIHoJA">
-      <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_EU-dkIuQEeWE_r1tdbkyww"/>
+    <roles id="_8KVRwJFWEea5zIllXFZCIw" entityName="Data Tier" superRoles="_SmVd4IjJEeanVvnvVIHoJA">
+      <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_tAOpoJFXEea5zIllXFZCIw"/>
     </roles>
+  </ATs>
+  <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Assembly_Context" defaultInstanceURI="">
+    <roles id="_-yzLIH4UEeS81uv5CnTOEw" entityName="Replicable Assembly Context">
+      <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_T5PXYJQkEeSq-7Z_6FnzsQ"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicHorizontalScalingAssemblyContext.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_t4FXoZSAEeW2itUQpRx7kw" entityName="Scale Out Threshold greater than Scale In Threshold" expression="self.scaleOutThreshold>self.scaleInThreshold"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_2e4YAkTkEeWX9I6sz1f4mQ" entityName="Assembly Context is Replicable Assembly Context" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('ReplicableAssemblyContext')"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_VgEIYbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_Z6-NcbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" expression="self.scaleInThreshold>0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_d8jzkbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" expression="self.scaleOutThreshold>0"/>
+    </roles>
+    <roles id="_tly_sJQlEeSq-7Z_6FnzsQ" entityName="Dynamic Horizontal Scaling Assembly Context System">
+      <stereotype href="profiles/DynamicHorizontalScalingAssemblyContext.emfprofile_diagram#_DFBzUJQkEeSq-7Z_6FnzsQ"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_2CfB0ETiEeWX9I6sz1f4mQ" entityName="System is Dynamic Horizontal Scaling System" expression="self.appliedTo.oclAsType(pcm::system::System).hasAppliedStereotype('DynamicHorizontalScalingAssemblyContextSystem')"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_VXHSoUT0EeWX9I6sz1f4mQ" entityName="System has exactly one Replicable Assembly Context" expression="self.appliedTo.oclAsType(pcm::system::System).assemblyContexts__ComposedStructure->select(a|a.hasAppliedStereotype('ReplicableAssemblyContext'))->size()=1&#xD;&#xA;"/>
+    </roles>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingAssemblyContext/ReconfigurationRules"/>
   </ATs>
   <ATs id="_La-CYCcsEeawm7le7c2SFg" entityName="Caching Assembly Context">
     <roles id="_abrPMCcxEeawm7le7c2SFg" entityName="Cached Assembly Context System">
@@ -271,34 +268,47 @@
       </completion>
     </roles>
   </ATs>
-  <ATs id="_owCRwIk-EeaIk8LTaWpNaw" entityName="Dynamic Loadbalancing Caching AssemblyContext" documentation="" defaultInstanceURI="">
-    <roles id="_wSWFQIlBEeaIk8LTaWpNaw" entityName="Dynamic Loadbalancing Caching AssemblyContext System" superRoles="_abrPMCcxEeawm7le7c2SFg _tly_sJQlEeSq-7Z_6FnzsQ">
-      <stereotype href="profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram#_xp4JQCczEeaH1oGf1lJdJA"/>
+  <ATs id="_oSIpMJFfEea5zIllXFZCIw" entityName="Dynamic Loadbalancing Caching AssemblyContext">
+    <roles id="_swcAgJFfEea5zIllXFZCIw" entityName="Dynamic Loadbalancing Caching AssemblyContext System">
+      <stereotype href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram#_EVraMJFlEea5zIllXFZCIw"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_2CfB0ETiEeWX9I6sz1f4mQ" entityName="System is Dynamic Loadbalancing Caching AssemblyContext System" expression="self.appliedTo.oclAsType(pcm::system::System).hasAppliedStereotype('DynamicLoadbalancingCachingAssemblyContextSystem')"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_VXHSoUT0EeWX9I6sz1f4mQ" entityName="System has exactly one Dynamically Loadbalanced Cached AssemblyContext" expression="self.appliedTo.oclAsType(pcm::system::System).assemblyContexts__ComposedStructure->select(a|a.hasAppliedStereotype('DynamicallyLoadbalancedCachedAssemblyContext'))->size()=1&#xD;&#xA;"/>
     </roles>
-    <roles id="_v-Yu0Ik-EeaIk8LTaWpNaw" entityName="Dynamically Loadbalanced Cached AssemblyContext" superRoles="_PzxOoCcsEeawm7le7c2SFg _-yzLIH4UEeS81uv5CnTOEw">
-      <stereotype href="profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram#_1ipxoCczEeaH1oGf1lJdJA"/>
+    <roles id="_uIYD0JFfEea5zIllXFZCIw" entityName="Dynamically Loadbalanced Cached AssemblyContext">
+      <stereotype href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram#_GhACQJFlEea5zIllXFZCIw"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="DynamicLoadbalancingCachingAssemblyContext.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_t4FXoZSAEeW2itUQpRx7kw" entityName="Scale Out Threshold greater than Scale In Threshold" expression="self.scaleOutThreshold>self.scaleInThreshold"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_2e4YAkTkEeWX9I6sz1f4mQ" entityName="AssemblyContext is Dynamically Loadbalanced Cached AssemblyContext" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DynamicallyLoadbalancedCachedAssemblyContext')"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_VgEIYbLTEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_Z6-NcbLTEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" expression="self.scaleInThreshold>0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_d8jzkbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" expression="self.scaleOutThreshold>0"/>
     </roles>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicLoadbalancingCachingAssemblyContext/ReconfigurationRules"/>
   </ATs>
   <ATs id="_5SuRMIpgEea1jq11OIWlyA" entityName="Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext">
-    <roles id="_HR2hsIplEea1jq11OIWlyA" entityName="Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext System" superRoles="_wSWFQIlBEeaIk8LTaWpNaw _mrLsMIulEeWE_r1tdbkyww">
+    <roles id="_HR2hsIplEea1jq11OIWlyA" entityName="Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext System">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_iqTIIIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_pQ8A4IpmEeaDw_TNBPAaCw" entityName="Presentation Layer Assembly" superRoles="_r-QIUIulEeWE_r1tdbkyww">
+    <roles id="_pQ8A4IpmEeaDw_TNBPAaCw" entityName="Presentation Layer Assembly">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_viBogIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_nbKyEIpmEeaDw_TNBPAaCw" entityName="Dynamically Loadbalanced Cached Middle Layer Assembly" superRoles="_v-Yu0Ik-EeaIk8LTaWpNaw _4xP5sIulEeWE_r1tdbkyww">
+    <roles id="_nbKyEIpmEeaDw_TNBPAaCw" entityName="Dynamically Loadbalanced Cached Middle Layer Assembly">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_ydbpsIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_SRKdAIpnEeaDw_TNBPAaCw" entityName="Data Layer Assembly" superRoles="_8IF5sIulEeWE_r1tdbkyww">
+    <roles id="_SRKdAIpnEeaDw_TNBPAaCw" entityName="Data Layer Assembly">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_0qRUsIuOEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_W-GGMIpnEeaDw_TNBPAaCw" entityName="Presentation Tier" superRoles="_wQ_zEIupEeWE_r1tdbkyww">
+    <roles id="_W-GGMIpnEeaDw_TNBPAaCw" entityName="Presentation Tier">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_yT42sIuPEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_ZrcdQIpnEeaDw_TNBPAaCw" entityName="Middle Tier" superRoles="_1nUXgIupEeWE_r1tdbkyww">
+    <roles id="_ZrcdQIpnEeaDw_TNBPAaCw" entityName="Middle Tier">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_BpZBEIuQEeWE_r1tdbkyww"/>
     </roles>
-    <roles id="_a9hJIIpnEeaDw_TNBPAaCw" entityName="Data Tier" superRoles="_6P-ksIupEeWE_r1tdbkyww">
+    <roles id="_a9hJIIpnEeaDw_TNBPAaCw" entityName="Data Tier">
       <stereotype href="profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_EU-dkIuQEeWE_r1tdbkyww"/>
     </roles>
   </ATs>

@@ -21,13 +21,12 @@ main() {
 	
 	testSystemIsDynamicLoadbalancingCachingAssemblyContextSystem(system); // added
 	testSystemIsDynamicHorizontalScalingAssemblyContextSystem(system);
-	testSystemIsCachedAssemblyContextSystem(system); // added
 	
-	testSystemHasOnlyOneReplicableAssemblyContext(system);
+	testSystemHasOnlyOneDynamicallyLoadbalancedCachedAssemblyContext(system);
 	testNumberOfReplicasGreaterZero(system);
 	testScaleInThresholdGreaterZero(system);
 	testScaleOutThresholdGreaterZero(system);
-	testReplicableAssemblyContextBasicComponentIsStateless(assemblyContexts);
+	testDynamicallyLoadbalancedCachedAssemblyContextBasicComponentIsStateless(assemblyContexts);
 	testScaleInSmallerScaleOut(assemblyContexts);
 	
 	testHitRateGreaterOrEqualZero(system); // added
@@ -46,63 +45,58 @@ query testSystemIsDynamicLoadbalancingCachingAssemblyContextSystem(system : Syst
 }
 
 query testSystemIsDynamicHorizontalScalingAssemblyContextSystem(system : System){
-	assert error(hasAppliedStereotype(system,"DynamicHorizontalScalingAssemblyContextSystem")) 
+	assert error(hasAppliedStereotype(system,"DynamicLoadbalancingCachingAssemblyContextSystem")) 
 		with log('The System is not a DynamicHorizontalScalingAssemblyContext.');
 }
 
-query testSystemIsCachedAssemblyContextSystem(system : System){
-	assert error(hasAppliedStereotype(system,"CachedAssemblyContextSystem")) 
-		with log('The System is not a CachedAssemblyContextSystem.');
-}
-
-query testSystemHasOnlyOneReplicableAssemblyContext(system : System){
-	var replicableAssemblyContexts := system.assemblyContexts__ComposedStructure->select(a|hasAppliedStereotype(a,'ReplicableAssemblyContext'));
-	var replicableAssemblyContextSize : Integer := replicableAssemblyContexts->size();
-	assert error(replicableAssemblyContextSize = 1) 
-		with log('There is not exactly one Replicable Assembly Context. Instead the System has ' + replicableAssemblyContextSize.toString() + '.');
+query testSystemHasOnlyOneDynamicallyLoadbalancedCachedAssemblyContext(system : System){
+	var DynamicallyLoadbalancedCachedAssemblyContexts := system.assemblyContexts__ComposedStructure->select(a|hasAppliedStereotype(a,'DynamicallyLoadbalancedCachedAssemblyContext'));
+	var DynamicallyLoadbalancedCachedAssemblyContextSize : Integer := DynamicallyLoadbalancedCachedAssemblyContexts->size();
+	assert error(DynamicallyLoadbalancedCachedAssemblyContextSize = 1) 
+		with log('There is not exactly one Replicable Assembly Context. Instead the System has ' + DynamicallyLoadbalancedCachedAssemblyContextSize.toString() + '.');
 }
 
 query testNumberOfReplicasGreaterZero(system : System){
-	var replicableAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'ReplicableAssemblyContext'));
-	if(replicableAssemblyContext != null){
-		var numberOfReplicas : Integer := getIntTaggedValue(replicableAssemblyContext, "numberOfReplicas", "ReplicableAssemblyContext");
+	var DynamicallyLoadbalancedCachedAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'DynamicallyLoadbalancedCachedAssemblyContext'));
+	if(DynamicallyLoadbalancedCachedAssemblyContext != null){
+		var numberOfReplicas : Integer := getIntTaggedValue(DynamicallyLoadbalancedCachedAssemblyContext, "numberOfReplicas", "DynamicallyLoadbalancedCachedAssemblyContext");
 		assert error(numberOfReplicas>0) 
 			with log('Number of Replicas is not greater 0.');
 	}
 	else{
-		assert error(replicableAssemblyContext != null) 
+		assert error(DynamicallyLoadbalancedCachedAssemblyContext != null) 
 			with log('There is no replicable Assembly Context. Hence, the number of replicas cannot be tested.');		
 	};
 }
 
 query testScaleInThresholdGreaterZero(system : System){
-	var replicableAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'ReplicableAssemblyContext'));
-	if(replicableAssemblyContext != null){
-		var scaleInThreshold : Real := getDoubleTaggedValue(replicableAssemblyContext, "scaleInThreshold", "ReplicableAssemblyContext");
+	var DynamicallyLoadbalancedCachedAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'DynamicallyLoadbalancedCachedAssemblyContext'));
+	if(DynamicallyLoadbalancedCachedAssemblyContext != null){
+		var scaleInThreshold : Real := getDoubleTaggedValue(DynamicallyLoadbalancedCachedAssemblyContext, "scaleInThreshold", "DynamicallyLoadbalancedCachedAssemblyContext");
 		assert error(scaleInThreshold>0) 
 			with log('Scale In Threshold is not greater 0.');
 	}else{
-		assert error(replicableAssemblyContext != null) 
+		assert error(DynamicallyLoadbalancedCachedAssemblyContext != null) 
 			with log('There is no replicable Assembly Context. Hence, the scale in threshold cannot be tested.');	
 	};
 }
 
 query testScaleOutThresholdGreaterZero(system : System){
-	var replicableAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'ReplicableAssemblyContext'));
-	if(replicableAssemblyContext != null){
-		var scaleOutThreshold : Real := getDoubleTaggedValue(replicableAssemblyContext, "scaleOutThreshold", "ReplicableAssemblyContext");
+	var DynamicallyLoadbalancedCachedAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'DynamicallyLoadbalancedCachedAssemblyContext'));
+	if(DynamicallyLoadbalancedCachedAssemblyContext != null){
+		var scaleOutThreshold : Real := getDoubleTaggedValue(DynamicallyLoadbalancedCachedAssemblyContext, "scaleOutThreshold", "DynamicallyLoadbalancedCachedAssemblyContext");
 		assert error(scaleOutThreshold>0) 
 			with log('Scale Out Threshold is not greater 0.');
 	}else{
-		assert error(replicableAssemblyContext != null) 
+		assert error(DynamicallyLoadbalancedCachedAssemblyContext != null) 
 			with log('There is no replicable Assembly Context. Hence, the scale in threshold cannot be tested.');	
 	};
 }
 
-query testReplicableAssemblyContextBasicComponentIsStateless(assemblyContexts : Set(AssemblyContext)){
-	var replicableAssemblyContext : AssemblyContext := assemblyContexts->selectOne(assembly|hasAppliedStereotype(assembly,'ReplicableAssemblyContext'));
-	if(replicableAssemblyContext != null){
-		assert error(hasAppliedStereotype(replicableAssemblyContext.encapsulatedComponent__AssemblyContext,'StatelessComponent')) 
+query testDynamicallyLoadbalancedCachedAssemblyContextBasicComponentIsStateless(assemblyContexts : Set(AssemblyContext)){
+	var DynamicallyLoadbalancedCachedAssemblyContext : AssemblyContext := assemblyContexts->selectOne(assembly|hasAppliedStereotype(assembly,'DynamicallyLoadbalancedCachedAssemblyContext'));
+	if(DynamicallyLoadbalancedCachedAssemblyContext != null){
+		assert error(hasAppliedStereotype(DynamicallyLoadbalancedCachedAssemblyContext.encapsulatedComponent__AssemblyContext,'StatelessComponent')) 
 			with log('Replicable Assembly Context Basic Component is not stateless.');
 	}
 	else {assert error(false) 
@@ -111,9 +105,9 @@ query testReplicableAssemblyContextBasicComponentIsStateless(assemblyContexts : 
 }
 
 query testScaleInSmallerScaleOut(assemblyContexts : Set(AssemblyContext)){
-	var replicableAssemblyContext : AssemblyContext := assemblyContexts->selectOne(assembly|hasAppliedStereotype(assembly,'ReplicableAssemblyContext'));
-	if(replicableAssemblyContext != null){
-		assert error(getDoubleTaggedValue(replicableAssemblyContext,'scaleInThreshold','ReplicableAssemblyContext')<getDoubleTaggedValue(replicableAssemblyContext,'scaleOutThreshold','ReplicableAssemblyContext')) 
+	var DynamicallyLoadbalancedCachedAssemblyContext : AssemblyContext := assemblyContexts->selectOne(assembly|hasAppliedStereotype(assembly,'DynamicallyLoadbalancedCachedAssemblyContext'));
+	if(DynamicallyLoadbalancedCachedAssemblyContext != null){
+		assert error(getDoubleTaggedValue(DynamicallyLoadbalancedCachedAssemblyContext,'scaleInThreshold','DynamicallyLoadbalancedCachedAssemblyContext')<getDoubleTaggedValue(DynamicallyLoadbalancedCachedAssemblyContext,'scaleOutThreshold','DynamicallyLoadbalancedCachedAssemblyContext')) 
 			with log('Replicable Assembly Context Scale In Threshold is Greater or Equal Than the Scale Out Threshold.');
 	}
 	else {assert error(false) 
@@ -122,9 +116,9 @@ query testScaleInSmallerScaleOut(assemblyContexts : Set(AssemblyContext)){
 }
 
 query testHitRateGreaterOrEqualZero(system : System){
-	var cachedAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'CachedAssemblyContext'));
+	var cachedAssemblyContext := system.assemblyContexts__ComposedStructure->selectOne(a|hasAppliedStereotype(a,'DynamicallyLoadbalancedCachedAssemblyContext'));
 	if(cachedAssemblyContext != null){
-		var hitRate : Real := getDoubleTaggedValue(cachedAssemblyContext, "hitRate", "CachedAssemblyContext");
+		var hitRate : Real := getDoubleTaggedValue(cachedAssemblyContext, "hitRate", "DynamicallyLoadbalancedCachedAssemblyContext");
 		assert error(hitRate>=0) 
 			with log('Hit rate is not greater 0.');
 	}

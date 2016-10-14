@@ -32,9 +32,6 @@
      <profile profile_resource="profiles/ThreeLayer.emfprofile_diagram"/>
    </extension>
    <extension point="org.modelversioning.emfprofile.profile">
-     <profile profile_resource="profiles/ThreeLayerThreeTier.emfprofile_diagram"/>
-   </extension>
-   <extension point="org.modelversioning.emfprofile.profile">
      <profile profile_resource="profiles/CachingAssemblyContext.emfprofile_diagram"/>
    </extension>
    <extension
@@ -60,7 +57,7 @@
       <profile
             profile_resource="profiles/Cached.emfprofile_diagram">
       </profile>
-   </extension>
+   </extension>tension>
    <extension
          point="org.eclipse.m2m.qvt.oml.javaBlackboxUnits">
         <unit

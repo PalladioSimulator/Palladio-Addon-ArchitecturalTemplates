@@ -30,16 +30,4 @@
       </activeResourceSpecifications_ResourceContainer>
     </resourceContainer_ResourceEnvironment>
   </resourceenvironment:ResourceEnvironment>
-  <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:PresentationTier" appliedTo="_6EEyYMKVEeSWFuHcXeRvDQ">
-      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_-GY0YIuPEeWE_r1tdbkyww"/>
-    </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:MiddleTier" appliedTo="_7chzEMKVEeSWFuHcXeRvDQ">
-      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_C5og8IuQEeWE_r1tdbkyww"/>
-    </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:DataTier" appliedTo="__r9n8MKVEeSWFuHcXeRvDQ">
-      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram#_GKSZYIuQEeWE_r1tdbkyww"/>
-    </stereotypeApplications>
-    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.threelayerthreetierdynamicloadbalancingcachingmiddlelayerassemblycontext" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/ThreeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContext.emfprofile_diagram"/>
-  </emfprofileapplication:ProfileApplication>
 </xmi:XMI>
