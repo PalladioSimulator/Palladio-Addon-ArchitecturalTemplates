@@ -15,7 +15,7 @@ import org.palladiosimulator.architecturaltemplates.tests.util.EMFModelLoad;
 
 import junit.framework.TestCase;
 
-public class RoleInheritanceTest extends TestCase {
+public class ConstraintInheritanceTest extends TestCase {
 
 	private final Catalog catalog = new EMFModelLoad().load();
 	private final Map<String, Map<String, List<String>>> atRoleConstraintNames = new HashMap<>();
