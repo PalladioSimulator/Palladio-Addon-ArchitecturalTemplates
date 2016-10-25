@@ -60,25 +60,30 @@ public class ConstraintInheritanceTest extends TestCase {
 						"Data Layer Assembly is deployed on Data Tier"));
 
 		threeLayerThreeTierRoleConstraintNames.put("Presentation Tier", 
-				Arrays.asList());
+				Arrays.asList("Presentation Tier is not another Tier"));
 
 		threeLayerThreeTierRoleConstraintNames.put("Middle Tier", 
-				Arrays.asList());
+				Arrays.asList("Middle Tier is not another Tier"));
 
 		threeLayerThreeTierRoleConstraintNames.put("Data Tier", 
-				Arrays.asList());
+				Arrays.asList("Data Tier is not another Tier"));
 
 		final Map<String, List<String>> dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames = new HashMap<>();
 		atRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext", dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames);
 
 		dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext System",
-				Arrays.asList("System is Dynamic Horizontal Scaling System",
-						"System has exactly one Replicable Assembly Context"));
+				Arrays.asList("System is Dynamic Horizontal Scaling Assembly Context System",
+						"System has exactly one Replicable Assembly Context",
+						"System is Caching Assembly Context System"));
 
 		dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames.put("Dynamically Loadbalanced Cached AssemblyContext",
-				Arrays.asList("Scale Out Threshold greater than Scale In Threshold",
-						"Assembly Context is Replicable Assembly Context", "Number of Replicas greater 0",
-						"Scale In Threshold greater 0", "Scale Out Threshold greater 0"));
+				Arrays.asList(
+						"Scale Out Threshold greater than Scale In Threshold",
+						"Assembly Context is Replicable Assembly Context", 
+						"Number of Replicas greater 0",
+						"Scale In Threshold greater 0", 
+						"Scale Out Threshold greater 0",
+						"Hit Rate greater or equal 0"));
 
 		final Map<String, List<String>> threeLayerThreeTierDynamicLoadbalancingCachingMiddleLayerAssemblyContextRoleConstraintNames = new HashMap<>();
 		atRoleConstraintNames.put("Three Layer Three Tier Dynamic Loadbalancing Caching Middle Layer AssemblyContext",

@@ -44,14 +44,13 @@ main() {
 	
 	testResourceEnvironmentHasAtLeastThreeResourceContainer(resourceEnvironment);
 	testAllResourceContainerAreThreeTierStereotyped(resourceEnvironment);
-	testResourceContainerExactlyOneTier(resourceEnvironment);
+	testEachResourceContainerExactlyOneTier(resourceEnvironment);
 	testResourceEnvironmentHasAtLeastOnePresentationTier(resourceEnvironment);
 	testResourceEnvironmentHasAtLeastOneDataTier(resourceEnvironment);
 	testSystemHasOnlyOneReplicableMiddleLayer(system);
 	testNumberOfReplicasGreaterZero(system);
 	testScaleInThresholdGreaterZero(system);
 	testScaleOutThresholdGreaterZeo(system);
-	testReplicableMiddleTierBasicComponentIsStateless(oldAllocation);
 	testPresentationLayerAssembliesAllocatedToPresentationTier(oldAllocation, assemblyContexts);
 	testMiddleLayerAssembliesAllocatedToMiddleTier(oldAllocation, assemblyContexts);
 	testDataLayerAssembliesAllocatedToDataTier(oldAllocation, assemblyContexts);
@@ -299,15 +298,6 @@ query testScaleOutThresholdGreaterZeo(system : System){
 	};
 }
 
-query testReplicableMiddleTierBasicComponentIsStateless(allocation : Allocation){
-	var allStateless : Boolean := allocation.allocationContexts_Allocation->select(ac|
-									hasAppliedStereotype(ac.resourceContainer_AllocationContext,'ReplicableMiddleTier'))->collect(ac|
-									ac.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)->forAll(bc|
-									hasAppliedStereotype(bc,'StatelessComponent'));
-	assert error(allStateless) 
-		with log('Not all Basic Components, which are allocated to the Middle Tier Resource Container, are stateless.');
-}
-
 query testPresentationLayerAssembliesAllocatedToPresentationTier(allocation : Allocation, assemblies : Set(AssemblyContext)){
 	var presentationLayerAssemblies := assemblies->select(a|hasAppliedStereotype(a, 'PresentationLayerAssembly'))->asBag();
 	var presentationLayerAllocations := allocation.allocationContexts_Allocation->select(ac|(presentationLayerAssemblies->includes(ac.assemblyContext_AllocationContext)));
@@ -347,7 +337,7 @@ query testScaleInSmallerScaleOut(system : System){
 }
 
 query testResourceEnvironmentHasAtLeastThreeResourceContainer(resourceEnvironment : ResourceEnvironment){
-	var loadBalancedResContainers := resourceEnvironment.resourceContainer_ResourceEnvironment->select(r|hasAppliedStereotype(r,'ReplicableMiddleTier'));
+	var loadBalancedResContainers := resourceEnvironment.resourceContainer_ResourceEnvironment->select(r|hasAppliedStereotype(r,'MiddleTier'));
 	assert error(resourceEnvironment.resourceContainer_ResourceEnvironment->size()>=3) 
 		with log('The Resource Environment has less than 3 Resource Container.');
 }
@@ -361,7 +351,7 @@ query testAllResourceContainerAreThreeTierStereotyped(resourceEnvironment : Reso
 		with log('The Resource Environment has at least one Resource Container that is not stereotyped.');
 }
 
-query testResourceContainerExactlyOneTier(resourceEnvironment : ResourceEnvironment){
+query testEachResourceContainerExactlyOneTier(resourceEnvironment : ResourceEnvironment){
 	var	presentationTiers : Integer := resourceEnvironment.resourceContainer_ResourceEnvironment
 													->select(rc : ResourceContainer| 
 															hasAppliedStereotype(rc, "PresentationTier") )

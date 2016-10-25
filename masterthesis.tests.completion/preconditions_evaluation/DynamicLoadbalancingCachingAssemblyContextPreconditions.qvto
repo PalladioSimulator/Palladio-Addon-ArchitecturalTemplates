@@ -27,9 +27,7 @@ main() {
 	testNumberOfReplicasGreaterZero(system);
 	testScaleInThresholdGreaterZero(system);
 	testScaleOutThresholdGreaterZero(system);
-	testReplicableAssemblyContextBasicComponentIsStateless(assemblyContexts);
-	testScaleInSmallerScaleOut(assemblyContexts);
-	
+	testScaleInSmallerScaleOut(assemblyContexts);	
 	testHitRateGreaterOrEqualZero(system); // added
 	
 	log('DynamicLoadbalancingCachingAssemblyContextPreconditions Test finished');
@@ -97,17 +95,6 @@ query testScaleOutThresholdGreaterZero(system : System){
 		assert error(replicableAssemblyContext != null) 
 			with log('There is no replicable Assembly Context. Hence, the scale in threshold cannot be tested.');	
 	};
-}
-
-query testReplicableAssemblyContextBasicComponentIsStateless(assemblyContexts : Set(AssemblyContext)){
-	var replicableAssemblyContext : AssemblyContext := assemblyContexts->selectOne(assembly|hasAppliedStereotype(assembly,'ReplicableAssemblyContext'));
-	if(replicableAssemblyContext != null){
-		assert error(hasAppliedStereotype(replicableAssemblyContext.encapsulatedComponent__AssemblyContext,'StatelessComponent')) 
-			with log('Replicable Assembly Context Basic Component is not stateless.');
-	}
-	else {assert error(false) 
-			with log('There is no Replicable Assembly Context. Hence, the Basic Component is not stateless.');
-	}
 }
 
 query testScaleInSmallerScaleOut(assemblyContexts : Set(AssemblyContext)){

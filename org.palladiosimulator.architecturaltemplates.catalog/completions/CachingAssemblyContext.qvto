@@ -51,6 +51,9 @@ main() {
 	
 	cachedAssemblyContexts->forEach(cachedAssemblyContext) {
 		createCache(cachedAssemblyContext);
+		if (not isProfileApplied(system.oclAsType(EObject), cachedProfile)) {
+			applyProfile(system.oclAsType(EObject), cachedProfile);
+		};
 		applyStereotype(cachedAssemblyContext, cachedAssemblyContextStereotype);
 	}
 }
@@ -114,7 +117,7 @@ mapping inout AssemblyConnector::createCacheForAssemblyConnector(originalAssembl
 		.encapsulatedComponent__AssemblyContext
 		.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
 	
-		//apply Stereotype OriginalAssemblyContext from the Loadbalanced Profile. Needed when the system should be scaled in				
+	//apply Stereotype OriginalAssemblyContext from the Loadbalanced Profile. Needed when the system should be scaled in				
 	if (not isProfileApplied(system.oclAsType(EObject), cachedProfile)) {
 		applyProfile(system.oclAsType(EObject), cachedProfile);
 	};
