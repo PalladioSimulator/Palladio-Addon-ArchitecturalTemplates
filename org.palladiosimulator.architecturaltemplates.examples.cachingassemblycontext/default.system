@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.cachingdassemblycontext" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamicloadbalancingcachingassemblycontext" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.1">
   <system:System id="_84D0kCHcEd6lJo4DCALHMw" entityName="EspressoAccountingSystem">
     <assemblyContexts__ComposedStructure id="_9c3KwCHcEd6lJo4DCALHMw" entityName="Assembly_EspressoAccounting">
       <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_os1t4CHbEd62GabW1zGSBw"/>
@@ -12,12 +12,12 @@
     </providedRoles_InterfaceProvidingEntity>
   </system:System>
   <emfprofileapplication:ProfileApplication>
-    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:CachedAssemblyContextSystem" appliedTo="_84D0kCHcEd6lJo4DCALHMw">
-      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/CachingAssemblyContext.emfprofile_diagram#_GYJvICc0EeaH1oGf1lJdJA"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:DynamicLoadbalancingCachingAssemblyContextSystem" appliedTo="_84D0kCHcEd6lJo4DCALHMw">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram#_GYJvICc0EeaH1oGf1lJdJA"/>
     </stereotypeApplications>
-    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:CachedAssemblyContext" appliedTo="_9c3KwCHcEd6lJo4DCALHMw" hitRate="0.5">
-      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/CachingAssemblyContext.emfprofile_diagram#_Fxh0ACc0EeaH1oGf1lJdJA"/>
+    <stereotypeApplications xsi:type="org.palladiosimulator.architecturaltemplates.catalog.profiles:DynamicallyLoadbalancedCachedAssemblyContext" appliedTo="_9c3KwCHcEd6lJo4DCALHMw" hitRate="0.25" measurementSpecificationID="_muXFgC2XEeaMKoNy15g05A">
+      <extension href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram#_Fxh0ACc0EeaH1oGf1lJdJA"/>
     </stereotypeApplications>
-    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.cachingdassemblycontext" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/CachingAssemblyContext.emfprofile_diagram"/>
+    <importedProfiles nsURI="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamicloadbalancingcachingassemblycontext" location="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicLoadbalancingCachingAssemblyContext.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>

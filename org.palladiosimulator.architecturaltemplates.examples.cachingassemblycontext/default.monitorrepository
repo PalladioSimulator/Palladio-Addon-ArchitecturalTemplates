@@ -2,13 +2,15 @@
 <monitorrepository:MonitorRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metricspec="http://palladiosimulator.org/MetricSpec/1.0" xmlns:monitorrepository="http://palladiosimulator.org/MonitorRepository/1.0" xmlns:pcmmeasuringpoint="http://palladiosimulator.org/PCM/MeasuringPoint/1.0" id="_cMCWQC2XEeaMKoNy15g05A" entityName="Caching Assembly Context Monitors">
   <monitors id="_fIVIQC2XEeaMKoNy15g05A" entityName="Usage Scenario">
     <measurementSpecifications id="_muXFgC2XEeaMKoNy15g05A" triggersSelfAdaptations="false">
-      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_6rYmYs7nEeOX_4BzImuHbA"/>
+      <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_gNxNEtBxEeONzY86HEL4JQ"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_N82B0Z0jEeaCodKwRjkXiA"/>
     </measurementSpecifications>
     <measuringPoint xsi:type="pcmmeasuringpoint:UsageScenarioMeasuringPoint" href="default.measuringpoint#//@measuringPoints.0"/>
   </monitors>
   <monitors id="_iTpNsC2XEeaMKoNy15g05A" entityName="CPU of AppServer">
     <measurementSpecifications id="_nFAD4C2XEeaMKoNy15g05A" triggersSelfAdaptations="false">
       <metricDescription xsi:type="metricspec:NumericalBaseMetricDescription" href="pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec#_paDhIs7qEeOX_4BzImuHbA"/>
+      <processingType xsi:type="monitorrepository:FeedThrough" id="_R8-2cJ0jEeaCodKwRjkXiA"/>
     </measurementSpecifications>
     <measuringPoint xsi:type="pcmmeasuringpoint:ActiveResourceMeasuringPoint" href="default.measuringpoint#//@measuringPoints.1"/>
   </monitors>
