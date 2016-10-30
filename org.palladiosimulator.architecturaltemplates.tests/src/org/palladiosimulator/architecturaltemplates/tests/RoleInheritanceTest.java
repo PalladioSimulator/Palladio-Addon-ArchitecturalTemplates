@@ -62,14 +62,14 @@ public class RoleInheritanceTest extends TestCase {
 				Arrays.asList("Data Layer Assembly is not another Layer Assembly",
 						"Data Layer Assembly is deployed on Data Tier"));
 
-		threeLayerThreeTierRoleConstraintNames.put("Presentation Tier", 
-				Arrays.asList());
+		threeLayerThreeTierRoleConstraintNames.put("Presentation Tier",
+				Arrays.asList("Presentation Tier is not another Tier"));
 
 		threeLayerThreeTierRoleConstraintNames.put("Middle Tier", 
-				Arrays.asList());
+				Arrays.asList("Middle Tier is not another Tier"));
 
 		threeLayerThreeTierRoleConstraintNames.put("Data Tier", 
-				Arrays.asList());
+				Arrays.asList("Data Tier is not another Tier"));
 
 //		final Map<String, List<String>> dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames = new HashMap<>();
 //		atRoleConstraintNames.put("Dynamic Loadbalancing Caching AssemblyContext", dynamicLoadbalancingCachingAssemblyContextRoleConstraintNames);

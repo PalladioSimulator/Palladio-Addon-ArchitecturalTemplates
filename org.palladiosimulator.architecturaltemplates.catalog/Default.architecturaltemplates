@@ -251,12 +251,15 @@
     </roles>
     <roles id="_6HTqEJFWEea5zIllXFZCIw" entityName="Presentation Tier">
       <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_qR4NAJFXEea5zIllXFZCIw"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_GBsn0bLREeWONf-2GJUY0g" entityName="Presentation Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype(self, 'PresentationTier') and not self.hasAppliedStereotype(self, 'ReplicableMiddleTier') and not self.hasAppliedStereotype(self, 'DataTier') "/>
     </roles>
     <roles id="_7QuwQJFWEea5zIllXFZCIw" entityName="Middle Tier">
       <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_rtblAJFXEea5zIllXFZCIw"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_v7Dg0bLQEeWONf-2GJUY0g" entityName="Middle Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype(self, 'MiddleTier') and not self.hasAppliedStereotype(self, 'PresentationTier') and not self.hasAppliedStereotype(self, 'DataTier') "/>
     </roles>
     <roles id="_8KVRwJFWEea5zIllXFZCIw" entityName="Data Tier">
       <stereotype href="profiles/ThreeLayerThreeTierWithInheritance.emfprofile_diagram#_tAOpoJFXEea5zIllXFZCIw"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_hk-okbLPEeWONf-2GJUY0g" entityName="Data Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype(self, 'DataTier') and not self.hasAppliedStereotype(self, 'PresentationTier') and not self.hasAppliedStereotype(self, 'ReplicableMiddleTier') "/>
     </roles>
   </ATs>
   <ATs id="_7SshcH4UEeS81uv5CnTOEw" entityName="Dynamic Horizontal Scaling Assembly Context" documentation="See: http://wiki.cloudscale-project.eu/index.php/Dynamic_Horizontal_Scaling_CAT#Dynamic_Horizontal_Scaling_Assembly_Context" defaultInstanceURI="">
