@@ -43,18 +43,18 @@
     </roles>
     <roles id="_oPOLUY0lEeW7y4sG0jClug" entityName="Presentation Tier">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_eDjokI0lEeW7y4sG0jClug"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_GBsn0bLREeWONf-2GJUY0g" entityName="PresentationTier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype(self, 'PresentationTier') and not self.hasAppliedStereotype(self, 'ReplicableMiddleTier') and not self.hasAppliedStereotype(self, 'DataTier') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_GBsn0bLREeWONf-2GJUY0g" entityName="PresentationTier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('PresentationTier') and not self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('ReplicableMiddleTier') and not self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('DataTier') "/>
     </roles>
     <roles id="_o9jQ8Y0lEeW7y4sG0jClug" entityName="Replicable Middle Tier">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_fJZPQI0lEeW7y4sG0jClug"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_v7Dg0bLQEeWONf-2GJUY0g" entityName="Replicable Middle Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype(self, 'ReplicableMiddleTier') and not self.hasAppliedStereotype(self, 'PresentationTier') and not self.hasAppliedStereotype(self, 'DataTier') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_v7Dg0bLQEeWONf-2GJUY0g" entityName="Replicable Middle Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('ReplicableMiddleTier') and not self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('PresentationTier') and not self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('DataTier') "/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_3li1YbLSEeWONf-2GJUY0g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas>0"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_9rancbLSEeWONf-2GJUY0g" entityName="Scale In Threshold greater 0" expression="self.scaleInThreshold>0"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_Byo7gbLTEeWONf-2GJUY0g" entityName="Scale Out Threshold greater 0" expression="self.scaleOutThreshold>0"/>
     </roles>
     <roles id="_pYTTQY0lEeW7y4sG0jClug" entityName="Data Tier">
       <stereotype href="profiles/DynamicThreeLayerThreeTier.emfprofile_diagram#_f0YF8I0lEeW7y4sG0jClug"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_hk-okbLPEeWONf-2GJUY0g" entityName="Data Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype(self, 'DataTier') and not self.hasAppliedStereotype(self, 'PresentationTier') and not self.hasAppliedStereotype(self, 'ReplicableMiddleTier') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_hk-okbLPEeWONf-2GJUY0g" entityName="Data Tier is not another Tier" expression="self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('DataTier') and not self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('PresentationTier') and not self.appliedTo.oclAsType(pcm::resourceenvironment::ResourceContainer).hasAppliedStereotype('ReplicableMiddleTier') "/>
     </roles>
     <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/DynamicHorizontalScalingResourceContainer/ReconfigurationRules"/>
   </ATs>
@@ -248,15 +248,15 @@
     </roles>
     <roles id="_r-QIUIulEeWE_r1tdbkyww" entityName="Presentation Layer Assembly">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_viBogIuOEeWE_r1tdbkyww"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_ddPvcbLVEeWONf-2GJUY0g" entityName="Presentation Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype(self, 'PresentationLayerAssembly') and not self.hasAppliedStereotype(self, 'MiddleLayerAssembly') and not self.hasAppliedStereotype(self, 'DataLayerAssembly') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_ddPvcbLVEeWONf-2GJUY0g" entityName="Presentation Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
     </roles>
     <roles id="_4xP5sIulEeWE_r1tdbkyww" entityName="Middle Layer Assembly">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_ydbpsIuOEeWE_r1tdbkyww"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_ne3lYbLVEeWONf-2GJUY0g" entityName="Middle Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype(self, 'MiddleLayerAssembly') and not self.hasAppliedStereotype(self, 'PresentationLayerAssembly') and not self.hasAppliedStereotype(self, 'DataLayerAssembly') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_ne3lYbLVEeWONf-2GJUY0g" entityName="Middle Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') "/>
     </roles>
     <roles id="_8IF5sIulEeWE_r1tdbkyww" entityName="Data Layer Assembly">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_0qRUsIuOEeWE_r1tdbkyww"/>
-      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_qgduIbLVEeWONf-2GJUY0g" entityName="Data Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype(self, 'DataLayerAssembly') and not self.hasAppliedStereotype(self, 'MiddleLayerAssembly') and not self.hasAppliedStereotype(self, 'PresentationLayerAssembly') "/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_qgduIbLVEeWONf-2GJUY0g" entityName="Data Layer Assembly is not another Layer Assembly" expression="self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('DataLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('MiddleLayerAssembly') and not self.appliedTo.oclAsType(pcm::core::composition::AssemblyContext).hasAppliedStereotype('PresentationLayerAssembly') "/>
     </roles>
     <roles id="_wQ_zEIupEeWE_r1tdbkyww" entityName="Presentation Tier">
       <stereotype href="profiles/ThreeLayerThreeTier.emfprofile_diagram#_yT42sIuPEeWE_r1tdbkyww"/>
