@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.architecturaltemplates.examples.feature"
       label="Architectural Templates - Default Catalog"
-      version="1.0.3.qualifier"
+      version="1.0.4.qualifier"
       provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
@@ -20,12 +20,13 @@
       <import plugin="org.modelversioning.emfprofile.registry" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm" version="4.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.analyzer.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.mdsdprofiles" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm" version="4.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.mdsdprofiles.api" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simucomframework" version="2.0.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.architecturaltemplates.ui" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
