@@ -26,9 +26,9 @@ import org.palladiosimulator.pcm.core.composition.Connector;
  */
 public class AssemblyConnectorSelectionDialog extends ElementListSelectionDialog {
 
-    private static final String EMPTY_LIST_MESSAGE = "No AT role can be selected";
-    private static final String TITLE = "Select AT role";
-    private static final String EMPTY_SELECTION_MESSAGE = "You need to select an AT role to continue";
+    private static final String EMPTY_LIST_MESSAGE = "No assembly connector can be selected";
+    private static final String TITLE = "Select assembly connector";
+    private static final String EMPTY_SELECTION_MESSAGE = "You need to select an assembly connector to continue";
 
     public AssemblyConnectorSelectionDialog(final Shell parent) {
         super(parent, new LabelProvider() {
