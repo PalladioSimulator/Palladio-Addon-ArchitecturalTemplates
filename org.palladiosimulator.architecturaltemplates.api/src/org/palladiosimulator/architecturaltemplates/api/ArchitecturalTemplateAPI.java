@@ -50,7 +50,13 @@ public final class ArchitecturalTemplateAPI {
      * system-role.
      */
     private static final String SYSTEM_ROLE_NAME_SUFFIX = "System";
-
+    
+    /**
+     * The name-suffix that identifies a {@link Role} or its corresponding {@link Stereotype} as a
+     * resource-environment-role.
+     */
+    private static final String RESOURCEENVIRONMENT_ROLE_NAME_SUFFIX = "ResourceEnvironment";
+    
     /**
      * Hidden constructor.
      */
@@ -146,6 +152,13 @@ public final class ArchitecturalTemplateAPI {
     public static boolean isSystemRole(final Stereotype stereotype) {
         return isRole(stereotype) && stereotype.getName().endsWith(SYSTEM_ROLE_NAME_SUFFIX);
     }
+    
+    /**
+     * Tests whether a {@link Stereotype} is a resource-environment-role. {@see #isResourceEnvironmentRole}
+     */
+    public static boolean isResourceEnvironmentRole(final Stereotype stereotype) {
+        return isRole(stereotype) && stereotype.getName().endsWith(RESOURCEENVIRONMENT_ROLE_NAME_SUFFIX);
+    }
 
     /**
      * Tests whether a {@link Profile} is an Architectural-Template. {@see #isArchitecturalTemplate}
@@ -170,6 +183,28 @@ public final class ArchitecturalTemplateAPI {
 
         for (final Stereotype s : profile.getStereotypes()) {
             if (isSystemRole(s))
+                return s;
+        }
+
+        return null;
+    }
+    
+    /**
+     * Gets the {@link Stereotype} that represents the resource-environment-role for the given {@link Profile}.
+     * 
+     * @param profile
+     *            the ArchitecturalTemplate-{@link Profile}
+     * @return the ResourceEnvironmentRole-{@link Stereotype}
+     * @throws RuntimeException
+     *             if the given profile is no Architectural Template
+     */
+    public static Stereotype getResourceEnvironmentRoleStereotype(final Profile profile) {
+        if (!isArchitecturalTemplate(profile)) {
+            throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
+        }
+
+        for (final Stereotype s : profile.getStereotypes()) {
+            if (isResourceEnvironmentRole(s))
                 return s;
         }
 
@@ -255,8 +290,11 @@ public final class ArchitecturalTemplateAPI {
         if (!isArchitecturalTemplate(profile)) {
             throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
         }
-
+        
+        final Stereotype resourceenvironmentRoleStereotype = getResourceEnvironmentRoleStereotype(profile);
+        
         ProfileAPI.applyProfile(resourceenvironment.eResource(), profile);
+        StereotypeAPI.applyStereotype(resourceenvironment, resourceenvironmentRoleStereotype);
         EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
     }
 
