@@ -24,6 +24,7 @@ import org.palladiosimulator.commons.eclipseutils.ExtensionHelper;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
+import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.system.System;
 
@@ -297,6 +298,48 @@ public final class ArchitecturalTemplateAPI {
         StereotypeAPI.applyStereotype(resourceenvironment, resourceenvironmentRoleStereotype);
         EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
     }
+    
+    /**
+     * Applies the given {@link AT} to the {@link Allocation}.
+     * 
+     * @param system
+     *            the {@link Allocation}
+     * @param architecturalTemplate
+     *            the {@link AT}
+     * @throws RuntimeException
+     *             if the Architectural Template does not define any roles.
+     * @see #applyArchitecturalTemplate(System, Profile)
+     */
+    public static void applyArchitecturalTemplate(final Allocation allocation,
+            final AT architecturalTemplate) {
+        if (architecturalTemplate.getRoles().size() == 0) {
+            throw new RuntimeException(
+                    "Architectural Template \"" + architecturalTemplate + "\" does not contain any roles");
+        }
+
+        applyArchitecturalTemplate(allocation,
+                architecturalTemplate.getRoles().get(0).getStereotype().getProfile());
+    }
+
+    /**
+     * Applies the given Architectural-Template-{@link Profile} to the {@link Allocation}.
+     * 
+     * @param system
+     *            the {@link Allocation}
+     * @param profile
+     *            the {@link Profile}
+     * @throws RuntimeException
+     *             if the profile does not define an Architectural Template.
+     */
+    public static void applyArchitecturalTemplate(final Allocation allocation,
+            final Profile profile) {
+        if (!isArchitecturalTemplate(profile)) {
+            throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
+        }
+
+        ProfileAPI.applyProfile(allocation.eResource(), profile);
+        EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
+    }
 
     /**
      * Unapplies the given {@link AT} from the {@link System}.
@@ -335,6 +378,47 @@ public final class ArchitecturalTemplateAPI {
         ProfileAPI.unapplyProfile(system.eResource(), profile);
     }
 
+    /**
+     * Unapplies the given {@link AT} from the {@link Allocation}.
+     * 
+     * @param system
+     *            the {@link Allocation}
+     * @param architecturalTemplate
+     *            the {@link AT}
+     * @throws RuntimeException
+     *             if the Architectural Template does not define any roles.
+     * @see #unapplyArchitecturalTemplate(System, Profile)
+     */
+    public static void unapplyArchitecturalTemplate(final Allocation allocation,
+            final AT architecturalTemplate) {
+        if (architecturalTemplate.getRoles().size() == 0) {
+            throw new RuntimeException(
+                    "Architectural Template \"" + architecturalTemplate + "\" does not contain any roles");
+        }
+
+        unapplyArchitecturalTemplate(allocation,
+                architecturalTemplate.getRoles().get(0).getStereotype().getProfile());
+    }
+
+    /**
+     * Unapplies the given Architectural-Template-{@link Profile} from the
+     * {@link Allocation}.
+     * 
+     * @param system
+     *            the {@link Allocation}
+     * @param profile
+     *            the {@link Profile}
+     * @throws RuntimeException
+     *             if the profile does not define an Architectural Template.
+     */
+    public static void unapplyArchitecturalTemplate(final Allocation allocation,
+            final Profile profile) {
+        if (!isArchitecturalTemplate(profile)) {
+            throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
+        }
+        ProfileAPI.unapplyProfile(allocation.eResource(), profile);
+    }
+    
     /**
      * Unapplies the given {@link AT} from the {@link ResourceEnvironment}.
      * 
