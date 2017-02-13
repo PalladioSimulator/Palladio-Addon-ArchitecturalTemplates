@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -62,6 +63,11 @@ public class ProfilesLibrary {
             final String taggedValueName) {
         StereotypeAPI.setTaggedValue(pcmEntity, value, stereotypeName, taggedValueName);
     }
+    
+    public static void setEEnumLiteralTaggedValue(final Entity pcmEntity, final EEnumLiteral value, final String stereotypeName,
+            final String taggedValueName) {
+        StereotypeAPI.setTaggedValue(pcmEntity, value, stereotypeName, taggedValueName);
+    }
 
     public static int getIntTaggedValue(final Entity pcmEntity, final String taggedValueName,
             final String stereotypeName) {
@@ -79,6 +85,11 @@ public class ProfilesLibrary {
     }
 
     public static String getStringTaggedValue(final Entity pcmEntity, final String taggedValueName,
+            final String stereotypeName) {
+        return StereotypeAPI.getTaggedValue(pcmEntity, taggedValueName, stereotypeName);
+    }
+    
+    public static EEnumLiteral getEEnumLiteralTaggedValue(final Entity pcmEntity, final String taggedValueName,
             final String stereotypeName) {
         return StereotypeAPI.getTaggedValue(pcmEntity, taggedValueName, stereotypeName);
     }
