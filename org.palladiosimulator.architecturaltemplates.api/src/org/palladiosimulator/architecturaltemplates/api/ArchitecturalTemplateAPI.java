@@ -59,6 +59,12 @@ public final class ArchitecturalTemplateAPI {
     private static final String RESOURCEENVIRONMENT_ROLE_NAME_SUFFIX = "ResourceEnvironment";
     
     /**
+     * The name-suffix that identifies a {@link Role} or its corresponding {@link Stereotype} as a
+     * allocation-role.
+     */
+    private static final String ALLOCATION_ROLE_NAME_SUFFIX = "Allocation";
+    
+    /**
      * Hidden constructor.
      */
     private ArchitecturalTemplateAPI() {
@@ -160,6 +166,13 @@ public final class ArchitecturalTemplateAPI {
     public static boolean isResourceEnvironmentRole(final Stereotype stereotype) {
         return isRole(stereotype) && stereotype.getName().endsWith(RESOURCEENVIRONMENT_ROLE_NAME_SUFFIX);
     }
+    
+    /**
+     * Tests whether a {@link Stereotype} is a allocation-role. {@see #isAllocationRole}
+     */
+    public static boolean isAllocationRole(final Stereotype stereotype) {
+        return isRole(stereotype) && stereotype.getName().endsWith(ALLOCATION_ROLE_NAME_SUFFIX);
+    }
 
     /**
      * Tests whether a {@link Profile} is an Architectural-Template. {@see #isArchitecturalTemplate}
@@ -206,6 +219,28 @@ public final class ArchitecturalTemplateAPI {
 
         for (final Stereotype s : profile.getStereotypes()) {
             if (isResourceEnvironmentRole(s))
+                return s;
+        }
+
+        return null;
+    }
+    
+    /**
+     * Gets the {@link Stereotype} that represents the allocation-role for the given {@link Profile}.
+     * 
+     * @param profile
+     *            the ArchitecturalTemplate-{@link Profile}
+     * @return the AllocationRole-{@link Stereotype}
+     * @throws RuntimeException
+     *             if the given profile is no Architectural Template
+     */
+    public static Stereotype getAllocationRoleStereotype(final Profile profile) {
+        if (!isArchitecturalTemplate(profile)) {
+            throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
+        }
+
+        for (final Stereotype s : profile.getStereotypes()) {
+            if (isAllocationRole(s))
                 return s;
         }
 
@@ -336,8 +371,11 @@ public final class ArchitecturalTemplateAPI {
         if (!isArchitecturalTemplate(profile)) {
             throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
         }
+        
+        final Stereotype allocationRoleStereotype = getAllocationRoleStereotype(profile);
 
         ProfileAPI.applyProfile(allocation.eResource(), profile);
+        StereotypeAPI.applyStereotype(allocation, allocationRoleStereotype);
         EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
     }
 
