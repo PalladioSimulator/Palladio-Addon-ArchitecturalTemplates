@@ -330,8 +330,10 @@ public final class ArchitecturalTemplateAPI {
         final Stereotype resourceenvironmentRoleStereotype = getResourceEnvironmentRoleStereotype(profile);
         
         ProfileAPI.applyProfile(resourceenvironment.eResource(), profile);
-        StereotypeAPI.applyStereotype(resourceenvironment, resourceenvironmentRoleStereotype);
         EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
+        
+        if(null != resourceenvironmentRoleStereotype)
+        	StereotypeAPI.applyStereotype(resourceenvironment, resourceenvironmentRoleStereotype);
     }
     
     /**
