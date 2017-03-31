@@ -22,6 +22,8 @@ Require-Bundle: de.uka.ipd.sdq.workflow;bundle-version="2.1.0",
  org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.0",
  org.palladiosimulator.experimentautomation.application;bundle-version="1.0.0",
  org.palladiosimulator.architecturaltemplates.ocl;bundle-version="1.0.0",
- org.palladiosimulator.architecturaltemplates.api;bundle-version="1.0.3"
+ org.palladiosimulator.architecturaltemplates.api;bundle-version="1.0.3",
+ org.apache.commons.io;bundle-version="2.2.0"
 Export-Package: org.palladiosimulator.architecturaltemplates.jobs,
  org.palladiosimulator.architecturaltemplates.jobs.config
+Import-Package: org.eclipse.m2m.internal.qvt.oml.emf.util

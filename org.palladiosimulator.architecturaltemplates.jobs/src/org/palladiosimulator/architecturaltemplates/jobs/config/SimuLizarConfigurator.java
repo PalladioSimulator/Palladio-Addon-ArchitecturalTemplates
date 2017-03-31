@@ -1,13 +1,24 @@
 package org.palladiosimulator.architecturaltemplates.jobs.config;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 
+import org.apache.commons.io.IOUtils;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.URI;
+import org.osgi.framework.Bundle;
 import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartition;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
 import org.palladiosimulator.simulizar.launcher.IConfigurator;
 import org.palladiosimulator.simulizar.runconfig.SimuLizarWorkflowConfiguration;
+import org.palladiosimulator.simulizar.utils.FileUtil;
 
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
@@ -18,17 +29,47 @@ public class SimuLizarConfigurator implements IConfigurator {
 
     @Override
     public void configure(final SimuLizarWorkflowConfiguration configuration, final MDSDBlackboard blackboard) {
-        for (final AT architecturalTemplate : getATsFromSystem(blackboard)) {
-            // FIXME only 1 Reconfiguration folder is set at the moment [Lehrig]
-            // Solution a) extend SimuLizar to allow multiple folders
-            // Solution b) copy all reconfigurations to a dedicated folder
+        copyReconfigurations(blackboard);
+        String fol = "platform:/plugin" + "/masterthesis.catalog" + "/templates/ReconfigurationRules";
+        configuration.setReconfigurationRulesFolder(fol);
+    }
+
+	private void copyReconfigurations(final MDSDBlackboard blackboard) {
+		for (final AT architecturalTemplate : getATsFromSystem(blackboard)) {
             if (architecturalTemplate.getReconfigurationRuleFolder() != null) {
-                configuration.setReconfigurationRulesFolder(
-                        architecturalTemplate.getReconfigurationRuleFolder().getFolderURI());
-                return;
+                final String x = architecturalTemplate.getReconfigurationRuleFolder().getFolderURI();
+                final URI[] uris = FileUtil.getQvtoFiles(x);
+                for(URI uri : uris) {
+                	String[] y = uri.toString().split("/");
+                    Bundle bundle = Platform.getBundle( y[2] );
+                    InputStream stream = null;
+                	String d = uri.lastSegment();
+                	String p = "";
+                	for(int i = 3; i < y.length; i++) {
+                		p = p.concat("/");
+                		p = p.concat(y[i]);
+                	}
+                	String[] other = bundle.getLocation().split("/");
+                	String p2 = "";
+                	for(int i = 1; i < other.length; i++) {
+                		p2 = p2.concat("/");
+                		p2 = p2.concat(other[i]);
+                	}
+                	try {
+    					stream = FileLocator.openStream( bundle, new Path(p), false );
+    					File newfile = new File(p2 + "/templates/ReconfigurationRules/" + d);
+    					FileOutputStream out = new FileOutputStream(newfile);
+    					IOUtils.copy(stream,out);
+    					stream.close();
+    					out.close();
+    					
+    				} catch (IOException e) {
+    					e.printStackTrace();
+    				}
+                }
             }
         }
-    }
+	}
 
     /**
      * Receives the architectural templates attached to a system. Such an attachment is realized via
