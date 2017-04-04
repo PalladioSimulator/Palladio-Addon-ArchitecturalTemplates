@@ -66,541 +66,522 @@ import org.palladiosimulator.architecturaltemplates.provider.Architecturaltempla
  */
 public class ArchitecturaltemplatesModelWizard extends Wizard implements INewWizard {
 
-    /**
-     * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public static final List<String> FILE_EXTENSIONS = Collections
-            .unmodifiableList(Arrays.asList(ArchitecturaltemplatesEditorPlugin.INSTANCE
-                    .getString("_UI_ArchitecturaltemplatesEditorFilenameExtensions").split("\\s*,\\s*")));
+	/**
+	 * The supported extensions for created files.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final List<String> FILE_EXTENSIONS = Collections
+			.unmodifiableList(Arrays.asList(ArchitecturaltemplatesEditorPlugin.INSTANCE
+					.getString("_UI_ArchitecturaltemplatesEditorFilenameExtensions").split("\\s*,\\s*")));
 
-    /**
-     * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public static final String FORMATTED_FILE_EXTENSIONS = ArchitecturaltemplatesEditorPlugin.INSTANCE
-            .getString("_UI_ArchitecturaltemplatesEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+	/**
+	 * A formatted list of supported file extensions, suitable for display.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String FORMATTED_FILE_EXTENSIONS = ArchitecturaltemplatesEditorPlugin.INSTANCE
+			.getString("_UI_ArchitecturaltemplatesEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
-    /**
-     * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected ArchitecturaltemplatesPackage architecturaltemplatesPackage = ArchitecturaltemplatesPackage.eINSTANCE;
+	/**
+	 * This caches an instance of the model package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArchitecturaltemplatesPackage architecturaltemplatesPackage = ArchitecturaltemplatesPackage.eINSTANCE;
 
-    /**
-     * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected ArchitecturaltemplatesFactory architecturaltemplatesFactory = this.architecturaltemplatesPackage
-            .getArchitecturaltemplatesFactory();
+	/**
+	 * This caches an instance of the model factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArchitecturaltemplatesFactory architecturaltemplatesFactory = architecturaltemplatesPackage
+			.getArchitecturaltemplatesFactory();
 
-    /**
-     * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected ArchitecturaltemplatesModelWizardNewFileCreationPage newFileCreationPage;
+	/**
+	 * This is the file creation page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArchitecturaltemplatesModelWizardNewFileCreationPage newFileCreationPage;
 
-    /**
-     * This is the initial object creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected ArchitecturaltemplatesModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	/**
+	 * This is the initial object creation page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ArchitecturaltemplatesModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
-    /**
-     * Remember the selection during initialization for populating the default container. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected IStructuredSelection selection;
+	/**
+	 * Remember the selection during initialization for populating the default container. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @generated
+	 */
+	protected IStructuredSelection selection;
 
-    /**
-     * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected IWorkbench workbench;
+	/**
+	 * Remember the workbench during initialization.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IWorkbench workbench;
 
-    /**
-     * Caches the names of the types that can be created as the root object. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected List<String> initialObjectNames;
+	/**
+	 * Caches the names of the types that can be created as the root object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected List<String> initialObjectNames;
 
-    /**
-     * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void init(final IWorkbench workbench, final IStructuredSelection selection) {
-        this.workbench = workbench;
-        this.selection = selection;
-        this.setWindowTitle(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-        this.setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(
-                ArchitecturaltemplatesEditorPlugin.INSTANCE.getImage("full/wizban/NewArchitecturaltemplates")));
-    }
+	/**
+	 * This just records the information.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+		this.workbench = workbench;
+		this.selection = selection;
+		setWindowTitle(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(
+				ArchitecturaltemplatesEditorPlugin.INSTANCE.getImage("full/wizban/NewArchitecturaltemplates")));
+	}
 
-    /**
-     * Returns the names of the types that can be created as the root object. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected Collection<String> getInitialObjectNames() {
-        if (this.initialObjectNames == null) {
-            this.initialObjectNames = new ArrayList<>();
-            for (final EClassifier eClassifier : this.architecturaltemplatesPackage.getEClassifiers()) {
-                if (eClassifier instanceof EClass) {
-                    final EClass eClass = (EClass) eClassifier;
-                    if (!eClass.isAbstract()) {
-                        this.initialObjectNames.add(eClass.getName());
-                    }
-                }
-            }
-            Collections.sort(this.initialObjectNames, CommonPlugin.INSTANCE.getComparator());
-        }
-        return this.initialObjectNames;
-    }
+	/**
+	 * Returns the names of the types that can be created as the root object.
+	 * <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Collection<String> getInitialObjectNames() {
+		if (initialObjectNames == null) {
+			initialObjectNames = new ArrayList<String>();
+			for (EClassifier eClassifier : architecturaltemplatesPackage.getEClassifiers()) {
+				if (eClassifier instanceof EClass) {
+					EClass eClass = (EClass) eClassifier;
+					if (!eClass.isAbstract()) {
+						initialObjectNames.add(eClass.getName());
+					}
+				}
+			}
+			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+		}
+		return initialObjectNames;
+	}
 
-    /**
-     * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    protected EObject createInitialModel() {
-        final EClass eClass = (EClass) this.architecturaltemplatesPackage
-                .getEClassifier(this.initialObjectCreationPage.getInitialObjectName());
-        final EObject rootObject = this.architecturaltemplatesFactory.create(eClass);
-        return rootObject;
-    }
+	/**
+	 * Create a new model.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EObject createInitialModel() {
+		EClass eClass = (EClass) architecturaltemplatesPackage
+				.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = architecturaltemplatesFactory.create(eClass);
+		return rootObject;
+	}
 
-    /**
-     * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public boolean performFinish() {
-        try {
-            // Remember the file.
-            //
-            final IFile modelFile = this.getModelFile();
+	/**
+	 * Do the work after everything is specified.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean performFinish() {
+		try {
+			// Remember the file.
+			//
+			final IFile modelFile = getModelFile();
 
-            // Do the work within an operation.
-            //
-            final WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+			// Do the work within an operation.
+			//
+			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+				@Override
+				protected void execute(IProgressMonitor progressMonitor) {
+					try {
+						// Create a resource set
+						//
+						ResourceSet resourceSet = new ResourceSetImpl();
 
-                @Override
-                protected void execute(final IProgressMonitor progressMonitor) {
-                    try {
-                        // Create a resource set
-                        //
-                        final ResourceSet resourceSet = new ResourceSetImpl();
+						// Get the URI of the model file.
+						//
+						URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-                        // Get the URI of the model file.
-                        //
-                        final URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+						// Create a resource for this file.
+						//
+						Resource resource = resourceSet.createResource(fileURI);
 
-                        // Create a resource for this file.
-                        //
-                        final Resource resource = resourceSet.createResource(fileURI);
+						// Add the initial model object to the contents.
+						//
+						EObject rootObject = createInitialModel();
+						if (rootObject != null) {
+							resource.getContents().add(rootObject);
+						}
 
-                        // Add the initial model object to the contents.
-                        //
-                        final EObject rootObject = ArchitecturaltemplatesModelWizard.this.createInitialModel();
-                        if (rootObject != null) {
-                            resource.getContents().add(rootObject);
-                        }
+						// Save the contents of the resource to the file system.
+						//
+						Map<Object, Object> options = new HashMap<Object, Object>();
+						options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+						resource.save(options);
+					} catch (Exception exception) {
+						ArchitecturaltemplatesEditorPlugin.INSTANCE.log(exception);
+					} finally {
+						progressMonitor.done();
+					}
+				}
+			};
 
-                        // Save the contents of the resource to the file system.
-                        //
-                        final Map<Object, Object> options = new HashMap<>();
-                        options.put(XMLResource.OPTION_ENCODING,
-                                ArchitecturaltemplatesModelWizard.this.initialObjectCreationPage.getEncoding());
-                        resource.save(options);
-                    } catch (final Exception exception) {
-                        ArchitecturaltemplatesEditorPlugin.INSTANCE.log(exception);
-                    } finally {
-                        progressMonitor.done();
-                    }
-                }
-            };
+			getContainer().run(false, false, operation);
 
-            this.getContainer().run(false, false, operation);
+			// Select the new file resource in the current view.
+			//
+			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
+			IWorkbenchPage page = workbenchWindow.getActivePage();
+			final IWorkbenchPart activePart = page.getActivePart();
+			if (activePart instanceof ISetSelectionTarget) {
+				final ISelection targetSelection = new StructuredSelection(modelFile);
+				getShell().getDisplay().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
+					}
+				});
+			}
 
-            // Select the new file resource in the current view.
-            //
-            final IWorkbenchWindow workbenchWindow = this.workbench.getActiveWorkbenchWindow();
-            final IWorkbenchPage page = workbenchWindow.getActivePage();
-            final IWorkbenchPart activePart = page.getActivePart();
-            if (activePart instanceof ISetSelectionTarget) {
-                final ISelection targetSelection = new StructuredSelection(modelFile);
-                this.getShell().getDisplay().asyncExec(new Runnable() {
+			// Open an editor on the new file.
+			//
+			try {
+				page.openEditor(new FileEditorInput(modelFile),
+						workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
+			} catch (PartInitException exception) {
+				MessageDialog.openError(workbenchWindow.getShell(),
+						ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
+						exception.getMessage());
+				return false;
+			}
 
-                    @Override
-                    public void run() {
-                        ((ISetSelectionTarget) activePart).selectReveal(targetSelection);
-                    }
-                });
-            }
+			return true;
+		} catch (Exception exception) {
+			ArchitecturaltemplatesEditorPlugin.INSTANCE.log(exception);
+			return false;
+		}
+	}
 
-            // Open an editor on the new file.
-            //
-            try {
-                page.openEditor(new FileEditorInput(modelFile), this.workbench.getEditorRegistry()
-                        .getDefaultEditor(modelFile.getFullPath().toString()).getId());
-            } catch (final PartInitException exception) {
-                MessageDialog.openError(workbenchWindow.getShell(),
-                        ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
-                        exception.getMessage());
-                return false;
-            }
+	/**
+	 * This is the one page of the wizard.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public class ArchitecturaltemplatesModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 
-            return true;
-        } catch (final Exception exception) {
-            ArchitecturaltemplatesEditorPlugin.INSTANCE.log(exception);
-            return false;
-        }
-    }
+		/**
+		 * Pass in the selection.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		public ArchitecturaltemplatesModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+			super(pageId, selection);
+		}
 
-    /**
-     * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public class ArchitecturaltemplatesModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+		/**
+		 * The framework calls this to see if the file is correct.
+		 * <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		protected boolean validatePage() {
+			if (super.validatePage()) {
+				String extension = new Path(getFileName()).getFileExtension();
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString(key,
+							new Object[] { FORMATTED_FILE_EXTENSIONS }));
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
 
-        /**
-         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        public ArchitecturaltemplatesModelWizardNewFileCreationPage(final String pageId,
-                final IStructuredSelection selection) {
-            super(pageId, selection);
-        }
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		public IFile getModelFile() {
+			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
+		}
+	}
 
-        /**
-         * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         * 
-         * @generated
-         */
-        @Override
-        protected boolean validatePage() {
-            if (super.validatePage()) {
-                final String extension = new Path(this.getFileName()).getFileExtension();
-                if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-                    final String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
-                            : "_WARN_FilenameExtension";
-                    this.setErrorMessage(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString(key,
-                            new Object[] { FORMATTED_FILE_EXTENSIONS }));
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
+	/**
+	 * This is the page where the type of object to create is selected.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @generated
+	 */
+	public class ArchitecturaltemplatesModelWizardInitialObjectCreationPage extends WizardPage {
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        public IFile getModelFile() {
-            return ResourcesPlugin.getWorkspace().getRoot()
-                    .getFile(this.getContainerFullPath().append(this.getFileName()));
-        }
-    }
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Combo initialObjectField;
 
-    /**
-     * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     */
-    public class ArchitecturaltemplatesModelWizardInitialObjectCreationPage extends WizardPage {
+		/**
+		 * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
+		 */
+		protected List<String> encodings;
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        protected Combo initialObjectField;
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Combo encodingField;
 
-        /**
-         * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
-         */
-        protected List<String> encodings;
+		/**
+		 * Pass in the selection.
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		public ArchitecturaltemplatesModelWizardInitialObjectCreationPage(String pageId) {
+			super(pageId);
+		}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        protected Combo encodingField;
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public void createControl(Composite parent) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			{
+				GridLayout layout = new GridLayout();
+				layout.numColumns = 1;
+				layout.verticalSpacing = 12;
+				composite.setLayout(layout);
 
-        /**
-         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        public ArchitecturaltemplatesModelWizardInitialObjectCreationPage(final String pageId) {
-            super(pageId);
-        }
+				GridData data = new GridData();
+				data.verticalAlignment = GridData.FILL;
+				data.grabExcessVerticalSpace = true;
+				data.horizontalAlignment = GridData.FILL;
+				composite.setLayoutData(data);
+			}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        @Override
-        public void createControl(final Composite parent) {
-            final Composite composite = new Composite(parent, SWT.NONE);
-            {
-                final GridLayout layout = new GridLayout();
-                layout.numColumns = 1;
-                layout.verticalSpacing = 12;
-                composite.setLayout(layout);
+			Label containerLabel = new Label(composite, SWT.LEFT);
+			{
+				containerLabel.setText(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
-                final GridData data = new GridData();
-                data.verticalAlignment = GridData.FILL;
-                data.grabExcessVerticalSpace = true;
-                data.horizontalAlignment = GridData.FILL;
-                composite.setLayoutData(data);
-            }
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				containerLabel.setLayoutData(data);
+			}
 
-            final Label containerLabel = new Label(composite, SWT.LEFT);
-            {
-                containerLabel.setText(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+			initialObjectField = new Combo(composite, SWT.BORDER);
+			{
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.grabExcessHorizontalSpace = true;
+				initialObjectField.setLayoutData(data);
+			}
 
-                final GridData data = new GridData();
-                data.horizontalAlignment = GridData.FILL;
-                containerLabel.setLayoutData(data);
-            }
+			for (String objectName : getInitialObjectNames()) {
+				initialObjectField.add(getLabel(objectName));
+			}
 
-            this.initialObjectField = new Combo(composite, SWT.BORDER);
-            {
-                final GridData data = new GridData();
-                data.horizontalAlignment = GridData.FILL;
-                data.grabExcessHorizontalSpace = true;
-                this.initialObjectField.setLayoutData(data);
-            }
+			if (initialObjectField.getItemCount() == 1) {
+				initialObjectField.select(0);
+			}
+			initialObjectField.addModifyListener(validator);
 
-            for (final String objectName : ArchitecturaltemplatesModelWizard.this.getInitialObjectNames()) {
-                this.initialObjectField.add(this.getLabel(objectName));
-            }
+			Label encodingLabel = new Label(composite, SWT.LEFT);
+			{
+				encodingLabel.setText(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
-            if (this.initialObjectField.getItemCount() == 1) {
-                this.initialObjectField.select(0);
-            }
-            this.initialObjectField.addModifyListener(this.validator);
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				encodingLabel.setLayoutData(data);
+			}
+			encodingField = new Combo(composite, SWT.BORDER);
+			{
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.grabExcessHorizontalSpace = true;
+				encodingField.setLayoutData(data);
+			}
 
-            final Label encodingLabel = new Label(composite, SWT.LEFT);
-            {
-                encodingLabel.setText(ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+			for (String encoding : getEncodings()) {
+				encodingField.add(encoding);
+			}
 
-                final GridData data = new GridData();
-                data.horizontalAlignment = GridData.FILL;
-                encodingLabel.setLayoutData(data);
-            }
-            this.encodingField = new Combo(composite, SWT.BORDER);
-            {
-                final GridData data = new GridData();
-                data.horizontalAlignment = GridData.FILL;
-                data.grabExcessHorizontalSpace = true;
-                this.encodingField.setLayoutData(data);
-            }
+			encodingField.select(0);
+			encodingField.addModifyListener(validator);
 
-            for (final String encoding : this.getEncodings()) {
-                this.encodingField.add(encoding);
-            }
+			setPageComplete(validatePage());
+			setControl(composite);
+		}
 
-            this.encodingField.select(0);
-            this.encodingField.addModifyListener(this.validator);
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected ModifyListener validator = new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				setPageComplete(validatePage());
+			}
+		};
 
-            this.setPageComplete(this.validatePage());
-            this.setControl(composite);
-        }
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected boolean validatePage() {
+			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
+		}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        protected ModifyListener validator = new ModifyListener() {
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		@Override
+		public void setVisible(boolean visible) {
+			super.setVisible(visible);
+			if (visible) {
+				if (initialObjectField.getItemCount() == 1) {
+					initialObjectField.clearSelection();
+					encodingField.setFocus();
+				} else {
+					encodingField.clearSelection();
+					initialObjectField.setFocus();
+				}
+			}
+		}
 
-            @Override
-            public void modifyText(final ModifyEvent e) {
-                ArchitecturaltemplatesModelWizardInitialObjectCreationPage.this.setPageComplete(
-                        ArchitecturaltemplatesModelWizardInitialObjectCreationPage.this.validatePage());
-            }
-        };
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		public String getInitialObjectName() {
+			String label = initialObjectField.getText();
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        protected boolean validatePage() {
-            return this.getInitialObjectName() != null && this.getEncodings().contains(this.encodingField.getText());
-        }
+			for (String name : getInitialObjectNames()) {
+				if (getLabel(name).equals(label)) {
+					return name;
+				}
+			}
+			return null;
+		}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        @Override
-        public void setVisible(final boolean visible) {
-            super.setVisible(visible);
-            if (visible) {
-                if (this.initialObjectField.getItemCount() == 1) {
-                    this.initialObjectField.clearSelection();
-                    this.encodingField.setFocus();
-                } else {
-                    this.encodingField.clearSelection();
-                    this.initialObjectField.setFocus();
-                }
-            }
-        }
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		public String getEncoding() {
+			return encodingField.getText();
+		}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        public String getInitialObjectName() {
-            final String label = this.initialObjectField.getText();
+		/**
+		 * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
+		 * -->
+		 *
+		 * @generated
+		 */
+		protected String getLabel(String typeName) {
+			try {
+				return ArchitecturaltemplatesEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+			} catch (MissingResourceException mre) {
+				ArchitecturaltemplatesEditorPlugin.INSTANCE.log(mre);
+			}
+			return typeName;
+		}
 
-            for (final String name : ArchitecturaltemplatesModelWizard.this.getInitialObjectNames()) {
-                if (this.getLabel(name).equals(label)) {
-                    return name;
-                }
-            }
-            return null;
-        }
+		/**
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Collection<String> getEncodings() {
+			if (encodings == null) {
+				encodings = new ArrayList<String>();
+				for (StringTokenizer stringTokenizer = new StringTokenizer(ArchitecturaltemplatesEditorPlugin.INSTANCE
+						.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
+					encodings.add(stringTokenizer.nextToken());
+				}
+			}
+			return encodings;
+		}
+	}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        public String getEncoding() {
-            return this.encodingField.getText();
-        }
+	/**
+	 * The framework calls this to create the contents of the wizard.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void addPages() {
+		// Create a page, set the title, and the initial model file name.
+		//
+		newFileCreationPage = new ArchitecturaltemplatesModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(
+				ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_ArchitecturaltemplatesModelWizard_label"));
+		newFileCreationPage.setDescription(ArchitecturaltemplatesEditorPlugin.INSTANCE
+				.getString("_UI_ArchitecturaltemplatesModelWizard_description"));
+		newFileCreationPage.setFileName(ArchitecturaltemplatesEditorPlugin.INSTANCE
+				.getString("_UI_ArchitecturaltemplatesEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		addPage(newFileCreationPage);
 
-        /**
-         * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
-         *
-         * @generated
-         */
-        protected String getLabel(final String typeName) {
-            try {
-                return ArchitecturaltemplatesEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-            } catch (final MissingResourceException mre) {
-                ArchitecturaltemplatesEditorPlugin.INSTANCE.log(mre);
-            }
-            return typeName;
-        }
+		// Try and get the resource selection to determine a current directory for the file dialog.
+		//
+		if (selection != null && !selection.isEmpty()) {
+			// Get the resource...
+			//
+			Object selectedElement = selection.iterator().next();
+			if (selectedElement instanceof IResource) {
+				// Get the resource parent, if its a file.
+				//
+				IResource selectedResource = (IResource) selectedElement;
+				if (selectedResource.getType() == IResource.FILE) {
+					selectedResource = selectedResource.getParent();
+				}
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
-        protected Collection<String> getEncodings() {
-            if (this.encodings == null) {
-                this.encodings = new ArrayList<>();
-                for (final StringTokenizer stringTokenizer = new StringTokenizer(
-                        ArchitecturaltemplatesEditorPlugin.INSTANCE
-                                .getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
-                    this.encodings.add(stringTokenizer.nextToken());
-                }
-            }
-            return this.encodings;
-        }
-    }
+				// This gives us a directory...
+				//
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
+					// Set this for the container.
+					//
+					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
-    /**
-     * The framework calls this to create the contents of the wizard. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void addPages() {
-        // Create a page, set the title, and the initial model file name.
-        //
-        this.newFileCreationPage = new ArchitecturaltemplatesModelWizardNewFileCreationPage("Whatever", this.selection);
-        this.newFileCreationPage.setTitle(
-                ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_ArchitecturaltemplatesModelWizard_label"));
-        this.newFileCreationPage.setDescription(ArchitecturaltemplatesEditorPlugin.INSTANCE
-                .getString("_UI_ArchitecturaltemplatesModelWizard_description"));
-        this.newFileCreationPage.setFileName(ArchitecturaltemplatesEditorPlugin.INSTANCE
-                .getString("_UI_ArchitecturaltemplatesEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-        this.addPage(this.newFileCreationPage);
+					// Make up a unique new name here.
+					//
+					String defaultModelBaseFilename = ArchitecturaltemplatesEditorPlugin.INSTANCE
+							.getString("_UI_ArchitecturaltemplatesEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+					}
+					newFileCreationPage.setFileName(modelFilename);
+				}
+			}
+		}
+		initialObjectCreationPage = new ArchitecturaltemplatesModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(
+				ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_ArchitecturaltemplatesModelWizard_label"));
+		initialObjectCreationPage.setDescription(
+				ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		addPage(initialObjectCreationPage);
+	}
 
-        // Try and get the resource selection to determine a current directory for the file dialog.
-        //
-        if (this.selection != null && !this.selection.isEmpty()) {
-            // Get the resource...
-            //
-            final Object selectedElement = this.selection.iterator().next();
-            if (selectedElement instanceof IResource) {
-                // Get the resource parent, if its a file.
-                //
-                IResource selectedResource = (IResource) selectedElement;
-                if (selectedResource.getType() == IResource.FILE) {
-                    selectedResource = selectedResource.getParent();
-                }
-
-                // This gives us a directory...
-                //
-                if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-                    // Set this for the container.
-                    //
-                    this.newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
-
-                    // Make up a unique new name here.
-                    //
-                    final String defaultModelBaseFilename = ArchitecturaltemplatesEditorPlugin.INSTANCE
-                            .getString("_UI_ArchitecturaltemplatesEditorFilenameDefaultBase");
-                    final String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-                    for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
-                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
-                    }
-                    this.newFileCreationPage.setFileName(modelFilename);
-                }
-            }
-        }
-        this.initialObjectCreationPage = new ArchitecturaltemplatesModelWizardInitialObjectCreationPage("Whatever2");
-        this.initialObjectCreationPage.setTitle(
-                ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_ArchitecturaltemplatesModelWizard_label"));
-        this.initialObjectCreationPage.setDescription(
-                ArchitecturaltemplatesEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-        this.addPage(this.initialObjectCreationPage);
-    }
-
-    /**
-     * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public IFile getModelFile() {
-        return this.newFileCreationPage.getModelFile();
-    }
+	/**
+	 * Get the file from the page.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IFile getModelFile() {
+		return newFileCreationPage.getModelFile();
+	}
 
 }

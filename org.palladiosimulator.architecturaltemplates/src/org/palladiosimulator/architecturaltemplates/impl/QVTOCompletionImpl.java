@@ -14,23 +14,21 @@ import org.palladiosimulator.architecturaltemplates.QVTOCompletion;
  */
 public class QVTOCompletionImpl extends CompletionImpl implements QVTOCompletion {
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected QVTOCompletionImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QVTOCompletionImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ArchitecturaltemplatesPackage.Literals.QVTO_COMPLETION;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ArchitecturaltemplatesPackage.Literals.QVTO_COMPLETION;
+	}
 
 } // QVTOCompletionImpl

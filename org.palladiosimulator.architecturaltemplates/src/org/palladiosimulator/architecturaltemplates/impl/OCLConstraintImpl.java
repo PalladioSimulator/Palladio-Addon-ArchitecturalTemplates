@@ -14,23 +14,21 @@ import org.palladiosimulator.architecturaltemplates.OCLConstraint;
  */
 public class OCLConstraintImpl extends ConstraintImpl implements OCLConstraint {
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected OCLConstraintImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OCLConstraintImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return ArchitecturaltemplatesPackage.Literals.OCL_CONSTRAINT;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return ArchitecturaltemplatesPackage.Literals.OCL_CONSTRAINT;
+	}
 
 } // OCLConstraintImpl

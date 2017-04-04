@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofile.registry.IProfileRegistry;
@@ -561,14 +562,14 @@ public final class ArchitecturalTemplateAPI {
     /**
      * Returns all {@link AT}s applied to the {@link System}.
      * 
-     * @param system
+     * @param resource
      *            the {@link System}
      * @return applied {@link AT}s
      */
-    public static Collection<AT> getAppliedArchitecturalTemplates(final System system) {
+    public static Collection<AT> getAppliedArchitecturalTemplates(final Resource resource) {
         final Collection<AT> appliedATs = new LinkedList<>();
 
-        for (final Profile appliedProfile : ProfileAPI.getAppliedProfiles(system.eResource())) {
+        for (final Profile appliedProfile : ProfileAPI.getAppliedProfiles(resource)) {
             if (isArchitecturalTemplate(appliedProfile)) {
                 appliedATs.add(getArchitecturalTemplate(appliedProfile));
             }
