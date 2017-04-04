@@ -7,6 +7,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.apache.log4j.Level;
@@ -81,6 +85,11 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /** Folder with traces as created by the QVT-O engine. */
     private static final String TRACESFOLDER = "traces";
+    
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Map<Object,Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+    }
 
     public RunATCompletionJob(final ATExtensionJobConfiguration configuration) {
     }
@@ -351,10 +360,14 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         	allATs.addAll(ArchitecturalTemplateAPI.getAppliedArchitecturalTemplates(resource));
         }
         
-        return allATs; 
+        return removeDuplicates(allATs);
     }
 
-    private URI getSystemModelFolderURI() {
+    private Collection<AT> removeDuplicates(Collection<AT> allATs) {
+    	return allATs.stream().filter(distinctByKey(at -> at.getId())).collect(Collectors.toList());
+	}
+
+	private URI getSystemModelFolderURI() {
         final PCMResourceSetPartition pcmRepositoryPartition = (PCMResourceSetPartition) this.myBlackboard
                 .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
