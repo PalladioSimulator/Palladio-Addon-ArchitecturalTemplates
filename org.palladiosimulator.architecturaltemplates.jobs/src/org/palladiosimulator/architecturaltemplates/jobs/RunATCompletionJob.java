@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Level;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,6 +39,7 @@ import org.palladiosimulator.monitorrepository.util.MonitorRepositoryResourceImp
 import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationFactory;
 import org.palladiosimulator.pcm.allocation.util.AllocationResourceImpl;
+import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentFactory;
 import org.palladiosimulator.pcm.resourceenvironment.util.ResourceenvironmentResourceImpl;
@@ -85,8 +88,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
     @Override
     public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
         super.execute(monitor);
-
-        for (final AT architecturalTemplate : this.getATsFromSystem()) {
+        for (final AT architecturalTemplate : solveDependencies(this.getAllATs())) {
             for (final QVTOCompletion completion : getCompletions(architecturalTemplate)) {
                 executeCompletion(completion);
             }
@@ -328,17 +330,28 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
      * @return the architectural template applied to this system; an empty <code>List</code> if no
      *         such template can be found.
      */
-    private Collection<AT> getATsFromSystem() {
+    private Collection<AT> getAllATs() {
         final PCMResourceSetPartition pcmRepositoryPartition = (PCMResourceSetPartition) this.myBlackboard
                 .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
-        org.palladiosimulator.pcm.system.System system = null;
+        final Collection<Resource> resources = new ArrayList<Resource>();
         try {
-            system = pcmRepositoryPartition.getSystem();
+        	resources.add(pcmRepositoryPartition.getSystem().eResource());
+        	resources.add(pcmRepositoryPartition.getAllocation().eResource());
+        	resources.add(pcmRepositoryPartition.getResourceEnvironment().eResource());
+        	for(final Repository repository : pcmRepositoryPartition.getRepositories()) {
+        		resources.add(repository.eResource());
+        	}
         } catch (final IndexOutOfBoundsException e) {
         }
 
-        return ArchitecturalTemplateAPI.getATsFromSystem(system);
+        ArchitecturalTemplateAPI.getATsFromSystem(pcmRepositoryPartition.getSystem());
+        final Collection<AT> allATs = new LinkedList<AT>();
+        for(Resource resource : resources) {
+        	allATs.addAll(ArchitecturalTemplateAPI.getAppliedArchitecturalTemplates(resource));
+        }
+        
+        return allATs; 
     }
 
     private URI getSystemModelFolderURI() {
@@ -352,5 +365,33 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         }
 
         return system.eResource().getURI().trimFragment().trimSegments(1);
+    }
+    
+    private Collection<AT> solveDependencies(Collection<AT> allATs) {
+    	LinkedList<AT> correctlyOrderdATs = new LinkedList<AT>();
+    	int guard = 0;
+    	Iterator<AT> iter = allATs.iterator();
+    	while(!allATs.isEmpty()) {
+    		if (!iter.hasNext()) {
+    			iter = allATs.iterator();
+    			guard = 0;
+    		}
+    		AT at = iter.next();
+    		if(at.getDependencies().isEmpty()) {
+    			correctlyOrderdATs.add(at);
+    			iter.remove();
+    		}
+    		else if (Collections.disjoint(allATs.stream().map(t -> t.getId()).collect(Collectors.toSet()), at.getDependencies().stream().map(t -> t.getId()).collect(Collectors.toSet()))) {
+    			correctlyOrderdATs.add(at);
+    			iter.remove();
+    		}
+    		else {
+    			if(++guard >= allATs.size()) {
+    				throw new IllegalStateException("Could not solve dependenies of applied ATs! Please review your AT applications.");
+    			}
+    		}
+    	}
+    	
+    	return correctlyOrderdATs;
     }
 }
