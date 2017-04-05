@@ -26,6 +26,7 @@ import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.allocation.Allocation;
+import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.system.System;
 
@@ -287,6 +288,48 @@ public final class ArchitecturalTemplateAPI {
 
         ProfileAPI.applyProfile(system.eResource(), profile);
         StereotypeAPI.applyStereotype(system, systemRoleStereotype);
+        EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
+    }
+    
+    /**
+     * Applies the given {@link AT} to the {@link System}.
+     * 
+     * @param repository
+     *            the {@link System}
+     * @param architecturalTemplate
+     *            the {@link AT}
+     * @throws RuntimeException
+     *             if the Architectural Template does not define any roles.
+     * @see #applyArchitecturalTemplate(System, Profile)
+     */
+    public static void applyArchitecturalTemplate(final Repository repository, final AT architecturalTemplate) {
+        if (architecturalTemplate.getRoles().size() == 0) {
+            throw new RuntimeException(
+                    "Architectural Template \"" + architecturalTemplate + "\" does not contain any roles");
+        }
+
+        applyArchitecturalTemplate(repository, architecturalTemplate.getRoles().get(0).getStereotype().getProfile());
+    }
+
+    /**
+     * Applies the given Architectural-Template-{@link Profile} to the {@link System}.
+     * 
+     * @param repository
+     *            the {@link System}
+     * @param profile
+     *            the {@link Profile}
+     * @throws RuntimeException
+     *             if the profile does not define an Architectural Template.
+     */
+    public static void applyArchitecturalTemplate(final Repository repository, final Profile profile) {
+        if (!isArchitecturalTemplate(profile)) {
+            throw new RuntimeException("Profile \"" + profile + "\" is no Architectural Template");
+        }
+
+        //final Stereotype repoRoleStereotype = getSystemRoleStereotype(profile);
+
+        ProfileAPI.applyProfile(repository.eResource(), profile);
+        //StereotypeAPI.applyStereotype(repository, repoRoleStereotype);
         EPackage.Registry.INSTANCE.put(profile.getNsURI(), profile);
     }
 
