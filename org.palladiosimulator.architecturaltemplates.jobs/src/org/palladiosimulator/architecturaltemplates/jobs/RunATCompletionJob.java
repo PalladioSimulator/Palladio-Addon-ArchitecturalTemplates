@@ -392,10 +392,12 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
     		if(at.getDependencies().isEmpty()) {
     			correctlyOrderdATs.add(at);
     			iter.remove();
+    			guard = (guard == 0) ? guard = 0 : --guard;
     		}
     		else if (Collections.disjoint(allATs.stream().map(t -> t.getId()).collect(Collectors.toSet()), at.getDependencies().stream().map(t -> t.getId()).collect(Collectors.toSet()))) {
     			correctlyOrderdATs.add(at);
     			iter.remove();
+    			guard = (guard == 0) ? guard = 0 : --guard;
     		}
     		else {
     			if(++guard >= allATs.size()) {
