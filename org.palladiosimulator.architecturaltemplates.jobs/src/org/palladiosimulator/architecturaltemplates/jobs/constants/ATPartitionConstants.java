@@ -31,6 +31,7 @@ public final class ATPartitionConstants {
             add("monitorrepository");
             add("slo");
             add("experiments");
+            add("metricspec");
         }
     };
 
