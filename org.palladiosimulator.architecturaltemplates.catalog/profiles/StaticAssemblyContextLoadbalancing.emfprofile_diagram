@@ -7,7 +7,7 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_dgxFkL2VEeS8D6gGtq5evQ" name="StaticAssemblyContextLoadbalancingSystem">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_hnEzoL2VEeS8D6gGtq5evQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_kAT74L2VEeS8D6gGtq5evQ" name="StaticLoadbalancedAssemblyContext">
@@ -16,7 +16,7 @@
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eStructuralFeatures>
       <extensions xmi:id="_2c7oML2VEeS8D6gGtq5evQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -36,7 +36,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_X68skb2VEeS8D6gGtq5evQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_X68skr2VEeS8D6gGtq5evQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_X68sk72VEeS8D6gGtq5evQ" x="80" y="60" width="158" height="42"/>
     </children>
     <children xmi:id="_a9QnAL2VEeS8D6gGtq5evQ" type="2002">
@@ -54,7 +54,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_a9QnAb2VEeS8D6gGtq5evQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_a9QnAr2VEeS8D6gGtq5evQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_a9QnA72VEeS8D6gGtq5evQ" x="342" y="59" width="133" height="41"/>
     </children>
     <children xmi:id="_dgxFkb2VEeS8D6gGtq5evQ" type="2006" element="_dgxFkL2VEeS8D6gGtq5evQ">

@@ -55,7 +55,7 @@
                   nsURI="http://www.modelversioning.org/emfprofile/application/1.1">
             </metamodel>
             <metamodel
-                  nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.1">
+                  nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2">
             </metamodel>
          </library>
       </unit>
@@ -75,7 +75,7 @@
                     nsURI="http://www.modelversioning.org/emfprofile/application/1.1">
               </metamodel>
               <metamodel
-                    nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.1">
+                    nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2">
               </metamodel>
            </library>
         </unit>

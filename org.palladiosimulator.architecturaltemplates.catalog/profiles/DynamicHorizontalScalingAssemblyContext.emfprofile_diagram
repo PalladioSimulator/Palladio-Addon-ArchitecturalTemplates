@@ -7,7 +7,7 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_DFBzUJQkEeSq-7Z_6FnzsQ" name="DynamicHorizontalScalingAssemblyContextSystem">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_F-_DAJQkEeSq-7Z_6FnzsQ" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_T5PXYJQkEeSq-7Z_6FnzsQ" name="ReplicableAssemblyContext" iconPath="">
@@ -25,7 +25,7 @@
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:id="_XWQ34JQkEeSq-7Z_6FnzsQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -45,7 +45,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_CWFCoZQkEeSq-7Z_6FnzsQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_CWFCopQkEeSq-7Z_6FnzsQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_CWFCo5QkEeSq-7Z_6FnzsQ" x="96" y="40" width="118" height="43"/>
     </children>
     <children xmi:id="_DFBzUZQkEeSq-7Z_6FnzsQ" type="2006" element="_DFBzUJQkEeSq-7Z_6FnzsQ">
@@ -73,7 +73,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_TJQr8ZQkEeSq-7Z_6FnzsQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_TJQr8pQkEeSq-7Z_6FnzsQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_TJQr85QkEeSq-7Z_6FnzsQ" x="320" y="40"/>
     </children>
     <children xmi:id="_T5YhUJQkEeSq-7Z_6FnzsQ" type="2006" element="_T5PXYJQkEeSq-7Z_6FnzsQ">

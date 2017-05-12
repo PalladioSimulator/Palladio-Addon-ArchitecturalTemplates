@@ -7,7 +7,7 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_xp4JQCczEeaH1oGf1lJdJA" name="CachedAssemblyContextSystem">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_GYJvICc0EeaH1oGf1lJdJA" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_1ipxoCczEeaH1oGf1lJdJA" name="CachedAssemblyContext">
@@ -16,7 +16,7 @@
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </eStructuralFeatures>
       <extensions xmi:id="_Fxh0ACc0EeaH1oGf1lJdJA">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -36,7 +36,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_sQ0Z4SczEeaH1oGf1lJdJA"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_sQ0Z4iczEeaH1oGf1lJdJA" fontName=".SF NS Text"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_sQ0Z4yczEeaH1oGf1lJdJA" x="256" y="48"/>
     </children>
     <children xmi:id="_ub2uECczEeaH1oGf1lJdJA" type="2002">
@@ -54,7 +54,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_ub2uESczEeaH1oGf1lJdJA"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_ub2uEiczEeaH1oGf1lJdJA" fontName=".SF NS Text"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_ub2uEyczEeaH1oGf1lJdJA" x="64" y="48"/>
     </children>
     <children xmi:id="_xp6lgCczEeaH1oGf1lJdJA" type="2006" element="_xp4JQCczEeaH1oGf1lJdJA">

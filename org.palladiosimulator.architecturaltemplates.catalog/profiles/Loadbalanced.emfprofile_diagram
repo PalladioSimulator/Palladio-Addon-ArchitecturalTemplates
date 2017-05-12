@@ -4,7 +4,7 @@
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_Bk5E0IVTEeSIDYic9BH_wA" name="OriginalAssemblyContext">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_L5GfkIVTEeSIDYic9BH_wA" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_D_Q1gIVTEeSIDYic9BH_wA" name="DuplicateAssemblyContext">
@@ -13,7 +13,7 @@
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_NQESgIVTEeSIDYic9BH_wA" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_GYkPMIVTEeSIDYic9BH_wA" name="LoadbalancerAssemblyContext">
@@ -22,25 +22,25 @@
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_OESkwIVTEeSIDYic9BH_wA" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_FTh0cNd-EeSESO73FPFLrA" name="OriginalResourceContainer">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_LeTUoNd-EeSESO73FPFLrA" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_HHTfMNd-EeSESO73FPFLrA" name="DuplicateResourceContainer">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_MGFtYNd-EeSESO73FPFLrA" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_IUfrENd-EeSESO73FPFLrA" name="LoadbalancerResourceContainer">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_KazQQNd-EeSESO73FPFLrA" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -60,7 +60,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_AV7XUYVTEeSIDYic9BH_wA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_AV7XUoVTEeSIDYic9BH_wA" fontName="Segoe UI"/>
-      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AV7XU4VTEeSIDYic9BH_wA" x="224" y="20" width="188" height="47"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_Bk5E0YVTEeSIDYic9BH_wA" type="2006" element="_Bk5E0IVTEeSIDYic9BH_wA">
@@ -114,7 +114,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="__QNAEdd9EeSESO73FPFLrA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="__QNAEtd9EeSESO73FPFLrA" fontName="Segoe UI"/>
-      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="__QNAE9d9EeSESO73FPFLrA" x="224" y="188" width="177" height="43"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_FTh0cdd-EeSESO73FPFLrA" type="2006" element="_FTh0cNd-EeSESO73FPFLrA">

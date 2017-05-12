@@ -2,9 +2,9 @@ import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrar
 import StaticResourceContainerLoadbalancing;
 
 modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
-modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
-modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
-modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
 
 /**
  * Transforms a resource environment where resource containers are annotated with the

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" id="_nrzwEJ6bEeWwV9kbWFlZYg" entityName="defaultRepository">
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_nrzwEJ6bEeWwV9kbWFlZYg" entityName="defaultRepository">
   <components__Repository xsi:type="repository:BasicComponent" id="_rpK9gJ6bEeWwV9kbWFlZYg" entityName="Map">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_LvRh0Z6dEeWwV9kbWFlZYg" entityName="Provided_IMap_Map">
       <providedInterface__OperationProvidedRole href="../../plugin/org.palladiosimulator.architecturaltemplates.catalog/templates/HadoopMapReduce/HadoopMapReduce.repository#_k9r5sJzqEeWiy9Rfn8ggZg"/>

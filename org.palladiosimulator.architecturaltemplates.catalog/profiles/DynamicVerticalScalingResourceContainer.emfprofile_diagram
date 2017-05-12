@@ -7,7 +7,7 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_paph0CO_EeSbfv_s0ToTIw" name="DynamicVerticalScalingResourceContainerSystem">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_Xr9AkCPBEeSbfv_s0ToTIw" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_2M_hMH47EeSqFvs4kqVd7Q" name="VirtualizedResourceContainer">
@@ -31,7 +31,7 @@
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:id="_7MhWQH47EeSqFvs4kqVd7Q">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -63,7 +63,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_WMXdISPBEeSbfv_s0ToTIw"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_WMXdIiPBEeSbfv_s0ToTIw" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_WMXdIyPBEeSbfv_s0ToTIw" x="56" y="52" width="203" height="47"/>
     </children>
     <children xmi:id="_x7dakH47EeSqFvs4kqVd7Q" type="2002">
@@ -81,7 +81,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_x7dakX47EeSqFvs4kqVd7Q"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_x7dakn47EeSqFvs4kqVd7Q" fontName=".Helvetica Neue DeskInterface"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_x7dak347EeSqFvs4kqVd7Q" x="356" y="52" width="127"/>
     </children>
     <children xmi:id="_2NAvUH47EeSqFvs4kqVd7Q" type="2006" element="_2M_hMH47EeSqFvs4kqVd7Q">

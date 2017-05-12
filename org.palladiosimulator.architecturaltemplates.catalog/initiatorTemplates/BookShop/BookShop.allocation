@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_e65VQH9REeaHNuq2j06i3A" entityName="Book Shop Allocation">
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_e65VQH9REeaHNuq2j06i3A" entityName="Book Shop Allocation">
   <targetResourceEnvironment_Allocation href="BookShop.resourceenvironment#/0"/>
   <system_Allocation href="BookShop.system#_obod8H9MEeaHNuq2j06i3A"/>
   <allocationContexts_Allocation id="_imCKQH9REeaHNuq2j06i3A" entityName="Allocation_Assembly_Book Shop Web Pages &lt;Book Shop Web Pages> &lt;Book Shop Web Pages>">

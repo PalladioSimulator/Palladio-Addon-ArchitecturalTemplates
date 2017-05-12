@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_ZOoU8KDqEeKjDcfkNgs1Gg" entityName="On-Premises Allocation">
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_ZOoU8KDqEeKjDcfkNgs1Gg" entityName="On-Premises Allocation">
   <targetResourceEnvironment_Allocation href="../ResourceEnvironments/On-Premises.resourceenvironment#/0"/>
   <system_Allocation href="../CloudStore.system#_JxtuQKDaEeKjDcfkNgs1Gg"/>
   <allocationContexts_Allocation id="_4nEXcKDqEeKjDcfkNgs1Gg" entityName="Allocation_Assembly_BookPages &lt;BookPages> &lt;BookPages>">

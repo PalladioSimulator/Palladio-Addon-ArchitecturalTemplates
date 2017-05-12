@@ -4,7 +4,7 @@
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_YzmdEETzEeW7_O9y-2s0SA" name="StatelessComponent">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_6MmfoEaUEeWQL8VXv1nD6Q" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//repository/ImplementationComponentType"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//repository/ImplementationComponentType"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -34,7 +34,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_5OlYMUaUEeWQL8VXv1nD6Q"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_5OlYMkaUEeWQL8VXv1nD6Q" fontName="Segoe UI"/>
-      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//repository/ImplementationComponentType"/>
+      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//repository/ImplementationComponentType"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5OlYM0aUEeWQL8VXv1nD6Q" x="36" y="32" width="191"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_EXiBgUTzEeW7_O9y-2s0SA"/>

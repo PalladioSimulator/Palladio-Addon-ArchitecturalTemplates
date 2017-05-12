@@ -3,8 +3,8 @@ import ResourceContainerReverseLoadbalancing;
 import ResourceContainerLoadbalancing;
 
 modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
-modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
-modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
 modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
 
 transformation ResourceContainerScaling(in prm : PRM, inout pcmAllocation : PCM_ALLOC) 

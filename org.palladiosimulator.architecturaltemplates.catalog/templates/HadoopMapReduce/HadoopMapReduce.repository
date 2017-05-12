@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" id="_dqFLECHbEd6tG9VclJz3cw" entityName="mapreduce">
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_dqFLECHbEd6tG9VclJz3cw" entityName="mapreduce">
   <components__Repository xsi:type="repository:BasicComponent" id="_8d7-sF1pEeSXgpszjqyvqA" entityName="FileSplit">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_9fMAUF1pEeSXgpszjqyvqA" entityName="Provided_FileSplit" providedInterface__OperationProvidedRole="_Cso4IFxjEeS6x_jWMrV30w"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_9fMnYF1pEeSXgpszjqyvqA" describedService__SEFF="_HIqXgFxjEeS6x_jWMrV30w">

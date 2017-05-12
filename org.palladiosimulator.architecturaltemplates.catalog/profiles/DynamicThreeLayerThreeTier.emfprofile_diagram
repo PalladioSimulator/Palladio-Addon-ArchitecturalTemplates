@@ -7,31 +7,31 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_ud6-gCOrEeSubfGVEKswQQ" name="PresentationLayerAssembly" iconPath="">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_3EaTMCOrEeSubfGVEKswQQ" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_zWM8ECOrEeSubfGVEKswQQ" name="MiddleLayerAssembly">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_4Qx_sCOrEeSubfGVEKswQQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_08e9YCOrEeSubfGVEKswQQ" name="DataLayerAssembly">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_44Kv0COrEeSubfGVEKswQQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_paph0CO_EeSbfv_s0ToTIw" name="DynamicThreeLayerThreeTierSystem">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_Xr9AkCPBEeSbfv_s0ToTIw" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_eDjokI0lEeW7y4sG0jClug" name="PresentationTier">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_i6gwcI0lEeW7y4sG0jClug" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_fJZPQI0lEeW7y4sG0jClug" name="ReplicableMiddleTier">
@@ -46,13 +46,13 @@
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       </eStructuralFeatures>
       <extensions xmi:id="_kpgo4I0lEeW7y4sG0jClug" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_f0YF8I0lEeW7y4sG0jClug" name="DataTier">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_k2FsUI0lEeW7y4sG0jClug" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -72,7 +72,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_tse6gSOrEeSubfGVEKswQQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_tse6giOrEeSubfGVEKswQQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_tse6gyOrEeSubfGVEKswQQ" x="332" y="44" width="304" height="43"/>
     </children>
     <children xmi:id="_ud7lkCOrEeSubfGVEKswQQ" type="2006" element="_ud6-gCOrEeSubfGVEKswQQ">
@@ -130,7 +130,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_WMXdISPBEeSbfv_s0ToTIw"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_WMXdIiPBEeSbfv_s0ToTIw" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_WMXdIyPBEeSbfv_s0ToTIw" x="36" y="44" width="203" height="43"/>
     </children>
     <children xmi:id="_dFI4gI0lEeW7y4sG0jClug" type="2002">
@@ -148,7 +148,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_dFI4gY0lEeW7y4sG0jClug"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_dFI4go0lEeW7y4sG0jClug" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_dFI4g40lEeW7y4sG0jClug" x="976" y="68" width="207" height="103"/>
     </children>
     <children xmi:id="_eDldwI0lEeW7y4sG0jClug" type="2006" element="_eDjokI0lEeW7y4sG0jClug">

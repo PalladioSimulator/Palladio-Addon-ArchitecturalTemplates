@@ -7,7 +7,7 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_rXqFsL0NEeSXc41T9TupKQ" name="StaticResourceContainerLoadbalancingSystem">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_tveRoL0NEeSXc41T9TupKQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_4S2w0L0NEeSXc41T9TupKQ" name="StaticLoadbalancedResourceContainer">
@@ -16,7 +16,7 @@
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       </eStructuralFeatures>
       <extensions xmi:id="_58BuEL0NEeSXc41T9TupKQ" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -36,7 +36,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_p9z94b0NEeSXc41T9TupKQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_p9z94r0NEeSXc41T9TupKQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_p9z9470NEeSXc41T9TupKQ" x="32" y="40" width="218" height="42"/>
     </children>
     <children xmi:id="_rXqswL0NEeSXc41T9TupKQ" type="2006" element="_rXqFsL0NEeSXc41T9TupKQ">
@@ -64,7 +64,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_3kZvYb0NEeSXc41T9TupKQ"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_3kZvYr0NEeSXc41T9TupKQ" fontName="Segoe UI"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_3kZvY70NEeSXc41T9TupKQ" x="313" y="39" width="178" height="43"/>
     </children>
     <children xmi:id="_4S3X4L0NEeSXc41T9TupKQ" type="2006" element="_4S2w0L0NEeSXc41T9TupKQ">

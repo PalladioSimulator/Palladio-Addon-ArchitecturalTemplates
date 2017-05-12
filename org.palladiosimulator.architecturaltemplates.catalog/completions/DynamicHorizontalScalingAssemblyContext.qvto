@@ -2,8 +2,8 @@ import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrar
 import Loadbalancing;
 
 modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
-modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
-modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
 	
 /**
  * Transforms a system where assembly context are annotated with the "Replicable Assembly

@@ -2,8 +2,8 @@ import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrar
 import ReverseLoadbalancing;
 import Loadbalancing;
 
-modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
-modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.2');
 modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
 	
 transformation AssemblyContextScaling(in prm : PRM, inout pcmAllocation : PCM_ALLOC) 

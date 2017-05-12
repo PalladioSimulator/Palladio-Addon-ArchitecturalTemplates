@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1" entityName="On-Premises ResourceEnvironment">
+<resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" entityName="On-Premises ResourceEnvironment">
   <linkingResources__ResourceEnvironment id="_4VFFAKDpEeKjDcfkNgs1Gg" entityName="Internet" connectedResourceContainers_LinkingResource="_1guuEKDpEeKjDcfkNgs1Gg _yv9PkKDpEeKjDcfkNgs1Gg _oFWbIKD2EeKjDcfkNgs1Gg _9RnfUHvHEeWOqY570KuQYg">
     <communicationLinkResourceSpecifications_LinkingResource id="_4Vq64KDpEeKjDcfkNgs1Gg">
       <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>

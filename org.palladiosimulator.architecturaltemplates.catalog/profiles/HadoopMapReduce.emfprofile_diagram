@@ -7,19 +7,19 @@
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_cPD50PphEeSRjMxcTrWsAA" name="HadoopMapReduceSystem" iconPath="">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_jW0msPphEeSRjMxcTrWsAA" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_d-IqwPphEeSRjMxcTrWsAA" name="MapAssemblyContext">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_6D5jsJ6FEeWiy9Rfn8ggZg" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
     <eClassifiers xsi:type="emfprofile:Stereotype" xmi:id="_g4wBwPphEeSRjMxcTrWsAA" name="ReduceAssemblyContext">
       <eSuperTypes href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <extensions xmi:id="_4_jKwJ6FEeWiy9Rfn8ggZg" lowerBound="1" upperBound="1">
-        <target href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+        <target href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -39,7 +39,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_14fAgfpgEeSRjMxcTrWsAA"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_14fAgvpgEeSRjMxcTrWsAA" fontName=".Helvetica Neue DeskInterface"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system/System"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//system/System"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_14fAg_pgEeSRjMxcTrWsAA" x="48" y="32"/>
     </children>
     <children xmi:id="_cPGWEPphEeSRjMxcTrWsAA" type="2006" element="_cPD50PphEeSRjMxcTrWsAA">
@@ -87,7 +87,7 @@
       </children>
       <styles xsi:type="notation:DescriptionStyle" xmi:id="_yeU5cZ6FEeWiy9Rfn8ggZg"/>
       <styles xsi:type="notation:FontStyle" xmi:id="_yeU5cp6FEeWiy9Rfn8ggZg" fontName=".SF NS Text"/>
-      <element href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core/composition/AssemblyContext"/>
+      <element href="http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition/AssemblyContext"/>
       <layoutConstraint xsi:type="notation:Bounds" xmi:id="_yeU5c56FEeWiy9Rfn8ggZg" x="256" y="32" width="115"/>
     </children>
     <styles xsi:type="notation:DiagramStyle" xmi:id="_Foz7IfpgEeSRjMxcTrWsAA"/>

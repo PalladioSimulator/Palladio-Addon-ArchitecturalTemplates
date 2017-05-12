@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" id="_W6I8cGwrEeS8KpnxUVYq6Q" entityName="defaultAllocation">
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_W6I8cGwrEeS8KpnxUVYq6Q" entityName="defaultAllocation">
   <targetResourceEnvironment_Allocation href="HadoopMapReduce.resourceenvironment#/"/>
   <system_Allocation href="HadoopMapReduce.system#_FxgWUFxuEeS6x_jWMrV30w"/>
   <allocationContexts_Allocation id="_R_1_oL4PEeSr6_9XCGX9MA" entityName="Allocation_Assembly_FileSplit &lt;FileSplit> &lt;FileSplit>">
