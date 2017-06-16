@@ -195,7 +195,13 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
                     final org.palladiosimulator.architecturaltemplates.PCMTemplateCompletionParameter completionParameter) {
 
                 final String[] segments = URI.createURI(completionParameter.getTemplateFileURI()).segments();
-                final URI templateURI = templateFolderURI.appendSegments(segments);
+                final URI templateURI;
+                if(!completionParameter.getTemplateFileURI().toString().startsWith("platform:/")){
+                	templateURI = templateFolderURI.appendSegments(segments);
+                }
+                else {
+                	templateURI = URI.createURI(completionParameter.getTemplateFileURI());
+                }
                 final String lastSegment = templateURI.lastSegment();
 
                 for (final String fileName : ATPartitionConstants.PCM_FILES) {

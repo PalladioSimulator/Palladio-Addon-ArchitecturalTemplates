@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -24,6 +25,7 @@ import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartitio
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
+import org.palladiosimulator.architecturaltemplates.jobs.constants.ReconfigurationRulesConstants;
 import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.simulizar.launcher.IConfigurator;
 import org.palladiosimulator.simulizar.runconfig.SimuLizarWorkflowConfiguration;
@@ -43,12 +45,24 @@ public class SimuLizarConfigurator implements IConfigurator {
 
     @Override
     public void configure(final SimuLizarWorkflowConfiguration configuration, final MDSDBlackboard blackboard) {
-        copyReconfigurations(blackboard);
-        String fol = "platform:/plugin" + "/masterthesis.catalog" + "/templates/ReconfigurationRules";
-        configuration.setReconfigurationRulesFolder(fol);
+        String folder = "platform:/plugin/" + ReconfigurationRulesConstants.RECONFIGURATIONRULES_LOCATION;
+        copyReconfigurations(blackboard, folder);
+        configuration.setReconfigurationRulesFolder(folder);
     }
 
-	private void copyReconfigurations(final MDSDBlackboard blackboard) {
+	private void copyReconfigurations(final MDSDBlackboard blackboard, String folder) {
+		URI reconfigFolderURI = URI.createURI(folder);
+		String[] segments = reconfigFolderURI.toString().split("/");
+        Bundle ATBundle = Platform.getBundle( segments[2] );
+        String[] bundleLoc = ATBundle.getLocation().split("/");
+    	String tempReconfigurationFolder = "";
+    	for(int i = 1; i < bundleLoc.length; i++) {
+    		tempReconfigurationFolder = tempReconfigurationFolder.concat("/");
+    		tempReconfigurationFolder = tempReconfigurationFolder.concat(bundleLoc[i]);
+    	}
+    	tempReconfigurationFolder = tempReconfigurationFolder.concat("/");
+    	tempReconfigurationFolder = tempReconfigurationFolder.concat(reconfigFolderURI.lastSegment());
+    	
 		for (final AT architecturalTemplate : getAllATs(blackboard)) {
             if (architecturalTemplate.getReconfigurationRuleFolder() != null) {
                 final String x = architecturalTemplate.getReconfigurationRuleFolder().getFolderURI();
@@ -56,25 +70,20 @@ public class SimuLizarConfigurator implements IConfigurator {
                 for(URI uri : uris) {
                 	String[] y = uri.toString().split("/");
                     Bundle bundle = Platform.getBundle( y[2] );
-                    InputStream stream = null;
-                	String d = uri.lastSegment();
-                	String p = "";
+                	String name = uri.lastSegment();
+                	String path = "";
                 	for(int i = 3; i < y.length; i++) {
-                		p = p.concat("/");
-                		p = p.concat(y[i]);
+                		path = path.concat("/");
+                		path = path.concat(y[i]);
                 	}
-                	String[] other = bundle.getLocation().split("/");
-                	String p2 = "";
-                	for(int i = 1; i < other.length; i++) {
-                		p2 = p2.concat("/");
-                		p2 = p2.concat(other[i]);
-                	}
+                	
+                	InputStream streamIn = null;
                 	try {
-    					stream = FileLocator.openStream( bundle, new Path(p), false );
-    					File newfile = new File(p2 + "/templates/ReconfigurationRules/" + d);
+    					streamIn = FileLocator.openStream( bundle, new Path(path), false );
+    					File newfile = new File(tempReconfigurationFolder + "/" + name);
     					FileOutputStream out = new FileOutputStream(newfile);
-    					IOUtils.copy(stream,out);
-    					stream.close();
+    					IOUtils.copy(streamIn,out);
+    					streamIn.close();
     					out.close();
     					
     				} catch (IOException e) {

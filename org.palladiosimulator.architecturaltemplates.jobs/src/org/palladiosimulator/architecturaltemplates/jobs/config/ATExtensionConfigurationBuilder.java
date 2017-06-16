@@ -5,6 +5,8 @@ import java.util.Map;
 import de.uka.ipd.sdq.workflow.extension.AbstractExtensionJobConfiguration;
 import de.uka.ipd.sdq.workflow.extension.AbstractWorkflowExtensionConfigurationBuilder;
 
+import org.palladiosimulator.architecturaltemplates.jobs.constants.ReconfigurationRulesConstants;;
+
 /**
  * This class provides functionality to configure Architectural Template-enabled runs.
  * 
@@ -29,7 +31,8 @@ public class ATExtensionConfigurationBuilder extends AbstractWorkflowExtensionCo
         } else {
             configuration.setModelStorageLocation(ATExtensionTab.DEFAULT_MODEL_STORAGE_LOCATION);
         }
-
+        
+        configuration.setReconfigurationRulesLocation(ReconfigurationRulesConstants.RECONFIGURATIONRULES_LOCATION);
         return configuration;
     }
 

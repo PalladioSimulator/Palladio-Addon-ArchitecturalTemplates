@@ -1,0 +1,383 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.MicroservicesCatalogLibrary;
+
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_COMPLETION uses 'http://palladiosimulator.org/AnalyzerFramework/Completions/1.0';
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCM_MEASPOINT uses 'http://palladiosimulator.org/PCM/MeasuringPoint/1.0';
+modeltype MEASPOINT uses 'http://palladiosimulator.org/EDP2/MeasuringPoint/1.0';
+modeltype SIMULIZAR_MEASPOINT uses 'http://palladiosimulator.org/simulizar/measuringpoint';
+modeltype PROFILE uses 'org.palladiosimulator.architecturaltemplates.microservices.catalog.profiles.clientsideloadbalancing';
+
+transformation Loadbalancing( inout pcmAllocation : PCM_ALLOC, in prm : PRM);
+
+property debug : Boolean = false;
+
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property runtimeMeasurements : Set(RuntimeMeasurement) = prm.rootObjects()[RuntimeMeasurement];
+
+// String constants of the Replicated Profile	
+property replicatedProfile : String = "ReplicatedProfile";
+property originalResourceContainerStereotype : String = "OriginalResourceContainer";
+property duplicateResourceContainerStereotype : String = "DuplicateResourceContainer";
+property originalAssemblyContextStereotype : String = "OriginalAssemblyContext";
+property duplicateAssemblyContextStereotype : String = "DuplicateAssemblyContext";
+
+// String constants of the Clientside Loadbalancing Profile					   			 
+property clientsideLoadbalancingProfile : String = "ClientsideLoadbalancingProfile";
+property clientsideLoadbalancedSystemStereotype : String = "ClientsideLoadbalancedSystem";
+property loadbalancerAssemblyContextStereotype : String = "ClientsideLoadbalancer";
+// String constants of Tagged Values
+property loadbalancingStrategyTaggedValue : String = "loadbalancingStrategy";
+
+// String constants of the Service Discovery Profile
+property serviceDiscoveryAssemblyContextStereotype : String = "ServiceDiscovery";   			 
+property serviceDiscoverySystemStereotype : String = "ServiceDiscoverySystem";
+property serviceDiscoveryResourceContainerStereotype : String = "ServiceDiscoveryResourceContainer";
+
+main() {
+	assert fatal(prm.rootObjects()[RuntimeMeasurement]->notEmpty())
+		with log ("No Measurements found!");
+			
+	assert fatal(pcmAllocation.rootObjects()[Allocation]->notEmpty())
+		with log ("Allocation Model is empty!");
+		
+	if(debug) {
+		logthis("Number of runtime measurements: " + runtimeMeasurements->size().toString());
+		logthis("Runtime measurement points are: \n");
+		runtimeMeasurements->forEach(rm) {logthis(rm.measuringPoint.stringRepresentation + '\n');}
+	};
+	
+	var loadbalancers : Set(AssemblyContext) := system.assemblyContexts__ComposedStructure
+		->select(ac | hasAppliedStereotype(ac, loadbalancerAssemblyContextStereotype));
+		
+	assert fatal(loadbalancers->notEmpty())
+			with log ("No client-side loadbalancer in system!");
+	
+	loadbalancers->forEach(lb) {
+		var loadbalancingStrategy := getEEnumLiteralTaggedValue(lb, loadbalancingStrategyTaggedValue, loadbalancerAssemblyContextStereotype);
+		var basicComponent : BasicComponent := lb.encapsulatedComponent__AssemblyContext.oclAsType(BasicComponent);
+		
+		var interfaces : Set(OperationInterface) := basicComponent.providedRoles_InterfaceProvidingEntity
+			->selectByType(OperationProvidedRole).providedInterface__OperationProvidedRole->asSet();
+		
+		interfaces->forEach(interface) {
+			interface.signatures__OperationInterface->forEach(operationSignature) {
+			
+  				var rdseff : ResourceDemandingSEFF := basicComponent.serviceEffectSpecifications__BasicComponent->selectByType(ResourceDemandingSEFF)->selectOne(seff | seff.describedService__SEFF.id = operationSignature.id);
+  				var systemChanged : Boolean := false;
+  				if(isProfileApplied(system.oclAsType(EObject), "DynamicSystem")) {
+  					systemChanged := adaptSystem(lb, interface, operationSignature, rdseff);
+  				};
+	 
+  				if(loadbalancingStrategy.oclAsType(LoadbalancingStrategyEnum) = LoadbalancingStrategyEnum::RoundRobin and systemChanged) {
+  					rdseff->map RoundRobinSEFF(operationSignature, basicComponent.requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]);
+  				}
+  				else if(loadbalancingStrategy.oclAsType(LoadbalancingStrategyEnum) = LoadbalancingStrategyEnum::WeightedResponseTime) {
+  					rdseff->map WeightedResponseTimeSEFF(operationSignature, basicComponent.requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]);
+  				}
+  				else if(loadbalancingStrategy.oclAsType(LoadbalancingStrategyEnum) = LoadbalancingStrategyEnum::AvailabilityFiltering) {
+  					rdseff->map AvailabilityFilteringSEFF(operationSignature, basicComponent.requiredRoles_InterfaceRequiringEntity[OperationRequiredRole]);
+  				};
+  			};
+  		};
+	};
+};
+
+mapping inout AssemblyContext::createConnector(loadBalancerAssemblyContext : AssemblyContext, operationSignature : OperationSignature,
+	interface : OperationInterface, rdseff : ResourceDemandingSEFF) : AssemblyConnector {
+	
+ 	entityName := self.entityName;
+	parentStructure__Connector := self.parentStructure__AssemblyContext;
+		
+	requiringAssemblyContext_AssemblyConnector := loadBalancerAssemblyContext;
+	providingAssemblyContext_AssemblyConnector := self;
+	providedRole_AssemblyConnector := self.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
+	var rr := new OperationRequiredRole(loadBalancerAssemblyContext, interface);
+	requiredRole_AssemblyConnector := rr;
+	loadBalancerAssemblyContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity += rr;
+	var branchAction : BranchAction := rdseff.steps_Behaviour->selectByKind(BranchAction)->any(true);
+	branchAction.branches_Branch += new ProbabilisticBranchTransition(requiredRole_AssemblyConnector, operationSignature);
+}
+
+constructor OperationRequiredRole::OperationRequiredRole(loadBalancerAssemblyContext : AssemblyContext, interface : OperationInterface) {
+	entityName := "Temporary";
+	requiredInterface__OperationRequiredRole := interface;
+}
+
+helper adaptSystem(loadbalancerAssemblyContext : AssemblyContext, interface : OperationInterface,
+	operationSignature : OperationSignature, rdseff : ResourceDemandingSEFF) : Boolean {
+	
+	var systemChanged : Boolean := false;
+	// new assembly context created in system?
+	var uncalledAssemblyContexts : Set(AssemblyContext) := findDuplicateAssemblyContextsWithUnconnectedProvidedRole(operationSignature);
+	if(uncalledAssemblyContexts->notEmpty()) {
+		uncalledAssemblyContexts->map createConnector(loadbalancerAssemblyContext, operationSignature, interface, rdseff);
+		systemChanged := true;
+	};
+	
+	// assembly context removed?
+	var branchAction : BranchAction := rdseff.steps_Behaviour->selectByKind(BranchAction)->asOrderedSet()->first();
+	branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->forEach(branch) {
+		var externalCall := branch.branchBehaviour_BranchTransition.steps_Behaviour->selectByKind(ExternalCallAction)->any(true);
+		if(null = getCalleeAssemblyContext(externalCall, loadbalancerAssemblyContext, system)) {
+			// delete branch in SEFF
+			branchAction.branches_Branch := branchAction.branches_Branch->excluding(branch);
+			// TODO delete Monitor
+			systemChanged := true;
+		}
+	};
+	return systemChanged;
+}
+
+query findDuplicateAssemblyContextsWithUnconnectedProvidedRole(operationSignature : OperationSignature) : Set(AssemblyContext) {
+	return system.assemblyContexts__ComposedStructure->
+		select(ac | hasAppliedStereotype(ac, duplicateAssemblyContextStereotype) 
+		and ac.parentStructure__AssemblyContext.connectors__ComposedStructure->
+		selectByType(AssemblyConnector)->
+		select(c | c.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(operationSignature)).
+		providingAssemblyContext_AssemblyConnector->excludes(ac));
+}
+
+mapping inout ResourceDemandingSEFF::RoundRobinSEFF(operationSignature : OperationSignature, requiredRoles : Set(OperationRequiredRole)) {
+	assert fatal(self.steps_Behaviour->exists(step | step.oclIsTypeOf(BranchAction))) with log ("No 'BranchAction' in LoadBalancing SEFF!");
+
+	var branchAction : BranchAction := self.steps_Behaviour->selectByKind(BranchAction)->any(true);
+	var probability : Real := 1.0 / requiredRoles->size();
+
+	branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->forEach(branch) {
+		branch.branchProbability:= probability;
+	}
+}
+
+mapping inout ResourceDemandingSEFF::WeightedResponseTimeSEFF(operationSignature : OperationSignature, requiredRoles : Set(OperationRequiredRole)) {
+		assert fatal(self.steps_Behaviour->exists(step | step.oclIsTypeOf(BranchAction))) with log ("No 'BranchAction' in LoadBalancing SEFF!");
+
+	var branchAction : BranchAction := self.steps_Behaviour->selectByKind(BranchAction)->any(true);
+	var weights : Dict(String, Real) := null;
+	var doWeightAdaption : Boolean := doProbabilityAdapting();
+	if(doWeightAdaption) {
+			weights := updateWeights(branchAction.branches_Branch.branchBehaviour_BranchTransition.steps_Behaviour->selectByType(ExternalCallAction));
+			assert fatal(branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->size() = weights->size())
+				with log("Sizes of calculated weights (" + weights->size().toString()
+				+ ") and found branches (" + branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->size().toString()
+				+ ") do not match!");
+			logthis("New weight calculation executed.");
+	};
+	
+	var badProbabilityCalculationMonitor : Integer := 0;
+	branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->forEach(branch) {
+		var id : String := branch.branchBehaviour_BranchTransition.steps_Behaviour->selectByKind(ExternalCallAction)->any(true).id;
+		if(doWeightAdaption) {
+			branch.branchProbability:= weights->defaultget(id, 0.0);
+		};
+		if branch.branchProbability <= 0.0 then badProbabilityCalculationMonitor := badProbabilityCalculationMonitor + 1 endif;
+		
+		if debug or doWeightAdaption then logthis("Branch probability of branch '" + id + "' is: " + branch.branchProbability.toString()) endif;
+	};
+	
+	assert fatal(badProbabilityCalculationMonitor < branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->size())
+		with log("Branch probability calculation failed!");
+}
+
+helper updateWeights(externalCallActions : Bag(ExternalCallAction)) : Dict(String, Real) {
+	var weights : Dict(String, Real);
+	var responseTimes : Dict(String, Real) := gatherResponseTimes(externalCallActions);
+	var totalResponseTime : Real := responseTimes->values()->sum();
+	
+	responseTimes->keys()->forEach(k) {
+		weights->put(k,  totalResponseTime - responseTimes->get(k));
+	};
+
+	// Normalize weights
+	var sumOfWeights : Real := weights->values()->sum();
+	weights->keys()->forEach(k) {
+		weights->put(k, weights->get(k) / sumOfWeights);
+	};
+	
+	return weights;
+}
+
+mapping inout ResourceDemandingSEFF::AvailabilityFilteringSEFF(operationSignature : OperationSignature, requiredRoles : Set(OperationRequiredRole)) {
+		assert fatal(self.steps_Behaviour->exists(step | step.oclIsTypeOf(BranchAction))) with log ("No 'BranchAction' in LoadBalancing SEFF!");
+	
+	var branchAction : BranchAction := self.steps_Behaviour->selectByKind(BranchAction)->any(true);
+	var availabilities : Dict(String, Real) := null;
+	var doAvailabilityAdaption : Boolean := doProbabilityAdapting();
+	if(doAvailabilityAdaption) {
+			availabilities := availabilityFiltering(branchAction.branches_Branch.branchBehaviour_BranchTransition.steps_Behaviour->selectByType(ExternalCallAction));
+			assert fatal(branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->size() = availabilities->size())
+				with log("Sizes of calculated availabilities (" + availabilities->size().toString()
+				+ ") and found branches (" + branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->size().toString()
+				+ ") do not match!");
+			logthis("New availability calculation executed.");
+	};
+	
+	var badProbabilityCalculationMonitor : Integer := 0;
+	branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->forEach(branch) {
+		var id : String := branch.branchBehaviour_BranchTransition.steps_Behaviour->selectByKind(ExternalCallAction)->any(true).id;
+		if(doAvailabilityAdaption) {
+			branch.branchProbability:= availabilities->defaultget(id, 0.0);
+		};
+		if branch.branchProbability <= 0.0 then badProbabilityCalculationMonitor := badProbabilityCalculationMonitor + 1 endif;
+		
+		if debug or doAvailabilityAdaption then logthis("Branch probability of branch '" + id + "' is: " + branch.branchProbability.toString()) endif;
+	};
+	
+	assert fatal(badProbabilityCalculationMonitor < branchAction.branches_Branch->selectByType(ProbabilisticBranchTransition)->size())
+		with log("Branch probability calculation failed!");
+}
+
+helper doProbabilityAdapting() : Boolean {
+	assert fatal(runtimeMeasurements->exists(rm | rm.measurementSpecification.metricDescription.id = "_-B6Y8gf7Eee7U7c-GphyYw")) 
+		with log("No measurement for loadbalancer adaption time!");
+		
+	assert fatal(runtimeMeasurements->exists(rm | rm.measurementSpecification.metricDescription.id = "_2hOgogf5Eee7U7c-GphyYw")) 
+		with log("No measurement for current reconfiguration time!");
+
+	var loadbalancerAdaptionTime : Real := runtimeMeasurements
+		->selectOne(rm | rm.measurementSpecification.metricDescription.id = "_-B6Y8gf7Eee7U7c-GphyYw").measuringValue;
+	if debug then logthis("last reconfig time: " + loadbalancerAdaptionTime.toString()) endif;
+	var currentReconfigurationTime : Real := runtimeMeasurements
+		->selectOne(rm | rm.measurementSpecification.metricDescription.id = "_2hOgogf5Eee7U7c-GphyYw").measuringValue;
+	if debug then logthis("current reconfig time: " + currentReconfigurationTime.toString()) endif;
+	
+	if(currentReconfigurationTime = loadbalancerAdaptionTime) {
+		logthis("Current Simulation Time is: " + currentReconfigurationTime.toString());
+	};
+	return currentReconfigurationTime = loadbalancerAdaptionTime;
+}
+
+helper availabilityFiltering(externalCallActions : Bag(ExternalCallAction)) : Dict(String, Real) {
+	var probabilityWithAvailability : Dict(String, Real);
+	var availability : Dict(String, Boolean);
+	var responseTimes : Dict(String, Real) := gatherResponseTimes(externalCallActions);
+	
+	// Init for default case
+	externalCallActions->forEach(eca) {
+		probabilityWithAvailability->put(eca.id, 1.0 / externalCallActions->size());
+		availability->put(eca.id, true);
+	};
+	assert fatal(hasAppliedStereotype(system, serviceDiscoverySystemStereotype))
+		with log("Service Discovery has to applied for Availability Filtering loadblancing strategy!");
+	
+	externalCallActions->asSet()->forEach(eca) {
+		var loadbalancerAssemblyContext : AssemblyContext := system.assemblyContexts__ComposedStructure
+			->select(ac | hasAppliedStereotype(ac, loadbalancerAssemblyContextStereotype))
+				->selectOne(ac | ac.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.id->includes(eca.role_ExternalService.id));
+		var assemblyContext : AssemblyContext := getCalleeAssemblyContext(eca, loadbalancerAssemblyContext, system);
+		var availableFromDiscovery : Boolean := isServiceAvailable(allocation, assemblyContext);
+		assert fatal(availableFromDiscovery != null) with log ("Service Discovery has no information about this Resource Container");
+		if debug then logthis("Retrieving information from service discovery!" + " Service is " + if availableFromDiscovery then "available" else "not available" endif ) endif;
+		availability->put(eca.id, availableFromDiscovery);
+	};
+	
+	assert fatal(externalCallActions->size() = availability->keys()->size()) with log("Number of available Services doas not match!");
+	
+	var numberOfAvailableServices : Integer := availability->values()->count(true);
+	probabilityWithAvailability->keys()->forEach(k) {
+		var probability : Real := 0.0;
+		if(availability->get(k)) {
+			probability := 1 / numberOfAvailableServices;
+		};
+		probabilityWithAvailability->put(k, probability);
+	};
+	
+	return probabilityWithAvailability; 
+}
+
+
+
+query gatherResponseTimes(externalCallActions : Bag(ExternalCallAction)) : Dict(String, Real) {
+	var responseTimes : Dict(String, Real);
+	// Gather response times
+	runtimeMeasurements->select(rm | rm.measuringPoint.oclIsTypeOf(ExternalCallActionMeasuringPoint))->forEach(rm) {
+		if(externalCallActions->includes(rm.measuringPoint.oclAsType(ExternalCallActionMeasuringPoint).externalCall)
+			and rm.measuringValue > 0.0) {
+				responseTimes->put(rm.measuringPoint.oclAsType(ExternalCallActionMeasuringPoint).externalCall.id, rm.measuringValue);
+				if debug then logthis("Response time at '" + rm.measuringPoint.oclAsType(ExternalCallActionMeasuringPoint).externalCall.id
+				+ "' is " + rm.measuringValue.toString()) endif;
+		}
+	};
+	return responseTimes;
+}
+
+constructor ProbabilisticBranchTransition::ProbabilisticBranchTransition(requiredRole : OperationRequiredRole, operationSignature : OperationSignature) {
+    entityName := "Branch for " + requiredRole.entityName;
+    branchProbability := 0.0;
+    branchBehaviour_BranchTransition := object ResourceDemandingBehaviour{
+	    var innerStartAction : StartAction := object StartAction{};
+   		var externalCallAction : ExternalCallAction := object ExternalCallAction{
+    		predecessor_AbstractAction := innerStartAction;
+    		entityName := "Call "+operationSignature.entityName;
+    		role_ExternalService := requiredRole;
+   		calledService_ExternalService := operationSignature;
+	    	};
+   	// TODO create monitor
+    	var innerStopAction : StopAction := object StopAction{
+			predecessor_AbstractAction := externalCallAction;
+		};
+		
+		steps_Behaviour += innerStartAction;
+		steps_Behaviour += externalCallAction;
+		steps_Behaviour += innerStopAction;
+   };
+}
+
+query isServiceAvailable(allocation : Allocation, discoverableAssemblyContext : AssemblyContext) : Boolean {
+	var serviceDiscoveryAssemblyContext : AssemblyContext := allocation.system_Allocation.assemblyContexts__ComposedStructure
+		->selectOne(ac : AssemblyContext| hasAppliedStereotype(ac, serviceDiscoveryAssemblyContextStereotype));
+	assert fatal(null != serviceDiscoveryAssemblyContext) with log("No service discovery assembly context found!");
+	assert fatal(null != discoverableAssemblyContext) with log("No discoverable assembly context found!");
+	
+	return existsNetworkConnection(allocation, serviceDiscoveryAssemblyContext, discoverableAssemblyContext);
+};
+
+query existsNetworkConnection(allocation: Allocation, serviceDiscoveryAssemblyContext : AssemblyContext, discoverableAssemblyContext : AssemblyContext) : Boolean {
+	var serviceDiscoveryResourceContainer : ResourceContainer := findResourceContainer(allocation, serviceDiscoveryAssemblyContext);
+	var discoverableResourceContainer : ResourceContainer := findResourceContainer(allocation, discoverableAssemblyContext);
+	assert fatal(null != serviceDiscoveryResourceContainer) with log("No service discovery resource container found!");
+	assert fatal(null != discoverableResourceContainer) with log("No discoverable resource container found!");
+	if debug then logthis("Checking resource container links for " + discoverableResourceContainer.entityName) endif;
+	return not findLinkingResources(serviceDiscoveryResourceContainer)->intersection(findLinkingResources(discoverableResourceContainer))->isEmpty();
+}
+
+query getCalleeAssemblyContext(externalCallAction : ExternalCallAction, loadbalancerAssemblyContext : AssemblyContext, system : System) : AssemblyContext {
+	var connectors : Set(AssemblyConnector) := system.connectors__ComposedStructure
+		->selectByType(AssemblyConnector)->select(c | c.requiringAssemblyContext_AssemblyConnector.id = loadbalancerAssemblyContext.id);
+	assert fatal(connectors->notEmpty()) with log("No connectors found!");
+	var connector := connectors->selectOne(c | c.requiredRole_AssemblyConnector.id = externalCallAction.role_ExternalService.id);
+	assert fatal(connector != null) with log("No connector found! Role ID = " + externalCallAction.role_ExternalService.id + "Loadbalancer id = " + loadbalancerAssemblyContext.id);
+	return connector.providingAssemblyContext_AssemblyConnector;
+}
+
+query getCalleeAssemblyContexts(loadbalancerAssemblyContext : AssemblyContext, system : System) : Set(AssemblyContext) {
+	var connectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector)->select(c | c.requiringAssemblyContext_AssemblyConnector.id = loadbalancerAssemblyContext.id);
+	return connectors.providingAssemblyContext_AssemblyConnector->asSet();
+}
+
+query getDuplicateResourceContainers(originalResourceContainer: ResourceContainer, resourceEnvironment : ResourceEnvironment) : OrderedSet(ResourceContainer) {
+	var duplicateResourceContainers : OrderedSet(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment
+		->select(rc | hasAppliedStereotype(rc, duplicateResourceContainerStereotype))->asOrderedSet();
+	duplicateResourceContainers :=	duplicateResourceContainers->select(rc | originalResourceContainer = getOriginalResourceContainer(rc));
+		
+	return duplicateResourceContainers;
+}
+
+query findResourceContainer(allocation : Allocation, assemblyContext : AssemblyContext) : ResourceContainer {
+	return  allocation.allocationContexts_Allocation
+		->selectOne(ac : AllocationContext | ac.assemblyContext_AllocationContext.id = assemblyContext.id).resourceContainer_AllocationContext;
+}
+
+query findLinkingResources(resourceContainer : ResourceContainer) : Set(LinkingResource) {
+	return resourceContainer.resourceEnvironment_ResourceContainer.linkingResources__ResourceEnvironment 
+		->select( l : LinkingResource |	l.connectedResourceContainers_LinkingResource->includes(resourceContainer));
+}

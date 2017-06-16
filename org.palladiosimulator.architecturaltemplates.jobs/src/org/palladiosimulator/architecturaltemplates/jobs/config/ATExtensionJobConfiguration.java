@@ -18,6 +18,8 @@ public class ATExtensionJobConfiguration extends AbstractExtensionJobConfigurati
     private boolean storeReconfiguredModels;
 
     private String modelStorageLocation;
+    
+    private String reconfigurationRulesLocation;
 
     @Override
     public String getErrorMessage() {
@@ -62,5 +64,13 @@ public class ATExtensionJobConfiguration extends AbstractExtensionJobConfigurati
     public void setModelStorageLocation(String modelStorageLocation) {
         this.modelStorageLocation = modelStorageLocation;
     }
+
+	public String getReconfigurationRulesLocation() {
+		return reconfigurationRulesLocation;
+	}
+
+	public void setReconfigurationRulesLocation(String reconfigurationRulesLocation) {
+		this.reconfigurationRulesLocation = reconfigurationRulesLocation;
+	}
 
 }

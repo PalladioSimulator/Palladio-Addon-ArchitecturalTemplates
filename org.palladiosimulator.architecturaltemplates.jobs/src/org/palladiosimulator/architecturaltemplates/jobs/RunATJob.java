@@ -35,6 +35,7 @@ public class RunATJob extends AbstractWorkflowExtensionJob<MDSDBlackboard> {
         super.setJobConfiguration(jobConfiguration);
         final ATExtensionJobConfiguration configuration = (ATExtensionJobConfiguration) jobConfiguration;
 
+        this.addJob(new RunCleanupJob(configuration));
         this.addJob(new PrepareIsolatedBlackboardPartitionJob(configuration));
         this.addJob(new ValidateModelsJob(configuration));
 
