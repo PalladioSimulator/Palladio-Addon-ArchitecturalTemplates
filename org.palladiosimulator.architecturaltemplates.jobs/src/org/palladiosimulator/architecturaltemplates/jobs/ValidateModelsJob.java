@@ -1,5 +1,7 @@
 package org.palladiosimulator.architecturaltemplates.jobs;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,7 +26,9 @@ import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI
 import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
 import org.palladiosimulator.architecturaltemplates.ocl.StereotypeEnvironmentFactory;
+import org.palladiosimulator.edp2.models.Repository.RepositoryPackage;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
+import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 import org.palladiosimulator.pcm.system.SystemPackage;
 
@@ -82,10 +86,14 @@ public class ValidateModelsJob extends SequentialBlackboardInteractingJob<MDSDBl
 
     private List<ProfileApplication> getProfileApplications() {
         final List<ProfileApplication> profileApplications = new LinkedList<ProfileApplication>();
-
+        
         addProfileApplicationIfPresent(profileApplications, SystemPackage.eINSTANCE.getSystem());
         addProfileApplicationIfPresent(profileApplications,
                 ResourceenvironmentPackage.eINSTANCE.getResourceEnvironment());
+        addProfileApplicationIfPresent(profileApplications,
+                org.palladiosimulator.pcm.repository.RepositoryPackage.eINSTANCE.getRepository());
+        addProfileApplicationIfPresent(profileApplications,
+        		org.palladiosimulator.pcm.allocation.AllocationPackage.eINSTANCE.getAllocation());
 
         return Collections.unmodifiableList(profileApplications);
     }
