@@ -3,5 +3,11 @@
     <cq:advisorNode namePattern="^org\.palladiosimulator\.license$" sourceLevel="REQUIRE" useWorkspace="false"/>
     <cq:advisorNode namePattern="^org\.palladiosimulator\.branding$" sourceLevel="REQUIRE" useWorkspace="false"/>
     <cq:advisorNode namePattern="^org\.palladiosimulator\.architecturaltemplates.*" sourceLevel="REQUIRE" useWorkspace="false"/>
+    <cq:advisorNode namePattern="^org\.palladiosimulator\.pcm$" sourceLevel="REJECT">
+        <cq:property key="resolveFrom" value="nightly"/>
+    </cq:advisorNode>
+    <cq:advisorNode namePattern="^de\.uka\.ipd\.sdq\.simucomframework$" sourceLevel="REJECT">
+        <cq:property key="resolveFrom" value="nightly"/>
+    </cq:advisorNode>
     <cq:advisorNode namePattern=".*" sourceLevel="REJECT"/>
 </cq:componentQuery>
