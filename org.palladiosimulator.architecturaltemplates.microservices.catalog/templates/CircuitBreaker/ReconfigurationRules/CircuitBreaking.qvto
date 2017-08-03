@@ -1,0 +1,134 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.MicroservicesCatalogLibrary;
+
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_COMPLETION uses 'http://palladiosimulator.org/AnalyzerFramework/Completions/1.0';
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCM_MEASPOINT uses 'http://palladiosimulator.org/PCM/MeasuringPoint/1.0';
+modeltype MEASPOINT uses 'http://palladiosimulator.org/EDP2/MeasuringPoint/1.0';
+modeltype SIMULIZAR_MEASPOINT uses 'http://palladiosimulator.org/simulizar/measuringpoint';
+modeltype PROFILE uses 'org.palladiosimulator.architecturaltemplates.microservices.catalog.profiles.clientsideloadbalancing';
+modeltype CIRCUITBREAKER uses 'http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreakerbehaviour';
+modeltype CIRCUITBREAKERMODEL uses 'http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreaker';
+modeltype PCM_MON uses 'http://palladiosimulator.org/MonitorRepository/1.0';
+modeltype METRICSPEC uses 'http://palladiosimulator.org/MetricSpec/1.0';
+
+transformation CircuitBreaking( inout pcmAllocation : PCM_ALLOC, in prm : PRM, inout pcmRepo : PCM_REP, inout cbm : CIRCUITBREAKERMODEL);
+
+property debug : Boolean = false;
+
+property circuitBreakerModel : CircuitBreakerModel = cbm.rootObjects()![CircuitBreakerModel];
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property runtimeMeasurements : Set(RuntimeMeasurement) = prm.rootObjects()[RuntimeMeasurement];
+property repository : Repository = system.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext
+	.repository__RepositoryComponent![Repository];
+
+// String constants of the Clientside Loadbalancing Profile					   			 
+property circuitBreakerProfile : String = "CircuitBreakerProfile";
+property circuitBreakerInterfaceStereotype : String = "CircuitBreakerInterface";
+// String constants of Tagged Values
+property resetTimeInSecTaggedValue : String = "resetTimeInSec";
+property timeoutInSecTaggedValue : String = "timeoutInSec";
+property thresholdTaggedValue : String = "threshold";
+
+main() {
+	assert fatal(prm.rootObjects()[RuntimeMeasurement]->notEmpty())
+		with log ("No Measurements found!");
+			
+	assert fatal(pcmAllocation.rootObjects()[Allocation]->notEmpty())
+		with log ("Allocation Model is empty!");
+		
+	var circuitBreakerInterfaces : Set(OperationInterface) := repository.interfaces__Repository->selectByType(OperationInterface)
+		->select(interface | hasAppliedStereotype(interface, circuitBreakerInterfaceStereotype));
+	
+	assert fatal(circuitBreakerInterfaces->notEmpty())
+		with log ("There is no Circuit Breaker Interface Stereotype Application!");
+
+	var circuitBreakerSEFFs : Set(ResourceDemandingSEFF) := getSEFFsForInterfaces(repository, circuitBreakerInterfaces);
+	var identifier := runtimeMeasurements->selectOne(rm | rm.measurementSpecification.metricDescription.name = "Circuit Breaker Identification");
+	var newResponseTimeMeasurement := runtimeMeasurements
+		->selectOne(rm | rm.measuringPoint = identifier.measuringPoint and rm.measurementSpecification.metricDescription.name = "Response Time");
+	var currentReconfigurationTime : Real := runtimeMeasurements
+		->selectOne(rm | rm.measurementSpecification.metricDescription.name = "Simulation Time").measuringValue;
+	var cbseff := getSeffForMeasurement(newResponseTimeMeasurement);
+	
+	if (newResponseTimeMeasurement != null and cbseff != null) { // measurement is for a circuit breaker call
+		var interface : OperationInterface := getInterfaceForSEFF(repository, cbseff);
+		assert fatal(interface != null and hasAppliedStereotype(interface, circuitBreakerInterfaceStereotype))
+			with log ("There is no Circuit Breaker Interface Stereotype Application!");
+		assert fatal(currentReconfigurationTime != null)
+			with log("No measurement for current reconfiguration time!");
+			
+		var timeout : Real := getDoubleTaggedValue(interface, timeoutInSecTaggedValue, circuitBreakerInterfaceStereotype);
+		var threshold : Integer := getIntTaggedValue(interface, thresholdTaggedValue, circuitBreakerInterfaceStereotype);
+		var resetTime : Real := getDoubleTaggedValue(interface, resetTimeInSecTaggedValue, circuitBreakerInterfaceStereotype);
+		
+		var cb := circuitBreakerModel.circuitBreakers->selectOne(cb | cb.signatures.id->includes(cbseff.describedService__SEFF.id));
+		assert fatal(cb->notEmpty()) with log("No CircuitBreaker found for signature: " + cb.signatures.interface__OperationSignature.entityName![String]);
+	
+		cb->changeCircuitBreakerState(newResponseTimeMeasurement.measuringValue, timeout, threshold, resetTime, currentReconfigurationTime);
+		
+		if (debug) {
+			logthis("ResponseTime: " + newResponseTimeMeasurement.measuringValue.toString() + 
+			", Timeout: " + timeout.toString() + ", Fails: " + cb.numberOfFails.toString());
+		};
+	};
+};
+
+mapping inout CircuitBreaker::changeCircuitBreakerState(responseTime : Real, timeout : Real, threshold : Integer,
+	resetTime : Real, currentReconfigurationTime : Real) {
+	
+	if (self.numberOfFails = 0 and self.circuitBreakerState = CircuitBreakerState::Closed) {
+			self.openTimeStamp := currentReconfigurationTime; // used to clear numberOfFails after resetTime (see last else if)
+	};
+	if (currentReconfigurationTime - self.openTimeStamp > resetTime and self.circuitBreakerState = CircuitBreakerState::Closed) {
+		self.numberOfFails := 0;
+	};
+	if (responseTime >= timeout and self.circuitBreakerState = CircuitBreakerState::Closed) { // Increment fail counter
+		self.numberOfFails := self.numberOfFails + 1;
+		if (self.numberOfFails >= threshold) { // Open the circuit
+			self.circuitBreakerState := CircuitBreakerState::Open;
+			self.numberOfFails := 0;
+			self.openTimeStamp := currentReconfigurationTime;
+			logthis("CircuitBreaker " + self.id + " is " + self.circuitBreakerState.toString() + " at " + currentReconfigurationTime.toString() +
+				", opened at " + self.openTimeStamp.toString());
+		};
+	}
+	else if (responseTime >= timeout and self.circuitBreakerState = CircuitBreakerState::HalfOpen) {
+		self.circuitBreakerState := CircuitBreakerState::Open;
+		self.openTimeStamp := currentReconfigurationTime;
+		logthis("CircuitBreaker " + self.id + " is " + self.circuitBreakerState.toString() + " at " + currentReconfigurationTime.toString() +
+			", opened at " + self.openTimeStamp.toString());
+	}
+	else if (responseTime < timeout and self.circuitBreakerState = CircuitBreakerState::HalfOpen) {
+		self.circuitBreakerState := CircuitBreakerState::Closed;
+	}
+	else if (currentReconfigurationTime - self.openTimeStamp > resetTime and self.circuitBreakerState = CircuitBreakerState::Open) {
+		self.circuitBreakerState := CircuitBreakerState::HalfOpen;
+		logthis("CircuitBreaker " + self.id + " is " + self.circuitBreakerState.toString() + " at " + currentReconfigurationTime.toString());
+	}
+}
+
+query getSeffForMeasurement(measurement : RuntimeMeasurement) : CircuitBreakerRDSEFF {
+	return repository.components__Repository->selectByType(BasicComponent).serviceEffectSpecifications__BasicComponent
+		->selectByType(CircuitBreakerRDSEFF)->selectOne(seff | measurement.measuringPoint.oclAsType(ExternalCallActionMeasuringPoint)
+		.externalCall.calledService_ExternalService.id = seff.describedService__SEFF.id);
+}
+
+query getSEFFsForInterfaces(repository : Repository, interfaces : Set(OperationInterface)) : Set(ResourceDemandingSEFF) {
+	return repository.components__Repository->selectByType(BasicComponent).serviceEffectSpecifications__BasicComponent->selectByType(ResourceDemandingSEFF)
+		->select(seff | interfaces.signatures__OperationInterface.id->includes(seff.describedService__SEFF.id))->asSet();
+}
+
+query getInterfaceForSEFF(repository : Repository, seff : ResourceDemandingSEFF) : OperationInterface {
+	return repository.interfaces__Repository->selectByType(OperationInterface)
+		->selectOne(i | i.signatures__OperationInterface.id->includes(seff.describedService__SEFF.id));
+}

@@ -1,0 +1,433 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import libraries.Util;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCM_USAGE uses 'http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1';
+modeltype PCM_PARAM uses 'http://palladiosimulator.org/PalladioComponentModel/Parameter/5.1';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_COMPLETION uses 'http://palladiosimulator.org/AnalyzerFramework/Completions/1.0';
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCMSEFF_PERFORMANCE uses pcm::seff::seff_performance('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCM_MON uses 'http://palladiosimulator.org/MonitorRepository/1.0';
+modeltype MEASPOINT uses 'http://palladiosimulator.org/EDP2/MeasuringPoint/1.0';
+modeltype METRICSPEC uses 'http://palladiosimulator.org/MetricSpec/1.0';
+modeltype PCM_MEASPOINT uses 'http://palladiosimulator.org/PCM/MeasuringPoint/1.0';
+modeltype SIMULIZAR_MEASPOINT uses 'http://palladiosimulator.org/simulizar/measuringpoint';
+modeltype PCM_RESTYPE uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.1';
+modeltype USAGE_EXT uses 'http://org.palladiosimulator.architecturaltemplates.microservices/usagemodelextension';
+	
+transformation APIGatewayCompletion(inout pcmAllocation : PCM_ALLOC, inout pcmRepository : PCM_REP,
+	in pcmResourceType : PCM_RESTYPE, inout pcmUsage : PCM_USAGE, inout meas : MEASPOINT,
+	inout pcmMon : PCM_MON, in metric : METRICSPEC);
+
+property debug : Boolean = false;
+
+property metricRepo : MetricDescriptionRepository = metric.rootObjects()![MetricDescriptionRepository];
+property monitorRepo : MonitorRepository = pcmMon.rootObjects()![MonitorRepository];
+property measuringPointRepo : MeasuringPointRepository = meas.rootObjects()![MeasuringPointRepository];
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property apiSystem : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+property repository : Repository = pcmRepository.rootObjects()![Repository];
+property resourceRepository : ResourceRepository = pcmResourceType.rootObjects()![ResourceRepository];
+property usage : UsageModel = pcmUsage.rootObjects()![UsageModel];
+
+// String constants of the API Gateway Profile					   			 
+property apiGatewayProfile : String = "APIGatewayProfile";
+property forwardedAPIStereotype : String = "ForwardedAPI";
+property apiGatewayAssemblyContextStereotype : String = "APIGatewayAssemblyContext";
+property apiGatewaySystemStereotype : String = "APIGatewaySystem";
+property apiGatewayResourceContainerStereotype : String = "APIGatewayResourceContainer";
+// String constants of Tagged Values
+property resourceDemandTaggedValue : String = "RoutingOverheadResourceDemand";
+property threadpoolSizeTaggedValue : String = "ThreadpoolSize";
+
+main() {
+	log('AT Completion "API Gateway" started');
+	
+	// Select the all forwarded interfaces
+	var forwardedInterfaces : Set(OperationInterface) := repository.interfaces__Repository
+		->selectByType(OperationInterface)
+		->select(i | hasAppliedStereotype(i, forwardedAPIStereotype));
+
+	assert fatal(forwardedInterfaces->notEmpty())
+		with log ("There is no forwared API stereotype application!");
+	
+	var forwardedRoles : Bag(OperationProvidedRole) := getRolesForInterfaces(forwardedInterfaces);
+	
+	// Check constraint C3
+	assert fatal(forwardedRoles.providedInterface__OperationProvidedRole->asSet()->size()
+		= forwardedRoles.providedInterface__OperationProvidedRole->size())
+		with log("Forwareded Interface is provided by several components!");
+		
+	assert fatal(forwardedRoles.providingEntity_ProvidedRole->selectByKind(BasicComponent)->size()
+		= apiSystem.assemblyContexts__ComposedStructure
+			->select(ac | forwardedRoles.providingEntity_ProvidedRole->selectByKind(BasicComponent)
+				->includes(ac.encapsulatedComponent__AssemblyContext))->size())
+		with log("Forwareded Interface is provided by several assembly contexts!");
+			
+	// Create API Gateway
+	var gatewayComponent := new BasicComponent();
+	var gatewayAssemblyContext := new AssemblyContext(gatewayComponent);
+	
+	// Allocate API Gateway
+	var gatewayResourceContainers := resourceEnvironment.resourceContainer_ResourceEnvironment
+		->select(container : ResourceContainer | hasAppliedStereotype(container, apiGatewayResourceContainerStereotype));
+	assert fatal(gatewayResourceContainers->notEmpty())
+		with log ("There is no resource container assigned for API Gateway stereotype application!");
+	gatewayResourceContainers->map createAllocationContext(gatewayAssemblyContext);
+	
+	// apply stereotype
+	if(not(hasAppliedStereotype(gatewayAssemblyContext, apiGatewayAssemblyContextStereotype))){
+		applyStereotype(gatewayAssemblyContext, apiGatewayAssemblyContextStereotype);
+	};
+	
+	// Create Routes
+	forwardedRoles->createAPIGatewayRoutes(gatewayAssemblyContext, gatewayComponent);
+	
+	if(getIntTaggedValue(apiSystem, threadpoolSizeTaggedValue, apiGatewaySystemStereotype) > 0) {
+		limitUsers(gatewayComponent, gatewayAssemblyContext);
+	};
+	
+	resourceEnvironment.resourceContainer_ResourceEnvironment->createResourceUtilMeasurement();
+	
+	log('AT Completion "API Gateway" finished');	
+}
+
+query findGatewayCalls(actions : Bag(AbstractUserAction)) : Set(APIGatewayEntryLevelSystemCall) {
+	var gatewayCalls : Set(APIGatewayEntryLevelSystemCall) := actions->selectByType(APIGatewayEntryLevelSystemCall)->asSet();
+	if(actions->notEmpty()) {
+		gatewayCalls += findGatewayCalls(actions->selectByType(Loop).bodyBehaviour_Loop.actions_ScenarioBehaviour);
+		gatewayCalls += findGatewayCalls(actions->selectByType(Branch).branchTransitions_Branch.branchedBehaviour_BranchTransition.actions_ScenarioBehaviour);
+	};
+	return gatewayCalls;
+}
+
+mapping inout APIGatewayEntryLevelSystemCall::convertToEntryLevelSystemCall(gatewayProvidedRole : OperationProvidedRole, gateway : AssemblyContext) : EntryLevelSystemCall {
+	entityName := self.entityName;
+	successor := self.successor;
+	predecessor := self.predecessor;
+	priority := self.priority;
+	scenarioBehaviour_AbstractUserAction := self.scenarioBehaviour_AbstractUserAction;
+	providedRole_EntryLevelSystemCall := gatewayProvidedRole;
+	operationSignature__EntryLevelSystemCall := 
+		getGatewayOperationSignature(gatewayProvidedRole, gateway, self.operationSignature__APIGatewayEntryLevelSystemCall);
+	outputParameterUsages_EntryLevelSystemCall := self.outputParameterUsages_APIGatewayEntryLevelSystemCall;
+	inputParameterUsages_EntryLevelSystemCall := self.inputParameterUsages_APIGatewayEntryLevelSystemCall;
+	self.scenarioBehaviour_AbstractUserAction.actions_ScenarioBehaviour := self.scenarioBehaviour_AbstractUserAction.actions_ScenarioBehaviour->excluding(self);
+	if debug then log("Created EntryLevelSystemCall: " + entityName) endif;
+}
+
+query getGatewayOperationSignature(gatewayProvidedRole: OperationProvidedRole, gateway : AssemblyContext, otherSignature : OperationSignature) : OperationSignature {
+	var seff := gateway.encapsulatedComponent__AssemblyContext->oclAsType(BasicComponent).serviceEffectSpecifications__BasicComponent
+		->selectByType(ResourceDemandingSEFF)->selectOne(rdseff | rdseff.steps_Behaviour->selectByType(ExternalCallAction)
+			->select(eca | eca.calledService_ExternalService.id = otherSignature.id)->notEmpty());
+	if debug then log("Selected SEFF's id: " + seff.id) endif;
+	return gatewayProvidedRole.providedInterface__OperationProvidedRole.signatures__OperationInterface
+		->selectOne(s | s.id = seff.describedService__SEFF.id);
+}
+
+query getRolesForInterfaces(forwardedInterfaces : Set(OperationInterface)) : Bag(OperationProvidedRole) {
+	return apiSystem.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->selectByType(OperationProvidedRole)
+		->select(pr | forwardedInterfaces->includes(pr.providedInterface__OperationProvidedRole));
+}
+
+mapping OperationProvidedRole::createAPIGatewayRoutes(gatewayAssemblyContext : AssemblyContext, inout gatewayComponent : BasicComponent) {
+	var signatureDict : Dict(OperationSignature, OperationSignature);
+	// gateway interface, assembly context and component
+	var gatewayInterface := new OperationInterface(self, signatureDict);
+	
+	var requiredRole : OperationRequiredRole := self.map providedRoleToRequiredRole(gatewayAssemblyContext);
+	gatewayComponent.requiredRoles_InterfaceRequiringEntity += requiredRole;
+	apiSystem.connectors__ComposedStructure += new AssemblyConnector(gatewayAssemblyContext, self, requiredRole);
+	
+	if debug then log("interface id: " + self.providedInterface__OperationProvidedRole.id) endif;
+	if debug then log("number of signatures: " + self.providedInterface__OperationProvidedRole.signatures__OperationInterface->size().toString()) endif;
+	var resourceDemand := getDoubleTaggedValue(self.providedInterface__OperationProvidedRole, resourceDemandTaggedValue, forwardedAPIStereotype);
+	self.providedInterface__OperationProvidedRole.signatures__OperationInterface->forEach(operationSignature) {
+		if debug then log("signature id: " + operationSignature.id) endif;
+		var rdseff := new ResourceDemandingSEFF(signatureDict->get(operationSignature), operationSignature,
+			requiredRole, resourceDemand);
+  		gatewayComponent.serviceEffectSpecifications__BasicComponent += rdseff;
+  		if debug then log("seff id: " + rdseff.id) endif;
+  	};
+	
+	// roles and connectors
+	var innerProvidedRole : OperationProvidedRole := new OperationProvidedRole("APIGateway", gatewayInterface);
+	gatewayComponent.providedRoles_InterfaceProvidingEntity += innerProvidedRole;
+	var outerProvidedRole : OperationProvidedRole := new OperationProvidedRole("System_APIGateway", gatewayInterface);
+	apiSystem.providedRoles_InterfaceProvidingEntity += outerProvidedRole;
+	apiSystem.connectors__ComposedStructure += new ProvidedDelegationConnector(gatewayAssemblyContext, innerProvidedRole, outerProvidedRole);
+
+	var gatewayCalls : Set(APIGatewayEntryLevelSystemCall) := 
+		findGatewayCalls(usage.usageScenario_UsageModel.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour)
+		->select(call | self.providedInterface__OperationProvidedRole.signatures__OperationInterface.id
+			->includes(call.operationSignature__APIGatewayEntryLevelSystemCall.id));
+	if debug then log("Number of gateway calls: " + gatewayCalls->size().toString()) endif;
+	gatewayCalls->map convertToEntryLevelSystemCall(outerProvidedRole, gatewayAssemblyContext);
+	
+	
+	
+	// create measurements for convinience
+	outerProvidedRole.map createSystemOperationMeasurement();
+}
+
+helper limitUsers(inout gatewayComponent : BasicComponent, gatewayAssemblyContext : AssemblyContext) {
+
+	gatewayComponent.serviceEffectSpecifications__BasicComponent->selectByType(ResourceDemandingSEFF)->forEach(seff) {
+		var startAction : StartAction := seff.steps_Behaviour![StartAction];
+		var stopAction : StopAction := seff.steps_Behaviour![StopAction];
+		
+		var acquireCall = object AcquireAction {
+			entityName := "Acquire";
+			successor_AbstractAction := startAction.successor_AbstractAction.successor_AbstractAction;
+			predecessor_AbstractAction := startAction.successor_AbstractAction;
+			passiveresource_AcquireAction := gatewayComponent.passiveResource_BasicComponent![PassiveResource];
+		};
+		seff.steps_Behaviour += acquireCall;
+		
+		var releaseCall = object ReleaseAction {
+			entityName := "Release";
+			predecessor_AbstractAction := stopAction.predecessor_AbstractAction;
+			successor_AbstractAction := stopAction;
+			passiveResource_ReleaseAction := gatewayComponent.passiveResource_BasicComponent![PassiveResource];
+		};
+		seff.steps_Behaviour += releaseCall;
+	};
+}
+
+mapping OperationProvidedRole::createSystemOperationMeasurement() {
+	self.providedInterface__OperationProvidedRole.signatures__OperationInterface->forEach(signature) {
+		var spec : MeasurementSpecification := object MeasurementSpecification {
+			triggersSelfAdaptations := false;
+			metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Response Time");
+			processingType := object TimeDriven {
+				windowLength := 10;
+				windowIncrement := 10;
+			};
+		};
+		// use existing measuring points before creating new ones
+		var systemOperationMeasuringPoint : SystemOperationMeasuringPoint := null;//measuringPointRepo.measuringPoints
+//			->selectByType(SystemOperationMeasuringPoint)
+//			->selectOne(mp | mp.role.id = self.id and mp.operationSignature.id = signature.id and mp.system = containingSystem);
+		if(null = systemOperationMeasuringPoint) {
+			systemOperationMeasuringPoint := object SystemOperationMeasuringPoint {		
+				system := apiSystem;
+				role := self;
+				operationSignature := signature;
+				measuringPointRepository := measuringPointRepo;
+			};
+		};
+		var monitor : Monitor := monitorRepo.monitors->selectOne(m | m.measuringPoint = systemOperationMeasuringPoint);
+		if(null = monitor) {
+			monitorRepo.monitors += object Monitor { 
+				entityName := signature.entityName;
+				activated := true;
+				measuringPoint := systemOperationMeasuringPoint;
+				measurementSpecifications += spec;
+			};
+		};
+	}
+}
+
+mapping ResourceContainer::createResourceUtilMeasurement() {
+	var spec : Set(MeasurementSpecification);
+	spec += object MeasurementSpecification {
+		triggersSelfAdaptations := false;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "State of Active Resource");
+		processingType := object FeedThrough {};
+	};
+	spec += object MeasurementSpecification {
+		triggersSelfAdaptations := false;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Utilization of Active Resource");
+		processingType := object TimeDriven {};
+	};
+	var resourceUtilMeasuringPoint := object ActiveResourceMeasuringPoint {
+		
+		activeResource := self.activeResourceSpecifications_ResourceContainer->any(true);
+		replicaID := 0;
+		measuringPointRepository := measuringPointRepo;
+	};
+	var monitor : Monitor := monitorRepo.monitors->selectOne(m | m.measuringPoint = resourceUtilMeasuringPoint);
+	if(null = monitor) {
+		monitorRepo.monitors += object Monitor { 
+			entityName := self.entityName;
+			activated := true;
+			measuringPoint := resourceUtilMeasuringPoint;
+			measurementSpecifications += spec;
+		};
+	};
+}
+
+constructor AssemblyContext::AssemblyContext(component : BasicComponent){
+	entityName := "APIGateway";
+	parentStructure__AssemblyContext := apiSystem;
+	encapsulatedComponent__AssemblyContext := component;
+	if debug then log("Created AssemblyContext: " + entityName) endif;
+}
+
+
+constructor BasicComponent::BasicComponent() {
+	entityName := "APIGateway";
+	passiveResource_BasicComponent := new PassiveResource();
+	repository__RepositoryComponent := repository;
+	if debug then log("Created BasicComponent: " + entityName) endif;
+};
+
+constructor PassiveResource::PassiveResource() {
+	entityName := "APIGateway";
+	var threadpoolSize := getIntTaggedValue(apiSystem, threadpoolSizeTaggedValue, apiGatewaySystemStereotype);
+	capacity_PassiveResource := new PCMRandomVariable(threadpoolSize.toString());
+}
+
+constructor PCMRandomVariable::PCMRandomVariable(spec:String){
+	specification := spec;
+}
+
+constructor ProvidedDelegationConnector::ProvidedDelegationConnector(gateway : AssemblyContext, innerRole : OperationProvidedRole, outerRole : OperationProvidedRole) {
+	entityName := "SystemBound-APIGateway";
+	assemblyContext_ProvidedDelegationConnector := gateway;
+	innerProvidedRole_ProvidedDelegationConnector := innerRole;
+	outerProvidedRole_ProvidedDelegationConnector := outerRole;
+	if debug then log("Created ProvidedDelegationConnector: " + entityName) endif;
+}
+
+mapping OperationProvidedRole::providedRoleToRequiredRole(gateway : AssemblyContext) : OperationRequiredRole {
+	entityName := self.entityName;
+	requiredInterface__OperationRequiredRole := self.providedInterface__OperationProvidedRole;
+	if debug then log("Created OperationRequiredRole: " + entityName) endif;
+}
+
+constructor AssemblyConnector::AssemblyConnector(gateway : AssemblyContext, pr : OperationProvidedRole, rr : OperationRequiredRole) {
+	entityName := "APIGateway-" + pr.providingEntity_ProvidedRole.entityName;
+	providedRole_AssemblyConnector := pr;
+	requiredRole_AssemblyConnector := rr;
+	providingAssemblyContext_AssemblyConnector := apiSystem.assemblyContexts__ComposedStructure->excluding(gateway)
+		->selectOne(ac | ac.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.id->includes(pr.id));
+	assert fatal(providingAssemblyContext_AssemblyConnector != null) 
+		with log("Providing assembly context could not be found! ProvidedRole.id = " + pr.id) ;
+	requiringAssemblyContext_AssemblyConnector := gateway;
+	if debug then log("Created AssemblyConnector: " + entityName) endif;
+}
+
+constructor ResourceDemandingSEFF::ResourceDemandingSEFF (describedOperationSignature : OperationSignature,
+	calledOperationSignature : OperationSignature, requiredRole : OperationRequiredRole, resourceDemand : Real) {
+	assert fatal(describedOperationSignature != null and calledOperationSignature != null)
+		with log("No corresponding signature found!");
+		
+	describedService__SEFF := describedOperationSignature;
+	var startAction : StartAction := object StartAction{};
+	var internalAction := object InternalAction {
+		predecessor_AbstractAction := startAction;
+		resourceDemand_Action := object ParametricResourceDemand {
+			requiredResource_ParametricResourceDemand := resourceRepository.availableResourceTypes_ResourceRepository
+			->selectByType(ProcessingResourceType)->selectOne(r | r.entityName = "CPU");
+			specification_ParametericResourceDemand := object PCMRandomVariable {
+				specification := resourceDemand.toString();
+			};
+		}
+	};
+	var externalCallAction : ExternalCallAction := object ExternalCallAction{
+		predecessor_AbstractAction := internalAction;
+		entityName := "Call " + calledOperationSignature.entityName;
+		role_ExternalService := requiredRole;
+		calledService_ExternalService := calledOperationSignature;
+	};
+	var stopAction : StopAction := object StopAction{
+		predecessor_AbstractAction := externalCallAction;
+	};
+
+	steps_Behaviour += startAction;
+	steps_Behaviour += internalAction;
+	steps_Behaviour += externalCallAction;
+	steps_Behaviour += stopAction;
+	
+	if debug then log("Created SEFF: " + describedService__SEFF.id) endif;
+}
+
+constructor ResourceDemandingSEFF::ResourceDemandingSEFF(type : String, describedOperationSignature : OperationSignature,
+	passiveResource : PassiveResource) {
+	
+	describedService__SEFF := describedOperationSignature;
+	var startAction : StartAction := object StartAction{};
+	var acquireReleaseAction : AbstractAction;
+	if(type = "Acquire") {
+		acquireReleaseAction := object AcquireAction {
+			predecessor_AbstractAction := startAction;
+			passiveresource_AcquireAction := passiveResource;
+		};
+	} else {
+		acquireReleaseAction := object ReleaseAction {
+			predecessor_AbstractAction := startAction;
+			passiveResource_ReleaseAction := passiveResource;
+		};
+	};
+	var stopAction : StopAction := object StopAction{
+		predecessor_AbstractAction := acquireReleaseAction;
+	};
+
+	steps_Behaviour += startAction;
+	steps_Behaviour += acquireReleaseAction;
+	steps_Behaviour += stopAction;
+	
+	if debug then log("Created " + type + " SEFF: " + describedService__SEFF.id) endif;
+}
+
+constructor OperationProvidedRole::OperationProvidedRole(name : String, interface : OperationInterface) {
+	entityName := name;
+	providedInterface__OperationProvidedRole := interface;
+	if debug then log("Created OperationProvidedRole: " + entityName) endif;
+}
+
+constructor OperationInterface::OperationInterface(role : OperationProvidedRole, inout signatureDict : Dict(OperationSignature, OperationSignature)) {
+	entityName := "APIGateway";
+	repository__Interface := repository;
+
+	role.providedInterface__OperationProvidedRole.signatures__OperationInterface->forEach(signature) {
+		var gatewaySignature := new OperationSignature(role, result, signature);
+		signatureDict->put(signature, gatewaySignature);
+		signatures__OperationInterface += gatewaySignature;
+	};
+	if debug then log("Created OperationInterface: " + entityName) endif;
+}
+
+constructor OperationInterface::OperationInterface() {
+	entityName := "LimitUsers";
+	repository__Interface := repository;
+
+	signatures__OperationInterface += new OperationSignature("Acquire");
+	signatures__OperationInterface += new OperationSignature("Release");
+	if debug then log("Created OperationInterface: " + entityName) endif;
+	
+}
+
+constructor OperationSignature::OperationSignature(role : OperationProvidedRole, interface : OperationInterface, signature : OperationSignature) {
+	entityName := role.entityName + "_" + signature.entityName;
+	failureType := signature.failureType;
+	exceptions__Signature := signature.exceptions__Signature;
+	interface__OperationSignature := interface;
+	parameters__OperationSignature := signature.parameters__OperationSignature;
+	returnType__OperationSignature := signature.returnType__OperationSignature;
+	if debug then log("Created OperationSignature: " + entityName) endif;
+}
+
+constructor OperationSignature::OperationSignature(name : String) {
+	entityName := name;
+	if debug then log("Created OperationSignature: " + entityName) endif;
+}
+
+
+mapping ResourceContainer::createAllocationContext(ac : AssemblyContext) : AllocationContext {
+	entityName := "Allocation_" + ac.entityName;
+	assemblyContext_AllocationContext := ac;
+	resourceContainer_AllocationContext := self;
+	allocation_AllocationContext := allocation;
+	if debug then log("Created AllocationContext: " + entityName) endif;
+}

@@ -1,0 +1,177 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import libraries.Util;
+
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMEntity uses pcm::core::entity('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_REL uses 'http://palladiosimulator.org/PalladioComponentModel/Reliability/5.1';
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCM_MON uses 'http://palladiosimulator.org/MonitorRepository/1.0';
+modeltype MEASPOINT uses 'http://palladiosimulator.org/EDP2/MeasuringPoint/1.0';
+modeltype METRICSPEC uses 'http://palladiosimulator.org/MetricSpec/1.0';
+modeltype PCM_MEASPOINT uses 'http://palladiosimulator.org/PCM/MeasuringPoint/1.0';
+modeltype SIMULIZAR_MEASPOINT uses 'http://palladiosimulator.org/simulizar/measuringpoint';
+modeltype CIRCUITBREAKERBEHAVIOUR uses 'http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreakerbehaviour';
+modeltype CIRCUITBREAKERMODEL uses 'http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreaker';
+
+transformation CircuitBreakerCompletion(inout pcmRepo : PCM_REP, inout meas : MEASPOINT, inout pcmMon : PCM_MON, in metric : METRICSPEC, out cb : CIRCUITBREAKERMODEL);
+
+property debug : Boolean = false;
+
+property metricRepo : MetricDescriptionRepository = metric.rootObjects()![MetricDescriptionRepository];
+property monitorRepo : MonitorRepository = pcmMon.rootObjects()![MonitorRepository];
+property measuringPointRepo : MeasuringPointRepository = meas.rootObjects()![MeasuringPointRepository];
+property repository : Repository = pcmRepo.rootObjects()![Repository];
+
+// String constants of the Clientside Loadbalancing Profile					   			 
+property circuitBreakerProfile : String = "CircuitBreakerProfile";
+property circuitBreakerInterfaceStereotype : String = "CircuitBreakerInterface";
+property loadbalancerComponentStereotype : String = "ClientsideLoadbalancerComponent";
+// String constants of Tagged Values
+//property resetTimeInSecTaggedValue : String = "updateTimeIntervalInSec";
+property timeoutInSecTaggedValue : String = "timeoutInSec";
+//property thresholdTaggedValue : String = "threshold";
+
+main() {
+	log('AT Completion "CircuitBreaker" started');
+	
+	assert fatal(isProfileApplied(repository.oclAsType(EObject), circuitBreakerProfile))
+		with log ("The repository has no Profile applied!");
+	
+	// Select the client-side load-balanced	interfaces
+	var circuitBreakerInterfaces : Set(OperationInterface) := repository.interfaces__Repository->selectByType(OperationInterface)
+		->select(interface | hasAppliedStereotype(interface, circuitBreakerInterfaceStereotype));
+	if debug then log("Number of circuit breaker Interfaces: " + circuitBreakerInterfaces->size().toString()) endif;
+	assert fatal(circuitBreakerInterfaces->notEmpty())
+		with log ("There is no Circuit Breaker Interface Stereotype Application!");
+	
+	var externalCalls : Set(ExternalCallAction) := pcmRepo->objectsOfType(ExternalCallAction)->flatten()->asSet()
+		->select(ec | circuitBreakerInterfaces.signatures__OperationInterface.id->includes(ec.calledService_ExternalService.id));
+	
+	var loadbalancerCalls := externalCalls.role_ExternalService.requiringEntity_RequiredRole
+		->select(bc | hasAppliedStereotype(bc, loadbalancerComponentStereotype));
+	externalCalls := externalCalls->excluding(loadbalancerCalls);
+	externalCalls->createResponseTimeMeasurement();
+	if debug then log("Number of circuit breaker external calls: " + externalCalls->size().toString()) endif;	
+	assert fatal(externalCalls->notEmpty())
+		with log ("No external call found!");
+
+	var circuitBreakerModel : CircuitBreakerModel = cb.rootObjects()![CircuitBreakerModel];
+	if(circuitBreakerModel->isEmpty()) {
+		if debug then log("Creating a new CircuitBreakerModel ...") endif;
+		var rootObjects := cb.rootObjects();
+		circuitBreakerModel := object CircuitBreakerModel @ cb {
+			entityName := "CircuitBreakerModel"
+		};
+	};
+
+	var circuitBreakerSEFFs : Set(ResourceDemandingSEFF) := getSEFFsForInterfacesNoLoadbalancer(repository, circuitBreakerInterfaces);
+	circuitBreakerInterfaces->map createCircuitBreakers(circuitBreakerModel);
+	if debug then log("Number of circuit breaker Interfaces: " + circuitBreakerInterfaces->size().toString()) endif;
+	circuitBreakerSEFFs->map toCircuitBreakerRDSEFF();
+	if debug then log("Number of circuit breaker SEFFs: " + circuitBreakerSEFFs->size().toString()) endif;
+	repository->createIdentificationMeasurement();
+	repository->createSimulationTimeMeasurement();
+	
+	log('AT Completion "CircuitBreaker" finished');	
+}
+
+mapping OperationInterface::createCircuitBreakers(inout model : CircuitBreakerModel) {
+	model.circuitBreakers += new CircuitBreaker(self.signatures__OperationInterface);
+}
+
+mapping ResourceDemandingSEFF::toCircuitBreakerRDSEFF() : CircuitBreakerRDSEFF {
+	seffTypeID := self.seffTypeID;
+	describedService__SEFF := self.describedService__SEFF;
+	abstractLoopAction_ResourceDemandingBehaviour := self.abstractLoopAction_ResourceDemandingBehaviour;
+	abstractBranchTransition_ResourceDemandingBehaviour := self.abstractBranchTransition_ResourceDemandingBehaviour;
+	steps_Behaviour := self.steps_Behaviour;
+	resourceDemandingInternalBehaviours := self.resourceDemandingInternalBehaviours;
+	timeout := getDoubleTaggedValue(getInterfaceForSEFF(repository, self), timeoutInSecTaggedValue, circuitBreakerInterfaceStereotype);
+	
+	// exchange the seff in component
+	basicComponent_ServiceEffectSpecification := self.basicComponent_ServiceEffectSpecification;
+	self.basicComponent_ServiceEffectSpecification.serviceEffectSpecifications__BasicComponent := 
+		self.basicComponent_ServiceEffectSpecification.serviceEffectSpecifications__BasicComponent->excluding(self);
+}
+
+mapping Entity::createIdentificationMeasurement() {
+	var spec := object MeasurementSpecification {
+		triggersSelfAdaptations := true;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Circuit Breaker Identification");
+		processingType := object FeedThrough{};
+	};
+	self->createResourceURIMeasurement(spec, measuringPointRepo, monitorRepo, "Identification");
+}
+
+mapping Entity::createSimulationTimeMeasurement() {
+	var spec := object MeasurementSpecification {
+		triggersSelfAdaptations := true;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Simulation Time");
+		processingType := object FeedThrough{};
+	};
+	self->createResourceURIMeasurement(spec, measuringPointRepo, monitorRepo, "Simulation Time");
+}
+
+mapping ExternalCallAction::createResponseTimeMeasurement() {
+	var spec : MeasurementSpecification := object MeasurementSpecification {
+		triggersSelfAdaptations := true;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Response Time");
+		processingType := object FixedSizeAggregation {
+			frequency := 1;
+			numberOfMeasurements := 1;
+			statisticalCharacterization := object ArithmeticMean{};
+		};
+	};
+	self->createResponseTimeMeasurement(spec, measuringPointRepo, monitorRepo);
+}
+
+constructor CircuitBreaker::CircuitBreaker(seffSignatures : Set(OperationSignature)) {
+	entityName := "CB-" + seffSignatures.interface__OperationSignature.entityName![String];
+	circuitBreakerState := CircuitBreakerState::Closed;
+	numberOfFails := 0;
+	openTimeStamp := 0.0;
+	signatures += seffSignatures;
+	result->createStateMeasurement();
+}
+
+mapping CircuitBreaker::createStateMeasurement() {
+	var spec := object MeasurementSpecification {
+		triggersSelfAdaptations := false;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Circuit Breaker State");
+		processingType := object FeedThrough{};
+		assert fatal(metricDescription->notEmpty()) with log("Did not find metric!");	
+	};
+	self->createResourceURIMeasurement(spec, measuringPointRepo, monitorRepo, "Circuit Breaker State");
+}
+
+mapping CircuitBreaker::createResourceURIMeasurement(spec : MeasurementSpecification, inout measuringPointRepo : MeasuringPointRepository,
+	inout monitorRepo : MonitorRepository, name : String) {
+	// use existing measuring points before creating new ones
+	var resourceURIMeasuringPoint : ResourceURIMeasuringPoint := measuringPointRepo.measuringPoints
+		->selectByType(ResourceURIMeasuringPoint)->selectOne(mp | mp.resourceURI = self.id);
+	if(null = resourceURIMeasuringPoint) {
+		resourceURIMeasuringPoint := object ResourceURIMeasuringPoint {		
+			measuringPoint := self.signatures.interface__OperationSignature.entityName![String] + "_" + name;
+			resourceURI := self.id;
+			measuringPointRepository := measuringPointRepo;
+		};
+	};
+	var monitor : Monitor := monitorRepo.monitors->selectOne(m | m.measuringPoint = resourceURIMeasuringPoint);
+	if(null = monitor) {
+		monitorRepo.monitors += object Monitor { 
+			entityName := self.id + "_" + name;
+			activated := true;
+			measuringPoint := resourceURIMeasuringPoint;
+			measurementSpecifications += spec;
+		};
+	};
+}
+
+query getSEFFsForInterfacesNoLoadbalancer(repository : Repository, interfaces : Set(OperationInterface)) : Set(ResourceDemandingSEFF) {
+	return repository.components__Repository->selectByType(BasicComponent)->select(bc | not hasAppliedStereotype(bc, loadbalancerComponentStereotype)).serviceEffectSpecifications__BasicComponent->selectByType(ResourceDemandingSEFF)
+		->select(seff | interfaces.signatures__OperationInterface.id->includes(seff.describedService__SEFF.id))->asSet();
+}

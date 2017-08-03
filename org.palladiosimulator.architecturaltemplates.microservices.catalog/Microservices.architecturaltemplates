@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.palladiosimulator.architecturaltemplates:Catalog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.palladiosimulator.architecturaltemplates="http://palladiosimulator.org/ArchitecturalTemplates/1.0" id="_-n14UOLfEeafmYmXiqQ7ig" entityName="Microservices Architectural Templates">
+  <ATs id="_AontIOO4EeaMf5TDyE-lkQ" entityName="Clientside Loadbalancing" documentation="" defaultInstanceURI="" dependencies="_wGi-oAAWEeelOs2Mu6dDZg _eKpVcO4dEeaz3NuhNoa43g _coSVYO4eEeaz3NuhNoa43g _n8cG4PITEeahC8tnVfx0oA _YpW3IO4dEeaz3NuhNoa43g _aFF_4O4eEeaz3NuhNoa43g">
+    <roles id="_GUn_4OboEeal05ZKAonrOA" entityName="Clientside Loadbalanced Interface">
+      <stereotype href="profiles/ClientsideLoadbalancing.emfprofile_diagram#_8REYkOedEeaHFuTunU64Zw"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="ClientsideLoadbalancing.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="measuringpoint"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="monitorrepository"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMTemplateCompletionParameter" templateFileURI="../models/metricDescriptions.metricspec">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="metricspec"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="repository"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_kf3nQO0OEeaTXOETzv7P7Q" entityName="UpdateServerListTimeInterval > 0" expression="self.updateTimeIntervalInSec > 0 or self.loadbalancingStrategy=LoadbalancingStrategyEnum::RoundRobin"/>
+    </roles>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.microservices.catalog/templates/ClientsideLoadbalancing/ReconfigurationRules"/>
+  </ATs>
+  <ATs id="_B3jHgOuREeajRskmyFbNhw" entityName="Service Discovery" dependencies="_eKpVcO4dEeaz3NuhNoa43g _coSVYO4eEeaz3NuhNoa43g _n8cG4PITEeahC8tnVfx0oA _YpW3IO4dEeaz3NuhNoa43g _aFF_4O4eEeaz3NuhNoa43g">
+    <roles id="_EfVMoOuSEeajRskmyFbNhw" entityName="Discoverable Assembly Context">
+      <stereotype href="profiles/ServiceDiscovery.emfprofile_diagram#_jxWBkOuTEeajRskmyFbNhw"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="ServiceDiscovery.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+      </completion>
+    </roles>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.microservices.catalog/templates/ServiceDiscovery/ReconfigurationRules"/>
+  </ATs>
+  <ATs id="_YpW3IO4dEeaz3NuhNoa43g" entityName="Static Resource Environment" dependencies="_coSVYO4eEeaz3NuhNoa43g _aFF_4O4eEeaz3NuhNoa43g _eKpVcO4dEeaz3NuhNoa43g">
+    <roles id="_RspcUO4gEeaz3NuhNoa43g" entityName="Static Replicated Resource Container">
+      <stereotype href="profiles/StaticResourceEnvironment.emfprofile_diagram#_43rt4O4fEeaz3NuhNoa43g"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="StaticResourceEnvironmentCompletion.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_ieMt8O4gEeaz3NuhNoa43g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas > 0"/>
+    </roles>
+  </ATs>
+  <ATs id="_eKpVcO4dEeaz3NuhNoa43g" entityName="Dynamic Resource Environment" dependencies="_coSVYO4eEeaz3NuhNoa43g _YpW3IO4dEeaz3NuhNoa43g _aFF_4O4eEeaz3NuhNoa43g">
+    <roles id="_af5lMO4hEeaz3NuhNoa43g" entityName="Dynamic Replicated Resource Container" superRoles="_RspcUO4gEeaz3NuhNoa43g">
+      <stereotype href="profiles/DynamicResourceEnvironment.emfprofile_diagram#_43rt4O4fEeaz3NuhNoa43g"/>
+    </roles>
+    <reconfigurationRuleFolder folderURI="platform:/resource/DynamicResourceEnvironment"/>
+  </ATs>
+  <ATs id="_aFF_4O4eEeaz3NuhNoa43g" entityName="Static System" dependencies="_coSVYO4eEeaz3NuhNoa43g _wGi-oAAWEeelOs2Mu6dDZg">
+    <roles id="_uyQjwO4kEeaz3NuhNoa43g" entityName="Static Replicated Assembly Context">
+      <stereotype href="profiles/StaticSystem.emfprofile_diagram#_KLtywO4mEeaz3NuhNoa43g"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="StaticSystemCompletion.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_7pps8O4kEeaz3NuhNoa43g" entityName="Number of Replicas greater 0" expression="self.numberOfReplicas > 0"/>
+    </roles>
+  </ATs>
+  <ATs id="_coSVYO4eEeaz3NuhNoa43g" entityName="Dynamic System" documentation="" dependencies="_aFF_4O4eEeaz3NuhNoa43g _wGi-oAAWEeelOs2Mu6dDZg">
+    <roles id="_aCtWEO4lEeaz3NuhNoa43g" entityName="Dynamic Replicated Assembly Context" superRoles="_uyQjwO4kEeaz3NuhNoa43g">
+      <stereotype href="profiles/DynamicSystem.emfprofile_diagram#_KLtywO4mEeaz3NuhNoa43g"/>
+    </roles>
+    <reconfigurationRuleFolder folderURI="platform:/resource/DynamicSystem"/>
+  </ATs>
+  <ATs id="_n8cG4PITEeahC8tnVfx0oA" entityName="Single Service per Resource Container" dependencies="_eKpVcO4dEeaz3NuhNoa43g _coSVYO4eEeaz3NuhNoa43g _YpW3IO4dEeaz3NuhNoa43g _aFF_4O4eEeaz3NuhNoa43g">
+    <roles id="_xkHy0PITEeahC8tnVfx0oA" entityName="Single Service per Resource Container Allocation Context">
+      <stereotype href="profiles/SingleServicePerResourceContainer.emfprofile_diagram#_HzsMUPIUEeahC8tnVfx0oA"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="AllocationCompletion.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+      </completion>
+    </roles>
+  </ATs>
+  <ATs id="_wGi-oAAWEeelOs2Mu6dDZg" entityName="API Gateway">
+    <roles id="_HQqkwAArEeeqv5BI0m0gbw" entityName="API Gateway System">
+      <stereotype href="profiles/APIGateway.emfprofile_diagram#_Yv7R4BlOEeeoXv-nAzws5g"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="APIGateway.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="repository"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMTemplateCompletionParameter" templateFileURI="../models/Palladio.resourcetype">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="resourcetype"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="usagemodel"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="measuringpoint"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="monitorrepository"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMTemplateCompletionParameter" templateFileURI="../models/metricDescriptions.metricspec">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="metricspec"/>
+        </parameters>
+      </completion>
+    </roles>
+    <roles id="_i9Y5gBlQEeeoXv-nAzws5g" entityName="API Gateway Interface">
+      <stereotype href="profiles/APIGateway.emfprofile_diagram#_i5UjwBlOEeeoXv-nAzws5g"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_u9urYF5bEeeutsdfjA9oZA" entityName="RoutingOverheadResourceDemand >= 0" expression="self.RoutingOverheadResourceDemand >= 0"/>
+    </roles>
+    <roles id="_ItjbYBoHEeerTMaeSpusMg" entityName="API Gateway Resource Container">
+      <stereotype href="profiles/APIGateway.emfprofile_diagram#_I7zpsBnOEeenUMf-NDiCTg"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_O6TVsF5cEeeutsdfjA9oZA" entityName="Exactly one Resource Container" expression="self.appliedTo->size()=1"/>
+    </roles>
+  </ATs>
+  <ATs id="_iPhk0CAdEeeeO56kn2Cu5A" entityName="Circuit Breaker" dependencies="_wGi-oAAWEeelOs2Mu6dDZg _AontIOO4EeaMf5TDyE-lkQ _aFF_4O4eEeaz3NuhNoa43g">
+    <roles id="_pj0R0CAdEeeeO56kn2Cu5A" entityName="Circuit Breaker Interface">
+      <stereotype href="profiles/CircuitBreaker.emfprofile_diagram#_8REYkOedEeaHFuTunU64Zw"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="CircuitBreaker.qvto">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="repository"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="measuringpoint"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="monitorrepository"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMTemplateCompletionParameter" templateFileURI="../models/metricDescriptions.metricspec">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="metricspec"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMOutputCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="circuitbreaker"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_sf-JQGaPEeeNfZU-ZJ3Qkw" entityName="threshold > 0" expression="self.threshold > 0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_tLtN4GaPEeeNfZU-ZJ3Qkw" entityName="timeout > 0" expression="self.timeoutInSec > 0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_tfV7kGaPEeeNfZU-ZJ3Qkw" entityName="resetTime > 0" expression="self.resetTimeInSec > 0"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_t2jhsGaPEeeNfZU-ZJ3Qkw" entityName="resetTime > timeout" expression="self.resetTimeInSec > self.timeoutInSec"/>
+    </roles>
+    <reconfigurationRuleFolder folderURI="platform:/plugin/org.palladiosimulator.architecturaltemplates.microservices.catalog/templates/CircuitBreaker/ReconfigurationRules"/>
+  </ATs>
+</org.palladiosimulator.architecturaltemplates:Catalog>

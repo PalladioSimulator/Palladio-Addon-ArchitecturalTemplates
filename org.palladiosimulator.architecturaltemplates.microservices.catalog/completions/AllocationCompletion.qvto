@@ -1,0 +1,89 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import libraries.Util;
+
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+
+transformation AllocationCompletion(inout pcmAllocation : PCM_ALLOC);
+
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+
+// String constants of SingleServicePerResourceContainerProfile
+property singleServicePerResourceContainerProfile : String = "SingleServicePerResourceContainer";
+property singleServicePerResourceContainerStereotype : String = "SingleServicePerResourceContainer";
+// String constants of MultipleServicesPerResourceContainerProfile
+property multipleServicesPerResourceContainerProfile : String = "MultipleServicesPerResourceContainer";
+property multipleServicesPerResourceContainerStereotype : String = "MultipleServicesPerResourceContainer";
+
+main() {
+	log('Library Completion "Allocation" started');
+	
+	var assertDeploymentStrategy : Boolean := false;
+	if(isProfileApplied(allocation.oclAsType(EObject), singleServicePerResourceContainerProfile) or
+		isProfileApplied(allocation.oclAsType(EObject), multipleServicesPerResourceContainerProfile)) {
+			assertDeploymentStrategy := true;
+	};
+	
+	// Get all original Resource Containers
+	var originalResourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment->select(rc | hasAppliedStereotype(rc, originalResourceContainerStereotype));
+	// For each original Resource Container do allocation
+	originalResourceContainers->forEach(originalResourceContainer) {
+		var originalAllocationContext : AllocationContext := allocation.allocationContexts_Allocation->selectOne(ac | ac.resourceContainer_AllocationContext.id = originalResourceContainer.id);
+		// Get duplicate Resource Containers
+		var duplicateResourceContainers : List(ResourceContainer) := getDuplicateResourceContainers(originalResourceContainer, resourceEnvironment)->asList();
+		var numberOfDuplicateResourceContainers : Integer := duplicateResourceContainers->size();
+		// Get duplicate Assembly Contexts
+		var duplicateAssemblyContexts : List(AssemblyContext) := getDuplicateAssemblyContexts(
+			originalAllocationContext.assemblyContext_AllocationContext, system)->asList();
+		var numberOfDuplicateAssemblyContexts : Integer := duplicateAssemblyContexts->size();
+		
+		// Assert deployment strategy
+		if(assertDeploymentStrategy and hasAppliedStereotype(originalAllocationContext, singleServicePerResourceContainerStereotype)) {
+			assert fatal(numberOfDuplicateResourceContainers = numberOfDuplicateAssemblyContexts)
+				with log("Number of assembly contexts must match number of resource container for Single Service per Resource Container!");
+		};
+		// MultipleServicesPerResourceContainer has no constraints
+		
+		// Do allocation
+		if(numberOfDuplicateResourceContainers = numberOfDuplicateAssemblyContexts) {
+			// SingleServicePerResourceContainerAllocation
+			var counter : Integer := 1;
+			while(counter <= numberOfDuplicateAssemblyContexts) {
+				var rc : ResourceContainer := duplicateResourceContainers->at(counter);
+				var ac : AssemblyContext := duplicateAssemblyContexts->at(counter);
+				originalAllocationContext->map singleServicePerResourceContainerAllocation(rc, ac, counter);
+				counter := counter + 1;
+			}
+		}
+		else {
+			// MultipleServicesPerResourceContainerAllocation
+			var counter : Integer := 1;
+			while(counter <= numberOfDuplicateAssemblyContexts or counter <= numberOfDuplicateResourceContainers) {
+				originalAllocationContext->map multipleServicesPerResourceContainerAllocation(counter);
+				counter := counter + 1;
+			}
+		}
+	};
+	
+	log('Library Completion "Allocation" finished');
+}
+
+mapping AllocationContext::singleServicePerResourceContainerAllocation(rc : ResourceContainer, ac : AssemblyContext,
+	counter : Integer) : AllocationContext {
+	
+	entityName := self.entityName + "_Replica" + counter.toString();
+	assemblyContext_AllocationContext := ac;
+	resourceContainer_AllocationContext := rc;
+	allocation_AllocationContext := allocation;
+}
+
+mapping AllocationContext::multipleServicesPerResourceContainerAllocation(counter : Integer) : AllocationContext {
+
+	assert fatal(false) with log ("Multiple Services Per Resource Container Allocation has not been implemented yet!");
+}

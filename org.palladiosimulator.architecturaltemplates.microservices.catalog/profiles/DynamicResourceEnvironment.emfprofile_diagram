@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <emfprofile:Profile xmi:id="_YvebUO4fEeaz3NuhNoa43g" name="DynamicResourceEnvironmentProfile" nsURI="org.palladiosimulator.architecturaltemplates.microservices.catalog.profiles.dynamicresourceenvironment" nsPrefix="org.palladiosimulator.architecturaltemplates.microservices.catalog.profiles">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bPO68O4iEeaz3NuhNoa43g" source="org.palladiosimulator.architecturaltemplate">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fJei8O4iEeaz3NuhNoa43g" key="AT" value="platform:/plugin/org.palladiosimulator.architecturaltemplates.microservices.catalog/Microservices.architecturaltemplates#_eKpVcO4dEeaz3NuhNoa43g"/>
+    </eAnnotations>
+    <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_43rt4O4fEeaz3NuhNoa43g" name="DynamicReplicatedResourceContainer">
+      <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_9PGaEO4fEeaz3NuhNoa43g" name="numberOfReplicas" defaultValueLiteral="1">
+        <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <extensions xmi:type="emfprofile:Extension" xmi:id="_8nSzMO4fEeaz3NuhNoa43g" upperBound="1">
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+      </extensions>
+    </eClassifiers>
+  </emfprofile:Profile>
+  <notation:Diagram xmi:id="_YwCcAO4fEeaz3NuhNoa43g" type="EMFProfile" element="_YvebUO4fEeaz3NuhNoa43g" name="StaticResourceEnvironment.emfprofile_diagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_mZeGIO4fEeaz3NuhNoa43g" type="2002">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_mZfUQO4fEeaz3NuhNoa43g" source="Shortcut">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_mZfUQe4fEeaz3NuhNoa43g" key="modelID" value="EMFProfile"/>
+      </eAnnotations>
+      <children xmi:type="notation:DecorationNode" xmi:id="_mZetMO4fEeaz3NuhNoa43g" type="5002"/>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_mZetMe4fEeaz3NuhNoa43g" type="7004">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_mZetMu4fEeaz3NuhNoa43g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_mZetM-4fEeaz3NuhNoa43g"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_mZetNO4fEeaz3NuhNoa43g" type="7005">
+        <styles xmi:type="notation:SortingStyle" xmi:id="_mZetNe4fEeaz3NuhNoa43g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_mZetNu4fEeaz3NuhNoa43g"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_mZeGIe4fEeaz3NuhNoa43g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_mZeGIu4fEeaz3NuhNoa43g" fontName="Segoe UI"/>
+      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.1#//resourceenvironment/ResourceContainer"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mZeGI-4fEeaz3NuhNoa43g" x="395" y="60" width="173" height="53"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_43s8AO4fEeaz3NuhNoa43g" type="2006" element="_43rt4O4fEeaz3NuhNoa43g">
+      <children xmi:type="notation:DecorationNode" xmi:id="_43tjEO4fEeaz3NuhNoa43g" type="5008"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_43tjEe4fEeaz3NuhNoa43g" type="7008">
+        <children xmi:type="notation:Node" xmi:id="_9PHoMO4fEeaz3NuhNoa43g" type="3001" element="_9PGaEO4fEeaz3NuhNoa43g">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_9PHoMe4fEeaz3NuhNoa43g"/>
+        </children>
+        <styles xmi:type="notation:SortingStyle" xmi:id="_43tjEu4fEeaz3NuhNoa43g"/>
+        <styles xmi:type="notation:FilteringStyle" xmi:id="_43tjE-4fEeaz3NuhNoa43g"/>
+      </children>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_43s8Ae4fEeaz3NuhNoa43g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_43s8Au4fEeaz3NuhNoa43g" fontName="Segoe UI"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_43s8A-4fEeaz3NuhNoa43g" x="405" y="215" width="176" height="91"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_YwDDEO4fEeaz3NuhNoa43g"/>
+    <edges xmi:type="notation:Edge" xmi:id="_8nUoYO4fEeaz3NuhNoa43g" type="4005" element="_8nSzMO4fEeaz3NuhNoa43g" source="_43s8AO4fEeaz3NuhNoa43g" target="_mZeGIO4fEeaz3NuhNoa43g">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8nUoZO4fEeaz3NuhNoa43g" type="6004">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_8nVPcO4fEeaz3NuhNoa43g" x="10" y="10"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_8nUoYe4fEeaz3NuhNoa43g"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8nUoYu4fEeaz3NuhNoa43g" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8nUoY-4fEeaz3NuhNoa43g" points="[-2, -4, 2, 149]$[-2, -159, 2, -6]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8nYSwO4fEeaz3NuhNoa43g" id="(0.5795454545454546,0.054945054945054944)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8nY50O4fEeaz3NuhNoa43g" id="(0.6242774566473989,0.1320754716981132)"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

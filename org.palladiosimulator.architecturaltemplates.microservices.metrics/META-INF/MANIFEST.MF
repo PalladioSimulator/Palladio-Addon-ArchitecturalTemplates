@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Metrics
+Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.microservices.metrics
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.palladiosimulator.architecturaltemplates.microservices.metrics.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.palladiosimulator.metricspec
+Export-Package: org.palladiosimulator.architecturaltemplates.microservices.metrics

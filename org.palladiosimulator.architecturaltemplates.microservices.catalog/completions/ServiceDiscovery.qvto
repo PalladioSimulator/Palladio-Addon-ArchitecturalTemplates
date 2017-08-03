@@ -1,0 +1,86 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.MicroservicesCatalogLibrary;
+import libraries.Util;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+
+transformation ServiceDiscoveryCompletion(inout pcmAllocation : PCM_ALLOC);
+
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+
+// String constants of the Service Discovery Profile					   			 
+property serviceDiscoveryProfile : String = "ServiceDiscoveryProfile";
+property serviceDiscoveryAssemblyContextStereotype : String = "ServiceDiscovery";
+property discoverableAssemblyContextStereotype : String = "DiscoverableAssemblyContext";
+property serviceDiscoveryResourceContainerStereotype : String = "ServiceDiscoveryResourceContainer";
+
+main() {
+	log('AT Completion "ServiceDiscovery" started');	
+
+	assert fatal(isProfileApplied(system.oclAsType(EObject), serviceDiscoveryProfile))
+		with log ("The system has no Profile applied!");
+	
+	var discoverableAssemblyContexts : Set(AssemblyContext) := system.assemblyContexts__ComposedStructure
+		->select(ac : AssemblyContext| hasAppliedStereotype(ac, discoverableAssemblyContextStereotype));
+	
+	assert fatal(discoverableAssemblyContexts->notEmpty())
+		with log ("There is no Discoverable Assembly Context Stereotype Application!");
+	
+	// apply stereotypes to all possibly existing duplicates
+	discoverableAssemblyContexts->select(ac : AssemblyContext| hasAppliedStereotype(ac, originalAssemblyContextStereotype))
+		->map copyDiscoverableAssemblyContextStereotypeToDuplicates();
+	
+	// create service discovery
+	new AssemblyContext("ServiceDiscovery", discoverableAssemblyContexts);
+
+	log('AT Completion "ServiceDiscovery" finished');	
+}
+
+mapping AssemblyContext::copyDiscoverableAssemblyContextStereotypeToDuplicates() {
+	getDuplicateAssemblyContexts(self, system)->forEach(duplicate) {
+		if(not(hasAppliedStereotype(duplicate, discoverableAssemblyContextStereotype))){
+			applyStereotype(duplicate, discoverableAssemblyContextStereotype);
+		};
+	};
+}
+
+constructor AssemblyContext::AssemblyContext(name : String, discoverableAssemblyContexts : Set(AssemblyContext)) {
+	entityName := name;
+	parentStructure__AssemblyContext := system;
+
+	var discoveryResourceContainer := new ResourceContainer("ServiceDiscovery");
+	applyStereotype(discoveryResourceContainer, serviceDiscoveryResourceContainerStereotype);
+	discoveryResourceContainer->map createAllocationContext(result);
+	
+	discoverableAssemblyContexts->forEach(discoverableAssemblyContext) {
+		var discoverableResourceContainer : ResourceContainer := findResourceContainer(allocation, discoverableAssemblyContext);
+		var linkingResources := findLinkingResources(discoverableResourceContainer);
+		linkingResources->forEach(lr) {
+			lr.connectedResourceContainers_LinkingResource += discoveryResourceContainer;
+		};
+	};
+	
+	if(not(hasAppliedStereotype(result, serviceDiscoveryAssemblyContextStereotype))){
+		applyStereotype(result, serviceDiscoveryAssemblyContextStereotype);
+	};
+}
+
+constructor ResourceContainer::ResourceContainer(name : String){
+	entityName := name;
+	resourceEnvironment_ResourceContainer := resourceEnvironment;
+}
+
+mapping ResourceContainer::createAllocationContext(ac : AssemblyContext) : AllocationContext {
+	entityName := ac.entityName;
+	assemblyContext_AllocationContext := ac;
+	resourceContainer_AllocationContext := self;
+	allocation_AllocationContext := allocation;
+}

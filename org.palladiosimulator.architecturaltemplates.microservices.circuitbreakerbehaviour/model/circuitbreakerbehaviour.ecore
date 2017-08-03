@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="circuitbreakerbehaviour" nsURI="http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreakerbehaviour"
+    nsPrefix="circuitbreakerbehaviour">
+  <eClassifiers xsi:type="ecore:EClass" name="CircuitBreakerRDSEFF" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//seff/ResourceDemandingSEFF">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="3000.0"/>
+  </eClassifiers>
+</ecore:EPackage>

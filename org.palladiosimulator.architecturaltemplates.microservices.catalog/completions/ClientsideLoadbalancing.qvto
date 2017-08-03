@@ -1,0 +1,305 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import libraries.Util;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMEntity uses pcm::core::entity('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_COMPLETION uses 'http://palladiosimulator.org/AnalyzerFramework/Completions/1.0';
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCMSEFF_PERFORMANCE uses pcm::seff::seff_performance('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+modeltype PCM_MON uses 'http://palladiosimulator.org/MonitorRepository/1.0';
+modeltype MEASPOINT uses 'http://palladiosimulator.org/EDP2/MeasuringPoint/1.0';
+modeltype METRICSPEC uses 'http://palladiosimulator.org/MetricSpec/1.0';
+modeltype PCM_MEASPOINT uses 'http://palladiosimulator.org/PCM/MeasuringPoint/1.0';
+modeltype SIMULIZAR_MEASPOINT uses 'http://palladiosimulator.org/simulizar/measuringpoint';
+modeltype PROFILE uses 'org.palladiosimulator.architecturaltemplates.microservices.catalog.profiles.clientsideloadbalancing';
+
+transformation ClientsideLoadbalancingCompletion(inout pcmAllocation : PCM_ALLOC, inout meas : MEASPOINT, inout pcmMon : PCM_MON, in metric : METRICSPEC, inout pcmRepo : PCM_REP);
+
+property debug : Boolean = false;
+
+property metricRepo : MetricDescriptionRepository = metric.rootObjects()![MetricDescriptionRepository];
+property monitorRepo : MonitorRepository = pcmMon.rootObjects()![MonitorRepository];
+property measuringPointRepo : MeasuringPointRepository = meas.rootObjects()![MeasuringPointRepository];
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+property repository : Repository = pcmRepo.rootObjects()![Repository];
+
+// String constants of the Clientside Loadbalancing Profile					   			 
+property clientsideLoadbalancingProfile : String = "ClientsideLoadbalancingProfile";
+property clientsideLoadbalancedInterfaceStereotype : String = "ClientsideLoadbalancedInterface";
+property loadbalancerAssemblyContextStereotype : String = "ClientsideLoadbalancer";
+property loadbalancerComponentStereotype : String = "ClientsideLoadbalancerComponent";
+// String constants of the Service Discovery Profile
+property serviceDiscoveryProfile : String = "ServiceDiscoveryProfile";
+// String constants of Tagged Values
+property updateServerListTimeIntervalInSecTaggedValue : String = "updateTimeIntervalInSec";
+property loadbalancingStrategyTaggedValue : String = "loadbalancingStrategy";
+
+main() {
+	log('AT Completion "ClientsideLoadbalancing" started');
+	
+	assert fatal(isProfileApplied(repository.oclAsType(EObject), clientsideLoadbalancingProfile))
+		with log ("The repository has no Profile applied!");
+		
+	assert fatal(isProfileApplied(system.oclAsType(EObject), clientsideLoadbalancingProfile))
+		with log ("The system has no Profile applied!");
+	
+	// Select the client-side load-balanced	interfaces
+	var loadbalancedInterfaces : Set(OperationInterface) := repository.interfaces__Repository->selectByType(OperationInterface)
+		->select(interface | hasAppliedStereotype(interface, clientsideLoadbalancedInterfaceStereotype));
+	
+	assert fatal(loadbalancedInterfaces->notEmpty())
+		with log ("There is no Clientside Loadbalanced Interface Stereotype Application!");
+		
+	loadbalancedInterfaces->forEach(i) {
+		var strategy := getEEnumLiteralTaggedValue(i, loadbalancingStrategyTaggedValue, clientsideLoadbalancedInterfaceStereotype);
+		if (strategy.oclAsType(LoadbalancingStrategyEnum) = LoadbalancingStrategyEnum::AvailabilityFiltering) {
+			assert fatal(isProfileApplied(system.oclAsType(EObject), serviceDiscoveryProfile))
+				with log ("The Service Discovery AT has to be applied when using AvaibilityFiltering!");
+			break;
+		};
+	};
+
+	var loadbalancedConnectors : Set(AssemblyConnector) := getConnectorsForInterfaces(loadbalancedInterfaces);
+	if debug then log("Number of loadbalanced Interfaces: " + loadbalancedInterfaces->size().toString()) endif;
+	if debug then log("Number of loadbalanced Connectors: " + loadbalancedConnectors->size().toString()) endif;
+	loadbalancedConnectors->map createLoadbalancerForAssemblyConnector();
+	
+	// create monitor needed to measure time interval between adaptions
+	system->createSimulationTimeMeasurement();
+	
+	log('AT Completion "ClientsideLoadbalancing" finished');	
+}
+
+query getConnectorsForInterfaces(loadbalancedInterfaces : Set(OperationInterface)) : Set(AssemblyConnector) {
+	return system.connectors__ComposedStructure->selectByType(AssemblyConnector)
+		->select(ac | ac.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole.id = 
+			ac.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole.id)
+		->select(ac | loadbalancedInterfaces.id->includes(ac.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole.id));
+}
+
+mapping inout AssemblyConnector::createLoadbalancerForAssemblyConnector() : AssemblyContext
+		when{self.providingAssemblyContext_AssemblyConnector.resolve(BasicComponent)->isEmpty() 
+			or self.providingAssemblyContext_AssemblyConnector.resolve(BasicComponent)->size() < 
+			self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->size()} {
+		
+	if debug then log("Started transformation for connector: " + self.entityName) endif;
+	// loadbalancer component, assembly context and new connectors
+	entityName := "Loadbalancer_" + self.requiringAssemblyContext_AssemblyConnector.entityName;
+	parentStructure__AssemblyContext := system;
+	encapsulatedComponent__AssemblyContext := new BasicComponent(self, result);
+
+	// allocation
+	var requiringAssemblyContext := self.requiringAssemblyContext_AssemblyConnector;
+	var requiringResourceContainer : ResourceContainer := allocation.allocationContexts_Allocation
+		->selectOne(ac | ac.assemblyContext_AllocationContext.id = requiringAssemblyContext.id).resourceContainer_AllocationContext;
+	result->map createAllocationContext(requiringResourceContainer);
+	
+	// old assembly connector: requiring assembly context -> loadbalancer
+	self.providingAssemblyContext_AssemblyConnector := result;
+	self.providedRole_AssemblyConnector := result.encapsulatedComponent__AssemblyContext
+		.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
+		
+	// stereotype
+	if(not(hasAppliedStereotype(result, loadbalancerAssemblyContextStereotype))) {
+		copyStereotype(result, getInterfaceForConnector(self));
+	};
+}
+
+query getInterfaceForConnector(connector : AssemblyConnector) : Interface {
+	var interface : Interface := connector.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole;
+	if(connector.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole.id = interface.id) {
+		return interface;
+	};
+	return null;
+}
+
+helper copyStereotype(lb : AssemblyContext, interface : Interface) {
+	applyStereotype(lb, loadbalancerAssemblyContextStereotype);
+	
+	assert fatal(hasAppliedStereotype(interface, clientsideLoadbalancedInterfaceStereotype))
+		with log("Interface is not client-side load balanced!");
+		
+	setEEnumLiteralTaggedValue(lb, 
+		getEEnumLiteralTaggedValue(interface, loadbalancingStrategyTaggedValue, clientsideLoadbalancedInterfaceStereotype),
+		loadbalancerAssemblyContextStereotype, loadbalancingStrategyTaggedValue);
+	setDoubleTaggedValue(lb,
+		getDoubleTaggedValue(interface, updateServerListTimeIntervalInSecTaggedValue, clientsideLoadbalancedInterfaceStereotype),
+		loadbalancerAssemblyContextStereotype, updateServerListTimeIntervalInSecTaggedValue);
+}
+
+constructor BasicComponent::BasicComponent(connector : AssemblyConnector, loadbalancer : AssemblyContext) {
+	entityName := "LoadBalancer_" + connector.providedRole_AssemblyConnector.entityName;
+	providedRoles_InterfaceProvidingEntity += new OperationProvidedRole(connector.providedRole_AssemblyConnector);
+	
+	var original : OperationRequiredRole :=  new OperationRequiredRole(connector.providedRole_AssemblyConnector,
+		connector.providingAssemblyContext_AssemblyConnector.entityName);
+	requiredRoles_InterfaceRequiringEntity += original;
+	connector->map connectLoadbalancerRequiredRole(original, loadbalancer, connector.providingAssemblyContext_AssemblyConnector);
+	
+	getDuplicateAssemblyContexts(connector.providingAssemblyContext_AssemblyConnector, system)->forEach(dac) {
+		var duplicate : OperationRequiredRole :=  new OperationRequiredRole(connector.providedRole_AssemblyConnector, dac.entityName);
+		requiredRoles_InterfaceRequiringEntity += duplicate;
+		connector->map connectLoadbalancerRequiredRole(duplicate, loadbalancer, dac);
+	};
+	
+	repository__RepositoryComponent := connector.requiringAssemblyContext_AssemblyConnector
+		.encapsulatedComponent__AssemblyContext.repository__RepositoryComponent;
+	componentParameterUsage_ImplementationComponentType := connector.requiringAssemblyContext_AssemblyConnector
+		.encapsulatedComponent__AssemblyContext[ImplementationComponentType].componentParameterUsage_ImplementationComponentType;
+	
+	connector.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole.signatures__OperationInterface->forEach(operationSignature) {
+  		serviceEffectSpecifications__BasicComponent += new ResourceDemandingSEFF(operationSignature,
+  			requiredRoles_InterfaceRequiringEntity[OperationRequiredRole], connector, loadbalancer);
+	};
+	
+	// stereotype
+	if(not(hasAppliedStereotype(result, loadbalancerComponentStereotype))) {
+		applyStereotype(result, loadbalancerComponentStereotype);
+	};
+	if debug then log("Created componenent: " + entityName) endif;
+};
+
+mapping AssemblyConnector::connectLoadbalancerRequiredRole(requiredRole : OperationRequiredRole, loadbalancer : AssemblyContext,
+	provider : AssemblyContext) : AssemblyConnector {
+	entityName := loadbalancer.entityName + "-" + provider.entityName;
+	parentStructure__Connector := self.parentStructure__Connector;
+	requiredRole_AssemblyConnector := requiredRole;
+	providedRole_AssemblyConnector := self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext
+		.providedRoles_InterfaceProvidingEntity![OperationProvidedRole];
+	providingAssemblyContext_AssemblyConnector := provider;
+	requiringAssemblyContext_AssemblyConnector := loadbalancer;
+	if debug then log("Created assembly connector: " + entityName) endif;
+}
+
+constructor ResourceDemandingSEFF::ResourceDemandingSEFF (operationSignature : OperationSignature,
+	requiredRoles : Set(OperationRequiredRole), connector : AssemblyConnector, loadbalancer : AssemblyContext) {
+	
+	var specs : Set(MeasurementSpecification);
+	describedService__SEFF := operationSignature;
+	var startAction : StartAction := object StartAction{};
+	var branchAction : BranchAction := object BranchAction{
+		entityName := "LoadBalancer Branch";
+		predecessor_AbstractAction := startAction;
+		
+		requiredRoles->forEach(requiredRole){
+		    var probability : Real := 1.0 / requiredRoles->size();
+			branches_Branch += object ProbabilisticBranchTransition{
+			    entityName := "Branch for "+requiredRole.entityName;
+			    branchProbability := probability;
+			    branchBehaviour_BranchTransition := object ResourceDemandingBehaviour{
+			    	var innerStartAction : StartAction := object StartAction{};
+			    	var externalCallAction : ExternalCallAction := object ExternalCallAction{
+			    		predecessor_AbstractAction := innerStartAction;
+			    		entityName := "Call_";
+			    		role_ExternalService := requiredRole;
+			    		calledService_ExternalService := operationSignature;
+			    	};
+			    	specs += externalCallAction->createResponseTimeMeasurement(connector);
+			    	var innerStopAction : StopAction := object StopAction{
+						predecessor_AbstractAction := externalCallAction;
+					};
+					
+					steps_Behaviour += innerStartAction;
+					steps_Behaviour += externalCallAction;
+					steps_Behaviour += innerStopAction;
+			    };
+			};
+		};
+	};
+	var stopAction : StopAction := object StopAction{
+		predecessor_AbstractAction := branchAction;
+	};
+	steps_Behaviour += startAction;
+	steps_Behaviour += branchAction;
+	steps_Behaviour += stopAction;
+	
+	result->createAdaptionMeasurement(specs);
+	if debug then log("Created seff: " + describedService__SEFF.id) endif;
+}
+
+mapping ExternalCallAction::createResponseTimeMeasurement(connector : AssemblyConnector) : MeasurementSpecification{
+	var updateServerListTimeIntervalInSec := getDoubleTaggedValue(
+		connector.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole,
+		updateServerListTimeIntervalInSecTaggedValue,
+		clientsideLoadbalancedInterfaceStereotype);
+
+	triggersSelfAdaptations := true;
+	metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Response Time");
+	processingType := object TimeDrivenAggregation {
+		windowLength := updateServerListTimeIntervalInSec;
+		windowIncrement := updateServerListTimeIntervalInSec;
+		statisticalCharacterization := object ArithmeticMean{};
+	};
+	self->createResponseTimeMeasurement(result, measuringPointRepo, monitorRepo);
+}
+
+mapping Entity::createSimulationTimeMeasurement() {
+	var spec := object MeasurementSpecification {
+		triggersSelfAdaptations := true;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Simulation Time");
+		processingType := object FeedThrough{};
+	};
+	self->createResourceURIMeasurement(spec, measuringPointRepo, monitorRepo, "Simulation Time");
+}
+
+mapping  ResourceDemandingSEFF::createAdaptionMeasurement(specs : Set(MeasurementSpecification)) {
+	var clonedSpecs := specs.clone();
+	clonedSpecs->forEach(s) {
+		s.metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Group Aggregation Time");
+	};
+	clonedSpecs += object MeasurementSpecification {
+		triggersSelfAdaptations := true;
+		metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Loadbalancer Adaption");
+		processingType := object FeedThrough{};
+	};
+	
+	var resourceURIMeasuringPoint : ResourceURIMeasuringPoint  := object ResourceURIMeasuringPoint @ meas {		
+		measuringPoint := "Loadbalancer_" + self.id;
+		resourceURI := self.id;
+		measuringPointRepository := measuringPointRepo;
+	};
+	monitorRepo.monitors += object Monitor @ pcmMon { 
+		entityName := "Loadbalancer_" + self.id + "_Adaption";
+		activated := true;
+		measuringPoint := resourceURIMeasuringPoint;
+		measurementSpecifications += object MeasurementSpecification {
+			triggersSelfAdaptations := true;
+			metricDescription := metricRepo.metricDescriptions->selectOne(md | md.name = "Loadbalancer Adaption");
+			processingType := object FeedThrough{};
+		};
+		measurementSpecifications += clonedSpecs;
+	};
+	
+	if debug then log("Created measuring point and monitor: " + resourceURIMeasuringPoint.stringRepresentation + ", " 
+		+ "Loadbalancer_" + self.id + "_Adaption") endif;
+}
+
+constructor OperationProvidedRole::OperationProvidedRole(pr : OperationProvidedRole){
+	entityName := pr.providedInterface__OperationProvidedRole.entityName + "_LoadBalancer";
+	providedInterface__OperationProvidedRole := pr.providedInterface__OperationProvidedRole;
+	if debug then log("Created OperationProvidedRole: " + entityName) endif;	
+}
+
+constructor OperationRequiredRole::OperationRequiredRole(rr : OperationProvidedRole, name : String){
+	entityName := rr.providedInterface__OperationProvidedRole.entityName + "_LoadBalancer_" + name;
+	requiredInterface__OperationRequiredRole := rr.providedInterface__OperationProvidedRole;
+	if debug then log("Created OperationRequiredRole: " + entityName) endif;
+}
+
+mapping AssemblyContext::createAllocationContext(rc : ResourceContainer) : AllocationContext {
+	entityName := "Allocation_" + self.entityName;
+	assemblyContext_AllocationContext := self;
+	resourceContainer_AllocationContext := rc;
+	allocation_AllocationContext := allocation;
+	if debug then log("Created AllocationContext: " + entityName) endif;	
+}

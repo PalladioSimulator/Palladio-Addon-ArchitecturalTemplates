@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour/src"
+    editDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour.edit/src"
+    editorDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour.editor/src"
+    modelPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour"
+    templateDirectory="" modelName="Circuitbreakerbehaviour" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour.tests/src"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour.edit"
+    editorPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour.editor"
+    testsPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerbehaviour.tests"
+    usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    importOrganizing="true">
+  <foreignModel>circuitbreakerbehaviour.ecore</foreignModel>
+  <genPackages prefix="Circuitbreakerbehaviour" disposableProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="circuitbreakerbehaviour.ecore#/">
+    <genClasses ecoreClass="circuitbreakerbehaviour.ecore#//CircuitBreakerRDSEFF">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circuitbreakerbehaviour.ecore#//CircuitBreakerRDSEFF/timeout"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

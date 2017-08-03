@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.palladiosimulator.architecturaltemplates.microservices.usagemodelextension/src"
+    editDirectory="/org.palladiosimulator.architecturaltemplates.microservices.usagemodelextension.edit/src"
+    editorDirectory="/org.palladiosimulator.architecturaltemplates.microservices.usagemodelextension.editor/src"
+    modelPluginID="org.palladiosimulator.architecturaltemplates.microservices.usagemodelextension"
+    modelName="Usagemodelextension" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    providerRootExtendsClass="" editPluginID="org.palladiosimulator.architecturaltemplates.microservices.usagemodelextension.edit"
+    editorPluginID="org.palladiosimulator.architecturaltemplates.microservices.usagemodelextension.editor"
+    usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    importOrganizing="true">
+  <foreignModel>usagemodelextension.ecore</foreignModel>
+  <genPackages prefix="Usagemodelextension" disposableProviderFactory="true" childCreationExtenders="true"
+      ecorePackage="usagemodelextension.ecore#/">
+    <genClasses ecoreClass="usagemodelextension.ecore#//APIGatewayEntryLevelSystemCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute usagemodelextension.ecore#//APIGatewayEntryLevelSystemCall/priority"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference usagemodelextension.ecore#//APIGatewayEntryLevelSystemCall/operationSignature__APIGatewayEntryLevelSystemCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usagemodelextension.ecore#//APIGatewayEntryLevelSystemCall/outputParameterUsages_APIGatewayEntryLevelSystemCall"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference usagemodelextension.ecore#//APIGatewayEntryLevelSystemCall/inputParameterUsages_APIGatewayEntryLevelSystemCall"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

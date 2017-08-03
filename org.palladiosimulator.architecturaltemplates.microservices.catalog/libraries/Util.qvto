@@ -1,0 +1,130 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.MicroservicesCatalogLibrary;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMEntity uses pcm::core::entity('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCMSEFF_PERFORMANCE uses pcm::seff::seff_performance('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1');
+modeltype PCM_MON uses 'http://palladiosimulator.org/MonitorRepository/1.0';
+modeltype MEASPOINT uses 'http://palladiosimulator.org/EDP2/MeasuringPoint/1.0';
+modeltype METRICSPEC uses 'http://palladiosimulator.org/MetricSpec/1.0';
+modeltype PCM_MEASPOINT uses 'http://palladiosimulator.org/PCM/MeasuringPoint/1.0';
+
+
+library Util;
+
+// String constants of the Replicated Profile	
+property replicatedProfile : String = "ReplicatedProfile";
+property originalResourceContainerStereotype : String = "OriginalResourceContainer";
+property duplicateResourceContainerStereotype : String = "DuplicateResourceContainer";
+property originalAssemblyContextStereotype : String = "OriginalAssemblyContext";
+property duplicateAssemblyContextStereotype : String = "DuplicateAssemblyContext";
+
+query getDuplicateAssemblyContexts(originalAssemblyContext: AssemblyContext, system : System) : OrderedSet(AssemblyContext) {
+	var duplicateAssemblyContexts : OrderedSet(AssemblyContext) := system.assemblyContexts__ComposedStructure
+		->select(ac | hasAppliedStereotype(ac, duplicateAssemblyContextStereotype))->asOrderedSet();
+	duplicateAssemblyContexts := duplicateAssemblyContexts->select(ac | originalAssemblyContext = getOriginalAssemblyContext(ac));
+		
+	return duplicateAssemblyContexts;
+}
+
+query getDuplicateResourceContainers(originalResourceContainer: ResourceContainer, resourceEnvironment : ResourceEnvironment) : OrderedSet(ResourceContainer) {
+	var duplicateResourceContainers : OrderedSet(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment
+		->select(rc | hasAppliedStereotype(rc, duplicateResourceContainerStereotype))->asOrderedSet();
+	duplicateResourceContainers :=	duplicateResourceContainers->select(rc | originalResourceContainer = getOriginalResourceContainer(rc));
+		
+	return duplicateResourceContainers;
+}
+
+query getCalleeAssemblyContext(externalCallAction : ExternalCallAction, loadbalancerAssemblyContext : AssemblyContext, system : System) : AssemblyContext {
+	var connectors : Set(AssemblyConnector) := system.connectors__ComposedStructure
+		->selectByType(AssemblyConnector)->select(c | c.requiringAssemblyContext_AssemblyConnector.id = loadbalancerAssemblyContext.id);
+	assert fatal(connectors->notEmpty()) with log("No connectors found!");
+	var connector := connectors->selectOne(c | c.requiredRole_AssemblyConnector.id = externalCallAction.role_ExternalService.id);
+	assert fatal(connector != null) with log("No connector found! Role ID = " + externalCallAction.role_ExternalService.id + "Loadbalancer id = " + loadbalancerAssemblyContext.id);
+	return connector.providingAssemblyContext_AssemblyConnector;
+}
+
+query getCalleeAssemblyContexts(loadbalancerAssemblyContext : AssemblyContext, system : System) : Set(AssemblyContext) {
+	var connectors : Set(AssemblyConnector) := system.connectors__ComposedStructure->selectByType(AssemblyConnector)->select(c | c.requiringAssemblyContext_AssemblyConnector.id = loadbalancerAssemblyContext.id);
+	return connectors.providingAssemblyContext_AssemblyConnector->asSet();
+}
+
+query findResourceContainer(allocation : Allocation, assemblyContext : AssemblyContext) : ResourceContainer {
+	return  allocation.allocationContexts_Allocation
+		->selectOne(ac : AllocationContext | ac.assemblyContext_AllocationContext.id = assemblyContext.id).resourceContainer_AllocationContext;
+}
+
+query findLinkingResources(resourceContainer : ResourceContainer) : Set(LinkingResource) {
+	return resourceContainer.resourceEnvironment_ResourceContainer.linkingResources__ResourceEnvironment 
+		->select( l : LinkingResource |	l.connectedResourceContainers_LinkingResource->includes(resourceContainer));
+}
+
+query getSEFFsForInterfaces(repository : Repository, interfaces : Set(OperationInterface)) : Set(ResourceDemandingSEFF) {
+	return repository.components__Repository->selectByType(BasicComponent).serviceEffectSpecifications__BasicComponent->selectByType(ResourceDemandingSEFF)
+		->select(seff | interfaces.signatures__OperationInterface.id->includes(seff.describedService__SEFF.id))->asSet();
+}
+
+query getInterfaceForSEFF(repository : Repository, seff : ResourceDemandingSEFF) : OperationInterface {
+	return repository.interfaces__Repository->selectByType(OperationInterface)
+		->selectOne(i | i.signatures__OperationInterface.id->includes(seff.describedService__SEFF.id));
+}
+
+query getComponentsForSEFFs(repository : Repository, seffs : Set(ResourceDemandingSEFF)) : Set(BasicComponent) {
+	return repository.components__Repository->selectByType(BasicComponent)
+		->select(bc | bc.serviceEffectSpecifications__BasicComponent->includes(seffs))->asSet();
+}
+
+
+mapping ExternalCallAction::createResponseTimeMeasurement(spec : MeasurementSpecification, inout measuringPointRepo : MeasuringPointRepository,
+	inout monitorRepo : MonitorRepository) {
+	// use existing measuring points before creating new ones
+	var externalCallActionMeasuringPoint : ExternalCallActionMeasuringPoint := null;//measuringPointRepo.measuringPoints
+//		->selectByType(ExternalCallActionMeasuringPoint)->selectOne(mp | mp.externalCall = self);
+	if(null = externalCallActionMeasuringPoint) {
+	 	externalCallActionMeasuringPoint := object ExternalCallActionMeasuringPoint {
+			externalCall := self;
+			measuringPointRepository := measuringPointRepo;
+		};
+	};
+		
+	var monitor : Monitor := monitorRepo.monitors->selectOne(m | m.measuringPoint = externalCallActionMeasuringPoint);
+	if(null = monitor) {
+		monitorRepo.monitors += object Monitor { 
+			entityName := self.entityName + "_" + self.id;
+			activated := true;
+			measuringPoint := externalCallActionMeasuringPoint;
+			measurementSpecifications += spec;
+		};
+	};
+}
+
+mapping Entity::createResourceURIMeasurement(spec : MeasurementSpecification, inout measuringPointRepo : MeasuringPointRepository,
+	inout monitorRepo : MonitorRepository, name : String) {
+	// use existing measuring points before creating new ones
+	var resourceURIMeasuringPoint : ResourceURIMeasuringPoint := null;// measuringPointRepo.measuringPoints
+//		->selectByType(ResourceURIMeasuringPoint)->selectOne(mp | mp.resourceURI = self.id);
+	if(null = resourceURIMeasuringPoint) {
+		resourceURIMeasuringPoint := object ResourceURIMeasuringPoint {		
+			measuringPoint := self.entityName + "_" + name;
+			resourceURI := self.id;
+			measuringPointRepository := measuringPointRepo;
+		};
+	};
+	var monitor : Monitor := monitorRepo.monitors->selectOne(m | m.measuringPoint = resourceURIMeasuringPoint);
+	if(null = monitor) {
+		monitorRepo.monitors += object Monitor { 
+			entityName := self.entityName + "_" + name;
+			activated := true;
+			measuringPoint := resourceURIMeasuringPoint;
+			measurementSpecifications += spec;
+		};
+	};
+}

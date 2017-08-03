@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_1lp7IEniEee9T_RC_2hzWA" selectedViews="_19408EniEee9T_RC_2hzWA" version="11.1.0.201608251200">
+    <semanticResources>circuitbreaker.ecore</semanticResources>
+    <semanticResources>platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore</semanticResources>
+    <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.ecore</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.ecore</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.units/model/Units.ecore</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore</semanticResources>
+    <semanticResources>circuitbreaker.genmodel</semanticResources>
+    <semanticResources>platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.genmodel</semanticResources>
+    <semanticResources>platform:/resource/org.palladiosimulator.pcm/model/pcm.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel</semanticResources>
+    <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore</semanticResources>
+    <semanticResources>../src/circuitbreaker/impl/circuitbreaker.ecore</semanticResources>
+    <semanticResources>http://palladiosimulator.org/PalladioComponentModel/5.1</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_19408EniEee9T_RC_2hzWA">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_5mnPIEniEee9T_RC_2hzWA" name="circuitbreaker class diagram" representation="_5mn2MEniEee9T_RC_2hzWA">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="circuitbreaker.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram xmi:id="_5mn2MEniEee9T_RC_2hzWA" name="circuitbreaker class diagram">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_5mn2MUniEee9T_RC_2hzWA" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_5mn2MkniEee9T_RC_2hzWA">
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_51jDAEniEee9T_RC_2hzWA" labelExpression="service:render" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:BundledImageDescription" xmi:id="_51nUcEniEee9T_RC_2hzWA" labelExpression="service:renderAsNode" labelAlignment="LEFT" tooltipExpression="service:renderTooltip" sizeComputationExpression="1">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <labelFormat>bold</labelFormat>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_51y6oEniEee9T_RC_2hzWA" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan">
+          <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_51y6oUniEee9T_RC_2hzWA" showIcon="false" labelExpression="service:renderEOpposite">
+            <labelFormat>bold</labelFormat>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </beginLabelStyleDescription>
+          <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_51y6okniEee9T_RC_2hzWA" showIcon="false" labelExpression="service:render">
+            <labelFormat>bold</labelFormat>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </endLabelStyleDescription>
+        </computedStyleDescriptions>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_5modQEniEee9T_RC_2hzWA" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_5modQUniEee9T_RC_2hzWA" type="Sirius" element="_5mn2MEniEee9T_RC_2hzWA" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_514aMEniEee9T_RC_2hzWA" type="2003" element="_51bHMEniEee9T_RC_2hzWA">
+          <children xmi:type="notation:Node" xmi:id="_515BQEniEee9T_RC_2hzWA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_515BQUniEee9T_RC_2hzWA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_517dgEniEee9T_RC_2hzWA" type="3010" element="_51h04EniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_517dgUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_517dgkniEee9T_RC_2hzWA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_518EkEniEee9T_RC_2hzWA" type="3010" element="_51jDAkniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_518EkUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_518EkkniEee9T_RC_2hzWA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_518Ek0niEee9T_RC_2hzWA" type="3010" element="_51k4MEniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_518ElEniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_518ElUniEee9T_RC_2hzWA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_518roEniEee9T_RC_2hzWA" type="3010" element="_51mtYEniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_518roUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_518rokniEee9T_RC_2hzWA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_515BQkniEee9T_RC_2hzWA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_515BQ0niEee9T_RC_2hzWA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_514aMUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_514aMkniEee9T_RC_2hzWA" x="165" y="190"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_515oUEniEee9T_RC_2hzWA" type="2003" element="_51c8YEniEee9T_RC_2hzWA">
+          <children xmi:type="notation:Node" xmi:id="_516PYEniEee9T_RC_2hzWA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_516PYUniEee9T_RC_2hzWA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_519SsEniEee9T_RC_2hzWA" type="3010" element="_51oikEniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_519SsUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_519SskniEee9T_RC_2hzWA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_519Ss0niEee9T_RC_2hzWA" type="3010" element="_51pJoEniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_519StEniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_519StUniEee9T_RC_2hzWA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_5195wEniEee9T_RC_2hzWA" type="3010" element="_51pwsEniEee9T_RC_2hzWA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_5195wUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_5195wkniEee9T_RC_2hzWA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_516PYkniEee9T_RC_2hzWA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_516PY0niEee9T_RC_2hzWA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_515oUUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_515oUkniEee9T_RC_2hzWA" x="10" y="190" width="138"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_5162cEniEee9T_RC_2hzWA" type="2003" element="_51djcEniEee9T_RC_2hzWA">
+          <children xmi:type="notation:Node" xmi:id="_5162c0niEee9T_RC_2hzWA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_5162dEniEee9T_RC_2hzWA" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_5162dUniEee9T_RC_2hzWA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_5162dkniEee9T_RC_2hzWA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_5162cUniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5162ckniEee9T_RC_2hzWA" x="240" y="45" width="168" height="55"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_5modQkniEee9T_RC_2hzWA"/>
+        <edges xmi:type="notation:Edge" xmi:id="_52CLMEniEee9T_RC_2hzWA" type="4001" element="_51xFcEniEee9T_RC_2hzWA" source="_514aMEniEee9T_RC_2hzWA" target="_5162cEniEee9T_RC_2hzWA">
+          <children xmi:type="notation:Node" xmi:id="_52EAYEniEee9T_RC_2hzWA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_52EAYUniEee9T_RC_2hzWA" x="25" y="-6"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_52F1kEniEee9T_RC_2hzWA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_52F1kUniEee9T_RC_2hzWA" x="5" y="71"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_52HDsEniEee9T_RC_2hzWA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_52HDsUniEee9T_RC_2hzWA" x="-6" y="86"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_52CLMUniEee9T_RC_2hzWA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_52CLMkniEee9T_RC_2hzWA" fontName="Segoe UI" fontHeight="8" bold="true"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_52CLM0niEee9T_RC_2hzWA" points="[10, -49, -8, 141]$[10, -141, -8, 49]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_52TQ8EniEee9T_RC_2hzWA" id="(0.5,0.5)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_52TQ8UniEee9T_RC_2hzWA" id="(0.5,0.07547169811320754)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_51bHMEniEee9T_RC_2hzWA" name="CircuitBreaker" tooltipText="" outgoingEdges="_51xFcEniEee9T_RC_2hzWA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="circuitbreaker.ecore#//CircuitBreaker"/>
+      <semanticElements xmi:type="ecore:EClass" href="circuitbreaker.ecore#//CircuitBreaker"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_51cVUEniEee9T_RC_2hzWA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51h04EniEee9T_RC_2hzWA" name="circuitBreakerState : CircuitBreakerState = Closed" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="circuitbreaker.ecore#//CircuitBreaker/circuitBreakerState"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="circuitbreaker.ecore#//CircuitBreaker/circuitBreakerState"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51jDAUniEee9T_RC_2hzWA" labelAlignment="LEFT" description="_51jDAEniEee9T_RC_2hzWA">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51jDAkniEee9T_RC_2hzWA" name="numberOfFails : EInt = 0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="circuitbreaker.ecore#//CircuitBreaker/numberOfFails"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="circuitbreaker.ecore#//CircuitBreaker/numberOfFails"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51kRIEniEee9T_RC_2hzWA" labelAlignment="LEFT" description="_51jDAEniEee9T_RC_2hzWA">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51k4MEniEee9T_RC_2hzWA" name="openTimeStamp : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="circuitbreaker.ecore#//CircuitBreaker/openTimeStamp"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="circuitbreaker.ecore#//CircuitBreaker/openTimeStamp"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51lfQEniEee9T_RC_2hzWA" labelAlignment="LEFT" description="_51jDAEniEee9T_RC_2hzWA">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51mtYEniEee9T_RC_2hzWA" name=" signature : Signature" tooltipText="">
+        <target xmi:type="ecore:EReference" href="circuitbreaker.ecore#//CircuitBreaker/signature"/>
+        <semanticElements xmi:type="ecore:EReference" href="circuitbreaker.ecore#//CircuitBreaker/signature"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51nUcUniEee9T_RC_2hzWA" labelAlignment="LEFT" description="_51nUcEniEee9T_RC_2hzWA" color="114,159,207">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_51c8YEniEee9T_RC_2hzWA" name="CircuitBreakerState" tooltipText="" width="12" height="10">
+      <target xmi:type="ecore:EEnum" href="circuitbreaker.ecore#//CircuitBreakerState"/>
+      <semanticElements xmi:type="ecore:EEnum" href="circuitbreaker.ecore#//CircuitBreakerState"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_51c8YUniEee9T_RC_2hzWA" borderSize="1" borderSizeComputationExpression="1" borderColor="125,125,125" backgroundStyle="Liquid" foregroundColor="221,236,202">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51oikEniEee9T_RC_2hzWA" name="Closed" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="circuitbreaker.ecore#//CircuitBreakerState/Closed"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="circuitbreaker.ecore#//CircuitBreakerState/Closed"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51oikUniEee9T_RC_2hzWA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51pJoEniEee9T_RC_2hzWA" name="HalfOpen" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="circuitbreaker.ecore#//CircuitBreakerState/HalfOpen"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="circuitbreaker.ecore#//CircuitBreakerState/HalfOpen"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51pJoUniEee9T_RC_2hzWA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_51pwsEniEee9T_RC_2hzWA" name="Open" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="circuitbreaker.ecore#//CircuitBreakerState/Open"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="circuitbreaker.ecore#//CircuitBreakerState/Open"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_51pwsUniEee9T_RC_2hzWA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_51djcEniEee9T_RC_2hzWA" name="CircuitBreakerModel" tooltipText="" incomingEdges="_51xFcEniEee9T_RC_2hzWA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="circuitbreaker.ecore#//CircuitBreakerModel"/>
+      <semanticElements xmi:type="ecore:EClass" href="circuitbreaker.ecore#//CircuitBreakerModel"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_51eKgEniEee9T_RC_2hzWA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_51xFcEniEee9T_RC_2hzWA" sourceNode="_51bHMEniEee9T_RC_2hzWA" targetNode="_51djcEniEee9T_RC_2hzWA" beginLabel="[0..*] circuitBreakers" endLabel="[1..1] circuitBreakerModel">
+      <target xmi:type="ecore:EReference" href="circuitbreaker.ecore#//CircuitBreaker/circuitBreakerModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="circuitbreaker.ecore#//CircuitBreaker/circuitBreakerModel"/>
+      <semanticElements xmi:type="ecore:EReference" href="circuitbreaker.ecore#//CircuitBreakerModel/circuitBreakers"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_513MEEniEee9T_RC_2hzWA" description="_51y6oEniEee9T_RC_2hzWA" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_513MEUniEee9T_RC_2hzWA" showIcon="false">
+          <labelFormat>bold</labelFormat>
+        </beginLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_513MEkniEee9T_RC_2hzWA" showIcon="false">
+          <labelFormat>bold</labelFormat>
+        </endLabelStyle>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_5mn2M0niEee9T_RC_2hzWA"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+    <target xmi:type="ecore:EPackage" href="circuitbreaker.ecore#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

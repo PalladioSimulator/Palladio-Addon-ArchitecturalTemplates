@@ -1,0 +1,52 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.MicroservicesCatalogLibrary;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.1';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype PRM uses 'http://simulizar.palladiosimulator.org/RuntimeMeasurement/1.0';
+
+transformation ServiceDiscoveryReconfiguration(inout pcmAllocation : PCM_ALLOC, in prm : PRM);
+
+property debug : Boolean = false;
+
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+property runtimeMeasurements : Set(RuntimeMeasurement) = prm.rootObjects()[RuntimeMeasurement];
+
+// String constants of the Service Discovery Profile					   			 
+property serviceDiscoveryProfile : String = "ServiceDiscoveryProfile";
+property serviceDiscoveryAssemblyContextStereotype : String = "ServiceDiscovery";
+property discoverableAssemblyContextStereotype : String = "DiscoverableAssemblyContext";
+property serviceDiscoveryResourceContainerStereotype : String = "ServiceDiscoveryResourceContainer";
+// String constants of Tagged Values
+property updateTimeIntervalInSecTaggedValue : String = "updateTimeIntervalInSec";
+
+main() {
+	var discoverableAssemblyContexts : Set(AssemblyContext) := system.assemblyContexts__ComposedStructure
+		->select(ac : AssemblyContext| hasAppliedStereotype(ac, discoverableAssemblyContextStereotype));
+	var discoveryResourceContainer : ResourceContainer := resourceEnvironment.resourceContainer_ResourceEnvironment
+		->selectOne(rc : AssemblyContext| hasAppliedStereotype(rc, serviceDiscoveryResourceContainerStereotype));
+		
+	discoverableAssemblyContexts->forEach(discoverableAssemblyContext) {
+		var discoverableResourceContainer : ResourceContainer := findResourceContainer(allocation, discoverableAssemblyContext);
+		var linkingResources := findLinkingResources(discoverableResourceContainer);
+		linkingResources->forEach(lr) {
+			lr.connectedResourceContainers_LinkingResource += discoveryResourceContainer;
+		};
+	};
+}
+
+query findResourceContainer(allocation : Allocation, assemblyContext : AssemblyContext) : ResourceContainer {
+	return  allocation.allocationContexts_Allocation
+		->selectOne(ac : AllocationContext | ac.assemblyContext_AllocationContext.id = assemblyContext.id).resourceContainer_AllocationContext;
+}
+
+query findLinkingResources(resourceContainer : ResourceContainer) : Set(LinkingResource) {
+	return resourceContainer.resourceEnvironment_ResourceContainer.linkingResources__ResourceEnvironment 
+		->select( l : LinkingResource |	l.connectedResourceContainers_LinkingResource->includes(resourceContainer));
+}

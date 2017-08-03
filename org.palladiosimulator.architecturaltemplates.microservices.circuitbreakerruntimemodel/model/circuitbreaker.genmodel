@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerruntime/src"
+    editDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerruntime.edit/src"
+    editorDirectory="/org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerruntime.editor/src"
+    modelPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerruntime"
+    modelName="circuitbreaker" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    editPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerruntime.edit"
+    editorPluginID="org.palladiosimulator.architecturaltemplates.microservices.circuitbreakerruntime.editor"
+    usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../org.palladiosimulator.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    importOrganizing="true">
+  <foreignModel>circuitbreaker.ecore</foreignModel>
+  <genPackages prefix="CircuitBreaker" resource="XMI" disposableProviderFactory="true"
+      loadInitialization="true" contentTypeIdentifier="" ecorePackage="circuitbreaker.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="circuitbreaker.ecore#//CircuitBreakerState">
+      <genEnumLiterals ecoreEnumLiteral="circuitbreaker.ecore#//CircuitBreakerState/Closed"/>
+      <genEnumLiterals ecoreEnumLiteral="circuitbreaker.ecore#//CircuitBreakerState/HalfOpen"/>
+      <genEnumLiterals ecoreEnumLiteral="circuitbreaker.ecore#//CircuitBreakerState/Open"/>
+    </genEnums>
+    <genClasses ecoreClass="circuitbreaker.ecore#//CircuitBreaker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circuitbreaker.ecore#//CircuitBreaker/circuitBreakerState"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circuitbreaker.ecore#//CircuitBreaker/numberOfFails"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute circuitbreaker.ecore#//CircuitBreaker/openTimeStamp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference circuitbreaker.ecore#//CircuitBreaker/signatures"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference circuitbreaker.ecore#//CircuitBreaker/circuitBreakerModel"/>
+    </genClasses>
+    <genClasses ecoreClass="circuitbreaker.ecore#//CircuitBreakerModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference circuitbreaker.ecore#//CircuitBreakerModel/circuitBreakers"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

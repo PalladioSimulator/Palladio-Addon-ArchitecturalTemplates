@@ -1,0 +1,140 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+import org.palladiosimulator.architecturaltemplates.microservices.catalog.black.ProfilesLibrary;
+import libraries.Util;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1';
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.1');
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype PCM_RESOURCETYPE uses pcm::resourcetype('http://palladiosimulator.org/PalladioComponentModel/5.1');
+
+transformation StaticResourceEnvironmentCompletion(inout pcmAllocation : PCM_ALLOC);
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+
+// String constants of the Static Resource Environment Profile				   			 
+property staticResourceEnvironmentProfile : String = "StaticResourceEnvironmentProfile";
+property staticReplicatedResourceContainerStereotype : String = "StaticReplicatedResourceContainer";
+// Tagged Values of the Static Resource Environment Profile
+property numberOfReplicasTaggedValue : String = "numberOfReplicas";
+property numberOfReplicas : Integer;
+// String constants of the Static Resource Environment Profile				   			 
+property dynamicResourceEnvironmentProfile : String = "DynamicResourceEnvironmentProfile";
+property dynamicReplicatedResourceContainerStereotype : String = "DynamicReplicatedResourceContainer";
+// String constants of the Allocation Strategy Profiles				   			 
+property singleServicePerResourceContainerProfile : String = "singleServicesPerResourceContainerProfile";
+property multipleServicesPerResourceContainerProfile : String = "MultipleServicesPerResourceContainerProfile";
+
+main() {
+	log('Library Completion "StaticResourceEnvironment" started'); 	
+	
+	assert fatal(isProfileApplied(resourceEnvironment.oclAsType(EObject), staticResourceEnvironmentProfile)
+		or isProfileApplied(resourceEnvironment.oclAsType(EObject), dynamicResourceEnvironmentProfile))
+		with log ("The resource environment has no Profile applied!");
+		
+	assert fatal(isProfileApplied(allocation.oclAsType(EObject), singleServicePerResourceContainerProfile)
+		or isProfileApplied(allocation.oclAsType(EObject), multipleServicesPerResourceContainerProfile))
+		with log ("The resource environment has no Profile applied!");
+		
+	// Ensure that resource environment is marked with replication profile
+	if(not isProfileApplied(resourceEnvironment.oclAsType(EObject), replicatedProfile)) {
+		applyProfile(resourceEnvironment.oclAsType(EObject), replicatedProfile);
+	};
+		
+	var originalResourceContainers : Set(ResourceContainer);
+	if (isProfileApplied(resourceEnvironment.oclAsType(EObject), staticResourceEnvironmentProfile)) {
+		originalResourceContainers := resourceEnvironment.resourceContainer_ResourceEnvironment
+			->select(ac | hasAppliedStereotype(ac, staticReplicatedResourceContainerStereotype));
+	} else {
+		originalResourceContainers := resourceEnvironment.resourceContainer_ResourceEnvironment
+			->select(ac | hasAppliedStereotype(ac, dynamicReplicatedResourceContainerStereotype));
+	};
+	originalResourceContainers->forEach(originalResourceContainer) {
+		if (isProfileApplied(resourceEnvironment.oclAsType(EObject), staticResourceEnvironmentProfile)) {
+			numberOfReplicas := getIntTaggedValue(originalResourceContainer, numberOfReplicasTaggedValue, staticReplicatedResourceContainerStereotype);
+		} else {
+			numberOfReplicas := getIntTaggedValue(originalResourceContainer, numberOfReplicasTaggedValue, dynamicReplicatedResourceContainerStereotype);
+		};
+		// Mark resource container as original
+		applyStereotype(originalResourceContainer, originalResourceContainerStereotype);
+		// duplicate (create replica) of original resource container
+		var counter : Integer := 1;
+		while(counter < numberOfReplicas) {
+	 		originalResourceContainer->map duplicateResourceContainer(counter);
+	 		counter := counter + 1;
+		};	
+	};
+	
+	log('Library Completion "StaticResourceEnvironment" finished');
+}
+
+mapping ResourceContainer::duplicateResourceContainer(counter : Integer) : ResourceContainer {
+
+	entityName := self.entityName+"_Replica" + counter.toString();
+	resourceEnvironment_ResourceContainer := self.resourceEnvironment_ResourceContainer;
+	self.activeResourceSpecifications_ResourceContainer->forEach (activeResource) {
+		activeResourceSpecifications_ResourceContainer += new ProcessingResourceSpecification(activeResource);
+	};
+	
+	var innerCounter : Integer := 1;
+	self.nestedResourceContainers__ResourceContainer->forEach(rc) {
+		rc->map duplicateResourceContainer(innerCounter);
+		innerCounter := innerCounter + 1;
+	};
+	
+	duplicateLinkingResources(result, self);
+ 	applyStereotype(result, duplicateResourceContainerStereotype);
+ 	setOriginalResourceContainer(result, self);
+}
+
+/**
+* The following part is copied from org.palladiosimulator.architecturaltemplates.catalog
+*/
+helper duplicateLinkingResources(newResourceContainer : ResourceContainer, originalResourceContainer : ResourceContainer) {
+	var originalLinkingResources := findLinkingResources(originalResourceContainer);
+
+	// create a LinkingResource in the ResourcesEnvironment when none exists
+	// FIXME: parameters of latency and throughput for the CommunicationLinkResourceSpecification should be changed, or they should be defined by the user
+	if (originalLinkingResources->isEmpty()){
+		originalLinkingResources += new LinkingResource(originalResourceContainer, "0", "10000");
+	};
+
+	originalLinkingResources->forEach(linkingResource){
+		linkingResource.connectedResourceContainers_LinkingResource += newResourceContainer;
+	};
+}
+
+constructor ProcessingResourceSpecification::ProcessingResourceSpecification(p : ProcessingResourceSpecification) {
+	MTTF := p.MTTF;
+	MTTR := p.MTTR;
+	schedulingPolicy := p.schedulingPolicy;
+	requiredByContainer := p.requiredByContainer;
+	processingRate_ProcessingResourceSpecification := new PCMRandomVariable(p.processingRate_ProcessingResourceSpecification);
+	numberOfReplicas := p.numberOfReplicas + 1;
+	activeResourceType_ActiveResourceSpecification := p.activeResourceType_ActiveResourceSpecification;
+}
+
+constructor LinkingResource :: LinkingResource (resourceContainer : ResourceContainer, latency : String, throughput : String){
+	connectedResourceContainers_LinkingResource := resourceContainer;
+	resourceEnvironment_LinkingResource := resourceContainer.resourceEnvironment_ResourceContainer;
+	communicationLinkResourceSpecifications_LinkingResource := new CommunicationLinkResourceSpecification(resourceContainer,latency,throughput);
+}
+
+constructor CommunicationLinkResourceSpecification::CommunicationLinkResourceSpecification(resourceContainer : ResourceContainer, latency:String,throughput:String){
+	latency_CommunicationLinkResourceSpecification := new PCMRandomVariable(latency);
+	throughput_CommunicationLinkResourceSpecification := new PCMRandomVariable(throughput);
+	communicationLinkResourceType_CommunicationLinkResourceSpecification := resourceContainer.activeResourceSpecifications_ResourceContainer.activeResourceType_ActiveResourceSpecification.resourceRepository_ResourceType.availableResourceTypes_ResourceRepository->selectByType(CommunicationLinkResourceType)->selectOne(resourceType : ResourceType |resourceType.id = "_o3sScH2AEdyH8uerKnHYug");
+}
+
+constructor PCMRandomVariable::PCMRandomVariable(spec:String){
+	specification := spec;
+}
+
+constructor PCMRandomVariable::PCMRandomVariable(pcmRandomVariable : PCMRandomVariable) {
+	specification := pcmRandomVariable.specification;
+}
+
+query findLinkingResources(resourceContainer : ResourceContainer) : Set(LinkingResource) {
+	return resourceContainer.resourceEnvironment_ResourceContainer.linkingResources__ResourceEnvironment 
+		->select( l : LinkingResource | l.connectedResourceContainers_LinkingResource->includes(resourceContainer));
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="circuitbreaker" nsURI="http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreaker"
+    nsPrefix="circuitbreaker">
+  <eClassifiers xsi:type="ecore:EClass" name="CircuitBreaker" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="circuitBreakerState" ordered="false"
+        lowerBound="1" eType="#//CircuitBreakerState" defaultValueLiteral="Closed"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFails" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="openTimeStamp" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="signatures" ordered="false"
+        lowerBound="1" upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="circuitBreakerModel" lowerBound="1"
+        eType="#//CircuitBreakerModel" eOpposite="#//CircuitBreakerModel/circuitBreakers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CircuitBreakerState">
+    <eLiterals name="Closed" literal="Closed"/>
+    <eLiterals name="HalfOpen" value="1"/>
+    <eLiterals name="Open" value="2" literal="Open"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CircuitBreakerModel" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="circuitBreakers" upperBound="-1"
+        eType="#//CircuitBreaker" containment="true" eOpposite="#//CircuitBreaker/circuitBreakerModel"/>
+  </eClassifiers>
+</ecore:EPackage>

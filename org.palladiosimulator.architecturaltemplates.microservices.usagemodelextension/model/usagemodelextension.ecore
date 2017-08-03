@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="usagemodelextension" nsURI="http://org.palladiosimulator.architecturaltemplates.microservices/usagemodelextension"
+    nsPrefix="usagemodelextension">
+  <eClassifiers xsi:type="ecore:EClass" name="APIGatewayEntryLevelSystemCall" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//usagemodel/AbstractUserAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature__APIGatewayEntryLevelSystemCall"
+        ordered="false" lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsages_APIGatewayEntryLevelSystemCall"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//parameter/VariableUsage"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_APIGatewayEntryLevelSystemCall"
+        ordered="false" upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//parameter/VariableUsage"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

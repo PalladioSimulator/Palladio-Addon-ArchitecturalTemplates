@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated circuitbreakerbehaviour -->
+      <package
+            uri="http://org.palladiosimulator.architecturaltemplates.microservices/circuitbreakerbehaviour"
+            class="circuitbreakerbehaviour.CircuitbreakerbehaviourPackage"
+            genModel="model/circuitbreakerbehaviour.genmodel"/>
+   </extension>
+   <extension
+         point="org.palladiosimulator.simulizar.interpreter.rdseffswitch">
+      <rdseffswitch
+            rdseffswitch="circuitbreakerbehaviour.rdseffswitch.CircuitBreakerRDSeffSwitchFactory">
+      </rdseffswitch>
+   </extension>
+   <extension
+         point="org.palladiosimulator.simulizar.interpreter.listener.probeframework">
+      <probeFrameworkListenerDecorator
+            decorator="circuitbreakerbehaviour.edp2.CircuitBreakerRecorderFactory">
+      </probeFrameworkListenerDecorator>
+   </extension>
+
+</plugin>
