@@ -38,6 +38,7 @@ property numberOfReplicasTaggedValue : String = "numberOfReplicas";
 property originalAssemblyContextTaggedValue : String = "originalAssemblyContext";
 
 property numberOfReplicas : Integer;
+property appliedStereotype : String;
 
 property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
 property system : System = allocation.system_Allocation;
@@ -56,7 +57,6 @@ main() {
 		
 	// Check whether we have a static loadbalancer (i.e., with a StaticLoadbalancedResourceContainer) or a dynamic one (i.e., with a ReplicableResourceContainer)
 	var resourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment;
-	var appliedStereotype : String;
 	if(hasAppliedStereotype(resourceContainers, staticLoadbalancedResourceContainerStereotype)){
 		assert fatal(hasAppliedStereotype(system, staticResourceContainerLoadbalancingSystemStereotype))
 			with log("The system must have the AT role " + staticResourceContainerLoadbalancingSystemStereotype + " applied!");
@@ -68,12 +68,10 @@ main() {
 			with log("The system must have the AT role " + dynamicHorizontalScalingResourceContainerSystemStereotype + " applied!");
 		appliedStereotype := replicableResourceContainerStereotype;	
 	};
-	assert fatal(appliedStereotypesEqualsOne(resourceContainers, appliedStereotype))
-		with log ("There is more than one Stereotype Application!");
 	
-	// Get the resource container that shall be load-balanced from the AT role
-	var originalResourceContainer : ResourceContainer := resourceEnvironment.resourceContainer_ResourceEnvironment->selectOne(container : ResourceContainer | hasAppliedStereotype(container, appliedStereotype));
-	assert fatal(originalResourceContainer != null)
+	// Get the resource containers that shall be load-balanced from the AT role
+	var originalResourceContainers : Set(ResourceContainer) := resourceEnvironment.resourceContainer_ResourceEnvironment->select(container : ResourceContainer | hasAppliedStereotype(container, appliedStereotype));
+	assert fatal(originalResourceContainers != null)
 		with log ("There must be a resource container that has the AT role '" + appliedStereotype + "' applied!");
 		
 	// Ensure that resource environment and system are marked as load-balanced
@@ -85,36 +83,75 @@ main() {
 		applyProfile(system.oclAsType(EObject), loadbalancedProfile);
 	};
 	
-	// Mark original load-balanced container
-	if(not hasAppliedStereotype(originalResourceContainer, originalResourceContainerStereotype)){
-  		//apply Stereotype OriginalAssemblyContext from the Loadbalanced Profile. Needed when the system should be scaled in    
-  		applyStereotype(originalResourceContainer, originalResourceContainerStereotype);
- 	};	
+	originalResourceContainers->forEach(originalResourceContainer){
+        // Mark original load-balanced container
+        if(not hasAppliedStereotype(originalResourceContainer, originalResourceContainerStereotype)){
+            //apply Stereotype OriginalAssemblyContext from the Loadbalanced Profile. Needed when the system should be scaled in
+            applyStereotype(originalResourceContainer, originalResourceContainerStereotype);
+        };
+    };
 
 	// Create load balancer
-	numberOfReplicas := getIntTaggedValue(originalResourceContainer, numberOfReplicasTaggedValue, appliedStereotype);
-	createLoadbalancer(originalResourceContainer);
+	numberOfReplicas := 0;
+	originalResourceContainers->forEach(originalResourceContainer){
+		numberOfReplicas := numberOfReplicas + getIntTaggedValue(originalResourceContainer, numberOfReplicasTaggedValue, appliedStereotype);
+	};
+	createLoadbalancer(originalResourceContainers);
 	
 	log('AT Completion "StaticResourceContainerLoadbalancing" finished');	
 }
 
-helper createLoadbalancer(originalResourceContainer : ResourceContainer) {	
+helper createLoadbalancer(originalResourceContainers : Set(ResourceContainer)) {
 	// loadbalancer container
 	var loadbalancerResourceContainer : ResourceContainer := 
-		new ResourceContainer(originalResourceContainer.entityName+"_Loadbalancer", originalResourceContainer);
+		new ResourceContainer("StaticResourceContainer_Loadbalancer", originalResourceContainers->asOrderedSet()->at(1));
 	applyStereotype(loadbalancerResourceContainer, loadbalancerResourceContainerStereotype);
-	duplicateLinkingResources(loadbalancerResourceContainer, originalResourceContainer);
+	
+	originalResourceContainers->forEach(originalResourceContainer){
+		duplicateLinkingResources(loadbalancerResourceContainer, originalResourceContainer);
+	};
 
 	// assembly & allocation with original container
-	findLoadBalancerConnectors(originalResourceContainer, loadbalancerResourceContainer)
-		->map createLoadbalancerForConnector(originalResourceContainer, loadbalancerResourceContainer);
-		
-	// duplicate (create replica) of original resource container
-	var counter : Integer := 1;
-	while(counter < numberOfReplicas) {
-	 	duplicateResourceContainer(counter, originalResourceContainer);
-	 	counter := counter + 1;
+	originalResourceContainers->forEach(originalResourceContainer){
+		findLoadBalancerConnectors(originalResourceContainer, loadbalancerResourceContainer)
+			->map createLoadbalancerForConnector(originalResourceContainer, loadbalancerResourceContainer);
 	};
+
+	var total_counter := 1;
+	/* The original resource containers share one assembly context, but each
+	   each resource needs a seperate assembly context.
+	   So duplicate assembly and allocation context, and remove unnesserray second allocation context
+	   which references the shared assembly context.
+	   The first resource container can keep its assembly and allocation context.
+	*/
+	var is_first := true;
+	originalResourceContainers->forEach(originalResourceContainer){
+		if (is_first){
+			is_first := false;
+			continue;
+		};
+		var allocationToBeRemoved = allocation
+		.allocationContexts_Allocation
+		->select(allocationContext | allocationContext.resourceContainer_AllocationContext.id = originalResourceContainer.id);
+		
+		duplicateAssemblyAndAllocation(total_counter, originalResourceContainer, originalResourceContainer);
+		total_counter := total_counter + 1;
+		
+		allocation.allocationContexts_Allocation := allocation.allocationContexts_Allocation-(allocationToBeRemoved);
+	};
+
+	
+	// duplicate (create replica) of original resource container.
+	originalResourceContainers->forEach(originalResourceContainer){
+		var counter := 1;
+		var numberDuplicates : Integer := getIntTaggedValue(originalResourceContainer, numberOfReplicasTaggedValue, appliedStereotype);
+		while(counter < numberDuplicates) {
+		    duplicateResourceContainer(total_counter, originalResourceContainer);
+		    counter := counter + 1;
+		    total_counter := total_counter + 1;
+		};
+	};
+
 }
 			  
 mapping inout Connector::createLoadbalancerForConnector(originalResourceContainer : ResourceContainer, loadbalancerResourceContainer : ResourceContainer) : Connector 
@@ -367,7 +404,7 @@ helper annotateAllOriginalAssemblyContexts(originalResourceContainer : ResourceC
 }
 
 mapping AssemblyContext::duplicateAssemblyContext(counter : Integer, newResourceContainer : ResourceContainer) : AssemblyContext {
-	entityName := "Assembly_" + self.encapsulatedComponent__AssemblyContext.entityName+"_Replica"+counter.toString();
+	entityName := "Assembly_" + self.encapsulatedComponent__AssemblyContext.entityName+"_"+newResourceContainer.entityName;
 	encapsulatedComponent__AssemblyContext := self.encapsulatedComponent__AssemblyContext;
 	parentStructure__AssemblyContext := self.parentStructure__AssemblyContext;
 	configParameterUsages__AssemblyContext := self.configParameterUsages__AssemblyContext;
