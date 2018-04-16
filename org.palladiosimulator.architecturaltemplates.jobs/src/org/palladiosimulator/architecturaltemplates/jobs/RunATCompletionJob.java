@@ -243,8 +243,9 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
                     }
                 }
 
-                return null;
-            };
+                throw new IllegalArgumentException(
+                        "PCM Blackboard Completion Parameter \"" + getFileExtension(completionParameter) + "\" not found");
+                };
 
             /**
              * Create new output model from QVTo transformation
