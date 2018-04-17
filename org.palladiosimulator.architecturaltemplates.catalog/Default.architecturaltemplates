@@ -143,6 +143,12 @@
         <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
           <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
         </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:GenericFileExtension" fileExtension="measuringpoint"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="monitorrepository"/>
+        </parameters>
       </completion>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_iRkeQUTxEeWX9I6sz1f4mQ" entityName="System is Static Resource Container Loadbalancing System" expression="self.oclIsTypeOf(StaticResourceContainerLoadbalancingSystem)"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_LghLgUT1EeWX9I6sz1f4mQ" entityName="Resource Environment has at least one Static Loadbalanced Resource Container" expression="self.appliedTo.oclAsType(pcm::system::System).getResourceEnvironment().resourceContainer_ResourceEnvironment->select(r|r.hasAppliedStereotype('StaticLoadbalancedResourceContainer'))->size()>=1"/>
