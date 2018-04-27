@@ -6,7 +6,7 @@
   <rm:locator pattern="^org\.palladiosimulator\.architecturaltemplates.*" searchPathRef="ArchitecturalTemplates" failOnError="true"/>
 
   <rm:redirect pattern=".*"
-		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Incubation/ExperimentAutomation/trunk/org.palladiosimulator.experimentautomation.buckminster/experimentautomation.rmap" />
+		href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-Addons-ExperimentAutomation/master/org.palladiosimulator.experimentautomation.buckminster/experimentautomation.rmap" />
   
   <rm:searchPath name="ArchitecturalTemplates">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="git" source="true">
