@@ -364,11 +364,26 @@ helper duplicateResourceContainer(counter : Integer, originalResourceContainer :
 	var duplicatedResourceContainer :=
 		new ResourceContainer("duplicate_"+counter.toString(), counter, originalResourceContainer, duplicateMonitors, duplicatePoints);
 
+    duplicateStereotypes(originalResourceContainer, duplicatedResourceContainer);
 	duplicateLinkingResources(duplicatedResourceContainer, originalResourceContainer);
 	duplicateAssemblyAndAllocation(counter, duplicatedResourceContainer, originalResourceContainer);
  	applyStereotype(duplicatedResourceContainer, duplicateResourceContainerStereotype);
 
 	return duplicatedResourceContainer;
+}
+
+helper duplicateStereotypes(originalResourceContainer: ResourceContainer, duplicatedResourceContainer: ResourceContainer){
+    getAppliedStereotypes(originalResourceContainer)->forEach(stereotype){
+    if(stereotype.getProfile().name = staticResourceContainerLoadbalancingProfile or stereotype.getProfile().name = loadbalancedProfile){
+         continue;
+	};
+    applyStereotype(duplicatedResourceContainer, stereotype.name);
+    stereotype.getTaggedValues()->forEach(value){
+         setTaggedValue(duplicatedResourceContainer,
+	                    getTaggedValue(originalResourceContainer, value.name, stereotype.name),
+			            stereotype.name, value.name);
+	     }
+    }
 }
 
 /**
