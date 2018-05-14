@@ -40,12 +40,21 @@ public class ProfilesLibrary {
         return StereotypeAPI.hasAppliedStereotype(pcmEntitySet, stereotypeName);
     }
 
+    public static Collection<Stereotype> getAppliedStereotypes(final Entity pcmEntity) {
+        return StereotypeAPI.getAppliedStereotypes(pcmEntity);
+    }
+
     public static void applyStereotype(final Entity pcmEntity, final String stereotypeName) {
         StereotypeAPI.applyStereotype(pcmEntity, stereotypeName);
     }
 
     public static void removeStereotypeApplications(final Entity pcmEntity, final String stereotypeName) {
         StereotypeAPI.unapplyStereotype(pcmEntity, stereotypeName);
+    }
+
+    public static void setTaggedValue(final Entity pcmEntity, final Object value, final String stereotypeName,
+            final String taggedValueName) {
+        StereotypeAPI.setTaggedValue(pcmEntity, value, stereotypeName, taggedValueName);
     }
 
     public static void setTaggedValue(final Entity pcmEntity, final int value, final String stereotypeName,
@@ -61,6 +70,11 @@ public class ProfilesLibrary {
     public static void setDoubleTaggedValue(final Entity pcmEntity, final double value, final String stereotypeName,
             final String taggedValueName) {
         StereotypeAPI.setTaggedValue(pcmEntity, value, stereotypeName, taggedValueName);
+    }
+
+    public static Object getTaggedValue(final Entity pcmEntity, final String taggedValueName,
+            final String stereotypeName) {
+        return StereotypeAPI.getTaggedValue(pcmEntity, taggedValueName, stereotypeName);
     }
 
     public static int getIntTaggedValue(final Entity pcmEntity, final String taggedValueName,
