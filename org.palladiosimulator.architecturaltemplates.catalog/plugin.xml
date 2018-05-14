@@ -37,6 +37,9 @@
    <extension point="org.modelversioning.emfprofile.profile">
      <profile profile_resource="profiles/CachingAssemblyContext.emfprofile_diagram"/>
    </extension>
+   <extension point="org.modelversioning.emfprofile.profile">
+     <profile profile_resource="profiles/MiddlewarePassiveResource.emfprofile_diagram"/>
+   </extension>
    <extension
          point="org.eclipse.m2m.qvt.oml.javaBlackboxUnits">
         <unit

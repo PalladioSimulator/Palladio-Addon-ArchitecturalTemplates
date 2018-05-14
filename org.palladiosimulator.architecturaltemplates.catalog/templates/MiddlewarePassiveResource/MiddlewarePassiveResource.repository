@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_1VmHQFHNEeijb65-xVYWmQ" entityName="middleware">
+  <components__Repository xsi:type="repository:BasicComponent" id="_LfDm0FHQEeijb65-xVYWmQ" entityName="MiddlewarePassiveResource">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:InfrastructureProvidedRole" id="_XYvCYFIDEeijb65-xVYWmQ" entityName="Provided_IMiddlewarePassiveResource_MiddlewarePassiveResource" providedInterface__InfrastructureProvidedRole="_5jC_JlHNEeijb65-xVYWmQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_XYwQgFIDEeijb65-xVYWmQ" describedService__SEFF="_CGLy8FHQEeijb65-xVYWmQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_XYwQgVIDEeijb65-xVYWmQ" entityName="start" successor_AbstractAction="_fzJp8FIDEeijb65-xVYWmQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_XYwQglIDEeijb65-xVYWmQ" entityName="stop" predecessor_AbstractAction="_fzJp8FIDEeijb65-xVYWmQ"/>
+      <steps_Behaviour xsi:type="seff:ReleaseAction" id="_fzJp8FIDEeijb65-xVYWmQ" entityName="release" predecessor_AbstractAction="_XYwQgVIDEeijb65-xVYWmQ" successor_AbstractAction="_XYwQglIDEeijb65-xVYWmQ" passiveResource_ReleaseAction="_Qxfw2FHQEeijb65-xVYWmQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_XYvpcFIDEeijb65-xVYWmQ" describedService__SEFF="_90BFEFHNEeijb65-xVYWmQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_XYvpcVIDEeijb65-xVYWmQ" entityName="start" successor_AbstractAction="_iti-gFIDEeijb65-xVYWmQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_XYvpclIDEeijb65-xVYWmQ" entityName="stop" predecessor_AbstractAction="_iti-gFIDEeijb65-xVYWmQ"/>
+      <steps_Behaviour xsi:type="seff:AcquireAction" id="_iti-gFIDEeijb65-xVYWmQ" entityName="acquire" predecessor_AbstractAction="_XYvpcVIDEeijb65-xVYWmQ" successor_AbstractAction="_XYvpclIDEeijb65-xVYWmQ" passiveresource_AcquireAction="_Qxfw2FHQEeijb65-xVYWmQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <passiveResource_BasicComponent id="_Qxfw2FHQEeijb65-xVYWmQ" entityName="passiveResource">
+      <capacity_PassiveResource specification="CAPACITY.VALUE"/>
+    </passiveResource_BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:InfrastructureInterface" id="_5jC_JlHNEeijb65-xVYWmQ" entityName="IMiddlewarePassiveResource">
+    <infrastructureSignatures__InfrastructureInterface id="_90BFEFHNEeijb65-xVYWmQ" entityName="acquire"/>
+    <infrastructureSignatures__InfrastructureInterface id="_CGLy8FHQEeijb65-xVYWmQ" entityName="release"/>
+  </interfaces__Repository>
+</repository:Repository>

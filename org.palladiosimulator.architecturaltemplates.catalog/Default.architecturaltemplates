@@ -293,4 +293,28 @@
   <ATs id="_DaNx4H5pEeapSKV9QSz4Iw" entityName="PCM Standard Components and Interfaces Repository" documentation="Creates a Palladio project containing standard reusable components and interfaces (e.g. Cache, Loadbalancer, Connection Pool, Delegating Component)." defaultInstanceURI="PCMStandardComponents/"/>
   <ATs id="_uwpTsH9WEeaj4vCHGO1TeA" entityName="Book Shop" documentation="A simple online book shop. The shop is intentionally modeled at a high level of abstraction. The example is therefore suited for illustrative purposes. See the CloudStore AT for the CloudStore case study; a more realistic and complex book shop." defaultInstanceURI="BookShop/"/>
   <ATs id="_Bcn_wH9ZEeaj4vCHGO1TeA" entityName="CloudStore" documentation="An online book shop with support for horizontal scaling. The CloudStore case study has been published at: https://www.computer.org/csdl/proceedings/qosa/2016/2567/00/2567a011-abs.html" defaultInstanceURI="CloudStore/"/>
+  <ATs id="_IYU28ExgEeiYCe5Yu6fDjQ" entityName="Middleware Passive Resource" documentation="Creates Passive Resource on Resource Containers that are aquired and released before the annotated component is executed." defaultInstanceURI="MiddlewarePassiveResource/">
+    <roles id="_S0n2sExgEeiYCe5Yu6fDjQ" entityName="Middleware Dependency">
+      <stereotype href="profiles/MiddlewarePassiveResource.emfprofile_diagram#_R9aKwEx0EeiYCe5Yu6fDjQ"/>
+      <completion xsi:type="org.palladiosimulator.architecturaltemplates:QVTOCompletion" completionFileURI="MiddlewarePassiveResource.emfprofile_diagram">
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="allocation"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMBlackboardCompletionParameter">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="repository"/>
+        </parameters>
+        <parameters xsi:type="org.palladiosimulator.architecturaltemplates:PCMTemplateCompletionParameter" templateFileURI="MiddlewarePassiveResource/MiddlewarePassiveResource.repository">
+          <fileExtension xsi:type="org.palladiosimulator.architecturaltemplates:PCMFileExtension" fileExtension="repository"/>
+        </parameters>
+      </completion>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_GprtYExsEeiYCe5Yu6fDjQ" entityName="Amount required Resources at least 0" expression="self.numberRequiredResources>=0"/>
+    </roles>
+    <roles id="_4u77sExpEeiYCe5Yu6fDjQ" entityName="Middleware Host">
+      <stereotype href="profiles/MiddlewarePassiveResource.emfprofile_diagram#_qSGIkExyEeiYCe5Yu6fDjQ"/>
+      <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_JXnlMExqEeiYCe5Yu6fDjQ" entityName="Capacity of Passive Resource at least 0" expression="self.capacity>=0"/>
+    </roles>
+    <roles id="_L6aSIE4XEeio59skNU05YQ" entityName="Middleware Passive Resource System">
+      <stereotype href="profiles/MiddlewarePassiveResource.emfprofile_diagram#_eHP2AE4XEeio59skNU05YQ"/>
+    </roles>
+  </ATs>
 </org.palladiosimulator.architecturaltemplates:Catalog>

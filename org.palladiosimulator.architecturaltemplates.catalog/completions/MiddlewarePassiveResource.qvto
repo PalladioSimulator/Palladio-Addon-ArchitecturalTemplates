@@ -1,0 +1,255 @@
+import org.palladiosimulator.architecturaltemplates.catalog.black.ProfilesLibrary;
+
+modeltype PCM_ALLOC uses 'http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2';
+modeltype PCM_REP uses 'http://palladiosimulator.org/PalladioComponentModel/Repository/5.2';
+modeltype PCM_SYS uses 'http://palladiosimulator.org/PalladioComponentModel/System/5.2';
+modeltype PCM_RES_ENV uses 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2';
+modeltype ECORE uses 'http://www.eclipse.org/emf/2002/Ecore';
+modeltype SEFF uses pcm::seff('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2');
+modeltype PCMSEFF_PERFORMANCE uses pcm::seff::seff_performance('http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2');
+modeltype PCMCore uses pcm::core('http://palladiosimulator.org/PalladioComponentModel/5.2');
+modeltype PCMComposition uses pcm::core::composition('http://palladiosimulator.org/PalladioComponentModel/5.2');
+modeltype PCMVariable uses pcm::parameter('http://palladiosimulator.org/PalladioComponentModel/5.2');
+modeltype PCMStoex uses stoex('http://sdq.ipd.uka.de/StochasticExpressions/2.2');
+
+
+transformation MiddlewarePassiveResource(inout pcmAllocation : PCM_ALLOC, inout pcmRepository : PCM_REP, in repositoryTemplate : PCM_REP);
+
+property profileName : String = "MiddlewarePassiveResource";
+property componentStereotypeName : String = "MiddlewareDependency";
+property resourceContainerStereotypeName : String = "MiddlewareHost";
+
+property taggedNameResourceCapacity : String = "capacity";
+property taggedNameNumberRequiredResources : String = "numberRequiredResources";
+
+property allocation : Allocation = pcmAllocation.rootObjects()![Allocation];
+property system : System = allocation.system_Allocation;
+property resourceEnvironment : ResourceEnvironment = allocation.targetResourceEnvironment_Allocation;
+property repository : Repository = pcmRepository.rootObjects()![Repository];
+property templateRepository : Repository = repositoryTemplate.rootObjects()![Repository];
+
+property templateInterfaceName : String = "IMiddlewarePassiveResource";
+property templateComponentName : String = "MiddlewarePassiveResource";
+
+property infrastructureSignatureAcquireName : String = "acquire";
+property infrastructureSignatureReleaseName : String = "release";
+
+property parameterNameCapacity: String = "CAPACITY";
+
+property components: Set(BasicComponent);
+property resourceContainers : Set(ResourceContainer);
+
+main() {
+    log('AT Completion "Middleware Passive Resource" started');
+
+    assert fatal((isProfileApplied(repository.oclAsType(EObject), profileName)))
+        with log ("The repository has no Profile applied!");
+
+    assert fatal((isProfileApplied(resourceEnvironment.oclAsType(EObject), profileName)))
+        with log ("The resource environment has no Profile applied!");
+
+    // Get the resource containers that shall be used for the passive resources
+    resourceContainers := resourceEnvironment.resourceContainer_ResourceEnvironment->select(container : ResourceContainer | hasAppliedStereotype(container, resourceContainerStereotypeName));
+    assert fatal(resourceContainers->notEmpty())
+        with log ("There must be a resource container that has the AT role '" + resourceContainerStereotypeName + "' applied!");
+
+    // Get the component that depend on the passive resources
+    components := repository.components__Repository->selectByKind(BasicComponent)->select(component : BasicComponent | hasAppliedStereotype(component, componentStereotypeName));
+    assert fatal(components->notEmpty())
+        with log ("There must be a basic component that has the AT role '" + resourceContainerStereotypeName + "' applied!");
+
+    doIt(resourceContainers, components);
+
+    log('AT Completion "Middleware Passive Resource" finished');
+}
+
+
+helper doIt(resourceContainers: Set(ResourceContainer), components: Set(BasicComponent)){
+    completeRepositoryModel();
+    resourceContainers->forEach(container){
+        var middlewareAssembly := completeAssemblyModel(container);
+        completeAllocationModel(middlewareAssembly, container);
+    };
+}
+
+helper completeRepositoryModel(){
+    var interface := templateRepository.interfaces__Repository->selectOne(e|e.entityName=templateInterfaceName).oclAsType(InfrastructureInterface);
+    interface.map changeRepository();
+
+    var providing_component = templateRepository.components__Repository->selectOne(e|e.entityName=templateComponentName);
+    providing_component.map changeRepository();
+
+    // we only need to create n-1 infrastructure provided roles as one is already existing in the template
+    var is_first := true;
+    components->forEach(component){
+        createRequiredRoleSEFFForBasic(component, interface);
+        if(is_first){
+            is_first := false;
+            continue;
+        };
+        new InfrastructureProvidedRole(providing_component, interface);
+    };
+
+    // handle required roles for composite components
+    repository.components__Repository->selectByKind(CompositeComponent)->forEach(composite){
+        createRequiredRoleForComposite(composite, interface);
+    };
+
+}
+
+helper completeAssemblyModel(container: ResourceContainer): AssemblyContext{
+    var middleware := createMiddlewareAssemblyContext(container);
+    connectWithMiddleware(middleware, container);
+    return middleware;
+}
+
+helper completeAllocationModel(middlewareAssembly: AssemblyContext, container: ResourceContainer){
+    object AllocationContext{
+        allocation_AllocationContext := allocation;
+        assemblyContext_AllocationContext := middlewareAssembly;
+        entityName := "Allocation_Assembly_MiddlewarePassiveResource";
+        resourceContainer_AllocationContext := container;
+    }
+}
+
+helper createMiddlewareAssemblyContext(container: ResourceContainer):AssemblyContext{
+    var assembly := object AssemblyContext{
+        encapsulatedComponent__AssemblyContext := repository.components__Repository->selectOne(e|e.entityName=templateComponentName);
+        entityName := "Assembly_MiddlewarePassiveResource_" + container.entityName;
+        parentStructure__AssemblyContext := system;
+    };
+
+    var usage := object VariableUsage{
+        assemblyContext__VariableUsage := assembly;
+        namedReference__VariableUsage := object VariableReference{
+            referenceName := parameterNameCapacity;
+        };
+    };
+
+    object VariableCharacterisation{
+        type := VariableCharacterisationType::VALUE;
+        variableUsage_VariableCharacterisation := usage;
+        specification_VariableCharacterisation := new PCMRandomVariable(getIntTaggedValue(container,
+                                                                                          taggedNameResourceCapacity,
+                                                                                          resourceContainerStereotypeName));
+    };
+    return assembly;
+}
+
+helper connectWithMiddleware(middleware: AssemblyContext, container: ResourceContainer){
+    var allocations := allocation.allocationContexts_Allocation->select(alloc| alloc.resourceContainer_AllocationContext = container
+                                                                 and alloc.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity
+                                                                    ->selectByKind(InfrastructureRequiredRole)
+                                                                    ->oclAsType(InfrastructureRequiredRole)
+                                                                    ->exists(role|role.requiredInterface__InfrastructureRequiredRole.entityName = templateInterfaceName));
+    var providedRoles := middleware.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->asSequence();
+
+    var i := 1;
+    allocations->forEach(allocation){
+        var requiredRoles := allocation.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity
+                                                                ->selectByKind(InfrastructureRequiredRole)
+                                                                ->oclAsType(InfrastructureRequiredRole)
+                                                                ->select(role|role.requiredInterface__InfrastructureRequiredRole.entityName = templateInterfaceName);
+        requiredRoles->forEach(requiredRole){
+            object AssemblyInfrastructureConnector{
+                providedRole__AssemblyInfrastructureConnector := providedRoles->at(i).oclAsType(InfrastructureProvidedRole);
+                providingAssemblyContext__AssemblyInfrastructureConnector := middleware;
+
+                requiredRole__AssemblyInfrastructureConnector := requiredRole;
+                requiringAssemblyContext__AssemblyInfrastructureConnector := allocation.assemblyContext_AllocationContext;
+
+                entityName := "middlewareConnector_" + allocation.resourceContainer_AllocationContext.entityName + "_" + i.toString();
+                parentStructure__Connector := system;
+            };
+            i := i+1;
+        }
+    }
+}
+
+helper createRequiredRoleSEFFForBasic(component:BasicComponent, interface:InfrastructureInterface){
+    var requiredRole := new InfrastructureRequiredRole(component, interface);
+
+    component.serviceEffectSpecifications__BasicComponent-> forEach(seff){
+    if(seff.oclIsKindOf(ResourceDemandingSEFF))
+        seff.oclAsType(ResourceDemandingSEFF).map insertAcquireReleaseActions(requiredRole, getIntTaggedValue(component, taggedNameNumberRequiredResources, componentStereotypeName));
+    };
+}
+
+helper createRequiredRoleForComposite(composite:CompositeComponent, interface:InfrastructureInterface){
+    composite.assemblyContexts__ComposedStructure->select(assembly|hasAppliedStereotype(assembly.encapsulatedComponent__AssemblyContext, componentStereotypeName))
+                                                    ->forEach(assembly){
+                                                        var required_role := new InfrastructureRequiredRole(composite, interface);
+                                                        new RequiredInfrastructureDelegationConnector(composite, required_role, assembly);
+                                                        };
+
+}
+
+mapping inout Interface::changeRepository(){
+    repository__Interface := repository;
+}
+
+mapping inout RepositoryComponent::changeRepository(){
+    repository__RepositoryComponent := repository;
+}
+
+mapping inout ResourceDemandingSEFF::insertAcquireReleaseActions(requiredRole: InfrastructureRequiredRole, numberRequiredResources: Integer){
+    var startAction := steps_Behaviour->selectOne(action|action.oclIsTypeOf(StartAction));
+    var successorStart := startAction.successor_AbstractAction;
+
+    var stopAction := steps_Behaviour->selectOne(action|action.oclIsTypeOf(StopAction));
+    var predecessorStart := stopAction.predecessor_AbstractAction;
+
+    var acquireAction := new InternalAction(true, requiredRole, numberRequiredResources, self);
+    var releaseAction := new InternalAction(false, requiredRole, numberRequiredResources, self);
+
+    startAction.successor_AbstractAction := acquireAction;
+    successorStart.predecessor_AbstractAction := acquireAction;
+
+    stopAction.predecessor_AbstractAction := releaseAction;
+    predecessorStart.successor_AbstractAction := releaseAction;
+}
+
+constructor InfrastructureRequiredRole::InfrastructureRequiredRole(component:RepositoryComponent, interface:InfrastructureInterface){
+    requiredInterface__InfrastructureRequiredRole := interface;
+    requiringEntity_RequiredRole := component;
+    entityName := "requiresPassive";
+}
+
+constructor InfrastructureProvidedRole::InfrastructureProvidedRole(component:RepositoryComponent, interface:InfrastructureInterface){
+    providedInterface__InfrastructureProvidedRole := interface;
+    providingEntity_ProvidedRole := component;
+    entityName := "providesPassive";
+}
+
+constructor InternalAction::InternalAction(isAcquire:Boolean, requiredRole: InfrastructureRequiredRole, numberRequiredResources: Integer, demanding: ResourceDemandingBehaviour){
+    var signatureName = "";
+    if (isAcquire){
+        entityName := "AcquirePassiveMiddleware";
+        signatureName := infrastructureSignatureAcquireName;
+    }
+    else{
+        entityName := "ReleasePassiveMiddleware";
+        signatureName := infrastructureSignatureReleaseName;
+    };
+    infrastructureCall__Action := object InfrastructureCall{
+                            entityName := "InfrastructureCall " + entityName;
+                            signature__InfrastructureCall := requiredRole.requiredInterface__InfrastructureRequiredRole.infrastructureSignatures__InfrastructureInterface->
+                            selectOne(sig|sig.entityName=signatureName);
+                            requiredRole__InfrastructureCall := requiredRole;
+                            numberOfCalls__InfrastructureCall := new PCMRandomVariable(numberRequiredResources);
+                            };
+   resourceDemandingBehaviour_AbstractAction := demanding;
+}
+
+constructor RequiredInfrastructureDelegationConnector::RequiredInfrastructureDelegationConnector(composed: CompositeComponent, requiredRole: InfrastructureRequiredRole, component:AssemblyContext){
+    entityName := "delegatesPassive";
+    outerRequiredRole__RequiredInfrastructureDelegationConnector := requiredRole;
+    var roles := component.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->selectByKind(InfrastructureRequiredRole)->oclAsType(InfrastructureRequiredRole);
+    innerRequiredRole__RequiredInfrastructureDelegationConnector := roles->selectOne(role|role.requiredInterface__InfrastructureRequiredRole.entityName = templateInterfaceName);
+    parentStructure__Connector := composed;
+    assemblyContext__RequiredInfrastructureDelegationConnector := component;
+}
+
+constructor PCMRandomVariable::PCMRandomVariable(spec: Integer){
+    specification := spec.toString();
+}
