@@ -129,13 +129,22 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     int AT__DEFAULT_INSTANCE_URI = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Dependencies</b></em>' reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int AT__DEPENDENCIES = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+
+    /**
      * The number of structural features of the '<em>AT</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int AT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
+    int AT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 6;
 
     /**
      * The meta object id for the
@@ -929,6 +938,18 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
     EAttribute getAT_DefaultInstanceURI();
 
     /**
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.architecturaltemplates.AT#getDependencies
+     * <em>Dependencies</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference list '<em>Dependencies</em>'.
+     * @see org.palladiosimulator.architecturaltemplates.AT#getDependencies()
+     * @see #getAT()
+     * @generated
+     */
+    EReference getAT_Dependencies();
+
+    /**
      * Returns the meta object for class
      * '{@link org.palladiosimulator.architecturaltemplates.Constraint <em>Constraint</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -1428,6 +1449,14 @@ public interface ArchitecturaltemplatesPackage extends EPackage {
          * @generated
          */
         EAttribute AT__DEFAULT_INSTANCE_URI = eINSTANCE.getAT_DefaultInstanceURI();
+
+        /**
+         * The meta object literal for the '<em><b>Dependencies</b></em>' reference list feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference AT__DEPENDENCIES = eINSTANCE.getAT_Dependencies();
 
         /**
          * The meta object literal for the

@@ -32,6 +32,8 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * <em>Documentation</em>}</li>
  * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getDefaultInstanceURI
  * <em>Default Instance URI</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.ATImpl#getDependencies
+ * <em>Dependencies</em>}</li>
  * </ul>
  *
  * @generated
@@ -203,6 +205,18 @@ public class ATImpl extends EntityImpl implements AT {
      *
      * @generated
      */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<AT> getDependencies() {
+        return (EList<AT>) this.eDynamicGet(ArchitecturaltemplatesPackage.AT__DEPENDENCIES,
+                ArchitecturaltemplatesPackage.Literals.AT__DEPENDENCIES, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
@@ -270,6 +284,8 @@ public class ATImpl extends EntityImpl implements AT {
             return this.getDocumentation();
         case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
             return this.getDefaultInstanceURI();
+        case ArchitecturaltemplatesPackage.AT__DEPENDENCIES:
+            return this.getDependencies();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -299,6 +315,10 @@ public class ATImpl extends EntityImpl implements AT {
         case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
             this.setDefaultInstanceURI((String) newValue);
             return;
+        case ArchitecturaltemplatesPackage.AT__DEPENDENCIES:
+             this.getDependencies().clear();
+             this.getDependencies().addAll((Collection<? extends AT>) newValue);
+             return;
         }
         super.eSet(featureID, newValue);
     }
@@ -326,6 +346,9 @@ public class ATImpl extends EntityImpl implements AT {
         case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
             this.setDefaultInstanceURI(DEFAULT_INSTANCE_URI_EDEFAULT);
             return;
+        case ArchitecturaltemplatesPackage.AT__DEPENDENCIES:
+            this.getDependencies().clear();
+            return;
         }
         super.eUnset(featureID);
     }
@@ -350,6 +373,8 @@ public class ATImpl extends EntityImpl implements AT {
         case ArchitecturaltemplatesPackage.AT__DEFAULT_INSTANCE_URI:
             return DEFAULT_INSTANCE_URI_EDEFAULT == null ? this.getDefaultInstanceURI() != null
                     : !DEFAULT_INSTANCE_URI_EDEFAULT.equals(this.getDefaultInstanceURI());
+        case ArchitecturaltemplatesPackage.AT__DEPENDENCIES:
+            return !this.getDependencies().isEmpty();
         }
         return super.eIsSet(featureID);
     }

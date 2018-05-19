@@ -307,6 +307,16 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
      * @generated
      */
     @Override
+    public EReference getAT_Dependencies() {
+        return (EReference) this.atEClass.getEStructuralFeatures().get(5);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public EClass getConstraint() {
         return this.constraintEClass;
     }
@@ -707,6 +717,7 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.createEReference(this.atEClass, AT__RECONFIGURATION_RULE_FOLDER);
         this.createEAttribute(this.atEClass, AT__DOCUMENTATION);
         this.createEAttribute(this.atEClass, AT__DEFAULT_INSTANCE_URI);
+        this.createEReference(this.atEClass, AT__DEPENDENCIES);
 
         this.constraintEClass = this.createEClass(CONSTRAINT);
         this.createEReference(this.constraintEClass, CONSTRAINT__ROLE);
@@ -837,6 +848,9 @@ public class ArchitecturaltemplatesPackageImpl extends EPackageImpl implements A
         this.initEAttribute(this.getAT_DefaultInstanceURI(), this.ecorePackage.getEString(), "defaultInstanceURI", null,
                 0, 1, org.palladiosimulator.architecturaltemplates.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getAT_Dependencies(), this.getAT(), null, "dependencies", null, 0, -1,
+                org.palladiosimulator.architecturaltemplates.AT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.constraintEClass, Constraint.class, "Constraint", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);

@@ -4,8 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Level;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,6 +43,7 @@ import org.palladiosimulator.monitorrepository.util.MonitorRepositoryResourceImp
 import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationFactory;
 import org.palladiosimulator.pcm.allocation.util.AllocationResourceImpl;
+import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentFactory;
 import org.palladiosimulator.pcm.resourceenvironment.util.ResourceenvironmentResourceImpl;
@@ -62,7 +69,7 @@ import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJobConfiguration;
  * Recursively applies AT completions until no AT completion is left anymore. Therefore, AT
  * completions have to remove stereotype applications that reference these. Results are directly
  * stored within the blackboard.
- * 
+ *
  * @author Sebastian Lehrig
  */
 public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> {
@@ -79,14 +86,18 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
     /** Folder with traces as created by the QVT-O engine. */
     private static final String TRACESFOLDER = "traces";
 
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Map<Object,Boolean> seen = new ConcurrentHashMap<>();
+        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+    }
+
     public RunATCompletionJob(final ATExtensionJobConfiguration configuration) {
     }
 
     @Override
     public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
         super.execute(monitor);
-
-        for (final AT architecturalTemplate : this.getATsFromSystem()) {
+        for (final AT architecturalTemplate : solveDependencies(this.getAllATs())) {
             for (final QVTOCompletion completion : getCompletions(architecturalTemplate)) {
                 executeCompletion(completion);
             }
@@ -127,7 +138,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /**
      * Initialize ModelLocation object for QVTo's in- and out-parameters.
-     * 
+     *
      * @param architecturalTemplate
      * @return
      */
@@ -141,7 +152,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /**
      * Root folder of the eObject.
-     * 
+     *
      * @param eObject
      *            the eObject where the root folder shall be found for.
      * @return the root folder.
@@ -324,24 +335,39 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
      * an annotation to an profile with an AT annotation. The annotation references the AT the role;
      * the role is identified by matching the stereotype name to the roles of the AT. If no such
      * role can be found, an empty <code>List</code> is returned.
-     * 
+     *
      * @return the architectural template applied to this system; an empty <code>List</code> if no
      *         such template can be found.
      */
-    private Collection<AT> getATsFromSystem() {
+    private Collection<AT> getAllATs() {
         final PCMResourceSetPartition pcmRepositoryPartition = (PCMResourceSetPartition) this.myBlackboard
                 .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
-        org.palladiosimulator.pcm.system.System system = null;
+        final Collection<Resource> resources = new ArrayList<Resource>();
         try {
-            system = pcmRepositoryPartition.getSystem();
+        	resources.add(pcmRepositoryPartition.getSystem().eResource());
+        	resources.add(pcmRepositoryPartition.getAllocation().eResource());
+        	resources.add(pcmRepositoryPartition.getResourceEnvironment().eResource());
+        	for(final Repository repository : pcmRepositoryPartition.getRepositories()) {
+        		resources.add(repository.eResource());
+        	}
         } catch (final IndexOutOfBoundsException e) {
         }
 
-        return ArchitecturalTemplateAPI.getATsFromSystem(system);
+        ArchitecturalTemplateAPI.getATsFromSystem(pcmRepositoryPartition.getSystem());
+        final Collection<AT> allATs = new LinkedList<AT>();
+        for(Resource resource : resources) {
+        	allATs.addAll(ArchitecturalTemplateAPI.getAppliedArchitecturalTemplates(resource));
+        }
+
+        return removeDuplicates(allATs);
     }
 
-    private URI getSystemModelFolderURI() {
+    private Collection<AT> removeDuplicates(Collection<AT> allATs) {
+    	return allATs.stream().filter(distinctByKey(at -> at.getId())).collect(Collectors.toList());
+	}
+
+	private URI getSystemModelFolderURI() {
         final PCMResourceSetPartition pcmRepositoryPartition = (PCMResourceSetPartition) this.myBlackboard
                 .getPartition(ATPartitionConstants.Partition.PCM.getPartitionId());
 
@@ -352,5 +378,35 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         }
 
         return system.eResource().getURI().trimFragment().trimSegments(1);
+    }
+
+    private Collection<AT> solveDependencies(Collection<AT> allATs) {
+    	LinkedList<AT> correctlyOrderdATs = new LinkedList<AT>();
+    	int guard = 0;
+    	Iterator<AT> iter = allATs.iterator();
+    	while(!allATs.isEmpty()) {
+    		if (!iter.hasNext()) {
+    			iter = allATs.iterator();
+    			guard = 0;
+    		}
+    		AT at = iter.next();
+    		if(at.getDependencies().isEmpty()) {
+    			correctlyOrderdATs.add(at);
+    			iter.remove();
+    			guard = (guard == 0) ? guard = 0 : --guard;
+    		}
+    		else if (Collections.disjoint(allATs.stream().map(t -> t.getId()).collect(Collectors.toSet()), at.getDependencies().stream().map(t -> t.getId()).collect(Collectors.toSet()))) {
+    			correctlyOrderdATs.add(at);
+    			iter.remove();
+    			guard = (guard == 0) ? guard = 0 : --guard;
+    		}
+    		else {
+    			if(++guard >= allATs.size()) {
+    				throw new IllegalStateException("Could not solve dependenies of applied ATs! Please review your AT applications.");
+    			}
+    		}
+    	}
+
+    	return correctlyOrderdATs;
     }
 }

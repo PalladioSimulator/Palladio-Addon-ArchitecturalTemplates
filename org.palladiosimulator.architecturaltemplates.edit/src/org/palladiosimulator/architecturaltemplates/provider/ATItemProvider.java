@@ -49,6 +49,7 @@ public class ATItemProvider extends EntityItemProvider {
 
             this.addDocumentationPropertyDescriptor(object);
             this.addDefaultInstanceURIPropertyDescriptor(object);
+            this.addDependenciesPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
@@ -84,6 +85,21 @@ public class ATItemProvider extends EntityItemProvider {
                 ArchitecturaltemplatesPackage.Literals.AT__DEFAULT_INSTANCE_URI, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
+
+    /**
+     * This adds a property descriptor for the Dependencies feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    protected void addDependenciesPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(
+               this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                       this.getResourceLocator(), this.getString("_UI_AT_dependencies_feature"),
+                        this.getString("_UI_PropertyDescriptor_description", "_UI_AT_dependencies_feature",
+                                "_UI_AT_type"),
+                       ArchitecturaltemplatesPackage.Literals.AT__DEPENDENCIES, true, false, true, null, null, null));
+     }
 
     /**
      * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate

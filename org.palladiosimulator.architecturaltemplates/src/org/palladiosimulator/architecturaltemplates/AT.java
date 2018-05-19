@@ -170,4 +170,20 @@ public interface AT extends Entity {
      */
     void setDefaultInstanceURI(String value);
 
+    /**
+     * Returns the value of the '<em><b>Dependencies</b></em>' reference list. The list contents are
+     * of type {@link org.palladiosimulator.architecturaltemplates.AT}. <!-- begin-user-doc -->
+     * <p>
+     * If the meaning of the '<em>Dependencies</em>' reference list isn't clear, there really should
+     * be more of a description here...
+     * </p>
+     * <!-- end-user-doc -->
+     *
+     * @return the value of the '<em>Dependencies</em>' reference list.
+     * @see org.palladiosimulator.architecturaltemplates.ArchitecturaltemplatesPackage#getAT_Dependencies()
+     * @model
+     * @generated
+     */
+    EList<AT> getDependencies();
+
 } // AT
