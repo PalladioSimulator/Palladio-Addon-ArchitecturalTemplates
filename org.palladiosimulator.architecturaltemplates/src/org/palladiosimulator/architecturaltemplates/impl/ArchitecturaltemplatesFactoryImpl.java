@@ -26,258 +26,279 @@ import org.palladiosimulator.architecturaltemplates.Role;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ *
  * @generated
  */
 public class ArchitecturaltemplatesFactoryImpl extends EFactoryImpl implements ArchitecturaltemplatesFactory {
 
-	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static ArchitecturaltemplatesFactory init() {
-		try {
-			ArchitecturaltemplatesFactory theArchitecturaltemplatesFactory = (ArchitecturaltemplatesFactory) EPackage.Registry.INSTANCE
-					.getEFactory(ArchitecturaltemplatesPackage.eNS_URI);
-			if (theArchitecturaltemplatesFactory != null) {
-				return theArchitecturaltemplatesFactory;
-			}
-		} catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new ArchitecturaltemplatesFactoryImpl();
-	}
+    /**
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public static ArchitecturaltemplatesFactory init() {
+        try {
+            final ArchitecturaltemplatesFactory theArchitecturaltemplatesFactory = (ArchitecturaltemplatesFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(ArchitecturaltemplatesPackage.eNS_URI);
+            if (theArchitecturaltemplatesFactory != null) {
+                return theArchitecturaltemplatesFactory;
+            }
+        } catch (final Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new ArchitecturaltemplatesFactoryImpl();
+    }
 
-	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ArchitecturaltemplatesFactoryImpl() {
-		super();
-	}
+    /**
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public ArchitecturaltemplatesFactoryImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-		case ArchitecturaltemplatesPackage.AT:
-			return createAT();
-		case ArchitecturaltemplatesPackage.CATALOG:
-			return createCatalog();
-		case ArchitecturaltemplatesPackage.ROLE:
-			return createRole();
-		case ArchitecturaltemplatesPackage.OCL_CONSTRAINT:
-			return createOCLConstraint();
-		case ArchitecturaltemplatesPackage.QVTO_COMPLETION:
-			return createQVTOCompletion();
-		case ArchitecturaltemplatesPackage.PCM_BLACKBOARD_COMPLETION_PARAMETER:
-			return createPCMBlackboardCompletionParameter();
-		case ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER:
-			return createPCMTemplateCompletionParameter();
-		case ArchitecturaltemplatesPackage.PCM_OUTPUT_COMPLETION_PARAMETER:
-			return createPCMOutputCompletionParameter();
-		case ArchitecturaltemplatesPackage.RECONFIGURATION_FOLDER:
-			return createReconfigurationFolder();
-		case ArchitecturaltemplatesPackage.ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER:
-			return createIsolatedPCMTemplateCompletionParameter();
-		case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION:
-			return createPCMFileExtension();
-		case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION:
-			return createGenericFileExtension();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EObject create(final EClass eClass) {
+        switch (eClass.getClassifierID()) {
+        case ArchitecturaltemplatesPackage.AT:
+            return this.createAT();
+        case ArchitecturaltemplatesPackage.CATALOG:
+            return this.createCatalog();
+        case ArchitecturaltemplatesPackage.ROLE:
+            return this.createRole();
+        case ArchitecturaltemplatesPackage.OCL_CONSTRAINT:
+            return this.createOCLConstraint();
+        case ArchitecturaltemplatesPackage.QVTO_COMPLETION:
+            return this.createQVTOCompletion();
+        case ArchitecturaltemplatesPackage.PCM_BLACKBOARD_COMPLETION_PARAMETER:
+            return this.createPCMBlackboardCompletionParameter();
+        case ArchitecturaltemplatesPackage.PCM_TEMPLATE_COMPLETION_PARAMETER:
+            return this.createPCMTemplateCompletionParameter();
+        case ArchitecturaltemplatesPackage.PCM_OUTPUT_COMPLETION_PARAMETER:
+            return this.createPCMOutputCompletionParameter();
+        case ArchitecturaltemplatesPackage.RECONFIGURATION_FOLDER:
+            return this.createReconfigurationFolder();
+        case ArchitecturaltemplatesPackage.ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER:
+            return this.createIsolatedPCMTemplateCompletionParameter();
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSION:
+            return this.createPCMFileExtension();
+        case ArchitecturaltemplatesPackage.GENERIC_FILE_EXTENSION:
+            return this.createGenericFileExtension();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-		case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSIONS:
-			return createPCMFileExtensionsFromString(eDataType, initialValue);
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object createFromString(final EDataType eDataType, final String initialValue) {
+        switch (eDataType.getClassifierID()) {
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSIONS:
+            return this.createPCMFileExtensionsFromString(eDataType, initialValue);
+        default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-		case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSIONS:
-			return convertPCMFileExtensionsToString(eDataType, instanceValue);
-		default:
-			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public String convertToString(final EDataType eDataType, final Object instanceValue) {
+        switch (eDataType.getClassifierID()) {
+        case ArchitecturaltemplatesPackage.PCM_FILE_EXTENSIONS:
+            return this.convertPCMFileExtensionsToString(eDataType, instanceValue);
+        default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AT createAT() {
-		ATImpl at = new ATImpl();
-		return at;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public AT createAT() {
+        final ATImpl at = new ATImpl();
+        return at;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Catalog createCatalog() {
-		CatalogImpl catalog = new CatalogImpl();
-		return catalog;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Catalog createCatalog() {
+        final CatalogImpl catalog = new CatalogImpl();
+        return catalog;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Role createRole() {
-		RoleImpl role = new RoleImpl();
-		return role;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Role createRole() {
+        final RoleImpl role = new RoleImpl();
+        return role;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public OCLConstraint createOCLConstraint() {
-		OCLConstraintImpl oclConstraint = new OCLConstraintImpl();
-		return oclConstraint;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public OCLConstraint createOCLConstraint() {
+        final OCLConstraintImpl oclConstraint = new OCLConstraintImpl();
+        return oclConstraint;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public QVTOCompletion createQVTOCompletion() {
-		QVTOCompletionImpl qvtoCompletion = new QVTOCompletionImpl();
-		return qvtoCompletion;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public QVTOCompletion createQVTOCompletion() {
+        final QVTOCompletionImpl qvtoCompletion = new QVTOCompletionImpl();
+        return qvtoCompletion;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PCMBlackboardCompletionParameter createPCMBlackboardCompletionParameter() {
-		PCMBlackboardCompletionParameterImpl pcmBlackboardCompletionParameter = new PCMBlackboardCompletionParameterImpl();
-		return pcmBlackboardCompletionParameter;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public PCMBlackboardCompletionParameter createPCMBlackboardCompletionParameter() {
+        final PCMBlackboardCompletionParameterImpl pcmBlackboardCompletionParameter = new PCMBlackboardCompletionParameterImpl();
+        return pcmBlackboardCompletionParameter;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PCMTemplateCompletionParameter createPCMTemplateCompletionParameter() {
-		PCMTemplateCompletionParameterImpl pcmTemplateCompletionParameter = new PCMTemplateCompletionParameterImpl();
-		return pcmTemplateCompletionParameter;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public PCMTemplateCompletionParameter createPCMTemplateCompletionParameter() {
+        final PCMTemplateCompletionParameterImpl pcmTemplateCompletionParameter = new PCMTemplateCompletionParameterImpl();
+        return pcmTemplateCompletionParameter;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PCMOutputCompletionParameter createPCMOutputCompletionParameter() {
-		PCMOutputCompletionParameterImpl pcmOutputCompletionParameter = new PCMOutputCompletionParameterImpl();
-		return pcmOutputCompletionParameter;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public PCMOutputCompletionParameter createPCMOutputCompletionParameter() {
+        final PCMOutputCompletionParameterImpl pcmOutputCompletionParameter = new PCMOutputCompletionParameterImpl();
+        return pcmOutputCompletionParameter;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ReconfigurationFolder createReconfigurationFolder() {
-		ReconfigurationFolderImpl reconfigurationFolder = new ReconfigurationFolderImpl();
-		return reconfigurationFolder;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ReconfigurationFolder createReconfigurationFolder() {
+        final ReconfigurationFolderImpl reconfigurationFolder = new ReconfigurationFolderImpl();
+        return reconfigurationFolder;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public IsolatedPCMTemplateCompletionParameter createIsolatedPCMTemplateCompletionParameter() {
-		IsolatedPCMTemplateCompletionParameterImpl isolatedPCMTemplateCompletionParameter = new IsolatedPCMTemplateCompletionParameterImpl();
-		return isolatedPCMTemplateCompletionParameter;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public IsolatedPCMTemplateCompletionParameter createIsolatedPCMTemplateCompletionParameter() {
+        final IsolatedPCMTemplateCompletionParameterImpl isolatedPCMTemplateCompletionParameter = new IsolatedPCMTemplateCompletionParameterImpl();
+        return isolatedPCMTemplateCompletionParameter;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public PCMFileExtension createPCMFileExtension() {
-		PCMFileExtensionImpl pcmFileExtension = new PCMFileExtensionImpl();
-		return pcmFileExtension;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public PCMFileExtension createPCMFileExtension() {
+        final PCMFileExtensionImpl pcmFileExtension = new PCMFileExtensionImpl();
+        return pcmFileExtension;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public GenericFileExtension createGenericFileExtension() {
-		GenericFileExtensionImpl genericFileExtension = new GenericFileExtensionImpl();
-		return genericFileExtension;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public GenericFileExtension createGenericFileExtension() {
+        final GenericFileExtensionImpl genericFileExtension = new GenericFileExtensionImpl();
+        return genericFileExtension;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMFileExtensions createPCMFileExtensionsFromString(EDataType eDataType, String initialValue) {
-		PCMFileExtensions result = PCMFileExtensions.get(initialValue);
-		if (result == null)
-			throw new IllegalArgumentException(
-					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public PCMFileExtensions createPCMFileExtensionsFromString(final EDataType eDataType, final String initialValue) {
+        final PCMFileExtensions result = PCMFileExtensions.get(initialValue);
+        if (result == null) {
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        }
+        return result;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPCMFileExtensionsToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public String convertPCMFileExtensionsToString(final EDataType eDataType, final Object instanceValue) {
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ArchitecturaltemplatesPackage getArchitecturaltemplatesPackage() {
-		return (ArchitecturaltemplatesPackage) getEPackage();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ArchitecturaltemplatesPackage getArchitecturaltemplatesPackage() {
+        return (ArchitecturaltemplatesPackage) this.getEPackage();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
-	@Deprecated
-	public static ArchitecturaltemplatesPackage getPackage() {
-		return ArchitecturaltemplatesPackage.eINSTANCE;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @deprecated
+     * @generated
+     */
+    @Deprecated
+    public static ArchitecturaltemplatesPackage getPackage() {
+        return ArchitecturaltemplatesPackage.eINSTANCE;
+    }
 
 } // ArchitecturaltemplatesFactoryImpl

@@ -13,23 +13,25 @@ import org.palladiosimulator.architecturaltemplates.PCMBlackboardCompletionParam
  * @generated
  */
 public class PCMBlackboardCompletionParameterImpl extends PCMCompletionParameterImpl
-		implements PCMBlackboardCompletionParameter {
+        implements PCMBlackboardCompletionParameter {
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PCMBlackboardCompletionParameterImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected PCMBlackboardCompletionParameterImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ArchitecturaltemplatesPackage.Literals.PCM_BLACKBOARD_COMPLETION_PARAMETER;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ArchitecturaltemplatesPackage.Literals.PCM_BLACKBOARD_COMPLETION_PARAMETER;
+    }
 
 } // PCMBlackboardCompletionParameterImpl

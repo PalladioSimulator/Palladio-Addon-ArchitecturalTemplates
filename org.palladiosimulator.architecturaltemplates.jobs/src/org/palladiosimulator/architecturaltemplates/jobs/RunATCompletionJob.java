@@ -69,7 +69,7 @@ import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJobConfiguration;
  * Recursively applies AT completions until no AT completion is left anymore. Therefore, AT
  * completions have to remove stereotype applications that reference these. Results are directly
  * stored within the blackboard.
- * 
+ *
  * @author Sebastian Lehrig
  */
 public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> {
@@ -85,7 +85,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /** Folder with traces as created by the QVT-O engine. */
     private static final String TRACESFOLDER = "traces";
-    
+
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
         Map<Object,Boolean> seen = new ConcurrentHashMap<>();
         return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
@@ -138,7 +138,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /**
      * Initialize ModelLocation object for QVTo's in- and out-parameters.
-     * 
+     *
      * @param architecturalTemplate
      * @return
      */
@@ -152,7 +152,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
     /**
      * Root folder of the eObject.
-     * 
+     *
      * @param eObject
      *            the eObject where the root folder shall be found for.
      * @return the root folder.
@@ -335,7 +335,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
      * an annotation to an profile with an AT annotation. The annotation references the AT the role;
      * the role is identified by matching the stereotype name to the roles of the AT. If no such
      * role can be found, an empty <code>List</code> is returned.
-     * 
+     *
      * @return the architectural template applied to this system; an empty <code>List</code> if no
      *         such template can be found.
      */
@@ -359,7 +359,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
         for(Resource resource : resources) {
         	allATs.addAll(ArchitecturalTemplateAPI.getAppliedArchitecturalTemplates(resource));
         }
-        
+
         return removeDuplicates(allATs);
     }
 
@@ -379,7 +379,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
 
         return system.eResource().getURI().trimFragment().trimSegments(1);
     }
-    
+
     private Collection<AT> solveDependencies(Collection<AT> allATs) {
     	LinkedList<AT> correctlyOrderdATs = new LinkedList<AT>();
     	int guard = 0;
@@ -406,7 +406,7 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
     			}
     		}
     	}
-    	
+
     	return correctlyOrderdATs;
     }
 }

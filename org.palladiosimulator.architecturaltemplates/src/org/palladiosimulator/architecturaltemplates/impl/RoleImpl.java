@@ -28,363 +28,396 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getAT <em>AT</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getCompletion <em>Completion</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraints <em>Constraints</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getSuperRoles <em>Super Roles</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getRoleIncludingInherited <em>Role Including Inherited</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraintsIncludingInherited <em>Constraints Including Inherited</em>}</li>
- *   <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getCompletionIncludingInherited <em>Completion Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getAT <em>AT</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getStereotype
+ * <em>Stereotype</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getCompletion
+ * <em>Completion</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraints
+ * <em>Constraints</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getSuperRoles <em>Super
+ * Roles</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getRoleIncludingInherited
+ * <em>Role Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getConstraintsIncludingInherited
+ * <em>Constraints Including Inherited</em>}</li>
+ * <li>{@link org.palladiosimulator.architecturaltemplates.impl.RoleImpl#getCompletionIncludingInherited
+ * <em>Completion Including Inherited</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RoleImpl extends EntityImpl implements Role {
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RoleImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected RoleImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ArchitecturaltemplatesPackage.Literals.ROLE;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ArchitecturaltemplatesPackage.Literals.ROLE;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public AT getAT() {
-		return (AT) eDynamicGet(ArchitecturaltemplatesPackage.ROLE__AT, ArchitecturaltemplatesPackage.Literals.ROLE__AT,
-				true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public AT getAT() {
+        return (AT) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__AT,
+                ArchitecturaltemplatesPackage.Literals.ROLE__AT, true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAT(AT newAT, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newAT, ArchitecturaltemplatesPackage.ROLE__AT, msgs);
-		return msgs;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public NotificationChain basicSetAT(final AT newAT, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newAT, ArchitecturaltemplatesPackage.ROLE__AT, msgs);
+        return msgs;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAT(AT newAT) {
-		eDynamicSet(ArchitecturaltemplatesPackage.ROLE__AT, ArchitecturaltemplatesPackage.Literals.ROLE__AT, newAT);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setAT(final AT newAT) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.ROLE__AT, ArchitecturaltemplatesPackage.Literals.ROLE__AT,
+                newAT);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public EList<Constraint> getConstraints() {
-		return (EList<Constraint>) eDynamicGet(ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS,
-				ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS, true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<Constraint> getConstraints() {
+        return (EList<Constraint>) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS,
+                ArchitecturaltemplatesPackage.Literals.ROLE__CONSTRAINTS, true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public EList<Role> getSuperRoles() {
-		return (EList<Role>) eDynamicGet(ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES,
-				ArchitecturaltemplatesPackage.Literals.ROLE__SUPER_ROLES, true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<Role> getSuperRoles() {
+        return (EList<Role>) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES,
+                ArchitecturaltemplatesPackage.Literals.ROLE__SUPER_ROLES, true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Role> getRoleIncludingInherited() {
-		return new BasicEList<>(C3RoleLinearization.linearize(this));
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public EList<Role> getRoleIncludingInherited() {
+        return new BasicEList<>(C3RoleLinearization.linearize(this));
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Constraint> getConstraintsIncludingInherited() {
-		// TODO: cache linearization
-		final Map<String, org.palladiosimulator.architecturaltemplates.Constraint> constraints = new HashMap<>();
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public EList<Constraint> getConstraintsIncludingInherited() {
+        // TODO: cache linearization
+        final Map<String, org.palladiosimulator.architecturaltemplates.Constraint> constraints = new HashMap<>();
 
-		for (final Role role : C3RoleLinearization.linearize(this)) {
-			for (final Constraint constraint : role.getConstraints()) {
-				// add only if subrole does not override the superrole constraint with a constraint
-				// that has the same name
-				final String constraintName = constraint.getEntityName();
-				if (!constraints.containsKey(constraintName)) {
-					constraints.put(constraintName, constraint);
-				}
-			}
-		}
+        for (final Role role : C3RoleLinearization.linearize(this)) {
+            for (final Constraint constraint : role.getConstraints()) {
+                // add only if subrole does not override the superrole constraint with a constraint
+                // that has the same name
+                final String constraintName = constraint.getEntityName();
+                if (!constraints.containsKey(constraintName)) {
+                    constraints.put(constraintName, constraint);
+                }
+            }
+        }
 
-		return new BasicEList<>(constraints.values());
-	}
+        return new BasicEList<>(constraints.values());
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 *
-	 * @generated NOT
-	 */
-	@Override
-	public EList<Completion> getCompletionIncludingInherited() {
-		// TODO: cache linearization
-		// completions are executed from the furthest to the nearest ancestor
-		final EList<Completion> completions = new BasicEList<>();
-		for (final Role role : C3RoleLinearization.linearizeReversed(this)) {
-			final Completion completion = role.getCompletion();
-			if (completion != null) {
-				completions.add(completion);
-			}
-		}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public EList<Completion> getCompletionIncludingInherited() {
+        // TODO: cache linearization
+        // completions are executed from the furthest to the nearest ancestor
+        final EList<Completion> completions = new BasicEList<>();
+        for (final Role role : C3RoleLinearization.linearizeReversed(this)) {
+            final Completion completion = role.getCompletion();
+            if (completion != null) {
+                completions.add(completion);
+            }
+        }
 
-		return completions;
-	}
+        return completions;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Stereotype getStereotype() {
-		return (Stereotype) eDynamicGet(ArchitecturaltemplatesPackage.ROLE__STEREOTYPE,
-				ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Stereotype getStereotype() {
+        return (Stereotype) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__STEREOTYPE,
+                ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Stereotype basicGetStereotype() {
-		return (Stereotype) eDynamicGet(ArchitecturaltemplatesPackage.ROLE__STEREOTYPE,
-				ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, false, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public Stereotype basicGetStereotype() {
+        return (Stereotype) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__STEREOTYPE,
+                ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, false, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setStereotype(Stereotype newStereotype) {
-		eDynamicSet(ArchitecturaltemplatesPackage.ROLE__STEREOTYPE,
-				ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, newStereotype);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setStereotype(final Stereotype newStereotype) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.ROLE__STEREOTYPE,
+                ArchitecturaltemplatesPackage.Literals.ROLE__STEREOTYPE, newStereotype);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Completion getCompletion() {
-		return (Completion) eDynamicGet(ArchitecturaltemplatesPackage.ROLE__COMPLETION,
-				ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION, true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Completion getCompletion() {
+        return (Completion) this.eDynamicGet(ArchitecturaltemplatesPackage.ROLE__COMPLETION,
+                ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION, true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetCompletion(Completion newCompletion, NotificationChain msgs) {
-		msgs = eDynamicInverseAdd((InternalEObject) newCompletion, ArchitecturaltemplatesPackage.ROLE__COMPLETION,
-				msgs);
-		return msgs;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public NotificationChain basicSetCompletion(final Completion newCompletion, NotificationChain msgs) {
+        msgs = this.eDynamicInverseAdd((InternalEObject) newCompletion, ArchitecturaltemplatesPackage.ROLE__COMPLETION,
+                msgs);
+        return msgs;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCompletion(Completion newCompletion) {
-		eDynamicSet(ArchitecturaltemplatesPackage.ROLE__COMPLETION,
-				ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION, newCompletion);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setCompletion(final Completion newCompletion) {
+        this.eDynamicSet(ArchitecturaltemplatesPackage.ROLE__COMPLETION,
+                ArchitecturaltemplatesPackage.Literals.ROLE__COMPLETION, newCompletion);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetAT((AT) otherEnd, msgs);
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
-			Completion completion = getCompletion();
-			if (completion != null)
-				msgs = ((InternalEObject) completion).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - ArchitecturaltemplatesPackage.ROLE__COMPLETION, null, msgs);
-			return basicSetCompletion((Completion) otherEnd, msgs);
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getConstraints()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+        switch (featureID) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetAT((AT) otherEnd, msgs);
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+            final Completion completion = this.getCompletion();
+            if (completion != null) {
+                msgs = ((InternalEObject) completion).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - ArchitecturaltemplatesPackage.ROLE__COMPLETION, null, msgs);
+            }
+            return this.basicSetCompletion((Completion) otherEnd, msgs);
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getConstraints()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			return basicSetAT(null, msgs);
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
-			return basicSetCompletion(null, msgs);
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-			return ((InternalEList<?>) getConstraints()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
+        switch (featureID) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            return this.basicSetAT(null, msgs);
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+            return this.basicSetCompletion(null, msgs);
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return ((InternalEList<?>) this.getConstraints()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			return eInternalContainer().eInverseRemove(this, ArchitecturaltemplatesPackage.AT__ROLES, AT.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            return this.eInternalContainer().eInverseRemove(this, ArchitecturaltemplatesPackage.AT__ROLES, AT.class,
+                    msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			return getAT();
-		case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
-			if (resolve)
-				return getStereotype();
-			return basicGetStereotype();
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
-			return getCompletion();
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-			return getConstraints();
-		case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
-			return getSuperRoles();
-		case ArchitecturaltemplatesPackage.ROLE__ROLE_INCLUDING_INHERITED:
-			return getRoleIncludingInherited();
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS_INCLUDING_INHERITED:
-			return getConstraintsIncludingInherited();
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION_INCLUDING_INHERITED:
-			return getCompletionIncludingInherited();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+        switch (featureID) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            return this.getAT();
+        case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
+            if (resolve) {
+                return this.getStereotype();
+            }
+            return this.basicGetStereotype();
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+            return this.getCompletion();
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return this.getConstraints();
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            return this.getSuperRoles();
+        case ArchitecturaltemplatesPackage.ROLE__ROLE_INCLUDING_INHERITED:
+            return this.getRoleIncludingInherited();
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS_INCLUDING_INHERITED:
+            return this.getConstraintsIncludingInherited();
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION_INCLUDING_INHERITED:
+            return this.getCompletionIncludingInherited();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			setAT((AT) newValue);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
-			setStereotype((Stereotype) newValue);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
-			setCompletion((Completion) newValue);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-			getConstraints().clear();
-			getConstraints().addAll((Collection<? extends Constraint>) newValue);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
-			getSuperRoles().clear();
-			getSuperRoles().addAll((Collection<? extends Role>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(final int featureID, final Object newValue) {
+        switch (featureID) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            this.setAT((AT) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
+            this.setStereotype((Stereotype) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+            this.setCompletion((Completion) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            this.getConstraints().clear();
+            this.getConstraints().addAll((Collection<? extends Constraint>) newValue);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            this.getSuperRoles().clear();
+            this.getSuperRoles().addAll((Collection<? extends Role>) newValue);
+            return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			setAT((AT) null);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
-			setStereotype((Stereotype) null);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
-			setCompletion((Completion) null);
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-			getConstraints().clear();
-			return;
-		case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
-			getSuperRoles().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void eUnset(final int featureID) {
+        switch (featureID) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            this.setAT((AT) null);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
+            this.setStereotype((Stereotype) null);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+            this.setCompletion((Completion) null);
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            this.getConstraints().clear();
+            return;
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            this.getSuperRoles().clear();
+            return;
+        }
+        super.eUnset(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case ArchitecturaltemplatesPackage.ROLE__AT:
-			return getAT() != null;
-		case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
-			return basicGetStereotype() != null;
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
-			return getCompletion() != null;
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
-			return !getConstraints().isEmpty();
-		case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
-			return !getSuperRoles().isEmpty();
-		case ArchitecturaltemplatesPackage.ROLE__ROLE_INCLUDING_INHERITED:
-			return !getRoleIncludingInherited().isEmpty();
-		case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS_INCLUDING_INHERITED:
-			return !getConstraintsIncludingInherited().isEmpty();
-		case ArchitecturaltemplatesPackage.ROLE__COMPLETION_INCLUDING_INHERITED:
-			return !getCompletionIncludingInherited().isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public boolean eIsSet(final int featureID) {
+        switch (featureID) {
+        case ArchitecturaltemplatesPackage.ROLE__AT:
+            return this.getAT() != null;
+        case ArchitecturaltemplatesPackage.ROLE__STEREOTYPE:
+            return this.basicGetStereotype() != null;
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION:
+            return this.getCompletion() != null;
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS:
+            return !this.getConstraints().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__SUPER_ROLES:
+            return !this.getSuperRoles().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__ROLE_INCLUDING_INHERITED:
+            return !this.getRoleIncludingInherited().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__CONSTRAINTS_INCLUDING_INHERITED:
+            return !this.getConstraintsIncludingInherited().isEmpty();
+        case ArchitecturaltemplatesPackage.ROLE__COMPLETION_INCLUDING_INHERITED:
+            return !this.getCompletionIncludingInherited().isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } // RoleImpl

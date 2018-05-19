@@ -13,23 +13,25 @@ import org.palladiosimulator.architecturaltemplates.IsolatedPCMTemplateCompletio
  * @generated
  */
 public class IsolatedPCMTemplateCompletionParameterImpl extends PCMTemplateCompletionParameterImpl
-		implements IsolatedPCMTemplateCompletionParameter {
+        implements IsolatedPCMTemplateCompletionParameter {
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IsolatedPCMTemplateCompletionParameterImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected IsolatedPCMTemplateCompletionParameterImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ArchitecturaltemplatesPackage.Literals.ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ArchitecturaltemplatesPackage.Literals.ISOLATED_PCM_TEMPLATE_COMPLETION_PARAMETER;
+    }
 
 } // IsolatedPCMTemplateCompletionParameterImpl

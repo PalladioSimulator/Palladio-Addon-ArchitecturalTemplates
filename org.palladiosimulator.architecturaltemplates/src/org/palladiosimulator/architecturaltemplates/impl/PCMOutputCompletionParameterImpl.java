@@ -13,23 +13,25 @@ import org.palladiosimulator.architecturaltemplates.PCMOutputCompletionParameter
  * @generated
  */
 public class PCMOutputCompletionParameterImpl extends PCMCompletionParameterImpl
-		implements PCMOutputCompletionParameter {
+        implements PCMOutputCompletionParameter {
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PCMOutputCompletionParameterImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected PCMOutputCompletionParameterImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ArchitecturaltemplatesPackage.Literals.PCM_OUTPUT_COMPLETION_PARAMETER;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ArchitecturaltemplatesPackage.Literals.PCM_OUTPUT_COMPLETION_PARAMETER;
+    }
 
 } // PCMOutputCompletionParameterImpl
