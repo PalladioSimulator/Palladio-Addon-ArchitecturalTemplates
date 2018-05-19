@@ -313,8 +313,5 @@
       <stereotype href="profiles/MiddlewarePassiveResource.emfprofile_diagram#_qSGIkExyEeiYCe5Yu6fDjQ"/>
       <constraints xsi:type="org.palladiosimulator.architecturaltemplates:OCLConstraint" id="_JXnlMExqEeiYCe5Yu6fDjQ" entityName="Capacity of Passive Resource at least 0" expression="self.capacity>=0"/>
     </roles>
-    <roles id="_L6aSIE4XEeio59skNU05YQ" entityName="Middleware Passive Resource System">
-      <stereotype href="profiles/MiddlewarePassiveResource.emfprofile_diagram#_eHP2AE4XEeio59skNU05YQ"/>
-    </roles>
   </ATs>
 </org.palladiosimulator.architecturaltemplates:Catalog>
