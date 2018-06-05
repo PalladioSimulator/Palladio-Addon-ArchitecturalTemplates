@@ -16,7 +16,7 @@
     <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_R9aKwEx0EeiYCe5Yu6fDjQ" name="MiddlewareDependency">
       <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
       <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_GvX6IEx2EeiYCe5Yu6fDjQ" name="numberRequiredResources" defaultValueLiteral="1">
-        <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_UspYMEx0EeiYCe5Yu6fDjQ" upperBound="1">
         <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.2#//repository/BasicComponent"/>
