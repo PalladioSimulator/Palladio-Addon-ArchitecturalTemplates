@@ -732,9 +732,11 @@ constructor AllocationContext::AllocationContext(ac : AssemblyContext, rc: Resou
 constructor Monitor::Monitor(counter : Integer, duplicatedActiveResource: ProcessingResourceSpecification, originalMonitor : Monitor){
 	entityName := originalMonitor.entityName + "duplicate_" + counter.toString();
 	measuringPoint := new ActiveResourceMeasuringPoint(counter, duplicatedActiveResource, originalMonitor.measuringPoint.oclAsType(ActiveResourceMeasuringPoint));
-	measurementSpecifications := originalMonitor.measurementSpecifications;
 	activated := originalMonitor.activated;
 	monitorRepository := originalMonitor.monitorRepository;
+	originalMonitor.measurementSpecifications->forEach(originalSpecification){
+       new MeasurementSpecification(result, originalSpecification);
+    };
 }
 
 constructor ActiveResourceMeasuringPoint::ActiveResourceMeasuringPoint(counter : Integer, duplicatedActiveResource: ProcessingResourceSpecification,
@@ -743,6 +745,15 @@ constructor ActiveResourceMeasuringPoint::ActiveResourceMeasuringPoint(counter :
 	stringRepresentation := originalActiveResourceMeasuringPoint.stringRepresentation + "duplicate_" + counter.toString();
 	measuringPointRepository := originalActiveResourceMeasuringPoint.measuringPointRepository;
 	replicaID := originalActiveResourceMeasuringPoint.replicaID;
+}
+
+constructor MeasurementSpecification::MeasurementSpecification(newMonitor: Monitor, originalSpecification: MeasurementSpecification){
+    metricDescription := originalSpecification.metricDescription;
+    monitor := newMonitor;
+    triggersSelfAdaptations := originalSpecification.triggersSelfAdaptations;
+    if (originalSpecification.processingType != null){
+        processingType := originalSpecification.processingType.deepclone();
+    }
 }
 
 /**
