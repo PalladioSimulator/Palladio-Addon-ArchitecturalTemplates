@@ -40,15 +40,11 @@ Example applications of Architectural Templates
 
 Develop Architectural Templates
 -----------------------------------------
+Read the documentations on the project wiki: https://sdqweb.ipd.kit.edu/wiki/Architectural_Templates
 
-1. Download and install [Eclipse Modeling Tools][2]
-2. Download and install Eclipse plugin dependencies for Architectural Templates development.
-	- Go to Eclipse->Help->Install New Software
-	- Add Architectural Templates nightly update site: "http://cloudscale.xlab.si/cse/updatesites/architecturaltemplates/nightly/".
-	- Install Architectural Templates feature.
-3. Clone repository
-	$ git clone https://github.com/PalladioSimulator/Architectural-Templates.git
-4. Import Architectural Templates plugins into the workbench.
+Further Documentation
+-----------------------------------------
+Furhter documentation can be found at the project wiku page: https://sdqweb.ipd.kit.edu/wiki/Architectural_Templates
 
 Core Features of Architectural Templates
 -----------------------------------------
