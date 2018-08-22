@@ -40,6 +40,9 @@
   
   <rm:locator pattern="^org\.palladiosimulator\.recorderframework.*" searchPathRef="RecorderFramework" failOnError="true"/>
 
+  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.feature.*"
+		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/FeatureModel/Core/trunk/de.uka.ipd.sdq.featuremodel.buckminster/featuremodel.rmap" />
+  
   <rm:redirect pattern=".*"
 		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/PCM/org.palladiosimulator.pcm.buckminster/pcm.rmap" />
   
@@ -74,16 +77,7 @@
     </rm:provider>
   </rm:searchPath>
 
-  <!-- Featuremodelling -->
-  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.feature.*"
-		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/FeatureModel/Core/trunk/de.uka.ipd.sdq.featuremodel.buckminster/featuremodel.rmap" />
-
   <!-- Palladio Core -->
-  
-
-  
-
-
   <rm:redirect pattern="^org\.palladiosimulator\.architecturaltemplates.*"
 		href="https://raw.githubusercontent.com/PalladioSimulator/Architectural-Templates/master/org.palladiosimulator.architecturaltemplates.buckminster/architecturaltemplates.rmap" />
 		
