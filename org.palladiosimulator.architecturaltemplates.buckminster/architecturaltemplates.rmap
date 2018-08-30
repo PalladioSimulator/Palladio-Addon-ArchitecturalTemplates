@@ -114,8 +114,8 @@
   </rm:searchPath>
 
   <!-- QuAL -->
-  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.sensorframework.*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/SensorFramework/trunk/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
-  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.codegen\.simudatavisualisation\.datatypes$" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/SensorFramework/trunk/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
+  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.sensorframework.*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
+  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.codegen\.simudatavisualisation\.datatypes$" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
   <rm:redirect pattern=".*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/ProbeFramework/trunk/org.palladiosimulator.probeframework.buckminster/probeframework.rmap"/>
   
   <rm:searchPath name="RecorderFramework">
