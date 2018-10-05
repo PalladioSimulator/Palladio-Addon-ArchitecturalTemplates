@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
 	<feature url="features/org.palladiosimulator.architecturaltemplates.feature_1.1.0.qualifier.jar" id="org.palladiosimulator.architecturaltemplates.feature" version="1.1.0.qualifier">
-	   <category name="org.palladiosimulator.support.category"/>
+	   <category name="org.palladiosimulator.addons.category"/>
 	</feature>
 	<feature url="features/org.palladiosimulator.architecturaltemplates.feature.source_1.1.0.qualifier.jar" id="org.palladiosimulator.architecturaltemplates.feature.source" version="1.1.0.qualifier">
-	   <category name="org.palladiosimulator.support.source.category"/>
+	   <category name="org.palladiosimulator.addons.source.category"/>
 	</feature>
 	<feature url="features/org.palladiosimulator.architecturaltemplates.examples.feature_1.0.4.qualifier.jar" id="org.palladiosimulator.architecturaltemplates.examples.feature" version="1.0.4.qualifier">
-	   <category name="org.palladiosimulator.support.category"/>
+	   <category name="org.palladiosimulator.addons.category"/>
 	</feature>
 	<feature url="features/org.palladiosimulator.architecturaltemplates.examples.feature.source_1.0.4.qualifier.jar" id="org.palladiosimulator.architecturaltemplates.examples.feature.source" version="1.0.4.qualifier">
-	   <category name="org.palladiosimulator.support.source.category"/>
+	   <category name="org.palladiosimulator.addons.source.category"/>
 	</feature>
-	<category-def name="org.palladiosimulator.support.category" label="Palladio Supporting Features">
+	<category-def name="org.palladiosimulator.addons.category" label="Palladio Bench Addons">
 	   <description>
-	      Features that support the Palladio Bench tooling, but also could be used independently
+	      Palladio Bench Addons
 	   </description>
 	  </category-def>
-	  <category-def name="org.palladiosimulator.support.source.category" label="Palladio Supporting Features Source">
+	  <category-def name="org.palladiosimulator.addons.source.category" label="Palladio Bench Addons Source">
 	     <description>
-	        Palladio Supporting Features Source
+	        Palladio Bench Addons Source
 	     </description>
 	  </category-def>
 </site>
