@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.palladiosimulator</groupId>
-		<artifactId>eclipse-parent</artifactId>
-		<version>0.1.9</version>
+		<artifactId>eclipse-parent-updatesite</artifactId>
+		<version>0.3.2</version>
 	</parent>
 	<groupId>org.palladiosimulator.architecturaltemplates</groupId>
 	<artifactId>parent</artifactId>	
@@ -14,7 +14,7 @@
 	<packaging>pom</packaging>
 	
 	<properties>
-		<org.palladiosimulator.maven.tychotprefresh.tplocation.1>${project.basedir}/releng/org.palladiosimulator.architecturaltemplates.targetplatform/tp.target</org.palladiosimulator.maven.tychotprefresh.tplocation.1>
+		<org.palladiosimulator.maven.tychotprefresh.tplocation.2>${project.basedir}/releng/org.palladiosimulator.architecturaltemplates.targetplatform/tp.target</org.palladiosimulator.maven.tychotprefresh.tplocation.2>
 	</properties>
 	
 	<modules>
