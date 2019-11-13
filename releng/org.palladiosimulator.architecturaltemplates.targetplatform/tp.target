@@ -2,10 +2,10 @@
 <?pde version="3.8"?><target name="org.palladiosimulator.architecturaltemplates Target Platform" sequenceNumber="1">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
-<unit id="org.eclipse.m2m.qvt.oml.feature.group" version="3.9.3.v20190610-0948"/>
-<unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="3.9.3.v20190610-0948"/>
-<unit id="org.eclipse.ocl.unified.core.feature.group" version="1.8.0.v20190603-1146"/>
-<repository location="http://download.eclipse.org/releases/2019-06/201906191000/"/>
+<unit id="org.eclipse.m2m.qvt.oml.feature.group" version="3.10.0.v20190909-1952"/>
+<unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="3.10.0.v20190909-1952"/>
+<unit id="org.eclipse.ocl.unified.core.feature.group" version="1.9.0.v20190910-0937"/>
+<repository location="http://download.eclipse.org/releases/2019-09/201909181001/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" refresh="true">
 <unit id="LIMBO_DLIM.feature.group" version="tbd"/>
