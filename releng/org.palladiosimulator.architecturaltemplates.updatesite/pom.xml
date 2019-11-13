@@ -11,4 +11,5 @@
 	<artifactId>org.palladiosimulator.architecturaltemplates.updatesite</artifactId>
 	<packaging>eclipse-repository</packaging>
 
+<version>4.2.0-SNAPSHOT</version>
 </project>
