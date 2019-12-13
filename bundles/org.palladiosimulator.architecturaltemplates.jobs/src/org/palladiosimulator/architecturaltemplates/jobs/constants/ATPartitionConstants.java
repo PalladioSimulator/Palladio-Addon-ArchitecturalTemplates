@@ -10,7 +10,7 @@ import org.palladiosimulator.simulizar.launcher.jobs.LoadSimuLizarModelsIntoBlac
 
 public final class ATPartitionConstants {
 
-	public static final String SDM_MODEL_PARTITION_ID = "org.palladiosimulator.simulizar.reconfiguration.sdm";
+    public static final String SDM_MODEL_PARTITION_ID = "org.palladiosimulator.simulizar.reconfiguration.sdm";
 	
     public static Set<String> PCM_FILES = new HashSet<String>() {
 
