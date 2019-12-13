@@ -7,10 +7,11 @@ import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartitio
 import org.palladiosimulator.analyzer.workflow.jobs.LoadPCMModelsIntoBlackboardJob;
 import org.palladiosimulator.experimentautomation.application.jobs.LoadModelsIntoBlackboardJob;
 import org.palladiosimulator.simulizar.launcher.jobs.LoadSimuLizarModelsIntoBlackboardJob;
-import org.palladiosimulator.simulizar.reconfiguration.storydiagram.jobs.LoadSDMModelsIntoBlackboardJob;
 
 public final class ATPartitionConstants {
 
+	public static final String SDM_MODEL_PARTITION_ID = "org.palladiosimulator.simulizar.reconfiguration.sdm";
+	
     public static Set<String> PCM_FILES = new HashSet<String>() {
 
         private static final long serialVersionUID = 6737375727319070884L;
@@ -51,7 +52,7 @@ public final class ATPartitionConstants {
 
         ANALYZED_PCM("Analyzed PCM", LoadSimuLizarModelsIntoBlackboardJob.PCM_MODELS_ANALYZED_PARTITION_ID, PCM_FILES),
 
-        SDM("SDM", LoadSDMModelsIntoBlackboardJob.SDM_MODEL_PARTITION_ID, new HashSet<String>() {
+        SDM("SDM", SDM_MODEL_PARTITION_ID, new HashSet<String>() {
 
             {
                 add("sdm");
