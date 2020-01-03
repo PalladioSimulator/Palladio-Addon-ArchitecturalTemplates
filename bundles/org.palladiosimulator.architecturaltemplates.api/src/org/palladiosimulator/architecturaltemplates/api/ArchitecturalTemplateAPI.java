@@ -149,6 +149,23 @@ public final class ArchitecturalTemplateAPI {
     }
 
     /**
+     * Tests whether a {@link StereotypeApplication} belongs to an architectural template.
+     */
+	public static boolean isArchitecturalTemplateStereotypeApplication(
+			final StereotypeApplication stereotypeApplication) {
+		return Optional.ofNullable(stereotypeApplication).map(StereotypeApplication::getStereotype)
+				.map(ArchitecturalTemplateAPI::isArchitecturalTemplateStereotype).orElse(false);
+	}
+
+    /**
+     * Tests whether a {@link Stereotype} belongs to an architectural template.
+     */
+	public static boolean isArchitecturalTemplateStereotype(final Stereotype stereotype) {
+		return Optional.ofNullable(stereotype).map(Stereotype::getProfile)
+				.map(ArchitecturalTemplateAPI::isArchitecturalTemplate).orElse(false);
+	}
+
+    /**
      * Tests whether a {@link Profile} is an Architectural-Template. {@see #isArchitecturalTemplate}
      */
     public static boolean isArchitecturalTemplate(final Profile profile) {
@@ -498,11 +515,11 @@ public final class ArchitecturalTemplateAPI {
         return roleStereotypeApplications;
     }
 
-    public static Collection<StereotypeApplication> getStereotypeApplicationsWithoutRoles(final EObject eObject) {
+    public static Collection<StereotypeApplication> getATStereotypeApplicationsWithoutRoles(final EObject eObject) {
         final Collection<StereotypeApplication> roleStereotypeApplications = new ArrayList<>();
 
         for (final StereotypeApplication stereotypeApplication : StereotypeAPI.getStereotypeApplications(eObject)) {
-            if (!isRole(stereotypeApplication.getStereotype())) {
+            if (isArchitecturalTemplateStereotypeApplication(stereotypeApplication) && !isRole(stereotypeApplication.getStereotype())) {
                 roleStereotypeApplications.add(stereotypeApplication);
             }
         }
@@ -513,11 +530,12 @@ public final class ArchitecturalTemplateAPI {
     /**
      * TODO documentation
      */
-    public static final Collection<ProfileImport> getProfileImports(final EObject eObject) {
-        if (ProfileAPI.hasProfileApplication(eObject.eResource())) {
-            return Collections.unmodifiableCollection(
-                    ProfileAPI.getProfileApplication(eObject.eResource()).getImportedProfiles());
-        }
+    public static final Collection<ProfileImport> getATProfileImports(final EObject eObject) {
+		if (ProfileAPI.hasProfileApplication(eObject.eResource())) {
+			return Collections.unmodifiableCollection(
+					ProfileAPI.getProfileApplication(eObject.eResource()).getImportedProfiles().stream()
+							.filter(pi -> isArchitecturalTemplate(pi.getProfile())).collect(Collectors.toList()));
+		}
         return Collections.emptyList();
     }
 
