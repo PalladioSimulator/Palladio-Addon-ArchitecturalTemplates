@@ -50,14 +50,7 @@ public final class ATPartitionConstants {
 
         ORIGINAL_PCM("Original PCM", LoadModelsIntoBlackboardJob.PCM_MODELS_ORIGINAL_PARTITION_ID, PCM_FILES),
 
-        ANALYZED_PCM("Analyzed PCM", LoadSimuLizarModelsIntoBlackboardJob.PCM_MODELS_ANALYZED_PARTITION_ID, PCM_FILES),
-
-        SDM("SDM", SDM_MODEL_PARTITION_ID, new HashSet<String>() {
-
-            {
-                add("sdm");
-            }
-        });
+        ANALYZED_PCM("Analyzed PCM", LoadSimuLizarModelsIntoBlackboardJob.PCM_MODELS_ANALYZED_PARTITION_ID, PCM_FILES);
 
         private final String name;
         private final String partitionId;
