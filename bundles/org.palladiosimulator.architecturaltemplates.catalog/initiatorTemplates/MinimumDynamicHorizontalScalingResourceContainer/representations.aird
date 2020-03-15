@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:org.palladiosimulator.architecturaltemplates.catalog.profiles="org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer" xmlns:org.palladiosimulator.cost.profile.cost="org.palladiosimulator.cost.profile.cost" xmlns:parameter="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:seff_performance="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.2" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//allocation http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//core/composition http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description org.palladiosimulator.architecturaltemplates.catalog.profiles.dynamichorizontalscalingresourcecontainer platform:/plugin/org.palladiosimulator.architecturaltemplates.catalog/profiles/DynamicHorizontalScalingResourceContainer.emfprofile_diagram#_W1LLkCOrEeSubfGVEKswQQ http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//parameter http://palladiosimulator.org/PalladioComponentModel/Repository/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//repository http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//seff http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//seff/seff_performance http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style http://palladiosimulator.org/PalladioComponentModel/System/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//system http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2 http://palladiosimulator.org/PalladioComponentModel/5.2#//usagemodel">
   <viewpoint:DAnalysis uid="_yGqj0Kf7EeWmL8y8D1TPmA" selectedViews="_oVctoHs_Eea7vsdxD1NAXg _nIZbECDiEeqEretHQtkVYA _ok5OQCDiEeqEretHQtkVYA _qCxhgCDiEeqEretHQtkVYA _snjLYCDiEeqEretHQtkVYA _yRDxkCDiEeqEretHQtkVYA" version="14.1.0.201810161215">
-    <semanticResources>Experiments/Capacity.experiments</semanticResources>
-    <semanticResources>Experiments/pcm.variation</semanticResources>
+    <semanticResources>pcm.variation</semanticResources>
     <semanticResources>default.usagemodel</semanticResources>
     <semanticResources>default.allocation</semanticResources>
     <semanticResources>pathmap://PCM_MODELS/Glassfish.repository</semanticResources>
@@ -21,19 +20,14 @@
     <semanticResources>pathmap://PCM_MODELS/PrimitiveTypes.repository</semanticResources>
     <semanticResources>default.measuringpoint</semanticResources>
     <semanticResources>pathmap://METRIC_SPEC_MODELS/models/commonMetrics.metricspec</semanticResources>
-    <semanticResources>Experiments/Elasticity.experiments</semanticResources>
-    <semanticResources>UsageEvolution/OneYearTrend.usageevolution</semanticResources>
+    <semanticResources>Elasticity.experiments</semanticResources>
+    <semanticResources>OneYearTrend.usageevolution</semanticResources>
     <semanticResources>http://www.modelversioning.org/emfprofile/1.1</semanticResources>
     <semanticResources>http://sdq.ipd.uka.de/StochasticExpressions/2.2</semanticResources>
     <semanticResources>http://sdq.ipd.uka.de/Identifier/2.1</semanticResources>
     <semanticResources>http://sdq.ipd.uka.de/Units/2.1</semanticResources>
-    <semanticResources>UsageEvolution/OneYearTrend.dlim</semanticResources>
-    <semanticResources>Experiments/ElasticityWithoutDynamicScaling.experiments</semanticResources>
+    <semanticResources>OneYearTrend.dlim</semanticResources>
     <semanticResources>http://sdq.ipd.uka.de/ProbFunction/2.1</semanticResources>
-    <semanticResources>default.allocation_diagram</semanticResources>
-    <semanticResources>default.resourceenvironment_diagram</semanticResources>
-    <semanticResources>default.system_diagram</semanticResources>
-    <semanticResources>default.usagemodel_diagram</semanticResources>
     <semanticResources>pathmap://PCM_MODELS/FailureTypes.repository</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_1uK2AKf7EeWmL8y8D1TPmA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.sirius.composedprovidingrequiringentity/description/composedprovidingrequiringentity.odesign#//@ownedViewpoints[name='System%20Design']"/>
