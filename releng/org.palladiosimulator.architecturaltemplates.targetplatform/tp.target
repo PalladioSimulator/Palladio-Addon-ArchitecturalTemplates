@@ -229,5 +229,13 @@
 <unit id="org.palladiosimulator.experimentautomation.application.feature.feature.group" version="tbd"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-addons-experimentautomation/nightly/"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
+<unit id="org.palladiosimulator.cost.feature.feature.group" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-addons-costefficiency/releases/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
+<unit id="org.palladiosimulator.cost.feature.feature.group" version="tbd"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-addons-costefficiency/nightly/"/>
+</location>
 </locations>
 </target>
