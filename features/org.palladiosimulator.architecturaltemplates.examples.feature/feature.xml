@@ -28,6 +28,8 @@
       <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.architecturaltemplates.ui" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.branding"/>
+      <!-- cost is required by some initiator templates -->
+      <import feature="org.palladiosimulator.cost.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
