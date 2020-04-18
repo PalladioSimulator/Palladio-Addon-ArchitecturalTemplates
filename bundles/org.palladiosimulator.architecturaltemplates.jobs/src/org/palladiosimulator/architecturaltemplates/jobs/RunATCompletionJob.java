@@ -83,9 +83,6 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
     /** Options for QVT-O job. */
     private static final HashMap<String, Object> QVTO_OPTIONS = new HashMap<String, Object>();
 
-    /** Folder with traces as created by the QVT-O engine. */
-    private static final String TRACESFOLDER = "traces";
-
     public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
         Map<Object,Boolean> seen = new ConcurrentHashMap<>();
         return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
@@ -129,7 +126,6 @@ public class RunATCompletionJob extends SequentialBlackboardInteractingJob<MDSDB
     private QVTOTransformationJobConfiguration createQvtoConfiguration(final QVTOCompletion completion) {
         final QVTOTransformationJobConfiguration qvtoConfig = new QVTOTransformationJobConfiguration();
         qvtoConfig.setInoutModels(getModelLocations(completion));
-        qvtoConfig.setTraceFileURI(URI.createURI(TRACESFOLDER));
         qvtoConfig.setScriptFileURI(getRootURI(completion).appendSegment(COMPLETIONS_FOLDER)
                 .appendSegment(completion.getCompletionFileURI()));
         qvtoConfig.setOptions(QVTO_OPTIONS);
