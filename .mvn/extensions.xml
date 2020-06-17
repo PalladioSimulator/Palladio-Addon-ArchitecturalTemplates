@@ -3,11 +3,11 @@
 	<extension>
 		<groupId>org.eclipse.tycho.extras</groupId>
 		<artifactId>tycho-pomless</artifactId>
-		<version>1.5.1</version>
+		<version>1.7.0</version>
 	</extension>
 	<extension>
 		<groupId>org.palladiosimulator</groupId>
 		<artifactId>tycho-tp-refresh-maven-plugin</artifactId>
-		<version>0.2.4</version>
+		<version>0.2.5</version>
 	</extension>
 </extensions>
