@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - Default Catalog
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.catalog;singleton:=true
-Bundle-Version: 4.2.0.qualifier
+Bundle-Version: 4.3.0.qualifier
 Bundle-Activator: org.palladiosimulator.architecturaltemplates.catalog.Activator
 Bundle-Vendor: palladiosimulator.org
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - Jobs
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.jobs;singleton:=true
-Bundle-Version: 4.2.0.qualifier
+Bundle-Version: 4.3.0.qualifier
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: de.uka.ipd.sdq.workflow;bundle-version="2.1.0",
