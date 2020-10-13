@@ -8,6 +8,6 @@
 	<extension>
 		<groupId>org.palladiosimulator</groupId>
 		<artifactId>tycho-tp-refresh-maven-plugin</artifactId>
-		<version>0.2.5</version>
+		<version>0.2.6</version>
 	</extension>
 </extensions>

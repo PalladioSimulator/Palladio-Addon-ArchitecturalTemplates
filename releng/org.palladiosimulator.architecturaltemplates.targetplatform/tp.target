@@ -9,7 +9,7 @@
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" refresh="true">
 <unit id="LIMBO_DLIM.feature.group" version="tbd"/>
-<repository location="https://se2.informatik.uni-wuerzburg.de/eclipse/limbo/"/>
+<repository location="http://se2.informatik.uni-wuerzburg.de/eclipse/limbo/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
 <unit id="org.modelversioning.emfprofile.feature.feature.group" version="tbd"/>
