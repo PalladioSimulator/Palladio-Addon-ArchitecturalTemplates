@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   Palladio-Addon-ArchitecturalTemplates:
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@v3
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@v3.2
     with:
       use-display-output: true
       deploy-updatesite: 'releng/org.palladiosimulator.architecturaltemplates.updatesite/target/repository'
