@@ -5,7 +5,7 @@
 <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.ocl.unified.core.feature.group" version="0.0.0"/>
-<repository location="https://download.eclipse.org/releases/2022-12/202112081000/"/>
+<repository location="https://download.eclipse.org/releases/2022-12/202212071000/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" refresh="true">
 <unit id="LIMBO_DLIM.feature.group" version="0.0.0"/>
