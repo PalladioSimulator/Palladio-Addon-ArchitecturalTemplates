@@ -30,7 +30,6 @@
       <import plugin="de.uka.ipd.sdq.codegen.simucontroller" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.simulizar.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.common" version="2.10.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.10.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.simulizar" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.commons" version="1.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.architecturaltemplates" version="1.0.3" match="greaterOrEqual"/>
