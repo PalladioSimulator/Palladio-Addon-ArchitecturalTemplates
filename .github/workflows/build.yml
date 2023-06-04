@@ -4,12 +4,10 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   Palladio-Addon-ArchitecturalTemplates:
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@v3.3
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@v3.4
     with:
       use-display-output: true
       no-caching: true
-      runner-label: ubuntu-latest
-      runner-label: ubuntu-latest
       deploy-updatesite: 'releng/org.palladiosimulator.architecturaltemplates.updatesite/target/repository'
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
