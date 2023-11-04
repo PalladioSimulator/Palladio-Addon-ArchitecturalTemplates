@@ -179,7 +179,7 @@
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
 <unit id="org.palladiosimulator.simulizar.feature.feature.group" version="tbd"/>
 <unit id="org.palladiosimulator.simulizar.reconfiguration.storydiagram.feature.feature.group" version="tbd"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-analyzer-simulizar/branches/testingDay5.2.0/"/>
+<repository location="https://updatesite.palladio-simulator.com/palladio-analyzer-simulizar/nightly/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
 <unit id="org.palladiosimulator.monitorrepository.feature.feature.group" version="tbd"/>
