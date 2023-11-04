@@ -229,14 +229,6 @@
 <unit id="org.palladiosimulator.experimentautomation.application.feature.feature.group" version="0.0.0"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-addons-experimentautomation/branches/testingDay5.2.0/"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="org.palladiosimulator.cost.feature.feature.group" version="0.0.0"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-addons-costefficiency/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="org.palladiosimulator.cost.feature.feature.group" version="0.0.0"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-addons-costefficiency/branches/testingDay5.2.0/"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
 <unit id="com.google.auto.factory-annotations.feature.feature.group" version="1.0.0"/>
 <repository location="https://updatesite.mdsd.tools/thirdparty-library/nightly"/>
