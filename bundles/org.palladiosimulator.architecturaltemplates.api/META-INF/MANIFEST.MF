@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - API
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.api
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.2.0.qualifier
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.modelversioning.emfprofile;bundle-version="1.1.0",
