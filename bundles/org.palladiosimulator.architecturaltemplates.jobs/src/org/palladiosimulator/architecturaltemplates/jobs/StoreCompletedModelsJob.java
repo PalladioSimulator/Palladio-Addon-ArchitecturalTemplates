@@ -7,7 +7,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.palladiosimulator.analyzer.workflow.configurations.AbstractPCMWorkflowRunConfiguration;
+import org.palladiosimulator.analyzer.workflow.core.configurations.AbstractPCMWorkflowRunConfiguration;
 import org.palladiosimulator.analyzer.workflow.jobs.CreatePluginProjectJob;
 import org.palladiosimulator.architecturaltemplates.jobs.config.ATExtensionJobConfiguration;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
