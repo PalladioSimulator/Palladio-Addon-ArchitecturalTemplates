@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   Palladio-Addon-ArchitecturalTemplates:
-    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@v3.4
+    uses: PalladioSimulator/Palladio-Build-ActionsPipeline/.github/workflows/build.yml@master
     with:
       use-display-output: true
       no-caching: true
