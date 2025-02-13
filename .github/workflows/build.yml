@@ -9,6 +9,7 @@ jobs:
       use-display-output: true
       no-caching: true
       deploy-updatesite: 'releng/org.palladiosimulator.architecturaltemplates.updatesite/target/repository'
+      skip-branch-deploy: false
     secrets:
       SERVER_SSH_KEY: ${{ secrets.DEPLOYMENT_SERVER_SSH_KEY }}
       REMOTE_HOST: ${{ secrets.DEPLOYMENT_REMOTE_HOST }}
