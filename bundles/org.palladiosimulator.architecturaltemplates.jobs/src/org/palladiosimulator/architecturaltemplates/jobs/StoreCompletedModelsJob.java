@@ -14,7 +14,7 @@ import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionCo
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants.Partition;
 import org.palladiosimulator.commons.emfutils.EMFCopyHelper;
 
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
+import de.uka.ipd.sdq.codegen.simucontroller.core.runconfig.SimuComWorkflowConfiguration;
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
