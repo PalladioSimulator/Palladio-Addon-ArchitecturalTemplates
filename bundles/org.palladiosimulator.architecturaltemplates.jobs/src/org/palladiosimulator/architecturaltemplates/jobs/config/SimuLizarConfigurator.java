@@ -2,7 +2,7 @@ package org.palladiosimulator.architecturaltemplates.jobs.config;
 
 import java.util.Collection;
 
-import org.palladiosimulator.analyzer.workflow.blackboard.PCMResourceSetPartition;
+import org.palladiosimulator.analyzer.workflow.core.blackboard.PCMResourceSetPartition;
 import org.palladiosimulator.architecturaltemplates.AT;
 import org.palladiosimulator.architecturaltemplates.api.ArchitecturalTemplateAPI;
 import org.palladiosimulator.architecturaltemplates.jobs.constants.ATPartitionConstants;
