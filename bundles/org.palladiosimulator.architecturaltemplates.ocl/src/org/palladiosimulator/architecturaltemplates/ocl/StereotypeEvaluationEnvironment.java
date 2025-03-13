@@ -13,7 +13,7 @@ import org.palladiosimulator.analyzer.workflow.core.jobs.LoadPCMModelsIntoBlackb
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 import org.palladiosimulator.pcm.core.entity.Entity;
 
-import de.uka.ipd.sdq.simucomframework.Context;
+import de.uka.ipd.sdq.simucomframework.core.Context;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 public class StereotypeEvaluationEnvironment extends EcoreEvaluationEnvironment {
