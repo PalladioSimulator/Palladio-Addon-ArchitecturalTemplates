@@ -1,6 +1,6 @@
 package org.palladiosimulator.architecturaltemplates.catalog.black;
 
-import de.uka.ipd.sdq.simucomframework.Context;
+import de.uka.ipd.sdq.simucomframework.core.Context;
 
 public class PCMLibrary {
 
