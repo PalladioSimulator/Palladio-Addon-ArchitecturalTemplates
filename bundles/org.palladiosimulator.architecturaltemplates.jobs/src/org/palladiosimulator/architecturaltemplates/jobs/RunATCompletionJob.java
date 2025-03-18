@@ -62,8 +62,8 @@ import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ModelLocation;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
-import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJob;
-import de.uka.ipd.sdq.workflow.mdsd.emf.qvto.QVTOTransformationJobConfiguration;
+import de.uka.ipd.sdq.workflow.mdsd.core.emf.qvto.QVTOTransformationJob;
+import de.uka.ipd.sdq.workflow.mdsd.core.emf.qvto.QVTOTransformationJobConfiguration;
 
 /**
  * Recursively applies AT completions until no AT completion is left anymore. Therefore, AT
