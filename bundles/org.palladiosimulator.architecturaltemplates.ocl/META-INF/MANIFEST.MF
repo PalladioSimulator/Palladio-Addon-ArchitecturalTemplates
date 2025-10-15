@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - OCL Support
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.ocl;singleton:=true
-Bundle-Version: 5.2.1.qualifier
+Bundle-Version: 5.2.2
 Bundle-Activator: org.palladiosimulator.architecturaltemplates.ocl.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
