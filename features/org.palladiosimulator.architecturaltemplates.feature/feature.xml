@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.architecturaltemplates.feature"
       label="Architectural Templates"
-      version="5.2.2"
+      version="6.0.0.qualifier"
       provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
