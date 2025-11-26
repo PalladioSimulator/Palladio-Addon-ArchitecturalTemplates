@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Template Tests
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.tests
-Bundle-Version: 6.0.0.qualifier
+Bundle-Version: 5.2.2
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.junit,
