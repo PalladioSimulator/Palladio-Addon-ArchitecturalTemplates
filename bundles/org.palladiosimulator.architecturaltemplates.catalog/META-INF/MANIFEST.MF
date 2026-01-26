@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architectural Templates - Default Catalog
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.catalog;singleton:=true
-Bundle-Version: 5.2.2
+Bundle-Version: 6.0.0.qualifier
 Bundle-Activator: org.palladiosimulator.architecturaltemplates.catalog.Activator
 Bundle-Vendor: palladiosimulator.org
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
@@ -11,14 +11,14 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
  org.modelversioning.emfprofile;bundle-version="1.1.0",
  org.modelversioning.emfprofile.registry;bundle-version="1.0.0",
  org.eclipse.emf;bundle-version="2.6.0",
- de.uka.ipd.sdq.identifier;bundle-version="2.1.0",
- org.palladiosimulator.pcm;bundle-version="4.0.1",
- org.palladiosimulator.analyzer.completions;bundle-version="1.0.0",
- org.palladiosimulator.mdsdprofiles;bundle-version="1.0.0",
- org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.0",
- de.uka.ipd.sdq.simucomframework;bundle-version="4.1.0",
- de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0",
- org.palladiosimulator.architecturaltemplates.ui;bundle-version="1.0.0"
+ de.uka.ipd.sdq.identifier,
+ org.palladiosimulator.pcm,
+ org.palladiosimulator.analyzer.completions,
+ org.palladiosimulator.mdsdprofiles,
+ org.palladiosimulator.mdsdprofiles.api,
+ de.uka.ipd.sdq.simucomframework,
+ de.uka.ipd.sdq.simucomframework.variables,
+ org.palladiosimulator.architecturaltemplates.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Export-Package: org.palladiosimulator.architecturaltemplates.catalog.black
