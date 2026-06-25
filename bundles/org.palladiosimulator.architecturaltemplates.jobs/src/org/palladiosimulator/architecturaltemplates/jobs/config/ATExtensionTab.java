@@ -18,6 +18,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import org.palladiosimulator.architecturaltemplates.jobs.constants.ATExtensionConstants;
+
 import de.uka.ipd.sdq.workflow.launchconfig.ImageRegistryHelper;
 
 /**
@@ -29,18 +31,6 @@ public class ATExtensionTab extends AbstractLaunchConfigurationTab {
 
     /** The ID of this plug-in. */
     public static final String PLUGIN_ID = "org.palladiosimulator.architecturaltemplates.jobs";
-
-    /** Name of configuration attribute for storing blackboard partition models after AT completion. */
-    public static final String STORE_COMPLETED_MODELS = "org.palladiosimulator.architecturaltemplates.jobs.config.storeCompletedModels";
-
-    /** Default configuration for storage of completed models. */
-    public static final Boolean DEFAULT_STORE_COMPLETED_MODELS = true;
-
-    /** Name of configuration attribute for the model storage location. */
-    public static final String MODEL_STORAGE_LOCATION = "org.palladiosimulator.architecturaltemplates.jobs.config.modelStorageLocation";
-
-    /** Default model storage location. */
-    public static final String DEFAULT_MODEL_STORAGE_LOCATION = "org.palladiosimulator.architecturaltemplates.temporary";
 
     /** The path to the image file for the tab icon. */
     public static final String CONFIGURATION_TAB_IMAGE_PATH = "icons/ATLogo15x15.png";
@@ -69,7 +59,7 @@ public class ATExtensionTab extends AbstractLaunchConfigurationTab {
                 setStorageLocationElementsEnabled(storeCompletedModelsButton.getSelection());
 
                 if (storeCompletedModelsButton.getSelection()) {
-                    storeLocationField.setText(DEFAULT_MODEL_STORAGE_LOCATION);
+                    storeLocationField.setText(ATExtensionConstants.DEFAULT_MODEL_STORAGE_LOCATION);
                 }
 
                 updateATTab();
@@ -100,7 +90,7 @@ public class ATExtensionTab extends AbstractLaunchConfigurationTab {
         gridData.widthHint = 20;
         storeLocationField = new Text(modelStorageGroup, SWT.BORDER);
         storeLocationField.setLayoutData(gridData);
-        storeLocationField.setText(DEFAULT_MODEL_STORAGE_LOCATION);
+        storeLocationField.setText(ATExtensionConstants.DEFAULT_MODEL_STORAGE_LOCATION);
         storeLocationField.addModifyListener(new ModifyListener() {
             @Override
             public void modifyText(ModifyEvent e) {
@@ -146,10 +136,12 @@ public class ATExtensionTab extends AbstractLaunchConfigurationTab {
     @Override
     public final void initializeFrom(final ILaunchConfiguration configuration) {
         try {
-            storeCompletedModelsButton.setSelection(configuration.getAttribute(STORE_COMPLETED_MODELS,
-                    DEFAULT_STORE_COMPLETED_MODELS));
-            storeLocationField.setText(configuration.getAttribute(MODEL_STORAGE_LOCATION,
-                    DEFAULT_MODEL_STORAGE_LOCATION));
+            storeCompletedModelsButton.setSelection(configuration.getAttribute(
+                    ATExtensionConstants.STORE_COMPLETED_MODELS,
+                    ATExtensionConstants.DEFAULT_STORE_COMPLETED_MODELS));
+            storeLocationField.setText(configuration.getAttribute(
+                    ATExtensionConstants.MODEL_STORAGE_LOCATION,
+                    ATExtensionConstants.DEFAULT_MODEL_STORAGE_LOCATION));
 
             if (storeCompletedModelsButton.getSelection()) {
                 setStorageLocationElementsEnabled(true);
@@ -157,21 +149,25 @@ public class ATExtensionTab extends AbstractLaunchConfigurationTab {
                 setStorageLocationElementsEnabled(false);
             }
         } catch (CoreException e) {
-            storeCompletedModelsButton.setSelection(DEFAULT_STORE_COMPLETED_MODELS);
-            storeLocationField.setText(DEFAULT_MODEL_STORAGE_LOCATION);
+            storeCompletedModelsButton.setSelection(ATExtensionConstants.DEFAULT_STORE_COMPLETED_MODELS);
+            storeLocationField.setText(ATExtensionConstants.DEFAULT_MODEL_STORAGE_LOCATION);
         }
     }
 
     @Override
     public final void performApply(final ILaunchConfigurationWorkingCopy configuration) {
-        configuration.setAttribute(STORE_COMPLETED_MODELS, this.storeCompletedModelsButton.getSelection());
-        configuration.setAttribute(MODEL_STORAGE_LOCATION, storeLocationField.getText());
+        configuration.setAttribute(ATExtensionConstants.STORE_COMPLETED_MODELS,
+                this.storeCompletedModelsButton.getSelection());
+        configuration.setAttribute(ATExtensionConstants.MODEL_STORAGE_LOCATION,
+                storeLocationField.getText());
     }
 
     @Override
     public final void setDefaults(final ILaunchConfigurationWorkingCopy configuration) {
-        configuration.setAttribute(STORE_COMPLETED_MODELS, DEFAULT_STORE_COMPLETED_MODELS);
-        configuration.setAttribute(MODEL_STORAGE_LOCATION, DEFAULT_MODEL_STORAGE_LOCATION);
+        configuration.setAttribute(ATExtensionConstants.STORE_COMPLETED_MODELS,
+                ATExtensionConstants.DEFAULT_STORE_COMPLETED_MODELS);
+        configuration.setAttribute(ATExtensionConstants.MODEL_STORAGE_LOCATION,
+                ATExtensionConstants.DEFAULT_MODEL_STORAGE_LOCATION);
     }
 
     @Override
