@@ -14,6 +14,8 @@
 	<packaging>pom</packaging>
 	
 	<properties>
+		<tycho.version>4.0.13</tycho.version>
+		<executionEnvironment>JavaSE-17</executionEnvironment>
 		<targetPlatform.relativePath>releng/org.palladiosimulator.architecturaltemplates.targetplatform/tp.target</targetPlatform.relativePath>
 	</properties>
 	
