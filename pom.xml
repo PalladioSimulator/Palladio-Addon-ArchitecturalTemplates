@@ -5,8 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.palladiosimulator</groupId>
-		<artifactId>eclipse-parent-updatesite</artifactId>
-		<version>0.10.1</version>
+		<artifactId>repository-parent</artifactId>
+		<version>0.11.0</version>
 		<relativePath/>
 	</parent>
 	<groupId>org.palladiosimulator.architecturaltemplates</groupId>
