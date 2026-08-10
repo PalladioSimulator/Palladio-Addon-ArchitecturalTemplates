@@ -19,6 +19,6 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
  de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.variables,
  org.palladiosimulator.architecturaltemplates.ui
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy
 Export-Package: org.palladiosimulator.architecturaltemplates.catalog.black
