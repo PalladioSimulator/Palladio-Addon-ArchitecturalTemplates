@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?><target name="org.palladiosimulator.architecturaltemplates Target Platform" sequenceNumber="2">
 	<locations>
-		<location type="Target" uri="mvn:org.palladiosimulator:palladio-target-platforms:0.1.0:target:palladio-2023-03"/>
+		<location type="Target" uri="mvn:org.palladiosimulator:palladio-target-platforms:6.0.0-SNAPSHOT:target:palladio-2023-12"/>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 			<unit id="org.eclipse.m2m.qvt.oml.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="0.0.0"/>
