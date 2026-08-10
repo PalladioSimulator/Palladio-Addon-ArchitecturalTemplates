@@ -4,7 +4,7 @@ Bundle-Name: Architectural Templates - Jobs
 Bundle-SymbolicName: org.palladiosimulator.architecturaltemplates.jobs;singleton:=true
 Bundle-Version: 6.0.0.qualifier
 Bundle-Vendor: palladiosimulator.org
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: de.uka.ipd.sdq.workflow,
  de.uka.ipd.sdq.workflow.mdsd,
  org.palladiosimulator.analyzer.workflow,

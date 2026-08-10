@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.ui,
  org.palladiosimulator.analyzer.workflow,
  de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.variables
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy
 Export-Package: org.palladiosimulator.architecturaltemplates.ocl
 Bundle-Vendor: palladiosimulator.org
