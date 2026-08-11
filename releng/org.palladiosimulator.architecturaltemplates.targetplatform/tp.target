@@ -131,7 +131,7 @@
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 			<unit id="tools.mdsd.library.emfeditutils.feature.feature.group" version="0.0.0"/>
-			<repository location="https://updatesite.mdsd.tools/library-emfeditutils/nightly/"/>
+			<repository location="https://updatesite.mdsd.tools/library-emfeditutils/releases/1.1.0/"/>
 		</location>
 	</locations>
 </target>
