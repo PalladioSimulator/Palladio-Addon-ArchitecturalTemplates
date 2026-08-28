@@ -2,6 +2,8 @@ package org.palladiosimulator.architecturaltemplates.jobs.config;
 
 import java.util.Map;
 
+import org.palladiosimulator.architecturaltemplates.jobs.constants.ATExtensionConstants;
+
 import de.uka.ipd.sdq.workflow.extension.AbstractExtensionJobConfiguration;
 import de.uka.ipd.sdq.workflow.extension.AbstractWorkflowExtensionConfigurationBuilder;
 
@@ -16,18 +18,18 @@ public class ATExtensionConfigurationBuilder extends AbstractWorkflowExtensionCo
     public final AbstractExtensionJobConfiguration buildConfiguration(final Map<String, Object> attributes) {
         final ATExtensionJobConfiguration configuration = new ATExtensionJobConfiguration();
 
-        if (attributes.containsKey(ATExtensionTab.STORE_COMPLETED_MODELS)) {
-            final Boolean storeCompletedModels = (Boolean) attributes.get(ATExtensionTab.STORE_COMPLETED_MODELS);
+        if (attributes.containsKey(ATExtensionConstants.STORE_COMPLETED_MODELS)) {
+            final Boolean storeCompletedModels = (Boolean) attributes.get(ATExtensionConstants.STORE_COMPLETED_MODELS);
             configuration.setStoreCompletedModels(storeCompletedModels);
         } else {
-            configuration.setStoreReconfiguredModels(ATExtensionTab.DEFAULT_STORE_COMPLETED_MODELS);
+            configuration.setStoreReconfiguredModels(ATExtensionConstants.DEFAULT_STORE_COMPLETED_MODELS);
         }
 
-        if (attributes.containsKey(ATExtensionTab.MODEL_STORAGE_LOCATION)) {
-            final String modelStorageLocation = (String) attributes.get(ATExtensionTab.MODEL_STORAGE_LOCATION);
+        if (attributes.containsKey(ATExtensionConstants.MODEL_STORAGE_LOCATION)) {
+            final String modelStorageLocation = (String) attributes.get(ATExtensionConstants.MODEL_STORAGE_LOCATION);
             configuration.setModelStorageLocation(modelStorageLocation);
         } else {
-            configuration.setModelStorageLocation(ATExtensionTab.DEFAULT_MODEL_STORAGE_LOCATION);
+            configuration.setModelStorageLocation(ATExtensionConstants.DEFAULT_MODEL_STORAGE_LOCATION);
         }
 
         return configuration;
